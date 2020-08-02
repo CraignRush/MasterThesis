@@ -70,8 +70,14 @@
 
 %% Neue Pakete
 \usepackage{subcaption}
-\usepackage[style=ieee,natbib=true,dashed=false]{biblatex}
-\bibliography{Literatur}
+%\usepackage[ backend=biber,
+\usepackage[style=ieee,
+natbib=true,
+dashed=false,
+url=false, 
+    doi=true,
+    eprint=false]{biblatex}
+
 \usepackage{lipsum}
 \sisetup{detect-all,
 	per-mode=fraction,

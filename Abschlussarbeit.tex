@@ -19,8 +19,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{./Ressourcen/Praeambel.tex} % !!! NICHT ENTFERNEN !!!
-\addbibresource{./Literatur.bib}
+\input{./Chapters/Praeambel.tex} % !!! NICHT ENTFERNEN !!!
+\addbibresource{./Chapters/Literatur.bib}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Die Inhalte der folgenden Befehle müssen vollständig und korrekt durch die
@@ -53,14 +53,14 @@
 	 December 4\textsuperscript{th}, 2020}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{./Ressourcen/Anfang.tex} % !!! NICHT ENTFERNEN !!!
+\input{./Chapters/Anfang.tex} % !!! NICHT ENTFERNEN !!!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
 \thispagestyle{empty}
 \begin{textblock*}{\UniversitaetLogoBreite}[1.2,0](\textwidth, 3.2cm-\SeitenrandOben)%
-	\raggedleft\includegraphics{./Ressourcen/Universitaet_Logo_RGB.pdf}%
+	\raggedleft\includegraphics{./Ressources/Universitaet_Logo_RGB.pdf}%
 \end{textblock*}
 	
 \begin{textblock*}{\textwidth}[0,0](0cm, 3cm-\SeitenrandOben)%
@@ -79,11 +79,10 @@
 	\vspace*{14pt}
 	\begin{center}
 	\includegraphics[clip,height=\FotoStudentHoehe, keepaspectratio] 
-	{./Ressourcen/FotoStudent.jpg}
+	{./Ressources/FotoStudent.jpg}
 	\end{center}
 		
-\end{textblock*}
-	
+\end{textblock*}	
 	
 \vspace*{125.2mm}
 \fontsize{15pt}{17.5pt}\selectfont%
@@ -116,79 +115,21 @@ of the \Fakultaet{}\\ at the Technical University of Munich.
 %\newpage\null\thispagestyle{empty}\newpage
 %\newpage\null\thispagestyle{empty}\newpage
 
-
-
 \pagestyle{empty}
 \renewcommand*\chapterpagestyle{empty}
 \tableofcontents% Inhaltsverzeichnis
 \clearpage
 \pagestyle{headings}
 \renewcommand*\chapterpagestyle{headings}
-
 \newpage%null\thispagestyle{empty}%\newpage
 
-
-
-
-\chapter{Introduction and Motivation}
-
-\chapter{Theoretical Prequisites}
-
-\section{Microfluidics}
-\subsection{Flow Fields}   
-
-\section{Chemistry}
-\subsection{Carbodiimide Crosslinker Chemistry}
-EDC-NHS-Activation
-sulfo-NHS vs. NHS
-
-
-\section{MRCyte}
-Short intro over MRCyte
-Foto of setup with arrows to necessary parts
-Microscope
-Stages
-PEEK holder
-Helmholtz coils
-Kepco
-MFLI
-DAQ
-\subsection{Focusing Structures}
-test,test
-\subsection{GMR}
-Different produced GMR stacks
-Wheatstone Bridge setup
-Magnet alignment
-\subsubsection{Hysteresis Alignment}
-test,test
-\subsection{Electrical Circuit}
-Ground
-PCB
-Stacked PCBs with spacer
-\subsection{Electronic Readout}
-test,test
-\subsubsection{Single GMR}
-test,test
-\subsubsection{Dual GMR}
-one MFLI supplies both at same freuqency. Aux Trigger tested, but no advantage.
-
-
-
-\chapter{Materials and Methods}
-test,test
-\chapter{Results}
-test,test
-\chapter{Discussion}
-test,test
-
-\chapter{Outlook}
-
-
-
-
-
- 
-
+%% General Structure
+\input{./Chapters/1-Intro}
+\input{./Chapters/2-Theory}
+\input{./Chapters/3-Materials}
+\input{./Chapters/4-Results}
+\input{./Chapters/5-Discussion}
+\input{./Chapters/6-Outlook}
 
  % Abkürzungsverzeichnis
 %\glsaddall
@@ -212,19 +153,7 @@ test,test
 \addxcontentsline{toc}{chapter}{Bibliography}
 \printbibliography
 
-
-
 \clearpage
-%\newpage\null\thispagestyle{empty}\newpage
-\addxcontentsline{toc}{chapter}{Statement}
-\thispagestyle{empty}
-\chapter*{Statement}
-I declare that I have authored this thesis independently, that I have not used other than the declared
-sources / resources, and that I have explicitly marked all material which has been quoted either
-literally or by content from the used sources. 
-
-\vspace{18.1mm}
-\rule[-3.7mm]{\linewidth}{0.5pt}
-\Ort{}, \Datum{}, Signature
+\input{./Chapters/Statement}
 
 \end{document}

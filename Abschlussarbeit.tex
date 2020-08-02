@@ -1,0 +1,170 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TUM-Vorlbrge: Wissenschaftliche Arbeit inkl. Deckblatt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Rechteinhaber:
+%     Technische Universität München
+%     https://www.tum.de
+% 
+% Gestaltung:
+%     ediundsepp Gestaltungsgesellschaft, München
+%     http://www.ediundsepp.de
+% 
+% Technische Umsetzung:
+%     eWorks GmbH, Frankfurt am Main
+%     http://www.eworks.de
+%
+% Angepasst für Heinz Nixdorf-Lehrstuhl für Biomedizinische Elektronik (Version 2017/11/29)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./Ressourcen/Praeambel.tex} % !!! NICHT ENTFERNEN !!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Die Inhalte der folgenden Befehle müssen vollständig und korrekt durch die
+% tatsächlichen Informationen ersetzt werden:
+
+\newcommand{\Titel}{Superparamagnetic Nanoparticles in Picoliter Droplets for Measurements with Spin Valves}
+%\newcommand{\Untertitel}{%
+%	Untertitel}
+\newcommand{\Grad}{%
+	Master of Science (M.Sc.)}
+\newcommand{\Fakultaet}{%
+	Department of Electrical and Computer Engineering}
+\newcommand{\BetreutVonBetreuer}{%
+	Dr.-Ing. Mathias Reisbeck}
+\newcommand{\BetreutVonProf}{%
+	Prof. Dr. rer. nat. Oliver Hayden}
+\newcommand{\EingereichtVon}{%
+	Johann Alexander Brenner\\
+	Weisbergerstraße 5a\\
+	85053 Ingolstadt}
+\newcommand{\Matrikelnummer}{%
+	03662733}
+\newcommand{\EingereichtAmDatum}{%
+	Date}
+
+% Für ehrenwörtliche Erklärung
+\newcommand{\Ort}{%
+	Munich}
+\newcommand{\Datum}{%
+	 September 12\textsuperscript{th}, 2018}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./Ressourcen/Anfang.tex} % !!! NICHT ENTFERNEN !!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\thispagestyle{empty}
+\begin{textblock*}{\UniversitaetLogoBreite}[1.2,0](\textwidth, 3.2cm-\SeitenrandOben)%
+	\raggedleft\includegraphics{./Ressourcen/Universitaet_Logo_RGB.pdf}%
+\end{textblock*}
+	
+\begin{textblock*}{\textwidth}[0,0](0cm, 3cm-\SeitenrandOben)%
+	\textcolor{TUMblau}{Heinz Nixdorf-Lehrstuhl für Biomedizinische Elektronik\\
+	Fakultät für Elektrotechnik und Informationstechnik\\
+	Technische Universität München}
+\end{textblock*}
+	
+	
+\begin{textblock*}{\textwidth}[0,0](0cm, 3cm)%
+	{\fontsize{24pt}{26pt}\selectfont\textbf{\Titel}}
+	
+%	\vspace*{14pt}
+%	{\fontsize{18pt}{27pt}\selectfont\textbf{\Untertitel}}
+		
+	\vspace*{14pt}
+	\begin{center}
+	\includegraphics[height=60mm, keepaspectratio]{./Ressourcen/FotoStudent}
+	\end{center}
+		
+\end{textblock*}
+	
+	
+\vspace*{125.2mm}
+\fontsize{15pt}{17.5pt}\selectfont%
+Scientific thesis for the attainment of the academic degree\\
+\Grad\\
+of the \Fakultaet{}\\ at the Technical University of Munich.
+	
+\renewcommand{\baselinestretch}{1.47}
+\normalsize\selectfont
+\vspace*{4.3mm}
+\textbf{Supervised by}\tab
+\begin{minipage}[t]{\textwidth-\CurrentLineWidth}
+	\BetreutVonBetreuer\\
+	\BetreutVonProf\strut
+\end{minipage}
+	
+%\vspace*{4.3mm}
+\textbf{Submitted by}\tab
+\begin{minipage}[t]{\textwidth-\CurrentLineWidth}
+	\EingereichtVon\\
+	\Matrikelnummer
+\end{minipage}
+	
+%\vspace*{4.3mm}
+\textbf{Submitted on}\tab 
+\begin{minipage}[t]{\textwidth-\CurrentLineWidth}
+	\Datum{} at \Ort{}\strut
+\end{minipage}
+
+%\newpage\null\thispagestyle{empty}\newpage
+%\newpage\null\thispagestyle{empty}\newpage
+
+
+
+\pagestyle{empty}
+\renewcommand*\chapterpagestyle{empty}
+\tableofcontents% Inhaltsverzeichnis
+\clearpage
+\pagestyle{headings}
+\renewcommand*\chapterpagestyle{headings}
+
+\newpage%null\thispagestyle{empty}%\newpage
+
+
+
+\chapter{Introduction and Motivation}
+ 
+
+
+ % Abkürzungsverzeichnis
+%\glsaddall
+
+\printacronyms[title={List of Abbreviations}]
+%\printglossaries
+\addxcontentsline{toc}{chapter}{List of Abbreviations}
+\clearpage
+\newpage\null\thispagestyle{empty}\newpage
+\listoffigures % Abbildungsverzeichnis
+\addxcontentsline{toc}{chapter}{List of Figures}
+
+
+\listoftables % Tabellenverzeichnis
+\addxcontentsline{toc}{chapter}{List of Tables}
+\clearpage
+\newpage\null\thispagestyle{empty}\newpage
+\nocite{*}	% stellt alle Quellen dar, auch die, die nicht zitiert wurden
+%\bibliographystyle{plain}
+\addxcontentsline{toc}{chapter}{Bibliography}
+\printbibliography
+
+
+
+\clearpage
+%\newpage\null\thispagestyle{empty}\newpage
+\addxcontentsline{toc}{chapter}{Statement}
+\thispagestyle{empty}
+\chapter*{Statement}
+I declare that I have authored this thesis independently, that I have not used other than the declared
+sources / resources, and that I have explicitly marked all material which has been quoted either
+literally or by content from the used sources. 
+
+\vspace{18.1mm}
+\rule[-3.7mm]{\linewidth}{0.5pt}
+\Ort{}, \Datum{}, Signature
+
+\end{document}

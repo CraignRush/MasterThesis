@@ -1,0 +1,92 @@
+\documentclass[%
+    fontsize=11pt, % Schriftgröße
+    twoside=on % kein einseitiges Layout
+]{scrbook} % Dokumentenklasse: KOMA-Script Book
+\usepackage{scrlayer-scrpage} % Anpassbare Kopf- und Fußzeilen
+
+\usepackage[utf8]{inputenc} % Textkodierung: UTF-8
+\usepackage[T1]{fontenc} % Zeichensatzkodierung
+
+\usepackage[ngerman, english]{babel} % Deutsche Lokalisierung
+\usepackage{graphicx} % Grafiken
+\usepackage{wrapfig} % Text an Bilder und Tabellen vorbeifließen lassen
+\usepackage{siunitx} % SI Units 
+\usepackage{lscape} % Portrait- oder Landscape ausrichtung
+\usepackage[absolute]{textpos} % Positionierung
+\usepackage{amsmath}
+
+% Schriftart Helvetica:
+\usepackage[scaled]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% TUM Schriftfarbe:
+\usepackage{color} %Schriftfarbe
+\definecolor{TUMblau}{RGB}{0, 82, 147}
+
+\usepackage{calc} % Berechnungen
+\usepackage{tabto} % Tabulatoren
+\usepackage{parskip}
+
+% Silbentrennung:
+\usepackage{hyphenat}
+\hyphenation{TUM in-te-res-siert} % Eigene Silbentrennung
+%\tolerance 2414
+%\hbadness 2414
+%\emergencystretch 1.5em
+%\hfuzz 0.3pt
+%\widowpenalty=10000     % Hurenkinder
+%\clubpenalty=10000      % Schusterjungen
+%\vfuzz \hfuzz
+
+\usepackage[hidelinks]{hyperref} % Hyperlinks
+\usepackage[onehalfspacing]{setspace} % 1,5facher Zeilenabstand
+\usepackage{calc} % Berechnungen
+\usepackage{enumitem} % Mehr Kontrolle über itemize-, enumerate- und description-Umgebungen
+\usepackage{relsize} % Schriftgröße in Abhängigkeit von aktueller anpassen
+\usepackage{tabularx} % Flexiblere Tabellen
+\usepackage{caption} % Anpassen von Beschriftungen
+
+% Nummerierung von Abbildungen & Tabellen durchgängig, statt nach Kapiteln:
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+
+% Abkürzungen, Glossare:
+\usepackage[%
+    xindy,% xindy zum Indexieren verwenden
+    acronym,% Separates Akronym-Verzeichnis
+    nopostdot,% Kein Punkt am Ende einer Beschreibung im Glossar
+    nomain
+%    automake, 
+%    nonumberlist
+]{glossaries}
+
+% Debugging:
+%\usepackage{showframe} % Layout-Boxen anzeigen
+%\usepackage{layout} % Layout-Informationen
+%\usepackage{printlen} % Längenwerte ausgeben
+
+
+
+%% Neue Pakete
+\usepackage{subcaption}
+\usepackage[style=ieee,natbib=true,dashed=false]{biblatex}
+\bibliography{Literatur}
+\usepackage{lipsum}
+\sisetup{detect-all,
+	per-mode=fraction,
+%	parse-numbers=false
+}
+\DeclareSIUnit\particle{particle}
+\DeclareSIUnit\Ferrum{Fe}
+\DeclareSIUnit\sccm{sccm}
+\DeclareSIUnit\torr{Torr}
+\DeclareSIUnit[number-unit-product = {}]{\inch}{\textquotedbl}
+\newcolumntype{R}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X} % Automatische Texttrennung in Tabellen
+\usepackage{cancel}
+\usepackage{listings}
+\lstset{
+language=Matlab,
+showstringspaces = false}
+\usepackage[titles]{tocloft}

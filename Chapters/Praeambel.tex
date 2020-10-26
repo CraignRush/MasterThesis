@@ -70,8 +70,8 @@
 
 %% Neue Pakete
 \usepackage{subcaption}
-%\usepackage[ backend=biber,
-\usepackage[style=ieee,
+\usepackage[ backend=biber,
+style=ieee,
 natbib=true,
 dashed=false,
 url=false, 
@@ -80,13 +80,16 @@ url=false,
 
 \usepackage{lipsum}
 \sisetup{detect-all,
-	per-mode=fraction,
+%	per-mode=fraction,
 %	parse-numbers=false
 }
 \DeclareSIUnit\particle{particle}
 \DeclareSIUnit\Ferrum{Fe}
 \DeclareSIUnit\sccm{sccm}
 \DeclareSIUnit\torr{Torr}
+\DeclareSIUnit\molar{M}
+
+
 \DeclareSIUnit[number-unit-product = {}]{\inch}{\textquotedbl}
 \newcolumntype{R}{>{\raggedright\arraybackslash}X}
 \newcolumntype{C}{>{\centering\arraybackslash}X} % Automatische Texttrennung in Tabellen

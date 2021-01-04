@@ -14,6 +14,7 @@
 \usepackage{lscape} % Portrait- oder Landscape ausrichtung
 \usepackage[absolute]{textpos} % Positionierung
 \usepackage{amsmath}
+\usepackage{amssymb}
 
 % Schriftart Helvetica:
 \usepackage[scaled]{helvet}
@@ -53,12 +54,12 @@
 
 % Abkürzungen, Glossare:
 \usepackage[%
-    xindy,% xindy zum Indexieren verwenden
+%    xindy,% xindy zum Indexieren verwenden
     acronym,% Separates Akronym-Verzeichnis
     nopostdot,% Kein Punkt am Ende einer Beschreibung im Glossar
-    nomain
-%    automake, 
-%    nonumberlist
+    nomain,
+    automake, 
+    nonumberlist
 ]{glossaries}
 
 % Debugging:
@@ -88,6 +89,7 @@ url=false,
 \DeclareSIUnit\sccm{sccm}
 \DeclareSIUnit\torr{Torr}
 \DeclareSIUnit\molar{M}
+\DeclareSIUnit\rpm{rpm}
 
 
 \DeclareSIUnit[number-unit-product = {}]{\inch}{\textquotedbl}

@@ -2,21 +2,57 @@
 The main measurement principle by a \gls{gmr}-Sensor has been already described and characterized exhaustively by \citet{lit:thes:helou}, \citet{lit:thes:reisbeck} and \citet{lit:thes:brenner}. Therefore, this theoretical part will focus on (bio-)physical aspects of a cell rolling motion inside a microfluidic channel and surface modification chemistry.
 
 \section{Microfluidics}
-The main experiments of this work were carried out in microfluidic environments, which exhibit favorable properties compared to common turbulent systems. From a fluid-mechanical standpoint, shrinking the scales makes interfacial as well as electrokinetic phenomena much more significant, and reduces the importance of pressure and gravity.\cite{lit:fluidic:kirby} However, electodynamics, chemistry and fluid dynamics are incetricably intertwined, so that fluid flow can create electric fields (and vice versa), with a degree of coupling driven by the surface chemistry. Many of the resulting phenomena arise or can explained by Cauchy-Momentum equation (eq. \ref{eq:cauchymomentum}) an the resulting Navier-Stokes equation (eq. \ref{eq:navierstokes}).
+The main experiments of this work were carried out in microfluidic environments, which exhibit favorable properties compared to common turbulent systems. From a fluid-mechanical standpoint, shrinking the scales makes interfacial as well as electrokinetic phenomena much more significant, and reduces the importance of pressure and gravity.\cite{lit:fluidic:kirby} However, electodynamics, chemistry and fluid dynamics are incetricably intertwined, so that fluid flow can create electric fields (and vice versa), with a degree of coupling driven by the surface chemistry. Many of the resulting phenomena arise or can explained by Cauchy-Momentum equation (eq. \ref{eq:cauchymomentum}) and the resulting Navier-Stokes equation for incompressible fluids (eq. \ref{eq:navierstokes}).
 
 \begin{align}
+	\frac{\partial}{\partial t} \iiint \rho \mathrm{dV} &= - \iint \rho \mathbf{u} \cdot \vv{\mathbf{n}} \mathrm{dA} \\
 	\nabla \cdot \mathbf{u} &= 0 \\
 		\rho \frac{\partial \mathbf{u}}{\partial t} + \rho\mathbf{u} \cdot \nabla \mathbf{u} &= \nabla \cdot \boldsymbol{\tau} + \sum_{i}\mathbf{f}_i \label{eq:cauchymomentum} \\	
-	\rho \frac{\partial \mathbf{u}}{\partial t} + \rho\mathbf{u} \cdot \nabla \mathbf{u} &= -\nabla p + \eta \nabla^2 \mathbf{u} + \sum_{i}\mathbf{f}_i \label{eq:navierstokes}
+	\aunderbrace{\vphantom{\sum_{i}} \rho \frac{\partial \mathbf{u}}{\partial t}}_{\mathrm{Transient}} + \aunderbrace{\vphantom{\sum_{i}}\rho\mathbf{u} \cdot \nabla \mathbf{u}}_{\mathrm{Convection}} &= \aunderbrace{\vphantom{\sum_{i}}-\nabla p}_{\mathrm{Pressure}} + \aunderbrace{\vphantom{\sum_{i}}\eta \nabla^2 \mathbf{u}}_{\mathrm{Viscous}} + \aunderbrace{\sum_{i}\mathbf{f}_i}_{\mathrm{Body \ Forces}} \label{eq:navierstokes}
 \end{align}
 conservation of mass, momentum
 reynolds number
 \subsection{Flow Field inside Microchannels}
-The foremost characteristic of a microchannel is the laminar flow behavior, which causes deterministic pathlines, and is described by the reynolds number. 
+The foremost characteristic of a microchannel is the laminar flow behavior, which causes deterministic pathlines. Mathematically this is described by the reynolds number, which compares the intertia to shear forces. If it results below a certain threshold of 2000, laminar flow can be assumed. This holds true for the utilized microfluidic with the dimensions \SI{12000}{\micro\meter} x \SI{700}{\micro\meter} x \SI{150}{\micro\meter} (l x w x h) and aequous buffer solutions, where the channel width was used as characteristic length $l$. Hence, the Navier-Stokes equation can be applied to our system. 
 \begin{equation}
 	\mathit{Re}\ =\ \frac{2 \rho |\overline{u}| l }{\eta}
 \end{equation}
-Navier-Stokes-Approximation for Hagen-Poiseuille
+The step from the Cauchy momentum equation to the Navier-Stokes equation is complex and harbors several sources of error. First, an incompressible newtonian fluid as well as channel is assumed. The used water suspensions can be approximated with negligible compressibility, which is not true for the real case. Also, for blood or other shear-thinning fluids some deviations are prone for high errors. This happens due to the fact that the \acrfull{tau} is decomposed into pressure and viscous contributions as shown in the equations \ref{eq:surfaceStressTensor}. Then, the divergence relation  of the respective viscous stress (eq. \ref{eq:divergence_Stresstensor}) does not hold for non-uniform viscosity $\eta$.
+\begin{align}
+	\boldsymbol{\tau} &= \boldsymbol{\tau}_{viscous} +  \boldsymbol{\tau}_{pressure} = 2\eta\epsilon - p \mathbf{I}_{\scaleto{3 \times 3}{4pt}} \label{eq:surfaceStressTensor}\\
+	\nabla \cdot \boldsymbol{\tau}_{viscous} &= \nabla \cdot 2\eta\epsilon = \nabla \cdot \eta \nabla \mathbf{u} \ \underset{uniform}{\overset{only \ if \ \eta}{=}} \ \eta \nabla^2 \mathbf{u} 	\label{eq:divergence_Stresstensor}
+\end{align}
+Second, the channel height varies in reality as a result of fabrication inaccuracies. In the model case of a flow through a rectangular channel, no analytical solution of the Navier-Stokes equation exists, but a Fourier Series expansion if channel width is larger than channel height. \cite{lit:fluidic:bruus} The equation \ref{eq:flowVelocityRect} shows that height deviations can have prominent influence on a channel velocity simulation as it is proportional to $h^2$. Further, the flow rate (which is the velocity integral over the channel cross section) depends even on $h^3$. 
+\begin{align}
+ u   _x(y,z) = \frac{4 h^2 \Delta p}{\pi^3 \eta l} \sum_{n,odd}^{\infty} \frac{1}{n^3} \left( 1- \frac{\cosh (n \pi \frac{y}{h})}{\cosh (n \pi \frac{w}{2h})} \right) \sin (n \pi \frac{z}{h}) \label{eq:flowVelocityRect}
+\end{align}
+Third, the transient term (eq. \ref{eq:navierstokes}) was neglected in all simulations, but a connected syringe pump possesses a slow rise time (Fig. \ref{fig:fluidic:pumpStability:transient}) and a remaining ``pulsation error'' in steady state (Fig. \ref{fig:fluidic:pumpStability:steadystate}). In effect, another error adds to the simulation, which is only valid after several ten seconds of the last flow rate change.
+
+\begin{figure}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+	    \addtocounter{subfigure}{1}  
+		\subfigimg[clip,trim=115 100 80 60, height=100pt]{a} {./Ressources/Fluidic/Transient_SyringePump.jpg}		
+		\addtocounter{subfigure}{-1}  
+		\phantomsubcaption
+		\label{fig:fluidic:pumpStability:transient}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\addtocounter{subfigure}{1}  
+		\subfigimg[height=100pt]{\textbf{b}}{./Ressources/Fluidic/SyringeSteadyState.eps}
+		\addtocounter{subfigure}{-1}  
+		\phantomsubcaption
+		\label{fig:fluidic:pumpStability:steadystate}
+	\end{subfigure}
+\caption{Syringe Pump error sources, Set flow rate: \orangeMLline, Real Flow Rate: \blueMLline \subref{fig:fluidic:pumpStability:transient} Transient step answer of a syringe pump through a microtube with \SI{254}{\micro\meter} inner diameter. \subref{fig:fluidic:pumpStability:steadystate} Steady state flow rate error around the desired \SI{5}{\micro\liter\per\minute} dispensing rate. A sinusoidal behaviour caused by the microstepping can be observed. \cite{lit:fluidic:fluigentPumpStability}}
+\label{fig:fluidic:pumpStability}
+\end{figure}
+
+For later studies in a matlab model, the flow velocity and shear stress computations were carried out with the error sources considered. 
+
+
+
 \subsection{Particles in Microfluidics}
 Stokes Drag Force
 Gravity

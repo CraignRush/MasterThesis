@@ -38,7 +38,7 @@
 % Fußzeilen:
 
 \setlength{\footheight}{\FusszeileHoehe}
-\clearscrheadfoot
+\clearpairofpagestyles
 \ofoot*{\pagemark\vfill}
 \setkomafont{pageheadfoot}{\fontsize{9pt}{13pt}\normalfont}
 \setkomafont{pagefoot}{\bfseries}
@@ -210,7 +210,6 @@ afterskip=12pt
     figurewithin=none
 }
 
-
 % Tabellen:
 \renewcommand{\arraystretch}{1.8} % Skalierung der Tabellen
 \newcolumntype{M}{X<{\vspace{4pt}}} % Spaltentyp mit Abstand rechts
@@ -218,7 +217,6 @@ afterskip=12pt
 
 % Glossare & Abkürzungsverzeichnis:
 
-\input{./Abkuerzungen}
 \makeglossaries
 \setacronymstyle{short-long}
 \glsaddall
@@ -244,3 +242,88 @@ afterskip=12pt
 }
 
 \setglossarystyle{WissenschaftlicheArbeiten}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% O W N   C O M M A N D S %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Set figure Enumeration macro
+% -- Abbildungen:
+\renewcommand{\thesubfigure}{\alph{subfigure}}
+
+\captionsetup[subfigure]{  
+	labelfont=bf,
+	textfont=normalfont,
+	singlelinecheck=off,
+	justification=raggedright
+}
+
+
+\newcommand{\subfigimg}[3][,]{%
+	\setbox1=\hbox{\includegraphics[#1]{#3}}% Store image in box
+	\leavevmode\rlap{\usebox1}% Print image
+	\rlap{\hspace*{0pt}\raisebox{\dimexpr\ht1+0.25\baselineskip}{\fontsize{8pt}{10pt}\bfseries\selectfont\thesubfigure}}% Print label #2
+	\phantom{\usebox1}% Insert appropriate spcing	
+}
+
+% Get figure colors as text bricks
+\newlength{\tikzLineHeight}
+\setlength{\tikzLineHeight}{-0.2\baselineskip}
+\newlength{\tikzLineLength}
+\setlength{\tikzLineLength}{5mm}
+\definecolor{MLblue}{rgb}{0, 0.4470, 0.7410}
+\definecolor{MLorange}{rgb}{0.8500, 0.3250, 0.0980}
+
+\DeclareRobustCommand{\orangedash}{
+	\tikz[baseline=\tikzLineHeight]{	
+		\draw[-,orange,dashed,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+	}
+	
+}
+
+\DeclareRobustCommand{\orangeline}{
+	\tikz[baseline=-0.3\baselineskip]{			\draw[-,orange,solid,line width = 1.5pt](0,0) -- (6mm,0) }
+}
+
+\DeclareRobustCommand{\blueline}{
+	\tikz[baseline=\tikzLineHeight]{	
+		\draw[-,blue,dashed,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+	}
+}
+
+\DeclareRobustCommand{\blueMLline}{
+	\tikz[baseline=\tikzLineHeight]{	
+		\draw[-,color=MLblue, solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+	}
+}
+
+\DeclareRobustCommand{\orangeMLline}{
+	\tikz[baseline=\tikzLineHeight]{	
+		\draw[-,color=MLorange, solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+	}
+}
+
+\DeclareRobustCommand{\yellowline}{
+	\tikz[baseline=\tikzLineHeight]{	
+			\draw[-,yellow,dashed,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+		}
+}
+\DeclareRobustCommand{\blackline}{
+	\tikz[baseline=\tikzLineHeight]{	
+			\draw[-,black!,dashed,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+		}
+}
+\DeclareRobustCommand{\blackrectangle}{
+	\tikz[baseline=\tikzLineHeight]{
+			\draw[fill=black,draw=none](2.0mm,0) rectangle (3.5mm,1.5mm); \draw[-,black,solid,line width = 1.0pt](0.,0.8mm) -- (5.5mm,0.8mm);
+		}			
+}
+
+\DeclareRobustCommand{\yellowrectangle}{
+	\tikz[baseline=\tikzLineHeight]{
+			\draw[fill=yellow,draw=none](2.0mm,0) rectangle (3.5mm,1.5mm); \draw[-,yellow,solid,line width = 1.0pt](0.,0.8mm) -- (5.5mm,0.8mm);
+		}
+}

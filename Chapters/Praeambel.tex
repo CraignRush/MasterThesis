@@ -6,6 +6,7 @@
 
 \usepackage[utf8]{inputenc} % Textkodierung: UTF-8
 \usepackage[T1]{fontenc} % Zeichensatzkodierung
+\usepackage{csquotes}
 
 \usepackage[ngerman, english]{babel} % Deutsche Lokalisierung
 \usepackage{graphicx} % Grafiken
@@ -71,6 +72,12 @@
 
 %% Neue Pakete
 \usepackage{subcaption}
+
+\usepackage{stackengine}
+\usepackage{tikz}
+\usepackage{svg}
+\usepackage{pgfkeys}
+
 \usepackage[ backend=biber,
 style=ieee,
 natbib=true,
@@ -102,5 +109,9 @@ language=Matlab,
 showstringspaces = false}
 \usepackage[titles]{tocloft}
 
-\usepackage{chemformula}
 
+%% MATH and CHEM typesetting
+\usepackage{chemformula}
+\usepackage{esvect} %% Fine vector arrows
+\usepackage{abraces} % Braces under and over text
+\usepackage{scalerel} % Get smaller subscripts

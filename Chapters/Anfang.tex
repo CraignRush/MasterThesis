@@ -186,7 +186,7 @@ afterskip=12pt
 
 % Beschriftungen:
 \DeclareCaptionFormat{WissenschaftlicheArbeiten}{\fontsize{8pt}{10pt}\selectfont#1 #2#3\par}
-\DeclareCaptionLabelFormat{WissenschaftlicheArbeiten}{\bfseries\selectfont#1 #2}
+\DeclareCaptionLabelFormat{WissenschaftlicheArbeiten}{\bfseries\selectfont#1 #2:  }
 
 % -- Tabellen:
 \captionsetup[table]{%
@@ -252,14 +252,12 @@ afterskip=12pt
 
 % Set figure Enumeration macro
 % -- Abbildungen:
+
+\newcommand\capption[2]{\caption{\textbf{#1}\newline#2}}
 \renewcommand{\thesubfigure}{\alph{subfigure}}
 
-\captionsetup[subfigure]{  
-	labelfont=bf,
-	textfont=normalfont,
-	singlelinecheck=off,
-	justification=raggedright
-}
+\DeclareCaptionLabelFormat{bold}{\textbf{#2,}}
+\captionsetup{subrefformat=bold}
 
 
 \newcommand{\subfigimg}[3][,]{%

@@ -63,21 +63,87 @@ Interface-Forces
 \subsection{}
 
 \section{Surface Chemistry}
+Molecules can be immobilized through various mechanisms on surfaces to achieve a biological or chemical functionality. The most simple is physisorption. Here, a biomolecule is bonded only by weak elektrostatic, van-der-Waals or dipole-dipole interaction with a adsorption enthalpy below \SI{50}{\kilo\joule\per\mole}. In contrast, this yields fast reaction rates, because no activation energy has to be overcome. Although a large number of molecules can be captured with this method, several drawbacks have been identified. \cite{lit:bio:ImmobilizationTechniques, lit:bio:immobilization:UV-ABs}
+For example, immobilized receptors can start to desorb or change their position, which in turn reduces sensitivity or causes false-positive results. \cite{lit:bio:physisorp:desorption, lit:chem:surfModOptics} \\
+Therfore, most functionalization approaches rely on chemisorption where molecules are covalent bound to a surface. Due to the higher activation energy barrier this bonding mechanism works slower in comparison to physisorption though higher temperatures or catalysators can promote an equilibrium. One of the most well-known strategies to achieve reproducible thin films on surfaces is the formation of \glspl{sam} 
+
+\cite{lit:chem:sin:langeDiss}
+
+
+Weiterhin kann es zu Verschiebungen der adsorbierten Rezeptoren kommen, wodurch es zu falsch-positiven Ergebnissen kommen kann.[9] Daher basieren die meisten Funktionalisierungsmethoden nicht auf der Physisorption, sondern auf der Chemisorption. Hierbei werden Moleküle kovalent an die Oberfläche gebunden. Aufgrund der dabei zu überwindenden Aktivierungsbarriere läuft diese Reaktion langsamer im Vergleich zur Physisorption ab. Bei erhöhten Temperaturen kann das Einstellen des Gleichgewichtes jedoch begünstigt werden. Eine der bekanntesten Strategien dünne Filme auf Oberflächen zu erzeugen, ist die Bildung von selbstorganisierenden Monoschichten (SAM),[46-48] wobei eine kovalente, sehr stabile Bindung zwischen den organischen Komponenten und dem Substrat ausgebildet wird.[49] SAM bilden sich spontan beim Eintauchen in oberflächenaktive Lösungen. Hierzu gehören die Bindung von Alkanthiolen auf Goldoberflächen und die Bindung von Silanen auf Siliziumoberflächen (Abbildung 6).
+
 \subsection{Silane Chemistry}
+
+By the use of silane chemistry a surface is rendered organofunctional with alkoxysilane molecules. Since glass, silicon, alumina, titania, and quartz surfaces, as well as other metal oxide interfaces, are rich in hydroxyl groups, silanes are particularly useful for modifying these materials. These groups attack and displace the alkoxy groups on the silane thus forming a covalent \ch{- Si - O - Si -} bond. \cite{lit:chem:silanizingGlass}
+
+A silane molecule contains a central silicon atom bonded to two types of groups - alkoxy groups and organo-functional groups. These two types exhibit different reactivity allowing sequential reactions and have the ability to form a durable bond between organic and inorganic materials.
+The final result of reacting an organosilane with a substrate ranges from altering the wetting or adhesion characteristics of the substrate, utilizing the substrate to catalyze chemical transformation at the heterogeneous interface, ordering the interfacial region, and modifying its partition characteristics. Significantly, it includes the ability to effect a covalent bond between organic and inorganic materials. Especially in optical or biological sensors, silane modifications open a broad range of applications. \cite{lit:chem:GELEST}
+
+Die Einführung von neuen Funktionalitäten durch die Silanisierung der Oberfläche hat eine große Bedeutung in der Biosensorik. Die Hydroxylgruppen können hierbei durch die Reinigung der Oberfläche mit Piranha-Lösung oder UV/Ozon aufgebaut werden kann. Die so erzeugten reaktiven Hydroxylgruppen reagieren anschließend in einer Kondensationsreaktion mit dem Silan (Abbildung 7). Häufig beschrieben wird die Umsetzung von Glasoberflächen oder Siliziumoberflächen mit
+3-Aminopropyltrimethoxysilan (APTMS) oder Aminopropyltriethoxysilan (APTES). 
+
+Unterschiede bei der Verwendung von APTES und APTMS liegen in der Reaktivität der Verbindungen. Aufgrund der großen Reaktivität von APTMS werden die Reaktionen in reinen organischen Lösungsmitteln durchgeführt. Dadurch lassen sich dünnere und kontrollierte Schichten mit Aminopropylgruppen erzeugen. Bei der Bildung von Monoschichten mit APTES muss die Reaktion mit Wasser katalysiert werden.[51] Weiterhin wird in der Literatur beschrieben, dass es zu Reaktionen zwischen den Aminogruppen des Silans und den Hydroxylgruppen der Oberfläche kommen kann, wobei keine geordnete Schicht erhalten muss die Reaktion mit Wasser katalysiert werden.[51] Weiterhin wird in der Literatur beschrieben, dass es zu Reaktionen zwischen den Aminogruppen des Silans und den Hydroxylgruppen der Oberfläche kommen kann, wobei keine geordnete Schicht erhalten
+
+\subsubsection{Oxidation}
+
+\begin{figure}[htb!]
+%\begin{wrapfigure}[10]{l}{4cm}
+	\centering
+	\includegraphics[width=1\linewidth]{./Ressources/Chemistry/APTES.eps}
+	\caption{APTES}
+	\label{fig:chem:APTES}
+%\end{wrapfigure}
+\end{figure}
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=1\linewidth]{Ressources/Chemistry/Substrate}
+	\caption{}
+	\label{fig:chem:func:substrate}
+\end{figure}
+
+
+\begin{figure}[htb!]
+	\begin{subfigure}[b]{0.30\textwidth}
+	\centering
+	\addtocounter{subfigure}{1}  
+	\subfigimg[clip,trim=0 0 0 -40, width=\linewidth]{a} {./Ressources/Chemistry/Glass}		
+	\addtocounter{subfigure}{-1}  
+	\phantomsubcaption
+	\label{fig:chem:func:glass}
+\end{subfigure}%
+\hfill
+\begin{subfigure}[b]{0.69\textwidth}
+	\centering
+	\addtocounter{subfigure}{1}  
+	\subfigimg[clip, trim=0 0 575 120,width=\linewidth]{\textbf{b}}{Ressources/Chemistry/PDMS}
+	\addtocounter{subfigure}{-1}  
+	\phantomsubcaption
+	\label{fig:chem:func:pdms}
+\end{subfigure}
+\end{figure}
+\lipsum[2]
+\begin{wrapfigure}[13]{r}{.5\linewidth}
+	\centering
+	\includegraphics[width=1\linewidth]{Ressources/Chemistry/SiN}
+	\capption{\Acrlong{sin} etching with \acrlong{hf}}{}
+	\label{fig:chem:func:sin}
+\end{wrapfigure}
+\lipsum[2]
+
 \subsection{Carbodiimide Crosslinker Chemistry}
 EDC-NHS-Activation
 sulfo-NHS vs. NHS
-\begin{figure}[hbtp]
+\begin{figure}[htb!]
 \centering
 \includegraphics[width=\textwidth]{./Ressources/Chemistry/Sulfo-NHS.eps}
 \caption{TestSvg}
 \label{fig:Chem:NH2-NHS}
 \end{figure}
 
-\begin{figure}[hbtp]
+\begin{figure}[htb!]
 \centering
 \includegraphics[width=\textwidth]{./Ressources/Chemistry/EDC-NHS.eps}
-\caption{TestSvg}
+\capption{TestSvg}{}
 \label{fig:Chem:COOH-EDC-NHS}
 \end{figure}
 \subsection{Microscopic Particle Surface Physics}

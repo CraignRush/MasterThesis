@@ -1,6 +1,29 @@
 \chapter{Theoretical Prequisites}
 The main measurement principle by a \gls{gmr}-Sensor has been already described and characterized exhaustively by \citet{lit:thes:helou}, \citet{lit:thes:reisbeck} and \citet{lit:thes:brenner}. Therefore, this theoretical part will focus on (bio-)physical aspects of a cell rolling motion inside a microfluidic channel and surface modification chemistry.
 
+
+
+\begin{figure}
+\centering
+\capption{1}{123}
+\label{}
+\end{figure}
+\begin{figure}
+	\centering
+	\capption{1}{123}
+	\label{}
+\end{figure}
+\begin{figure}
+	\centering
+	\capption{1}{123}
+	\label{}
+\end{figure}
+\begin{figure}
+	\centering
+	\capption{1}{123}
+	\label{}
+\end{figure}
+
 \section{Microfluidics}
 The main experiments of this work were carried out in microfluidic environments, which exhibit favorable properties compared to common turbulent systems. From a fluid-mechanical standpoint, shrinking the scales makes interfacial as well as electrokinetic phenomena much more significant, and reduces the importance of pressure and gravity.\cite{lit:fluidic:kirby} However, electodynamics, chemistry and fluid dynamics are incetricably intertwined, so that fluid flow can create electric fields (and vice versa), with a degree of coupling driven by the surface chemistry. Many of the resulting phenomena arise or can explained by Cauchy-Momentum equation (eq. \ref{eq:cauchymomentum}) and the resulting Navier-Stokes equation for incompressible fluids (eq. \ref{eq:navierstokes}).
 
@@ -61,89 +84,97 @@ Magnetic Force
 Friction
 Interface-Forces
 \subsection{}
-
+\clearpage
 \section{Surface Chemistry}
 Molecules can be immobilized through various mechanisms on surfaces to achieve a biological or chemical functionality. The most simple is physisorption. Here, a biomolecule is bonded only by weak elektrostatic, van-der-Waals or dipole-dipole interaction with a adsorption enthalpy below \SI{50}{\kilo\joule\per\mole}. In contrast, this yields fast reaction rates, because no activation energy has to be overcome. Although a large number of molecules can be captured with this method, several drawbacks have been identified. \cite{lit:bio:ImmobilizationTechniques, lit:bio:immobilization:UV-ABs}
 For example, immobilized receptors can start to desorb or change their position, which in turn reduces sensitivity or causes false-positive results. \cite{lit:bio:physisorp:desorption, lit:chem:surfModOptics} \\
-Therfore, most functionalization approaches rely on chemisorption where molecules are covalent bound to a surface. Due to the higher activation energy barrier this bonding mechanism works slower in comparison to physisorption though higher temperatures or catalysators can promote an equilibrium. One of the most well-known strategies to achieve reproducible thin films on surfaces is the formation of \glspl{sam} 
-
-\cite{lit:chem:sin:langeDiss}
-
-
-Weiterhin kann es zu Verschiebungen der adsorbierten Rezeptoren kommen, wodurch es zu falsch-positiven Ergebnissen kommen kann.[9] Daher basieren die meisten Funktionalisierungsmethoden nicht auf der Physisorption, sondern auf der Chemisorption. Hierbei werden Moleküle kovalent an die Oberfläche gebunden. Aufgrund der dabei zu überwindenden Aktivierungsbarriere läuft diese Reaktion langsamer im Vergleich zur Physisorption ab. Bei erhöhten Temperaturen kann das Einstellen des Gleichgewichtes jedoch begünstigt werden. Eine der bekanntesten Strategien dünne Filme auf Oberflächen zu erzeugen, ist die Bildung von selbstorganisierenden Monoschichten (SAM),[46-48] wobei eine kovalente, sehr stabile Bindung zwischen den organischen Komponenten und dem Substrat ausgebildet wird.[49] SAM bilden sich spontan beim Eintauchen in oberflächenaktive Lösungen. Hierzu gehören die Bindung von Alkanthiolen auf Goldoberflächen und die Bindung von Silanen auf Siliziumoberflächen (Abbildung 6).
+Therfore, most functionalization approaches rely on chemisorption where molecules are covalent bound to a surface. Due to the higher activation energy barrier this bonding mechanism works slower in comparison to physisorption though higher temperatures or catalysators can promote an equilibrium. One of the most well-known strategies to bring reproducible thin films on surfaces is the formation of \glspl{sam} where a dense layer of single molecules with high internal order forms upon dipping into a surface-active substance. \cite{lit:chem:sin:langeDiss}
 
 \subsection{Silane Chemistry}
+\begin{wrapfigure}[10]{r}{.25\linewidth}
+	%\vspace{-0.7\baselineskip}
+	\centering
+	\includegraphics{Ressources/Chemistry/Trialkoxysilan}
+	\capption{Trialkoxysilane}{Structure of a typical trialkoxysilane, X: hydrolyzable group, R: non-hydrolyzable organic radical, n: methylene chain-length}
+	\label{fig:chem:trialkoxysilane}
+\end{wrapfigure} 
+By the use of silane chemistry a surface is rendered organofunctional with alkoxysilane molecules. Since glass, silicon, alumina, titania, and quartz surfaces, as well as other metal oxide interfaces, are rich in hydroxyl groups, silanes are particularly useful for modifying these materials. \cite{lit:chem:silanizingGlass}\\The general formula for a silane coupling agent (Fig. \ref{fig:chem:trialkoxysilane}) typically
+shows the two classes of functionality. X is a hydrolyzable
+group typically alkoxy, acyloxy, halogen or amine.\\
+Following hydrolysis, a reactive \gls{silanol} group is formed, which can condense with other silanol groups to form \gls{siloxane} linkages. (Fig. \ref{fig:chem:APTES}) Stable condensation products are also formed with
+other oxides such as those of aluminum, zirconium, tin,
+titanium, and nickel. Less stable bonds are formed with
+oxides of boron, iron, and carbon, whereas alkali metal oxides and
+carbonates do not form stable bonds with \acrlongpl{siloxane} at all. The R group (Fig. \ref{fig:chem:trialkoxysilane}) is a nonhydrolyzable organic radical that may posses
+a functionality that imparts desired characteristics. One of the more common silanes is \gls{aptes}, where the X group consists of an \acrfull{ethoxy} group, the organic rest R is substituted by an \acrfull{amine} and the 3 \acrfull{methylene} groups alter \textit{n} to 3. \cite{lit:chem:GELEST} 
+The final result of reacting an organosilane with a substrate ranges from altering the wetting or adhesion characteristics of the substrate, utilizing the substrate to catalyze chemical transformation at the heterogeneous interface, ordering the interfacial region, and modifying its partition characteristics. Significantly, it includes the ability to effect a covalent bond between organic and inorganic materials. Especially in optical or biological sensors, silane modifications open a broad range of applications. 
 
-By the use of silane chemistry a surface is rendered organofunctional with alkoxysilane molecules. Since glass, silicon, alumina, titania, and quartz surfaces, as well as other metal oxide interfaces, are rich in hydroxyl groups, silanes are particularly useful for modifying these materials. These groups attack and displace the alkoxy groups on the silane thus forming a covalent \ch{- Si - O - Si -} bond. \cite{lit:chem:silanizingGlass}
-
-A silane molecule contains a central silicon atom bonded to two types of groups - alkoxy groups and organo-functional groups. These two types exhibit different reactivity allowing sequential reactions and have the ability to form a durable bond between organic and inorganic materials.
-The final result of reacting an organosilane with a substrate ranges from altering the wetting or adhesion characteristics of the substrate, utilizing the substrate to catalyze chemical transformation at the heterogeneous interface, ordering the interfacial region, and modifying its partition characteristics. Significantly, it includes the ability to effect a covalent bond between organic and inorganic materials. Especially in optical or biological sensors, silane modifications open a broad range of applications. \cite{lit:chem:GELEST}
-
-Die Einführung von neuen Funktionalitäten durch die Silanisierung der Oberfläche hat eine große Bedeutung in der Biosensorik. Die Hydroxylgruppen können hierbei durch die Reinigung der Oberfläche mit Piranha-Lösung oder UV/Ozon aufgebaut werden kann. Die so erzeugten reaktiven Hydroxylgruppen reagieren anschließend in einer Kondensationsreaktion mit dem Silan (Abbildung 7). Häufig beschrieben wird die Umsetzung von Glasoberflächen oder Siliziumoberflächen mit
-3-Aminopropyltrimethoxysilan (APTMS) oder Aminopropyltriethoxysilan (APTES). 
-
-Unterschiede bei der Verwendung von APTES und APTMS liegen in der Reaktivität der Verbindungen. Aufgrund der großen Reaktivität von APTMS werden die Reaktionen in reinen organischen Lösungsmitteln durchgeführt. Dadurch lassen sich dünnere und kontrollierte Schichten mit Aminopropylgruppen erzeugen. Bei der Bildung von Monoschichten mit APTES muss die Reaktion mit Wasser katalysiert werden.[51] Weiterhin wird in der Literatur beschrieben, dass es zu Reaktionen zwischen den Aminogruppen des Silans und den Hydroxylgruppen der Oberfläche kommen kann, wobei keine geordnete Schicht erhalten muss die Reaktion mit Wasser katalysiert werden.[51] Weiterhin wird in der Literatur beschrieben, dass es zu Reaktionen zwischen den Aminogruppen des Silans und den Hydroxylgruppen der Oberfläche kommen kann, wobei keine geordnete Schicht erhalten
-
-\subsubsection{Oxidation}
-
-\begin{figure}[htb!]
-%\begin{wrapfigure}[10]{l}{4cm}
+However, the silanization reactions bear a few drawbacks which are often neglected. For instance, silane chemistry is strongly temperature and pH-dependent. \cite{lit:chem:silaizationTemp,lit:chem:silanizationParameters} Further, in a process to build \glspl{sam} out of \gls{aptes}, the reaction has to be catalyzed by water. But already small changes in the water content cause dramatic deviations in layer thickness. \cite{lit:chem:sin:selectivemod} Additionally, silanes can crosslink to themselves through possible side reactions. (Fig. \ref{fig:chem:APTES} D) \cite{lit:chem:aptes:Crosslink}
+\begin{figure}[t!]
 	\centering
 	\includegraphics[width=1\linewidth]{./Ressources/Chemistry/APTES.eps}
-	\caption{APTES}
+	\capption{APTES Modifcation of an oxidized surface}{\textbf{a} Before the condensation reaction, the oxidized surface forms hydrogen bonds with water molecules. The silane molecules are in the bulk solution. \textbf{b} The hydrolyzed \gls{silanol} group adsorbs onto the surface and forms hydrogen bridges with it. \textbf{c} In a condensation reaction, under the loss of water, a covalent bond to the surface forms. \textbf{d} After the \gls{sam} assembly the surface is saturated with a covalent-bound, crosslinked silane film. \cite{lit:chem:aptes:SilaneReaction}}
 	\label{fig:chem:APTES}
-%\end{wrapfigure}
 \end{figure}
+
+\subsubsection{Oxidation}
+To modify a surface by silanization, oxidized sites (\gls{hydroxyl} resp. \gls{silanol} groups) have to be present. To increase the presence of those reactive groups on differing substrates, various activation methods such as \gls{hf} dip,  \gls{piranha} or \gls{o2} - plasma treatment can be chosen. \cite{lit:chem:sin:etchingandchemical}
+
+\begin{figure}[b!]
+	\begin{subfigure}[b]{0.30\textwidth}
+		\centering
+		\addtocounter{subfigure}{1}  
+		\subfigimg[clip,trim=0 0 0 -40, width=\linewidth]{a} {./Ressources/Chemistry/Glass}		
+		\addtocounter{subfigure}{-1}  
+		\phantomsubcaption
+		\label{fig:chem:func:glass}
+	\end{subfigure}%
+	\hfill
+	\begin{subfigure}[b]{0.69\textwidth}
+		\centering
+		\addtocounter{subfigure}{1}  
+		\subfigimg[clip, trim=0 0 575 120,width=\linewidth]{\textbf{b}}{Ressources/Chemistry/PDMS}
+		\addtocounter{subfigure}{-1}  
+		\phantomsubcaption
+		\label{fig:chem:func:pdms}
+	\end{subfigure}
+\capption{Different substrate surfaces: glass and \acrshort{pdms}}{Surface groups and internal structure of quartz glass (\textbf{a}) and \acrfull{pdms} (\textbf{b}). After an oxidation step, the methyl groups are changed to \acrlong{hydroxyl}.}
+\end{figure}
+
+
+\begin{wrapfigure}[13]{r}{.5\linewidth}
+	\centering
+	\includegraphics[width=1\linewidth]{Ressources/Chemistry/SiN}
+	\capption{Modification of \Acrlong{sin} with \acrlong{hf}}{}
+	\label{fig:chem:func:sin}
+\end{wrapfigure}
+
+
+
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=1\linewidth]{Ressources/Chemistry/Substrate}
-	\caption{}
+	\capption{General process chain of chemical surface modification}{Any substrate with various surface groups R (\textbf{a}) is oxidized to exhibit \acrlong{hydroxyl} groups.(\textbf{b}). Then a silane \gls{sam} is attached (\textbf{c}) and subsequently modified by carbodiimide chemistry with \acrlong{paa}. (\textbf{d})}
 	\label{fig:chem:func:substrate}
 \end{figure}
 
 
-\begin{figure}[htb!]
-	\begin{subfigure}[b]{0.30\textwidth}
-	\centering
-	\addtocounter{subfigure}{1}  
-	\subfigimg[clip,trim=0 0 0 -40, width=\linewidth]{a} {./Ressources/Chemistry/Glass}		
-	\addtocounter{subfigure}{-1}  
-	\phantomsubcaption
-	\label{fig:chem:func:glass}
-\end{subfigure}%
-\hfill
-\begin{subfigure}[b]{0.69\textwidth}
-	\centering
-	\addtocounter{subfigure}{1}  
-	\subfigimg[clip, trim=0 0 575 120,width=\linewidth]{\textbf{b}}{Ressources/Chemistry/PDMS}
-	\addtocounter{subfigure}{-1}  
-	\phantomsubcaption
-	\label{fig:chem:func:pdms}
-\end{subfigure}
-\end{figure}
-\lipsum[2]
-\begin{wrapfigure}[13]{r}{.5\linewidth}
-	\centering
-	\includegraphics[width=1\linewidth]{Ressources/Chemistry/SiN}
-	\capption{\Acrlong{sin} etching with \acrlong{hf}}{}
-	\label{fig:chem:func:sin}
-\end{wrapfigure}
-\lipsum[2]
 
 \subsection{Carbodiimide Crosslinker Chemistry}
+The in the previous manner produced \gls{amine} terminated films form the basis of many reactions and open the possibility to various applications, such as the direct attachment of biofunctional molecules by carbodiimide crosslinking chemistry.\cite{lit:bio:BioconjugateTechniques}
 EDC-NHS-Activation
 sulfo-NHS vs. NHS
 \begin{figure}[htb!]
 \centering
 \includegraphics[width=\textwidth]{./Ressources/Chemistry/Sulfo-NHS.eps}
-\caption{TestSvg}
+\capption{Amine bead modification with Sulfo-NHS-Biotin}{An amine terminated bead is incubated with sulfo-NHS-Biotin to cover its surface by amide-Biotin. As byproduct the sulfo-NHS-ester 1-hydroxy-2,5-dioxopyrrolidine-3-sulfonate splits off. }
 \label{fig:Chem:NH2-NHS}
 \end{figure}
 
 \begin{figure}[htb!]
 \centering
-\includegraphics[width=\textwidth]{./Ressources/Chemistry/EDC-NHS.eps}
-\capption{TestSvg}{}
+\includegraphics[width=\linewidth]{./Ressources/Chemistry/EDC-NHS.eps}
+\capption{Carboxyl bead modification with EDC/NHS}{The carboxy groups bead are activated with \gls{edc} to an active O-acylisourea intermediate. This can then either be nucleophilicly attacked by a primary amine of the amine-PEG$_2$-biotin reactant or - due to its instability - hydrolzed back to a regenerated carboxyl surface. A present NHS-ester can also displace the O-acylisourea to form a considerably more stable intermediate which then itself reacts with any primary amine.}
 \label{fig:Chem:COOH-EDC-NHS}
 \end{figure}
 \subsection{Microscopic Particle Surface Physics}

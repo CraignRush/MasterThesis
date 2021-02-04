@@ -1,6 +1,6 @@
 \chapter{Materials and Methods}
 
-\section{Microfluidic Fabrication}
+\section{Microfluidics and Sensor Fabrication}
 
 \subsection{Development of Layout}
 
@@ -34,29 +34,18 @@ Due to the chemical nature of glass (or more generally oxides) and \gls{pdms}, t
 \subsubsection{Reversible Bonding}
 To bond the \gls{uf} to a substrate reversibly and without residues, the channel can be brought into contact with the bottom part without any adhesinon agent. For low-pressure as well as vacuum driven flows, this method is preferrable due to its time and work efficiency.
 
-\section{Surface Bio-Functionalization}
-
-\subsection{Surface Activation}
-To functionalize any silicon containing surface with \ch{Si-OH} groups which the utilized silane could interact with, multiple surface activation pathways were explored. First, substrates were cleaned in \gls{hcl}:\gls{meoh} and \gls{h2so4} before they were immersed in boiling water. Second, surface silanol groups were achieved by \gls{piranha} immersion and third by a \gls{hf} dip.\\
-For all methods, the following reagents were used: \gls{dih2o} (\SI{0,054}{\micro\siemens}, Merck MilliQ)), acetone (\SI{>99,9}{\percent}, VWR), \gls{etoh} (absolute, VWR), \gls{meoh} (\SI{99.8}{\percent}, VWR), \gls{acoh} (glacial, VWR), \gls{hcl} (\SI{37}{\percent}, Sigma-Aldrich), \gls{h2so4} (\SIrange{95}{98}{\percent}, VWR), \gls{h2o2} (\SI{30}{\percent} (w/w), Sigma-Aldrich), \gls{hf} (\SI{5}{\percent}, VWR)
-
-\subsubsection{Work Safety Remarks}
-Before the work with one of the acid solutions was carried out, serveral safety measures were implemented. As any diluted acid solution becomes very hot immediately due to the exothermic reaction, every container should be placed inside a cooled water or ice bath. Additionally, the beaker as well as concentrated acid flasks should be gripped firmly by a laboratory stand to avoid a tip over. As the reactivity of chemicals is highly temperature-dependent, the solutions was processed further when they had been cooled to \SI{<=70}{\degreeCelsius}. It should be also noted that - as in every chemical reaction, but especially ones with \gls{h2so4} - the acid was always poured into the other reactant to avoid splashing and boiling.
-
-\subsubsection{Plasma Activation}
-
-Hier plasma protocolle raussuchen
-
-\subsubsection{Hydrochloric-Sulfuric Acid Activation}
-To degrease any glass or \gls{sin} surface, a protocol according to \citet{lit:chem:Dressick} was used. There, the surfaces were first sonicated in acetone and \gls{dih2o}  for \SI{5}{\minute}. Afterwards these were immersed in a 1:1 (v/v) solution of \gls{hcl}:\gls{meoh} for \SI{>30}{\minute}, rinsed with \gls{dih2o} copiously and soaked in \gls{h2so4} for \SI{>30}{\minute} as well. Then, the samples were rinsed again in \acrlong{dih2o}. To form silanol groups on the activated surface, the surfaces were finally immersed in \SI{>90}{\degreeCelsius} heated (SuperNuova+, Thermo Scientific) \gls{dih2o}  for at least \SI{2}{\hour}.
-\subsubsection{Piranha Activation}
-In this method, activation was carried out in a 1:5 (v/v) \acrfull{piranha} solution at \SI{70}{\degreeCelsius} for \SI{30}{\minute}. After treatment, the samples were rinsed carefully with \gls{dih2o} three times.
-\subsubsection{Hydrofluoric Acid Activation}
-
-\subsection{Chemical Surface Functionalization}
-Chemically activated surfaces were now coupled with \gls{aptes} covalently. Therefore an aqueous silane solution was prepared from \gls{etoh} with volume fractions of \SI{5}{\percent} \gls{dih2o}, \SI{0.5}{\percent} aqueous \gls{acoh} (pH 4.5) and \SI{1}{\percent} \gls{aptes} in this order. The samples were soaked immediately after their activation in the silane solution. The reaction was carried out for \SIrange{2}{4}{\hour} at \SI{>40}{\degreeCelsius}. At finish, all specimens were rinsed three times or sonicated for \SI{5}{\minute} in absolute \gls{etoh}.\\
-Then, the amine terminated surface modification was enhanced by a carbodiimide conjugation with \gls{paa}. As above, a reaction consisting of \SI{0.5}{\molar} \gls{mes} buffer with \SI{1}{\milli\gram\per\milli\liter}, \SI{6}{\milli\molar} \gls{edc} and  \SI{3}{\milli\molar} \gls{nhs} was activated for \SI{15}{\minute} on a magnetic stirrer. Subsequently, the prepared samples were immersed in the solution for \SI{1}{\hour} on a rotation shaker (VWR). As final cleaning, the slides were rinsed or sonicated for \SI{5}{\minute} in \gls{dih2o} and stored in fresh \gls{dih2o} at \SI{4}{\degreeCelsius} up to \SI{14}{\day} upon further use.\cite{lib:chem:Anti-EpCAM-PAA}
-\subsection{Surface Bioconjugation}
+\subsection{Electrical Circuit}
+Ground
+PCB
+Stacked PCBs with spacer
+\subsection{Electronic Readout}
+test,test
+\subsubsection{Hysteresis Alignment}
+test,test
+\subsubsection{Single GMR}
+test,test
+\subsubsection{Dual GMR}
+one MFLI supplies both at same freuqency. Aux Trigger tested, but no advantage.
 
 \section{Magnetic Beadometry}
 
@@ -70,7 +59,38 @@ Then, the amine terminated surface modification was enhanced by a carbodiimide c
 
 \subsection{Optical Particle Tracking}
 
+
+\section{Surface Bio-Functionalization}
+
+
 \section{Tensiometry}
+
+
+\subsection{Surface Activation}
+To functionalize any silicon containing surface with \ch{Si-OH} groups which the utilized silane could interact with, multiple surface activation pathways were explored. First, substrates were cleaned in \gls{hcl}:\gls{meoh} and \gls{h2so4} before they were immersed in boiling water. Second, surface silanol groups were achieved by piranha immersion and third by a \gls{hf} dip.\\
+For all methods, the following reagents were used: \gls{dih2o} (\SI{0,054}{\micro\siemens}, Merck MilliQ)), acetone (\SI{>99,9}{\percent}, VWR), \gls{etoh} (absolute, VWR), \gls{meoh} (\SI{99.8}{\percent}, VWR), \gls{acoh} (glacial, VWR), \gls{hcl} (\SI{37}{\percent}, Sigma-Aldrich), \gls{h2so4} (\SIrange{95}{98}{\percent}, VWR), \gls{h2o2} (\SI{30}{\percent} (w/w), Sigma-Aldrich), \gls{hf} (\SI{5}{\percent}, VWR)
+
+\subsubsection{Work Safety Remarks}
+Before the work with one of the acid solutions was carried out, serveral safety measures were implemented. As any diluted acid solution becomes very hot immediately due to the exothermic reaction, every container should be placed inside a cooled water or ice bath. Additionally, the beaker as well as concentrated acid flasks should be gripped firmly by a laboratory stand to avoid a tip over. As the reactivity of chemicals is highly temperature-dependent, the solutions was processed further when they had been cooled to \SI{<=70}{\degreeCelsius}. It should be also noted that - as in every chemical reaction, but especially ones with \gls{h2so4} - the acid was always poured into the other reactant to avoid splashing and boiling.
+
+\subsubsection{Plasma Activation}
+
+Hier plasma protocolle raussuchen
+
+\subsubsection{Hydrochloric-Sulfuric Acid Activation}
+To degrease any glass or \gls{sin} surface, a protocol according to \citet{lit:chem:Dressick} was used. There, the surfaces were first sonicated in acetone and \gls{dih2o}  for \SI{5}{\minute}. Afterwards these were immersed in a 1:1 (v/v) solution of \gls{hcl}:\gls{meoh} for \SI{>30}{\minute}, rinsed with \gls{dih2o} copiously and soaked in \gls{h2so4} for \SI{>30}{\minute} as well. Then, the samples were rinsed again in \acrlong{dih2o}. To form silanol groups on the activated surface, the surfaces were finally immersed in \SI{>90}{\degreeCelsius} heated (SuperNuova+, Thermo Scientific) \gls{dih2o}  for at least \SI{2}{\hour}.
+\subsubsection{Piranha Activation}
+In this method, activation was carried out in a 1:5 (v/v) piranha solution at \SI{70}{\degreeCelsius} for \SI{30}{\minute}. After treatment, the samples were rinsed carefully with \gls{dih2o} three times.
+\subsubsection{Hydrofluoric Acid Activation}
+
+\subsection{Chemical Surface Functionalization}
+Chemically activated surfaces were now coupled with \gls{aptes} covalently. Therefore an aqueous silane solution was prepared from \gls{etoh} with volume fractions of \SI{5}{\percent} \gls{dih2o}, \SI{0.5}{\percent} aqueous \gls{acoh} (pH 4.5) and \SI{1}{\percent} \gls{aptes} in this order. The samples were soaked immediately after their activation in the silane solution. The reaction was carried out for \SIrange{2}{4}{\hour} at \SI{>40}{\degreeCelsius}. At finish, all specimens were rinsed three times or sonicated for \SI{5}{\minute} in absolute \gls{etoh}.\\
+Then, the amine terminated surface modification was enhanced by a carbodiimide conjugation with \gls{paa}. As above, a reaction consisting of \SI{0.5}{\molar} \gls{mes} buffer with \SI{1}{\milli\gram\per\milli\liter}, \SI{6}{\milli\molar} \gls{edc} and  \SI{3}{\milli\molar} \gls{nhs} was activated for \SI{15}{\minute} on a magnetic stirrer. Subsequently, the prepared samples were immersed in the solution for \SI{1}{\hour} on a rotation shaker (VWR). As final cleaning, the slides were rinsed or sonicated for \SI{5}{\minute} in \gls{dih2o} and stored in fresh \gls{dih2o} at \SI{4}{\degreeCelsius} up to \SI{14}{\day} upon further use.\cite{lib:chem:Anti-EpCAM-PAA}
+\subsection{Surface Bioconjugation}
+
+\subsection{Particle Functionalization}
+
+
 
 
 

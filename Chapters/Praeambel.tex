@@ -60,7 +60,7 @@
     nopostdot,% Kein Punkt am Ende einer Beschreibung im Glossar
     nomain,
     automake, 
-    nonumberlist
+    nonumberlist,
 ]{glossaries}
 
 % Debugging:
@@ -90,6 +90,8 @@ url=false,
 \sisetup{detect-all,
 %	per-mode=fraction,
 %	parse-numbers=false
+	separate-uncertainty=true,
+	multi-part-units=single
 }
 \DeclareSIUnit\particle{particle}
 \DeclareSIUnit\Ferrum{Fe}

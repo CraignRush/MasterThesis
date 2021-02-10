@@ -69,21 +69,21 @@ To bond the \gls{uf} to a substrate reversibly and without residues, the channel
 Each sensor chip was characterized by the hysteresis steepness (equivalent to the sensitivity) and the zero-crossing at half-maximum in a customized setup. Therefore, the underlying 32 x 27 x \SI{5}{\milli\meter} NeFeB magnet (NE3227, IBS Magnet) was adjusted on micromanipulator tables (PT, Thorlabs) in three axes to optimize both parameters. Afterwards, PTFE-tubing (ID \SI{0.5}{\milli\meter}, Reichelt Chemietechnik) was connected on the in- and outlet of the microfluidic. A dispensing tip (OD \SI{0.42}{\milli\meter}, Nordson) was connected to the inlet tubing. Initially a \SI{1}{\milli\liter} syringe (ID \SI{4.72}{\milli\meter}, Terumo) was connected with \gls{dih2o} or \gls{pbs} and flushed with \SIrange{100}{200}{\micro\liter\per\minute} by a syringe pump (Fusion 4000, Chemyx).
 \subsubsection{Hysteresis Alignment}
 For any used \gls{gmr}-sensor, a characterization of its sensitivity (\si{\volt\per\tesla})  was performed. Therefore, its hysteresis was imposed by two Helmholtz coils ($L_s$ = \SI{167}{\milli\henry}, d = \SI{150}{\milli\meter}, Brockhaus) generating \SI{7.8}{\milli\tesla\per\ampere} orthogonal to the easy axis of the GMR which were driven by a voltage-controlled current source (BOP 50-8M, Kepco Inc.) with $\pm$ \SI{2}{\ampere} at a \gls{el:vpp} of \SI{20}{\volt}. The control voltage was supplied by LabView (2018, 32-bit, National Instruments) supplied by a digital I/O card (USB-6351, National Instruments) in the range of \SIrange{-10}{10}{\volt}.
-The resulting sensor signal was fed into the current input of a lock-in amplifier (MFLI, \SI{5}{\mega\hertz}, Zurich Instruments). %@@@ Parameters of this
+The resulting sensor signal was fed into the current input of a lock-in amplifier ( \gls{mfli}, \SI{5}{\mega\hertz}, Zurich Instruments). %@@@ Parameters of this
 Redigitization and processing was carried out by the same digital I/O card and labview program as for the input control.
 \subsubsection{Single GMR} \label{sec:meth:singleGMR}
-The change in resistivity over one whole Wheatstone bridge was measured with a fully-integrated lock-in amplifier (MFLI, \SI{5}{\mega\hertz}, Zurich Instruments) by a reference \gls{el:vp} of \SIrange{100}{800}{\milli\volt}. The reference frequency was chosen randomly in a range of \SI{100(25)}{\kHz} such that any harmonics were avoided. The measured differential bridge balance was then demodulated and filtered with a time constant of \SI{299.7}{\micro\second} by a third order low-pass filter and amplified by the factor \num{10000}. Subsequently, the processed signal was sampled at \SI{53.2}{\kilo\siemens\per\second}, fed into a digital I/O device (USB-6351, National Instruments) with input range \SIrange{-10}{10}{\volt} and processed in LabView.\newline
+The change in resistivity over one whole Wheatstone bridge was measured with a fully-integrated lock-in amplifier ( \gls{mfli}, \SI{5}{\mega\hertz}, Zurich Instruments) by a reference \gls{el:vp} of \SIrange{100}{800}{\milli\volt}. The reference frequency was chosen randomly in a range of \SI{100(25)}{\kHz} such that any harmonics were avoided. The measured differential bridge balance was then demodulated and filtered with a time constant of \SI{299.7}{\micro\second} by a third order low-pass filter and amplified by the factor \num{10000}. Subsequently, the processed signal was sampled at \SI{53.2}{\kilo\siemens\per\second}, fed into a digital I/O device (USB-6351, National Instruments) with input range \SIrange{-10}{10}{\volt} and processed in LabView.\newline
 Additionally, a 40x microscope image (DM2500, Leica Microsystems) was captured by a CCD-camera (Grasshopper3, FLIR) and displayed in real-time to control the experiment.
 \subsubsection{Dual GMR}
 \label{sec:meth:dualGMR}
 For the measurement of two GMR-sensors simulataneously, the setup from \ref{sec:meth:singleGMR} was duplicated in two different manners. However, the exact same settings in the device control software were crucial for successful measurements.  First, the supply cable of one MFLI was splitted and fed into both sensors, while the bridge balance was evaluated by the same and an additional lock-in, both with the exact same settings. Consequently, the ground pin of the one sensor was the reference also for the other sensor and one ground pin was therefore left floating. This method posed the least cable length and therefore noise, but was also prone to cross-talking between the used BNC-cables respectively -connectors. 
 
-Second, two MFLI's were driven in a master-slave clock synchronization by the Multi-Device Sync function. Therefore, the \textit{trigger out} and \textit{clock out} ports on the backside of the master were connected to the slave's \textit{trigger in} and \textit{clock in} ports. Additionaly, the \textit{trigger out} was split by a T-connector piece in order to feed it also back into the master's \textit{trigger in} port.
+Second, two \gls{mfli}'s were driven in a master-slave clock synchronization by the Multi-Device Sync function. Therefore, the \textit{trigger out} and \textit{clock out} ports on the backside of the master were connected to the slave's \textit{trigger in} and \textit{clock in} ports. Additionally, the \textit{trigger out} was split by a T-connector piece in order to feed it also back into the master's \textit{trigger in} port.
 
 In both cases, the output of both lock-ins was directed to their respective \textit{AUX 1} ports and connected to another LabView program by the previously mentioned DAQ-card.
 
 \subsubsection{Differential Sensor Setup}
-In some experiments, two PCBs were stacked with nylon spacers (\todo{spacers}) with various spacings \SIlist{3;5;8}{\milli\meter} between their edges above the permanent magnet. The hysteresis was then adjusted for both sensors consecutively. Measurements were performed as described in \ref{sec:meth:dualGMR}.
+In some experiments, two PCBs were stacked with nylon spacers (\todo{spacers}) with various spacings \SIlist{3;5;8}{\milli\meter} between their edges above the permanent magnet. The hysteresis was then adjusted for both sensors on various bridges consecutively. Measurements were performed as described in \ref{sec:meth:singleGMR} with two completely independent lock-in amplifiers.
 
 \begin{figure}[h!]
 	\includegraphics[width=.5\linewidth]{example-image} 
@@ -91,9 +91,12 @@ In some experiments, two PCBs were stacked with nylon spacers (\todo{spacers}) w
 \end{figure}
 
 \subsubsection{GMR Data Analysis}
-Subsequent data analyis of the acquired streams from both two and one sensor measurements were modified by a custom labview VI to cut the first sample of the stream which was mandatory for the next step. Next, the characteristic signal patterns were detected in the continous stream by the \textit{GMR\_Tool\_227} by a rolling-mean thresholding method. The resulting \textit{*\_ana.csv} files were then processed by a custom matlab script, which in turn computed averages and simple parameters of a single detected signal or whole measured, p.e. the total volume or the signal count therein. The matlab script saved any analyzed data also in the *.csv format which was finally plotted in Origin (2020b, OriginLab)
+Subsequent data analysis of the acquired streams from both two and one sensor measurements were modified by a custom labview VI to cut the first sample of the stream which was mandatory for the next step. Next, the characteristic signal patterns were detected in the continuous stream by the \textit{GMR\_Tool\_227} by a rolling-mean thresholding method. The resulting \textit{*\_ana.csv} files were then processed by a custom Matlab script, which in turn computed averages and simple parameters of a single detected signal or whole measured, p.e. the total volume or the signal count therein. The Matlab script saved any analyzed data also in the *.csv format which was finally plotted in Origin (2020b, OriginLab)
 
 \section{Magnetic Beadometry}
+Magnetic beads were measured in various manners. First, beads were let rolling over functionalized substrates under microscope control (DM6, Leica) and image acquisition for count and trajectory analyses (LAS X, Leica). Second, beads were measured in buffer in whole blood samples magnetically to determine their concentration in the different samples. The previous concentration measurements were then adapted to functionalized surfaces in order to detect a difference in concentration.
+
+\subsection{Optical Particle Tracking}
 
 \subsection{Absolute Concentration Measurements}
 
@@ -103,7 +106,6 @@ Subsequent data analyis of the acquired streams from both two and one sensor mea
 
 \subsection{Bead Capture Assay}
 
-\subsection{Optical Particle Tracking}
 
 
 \section{Surface Bio-Functionalization}
@@ -144,14 +146,49 @@ A functionalized surface from \ref{sec:meth:surfFunc}, was now bonded to a \SI{1
 Subsequently, a desired protein was loaded in high concentration (Neutravidin: \SI{1}{\milli\gram\per\milli\liter}, Antibody: \SI{20}{\micro\gram\per\milli\liter},) into the tip of a \SI{1}{\milli\liter} syringe or flushed into the channel by vaccuum from a microcentrifuge tube. The functionalized channels were now incubated over night in an ice box. Before use, the \gls{uf} was washed with \SI{100}{\micro\liter} \gls{pbs} with \SI{0.02}{\percent} nonionic surfactant (Tween 20, Sigma Aldrich) (PBST) for \SI{2}{\minute}. Any unreacted binding sites were blocked by a solution of \SI{500}{\milli\molar} ethanolamine hydrochloride (E6133, Sigma-Aldrich) in \gls{dih2o} for 30 min. After another washing step, the functionalized channels were further used for either microscope or magnetic bead-capture experiments.
 
 \subsection{Particle Functionalization}
-different surfaces to promote different electrostatic interactions with the surface
-\subsubsection{Amine-terminated Beads}
-NHS-Biotin
+Micro- and nanobeads from different suppliers were used in functionalization experiments. Microbeads were modified after the same procedure according to their surface charge. A positive partial charge from an \gls{amine}-terminated bead and a negative partial charge from a \gls{carboxyl}-terminated bead was used to promote different electrostatic interactions with a microchannel's surface. A list of all used particles and their respective parameters are depicted in table \ref{tab:particles}.
+\begin{table}[htb]
+	\normalsize
+	\begin{tabularx}{\textwidth}{m{17mm}m{22mm}m{8mm}m{20mm}m{20mm}m{20mm}}
+		\toprule[1pt]
+		Supplier & Brand Name & d (\si{\micro\meter}) & Func\-tio\-na\-li\-za\-tion & Surface Charge (\si{\micro\mol\per\gram})  & Magnetic Particle Moment (\si{\ampere\square\meter})\\
+		\midrule
+		micromod & micromer & \num{8} & \gls{amine} & \num{2.0} &  0 \\		
+		micromod & micromer-M & \num{8} & \gls{amine}  & \num{1.0} & \num{>1.12e-12} \\ \addlinespace
+		micromod & micromer & 8 & \gls{carboxyl} & \num{2.0} &  0\\
+		micromod & micromer-M & 8 & \gls{carboxyl}  & \num{1.0} & \num{>1.12e-12}\\ \addlinespace
+		invitrogen & Dynabead M280 & \num{2.8} & streptavidin & \num{.65}-\num{.90} &  N.A.\\
+		invitrogen & Dynabeads MyOne C1 & \num{1.05} & streptavidin & \num{>2.5} & N.A. \\
+		Ocean Nanotec &  SV0050  & \num{0.05}& streptavidin & N.A. & N.A. \\
+		micromod & BNF-Dextran-redF &\num{0.1} & streptavidin &\num{0.2} & \num{>1.27e-16} \\
+		micromod & nanomag-D-spio & \num{0.1} & streptavidin & \num{0.02}-\num{0.04} & \num{>5.5e-17} \\
+		\bottomrule[1.2pt]
+	\end{tabularx}
+	\caption{Properties of the used microbeads and \glspl{mnp}.}
+	\label{tab:particles}
+\end{table}
+\subsubsection{Amine-terminated Beads} \label{sec:meth:aminebeads}
+For \gls{amine} beads, \gls{nhs}-Biotin (203118, Sigma Aldrich) was used for a covalent attachment after the previously mentioned carbodiimide chemistry. Initially, the Biotin was dissolved to a concentration of (\SI{50}{\milli\gram\per\milli\liter}) in water-free \gls{dmso} and stored upon further use at \SI{-25}{\degreeCelsius}. The attachment to microbeads was titrated by the molar weight ratio of both reagents and ranged from 10-fold molar excess to a \num{10000}-fold deficit of biotin over the amine. 
+
+In most cases, \SI{20}{\micro\liter} of micromer beads were aliquoted in several microcentrifuge tubes (\SI{1.5}{\milli\liter}, Eppendorf) to generate a standard curve of functionalization density later on. \gls{nhs}-Biotin was diluted to a concentration of \SI{0.5}{\milli\gram\per\milli\liter} with \gls{pbst} and vortexed. Then, beads and biotinylation reagent were mixed in the desired ratio throughly and incubated for \SI{1.75}{\hour} at \SI{8}{\degreeCelsius} in a shaker (Thermomixer, Eppendorf) at \SI{1400}{\per\minute}.
+
 \subsubsection{Carboxyl-terminated Beads}
-EDC-NHS
-Amin-PEG2-Biotin
+The surface of \gls{carboxyl}-terminated beads was esterified by \gls{edc}-\gls{nhs} chemistry and convalently bound to amine-PEG$_\mathrm{2}$-biotin (EZ Link, Thermo Scientific). First, the bead buffer was exchanged to \gls{mest} with one washing step by centrifugation (as in \ref{sec:meth:aminebeads}) to a final bead concentration of \SI{5}{\milli\gram\per\milli\liter}. \SI{100}{\milli\molar} \gls{edc} in \gls{dih2o} and \SI{50}{\milli\molar} \gls{nhs} in \gls{dmso} were prepared and added to the bead solution to a final concentration of \SI{25}{\milli\molar} and \SI{12.5}{\milli\molar} each. The suspension was reacted for \SI{30}{\minute} on a shaker at \SI{1400}{\per\minute} and washed once with \gls{mest} buffer. Then,  amine-PEG$_\mathrm{2}$-biotin was added from 10-fold molar excess to a \num{10000}-fold deficit of biotin over the amine and volume adjusted. The samples were incubated on a shaker for \SI{1.75}{\hour} at \SI{8}{\degreeCelsius} in a shaker at \SI{1400}{\per\minute}.
+
+\subsubsection{Post-Processing and Characterization of Beads}
+After the incubation, the beads were washed either magnetically or via pelleting. Magnetic washing was carried out in a magnet stand (\todo{Which company}), where the beads were separated for \SI{2}{\minute} and then washed 3 times with \SIrange{500}{1000}{\micro\liter} \gls{pbst}. Pellet washing was conducted three times in a table centrifuge (Fresco 17, Thermo Scientific) for \SIrange{800}{1200}{x g} for \SI{10}{\minute}. The supernatant was discarded and the pellet was dissolved in \SIrange{500}{1000}{\micro\liter} \gls{pbst}. After both washing procedures, the beads were  resuspended in \SI{100}{\micro\liter} \gls{macs} or \gls{pbst} and stored at \SI{4}{\degreeCelsius}.
+\begin{figure}[htb!]
+	\centering 
+	\includegraphics[width=\linewidth] {Ressources/GatingStrategy/GatingStrategy-Layout_with_margin.eps}
+	\capption{Gating Strategy for Biotinylated Beads}{\textbf{a}, In the forward-side-scatter plot, the general bead population with high side scatter is selected from the background. \textbf{b}, Single beads are differentiated by their sphericity, their ratio of height:area in the side scatter. Points on the line through the origin are spherical. \textbf{c}, The stained subset in the respective color is now selected and the \gls{mfi} as well as the \gls{cv} is computed.}
+	\label{fig:gatingstrategy-layout}
+\end{figure}
+
+Characterization of any surface modification was done via fluorescence-flow cytometry or -microscopy. \SIrange{30000}{60000}{beads} were diluted to \SI{20}{\micro\liter} and incubated with \SI{100}{\nano\gram} streptavidin-atto488 (49937, Sigma Aldrich) or Anti-Biotin-PE (\todo{which anti-biotin exacly} Miltenyi) for \SI{30}{\minute} at \SI{8}{\degreeCelsius} in a shaker. The beads were then diluted to a final volume of \SI{100}{\micro\liter}, transferred to a 96-well plate (TPP) and measured in the autosampler of a flow cytometer (MACS Quant Analyzer 10, Miltenyi). Following parameters were held constant over all measurements: \textit{Flow Rate:} High, \textit{Mix Sample:} Strong, \textit{Mode:} Standard, \textit{Uptake/Sample Volume:} \SI{100}{\micro\liter}. The photmultiplier voltages of forward and side scatter were lowered in most experiments by \SI{10}{\volt} and \SI{120}{\volt} respectively due to the homogeneous and reflective nature of the particles.
+Data analysis was performed by FlowJo (10.6.2, Becton Dickinson) after a gating strategy which is depicted in Fig. \ref{fig:gatingstrategy-layout}. The resulting data was plotted in Origin (2020b, OriginLab).
 
 
-
+\subsubsection{Coating of Biofunctionalized Non-Magnetic Beads with Magnetic Nanoparticles}
+The biotinylated, non-magnetic microbeads (Table \ref{tab:particles}) were coated covalently with different \glspl{mnp} in order to establish a bead-side titration of binding sites. Therefore, \SI{5}{\milli\gram\per\milli\liter} biotinylated beads in \gls{pbst} were equilibrated for \SI{10}{\minute} and mixed with \SI{7.5}{\micro\gram} BNF-dextran-redF-streptavidin / nanomag-D-spio, \SI{6}{\micro\gram} of SV0050 or \SI{10}{\micro\gram} Dynabeads C1 over night on a shaker.
 
 

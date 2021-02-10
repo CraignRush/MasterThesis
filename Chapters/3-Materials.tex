@@ -23,14 +23,13 @@ The fabrication of a microfluidic device on various substrates and layouts consi
 \label{tab:params_wirebonding}
 \end{table}
 
-
 However, crucial for successful wire bonding is the optimal hole shape in the welding tool. Therefore, it was cleaned when bonds failed for no obvious reason by removing the gold wire and dipping the tip of the wedge into \gls{ipa}. Then, \textit{Test USG} was alternated for several seconds in multiple iterations. Afterwards, the wedge was blown dry from all sides with pressurized air and the wire was loaded back into the tool.
 After wire bonding, the manufactured sensors were placed in a wafer shipper box and stored in a dust free environment upon further use.
 
 \subsection{Design and Fabrication of Microfluidics}
 In the second workflow, a microfluidic channel was manufactured via photo- and softlithography and bonded to the produced sensors from \ref{sec:meth:sensor}.
 \subsubsection{Development of Layout}
-%@@@TODO layout design
+\todo{layout design}
 
 \subsubsection{Patterning of Photoresist}
 \SI{3}{\inch} (100) silicon wafers (Si-Mat) were dehumidified in a drying oven (UN30, Memmert) for \SI{2}{\hour} at \SIrange{150}{180}{\degreeCelsius}. Then, immediately after they reached room temperature, they were placed centered inside a wafer spinner (WS-650-23B, Laurell Technologies). For the desired layer thicknesses \SIrange{2}{3}{\milli\liter} SU8-30XX (Microchem) were poured carefully onto the center of the wafer and the following program was carried out:
@@ -42,28 +41,28 @@ In the second workflow, a microfluidic channel was manufactured via photo- and s
 Upon finish, the wafer was gripped outermost with wafer tweezers and soft-baked on a hot plate (super nuova+, Thermo Scientific) for \SI{5}{\minute} at \SI{65}{\degreeCelsius} and at least \SI{10}{\minute} at \SI{90}{\degreeCelsius}. The optimal duration was determined if the gently touched resist did not stick to the tweezers. To prevent cracks in the resist caused by a fast temperature change, the wafer was cooled on the hotplate to room	temperature. Such processed wafers were stored for a maximum of \SI{4}{weeks} in a light-tight storage box.\\
 To pattern the resist, the i-Line of a laser lithograph (Dilase 250, Kloe) was used. In preparation of the writing layout a AutoCADz \textit{*.dxf}-file with only one layer of polylines was imported to the program ``Kloe Design'', converted to contours and subsequently to polygons. For the filling a spot-size equivalent to the minimal structure resolution (as measured in \citet{lit:tech:rojda2020}) and an overlap of at least \SI{50}{\percent} was chosen. The writing trajectories were displayed for a last control before the export to ensure only closed contours. Finally the contour and filling were exported into separate files.\\
 Both files were loaded in this order into the ``Kloe Dilase'' program. Also the preprocessed wafer was placed inside the laser writer and attached to the vacuumed stage. With the integrated camera the global zero was set to the wafer center by finding the horizontal or vertical edges and adding/subtracting the radius of the wafer (\SI{3}{\inch} $\approx\ \varnothing $  \SI{76.2}{\milli\meter}) 
-%@@@TODO Kloe intensities, writing speeds 
+\todo{ Kloe intensities, writing speeds} 
 
 \subsubsection{Soft Lithography}
 The fabricated wafer was placed the center of a \SI{90}{\centi\meter} petri dish. A \gls{pdms} mold was created by vigorous mixing of the pre-polymer base with its curing agent (Sygard 184, Dowsil) in a ratio of 10:1 (w/w). For \SI{3}{\inch} wafers, thin channels were casted from \SI{15}{\gram}, normal channels from \SI{20}{\gram} PDMS in the petri dish. Gas bubbles were removed from the mixture in a desiccator for \SI{20}{\minute} at \SI{2}{\hecto\pascal} , and the clear \gls{pdms} was cured in an oven (Um, Memmert) for \SI{1}{\hour} at \SI{60}{\degreeCelsius}. After curing, the \gls{pdms} mold was released from the petri dish carefully, taken off the wafer and stored in a clean petri dish upon further processing.  
 
-\subsubsection{Bonding of Microfluidic}
+\subsubsection{Bonding of Microfluidics}
 Under laminar flow, crosslinked molds were cut into pieces with the respecting single \gls{uf} with a razor blade. Holes for in- and outlet were punched through the containing channels with a biopsy puncher (ID \SI{0.5}{\milli\meter}, WellTech). The substrates and \glspl{uf} were sonicated in acetone and \gls{dih2o} for \SI{5}{\minute} and dried with filtered \gls{n2} completely. For the bonding of PDMS to various substrates different protocols have been established:
 
-\paragraph{PDMS Glueing}
+\subsubsection{PDMS Glueing}
 \label{sec:meth:bond:glue}
 Here, a micron-height layer of uncured \gls{pdms} was used as an adhesive layer between \gls{uf} and substrate. Approx. \SI{3}{\milli\liter} were poured onto a \SI{3}{\inch} wafer and spun down for \SI{5}{\minute} at \SI{6000}{\per\minute}. The microchannel was placed on the substrate by visual control of a stereo microscope (SMZ800, Nikon) with 8-fold magnification. Subsequently, the bonding process could be finished by a \SI{1}{\hour} bake at \SI{60}{\degreeCelsius} or over-night at room temperature.
-\paragraph{Plasma Bonding}
+\subsubsection{Plasma Bonding}
 \label{sec:meth:bond:plasma}
 The respective parts were activated by the exposure to a controlled \gls{o2}-plasma. Bringing the activated surfaces in contact immediately triggers the formation of covalent bonds. First, the acetone-wiped substrates and the microchannels were centered inside the plasma cleaner (Zepto, Diener). Second, vacuum was applied to a final pressure <\SI{0.2}{\hecto\pascal}. Third, the chamber was flushed with pure \gls{o2} until a chamber pressure from \SIrange{0.6}{0.8}{\hecto\pascal} had been stabilized. Fourth, the plasma process was executed with \SI{30}{\watt} (Power-Potentiometer: 100) for \SIrange{45}{60}{\second} (Time-Potentiometer: 15-20). Upon finish, the chamber was flushed for \SI{5}{\second} and ventilated. Immediately after, the corresponding workpieces were brought into contact and pressed together gently. To ensure a durable bond, the assembled structures were baked for \SI{1}{\hour} at \SI{60}{\degreeCelsius}.
 
-%@@@TODO Mass flow equation
+\todo{Mass flow equation}
 
 %\begin{equation}
 %	Here goes the mass flow equation
 %\end{equation}
 
-\paragraph{Reversible Bonding}
+\subsubsection{Reversible Bonding}
 To bond the \gls{uf} to a substrate reversibly and without residues, the channel can be brought into contact with the bottom part without any adhesinon agent. For low-pressure as well as vacuum driven flows, this method is preferrable due to its time and work efficiency.
 
 \subsection{Peripheral Components and Optical Readout}
@@ -84,8 +83,7 @@ Second, two MFLI's were driven in a master-slave clock synchronization by the Mu
 In both cases, the output of both lock-ins was directed to their respective \textit{AUX 1} ports and connected to another LabView program by the previously mentioned DAQ-card.
 
 \subsubsection{Differential Sensor Setup}
-In some experiments, two PCBs were stacked with nylon spacers (%@@@TODO spacers
-) with various spacings \SIlist{3;5;8}{\milli\meter} between their edges above the permanent magnet. The hysteresis was then adjusted for both sensors consecutively. Measurements were performed as described in \ref{sec:meth:dualGMR}.
+In some experiments, two PCBs were stacked with nylon spacers (\todo{spacers}) with various spacings \SIlist{3;5;8}{\milli\meter} between their edges above the permanent magnet. The hysteresis was then adjusted for both sensors consecutively. Measurements were performed as described in \ref{sec:meth:dualGMR}.
 
 \begin{figure}[h!]
 	\includegraphics[width=.5\linewidth]{example-image} 
@@ -99,9 +97,9 @@ Subsequent data analyis of the acquired streams from both two and one sensor mea
 
 \subsection{Absolute Concentration Measurements}
 
-%@@@TODO Concentration Measurement
+\todo{Concentration Measurement}
 
-%@@@TODO Whole Blood Bead Spiking
+\todo{Whole Blood Bead Spiking}
 
 \subsection{Bead Capture Assay}
 
@@ -109,11 +107,6 @@ Subsequent data analyis of the acquired streams from both two and one sensor mea
 
 
 \section{Surface Bio-Functionalization}
-
-
-\subsubsection{Tensiometry}
-
-
 \subsection{Surface Activation}
 \label{sec:meth:surfActiv}
 To functionalize any silicon containing surface with \ch{Si-OH} groups which the utilized silane could interact with, multiple surface activation pathways were explored. First, substrates were cleaned in \gls{hcl}:\gls{meoh} and \gls{h2so4} before they were immersed in boiling water. Second, surface silanol groups were achieved by piranha immersion. Third a \gls{hf} dip and fourth a oxygen plasma treatment was tested.\\
@@ -123,7 +116,7 @@ For all methods, the following reagents were used: \gls{dih2o} (\SI{0,054}{\micr
 Before the work with one of the acid solutions was carried out, serveral safety measures were implemented. As any diluted acid solution becomes very hot immediately due to the exothermic reaction, every container should be placed inside a cooled water or ice bath. Additionally, the beaker as well as concentrated acid flasks should be gripped firmly by a laboratory stand to avoid a tip over. As the reactivity of chemicals is highly temperature-dependent, the solutions was processed further when they had been cooled to \SI{<=80}{\degreeCelsius}. It should be also noted that - as in every chemical reaction, but especially ones with \gls{h2so4} - the acid was always poured into the other reactant to avoid splashing and boiling.
 
 \subsubsection{Plasma Activation}
-For the plasma activation, process parameters similar to the PDMS bonding technique in \ref{sec:meth:plasmabonding} were chosen. After inital cleaning via sonication in \gls{acoh} and \gls{dih2o} for \SI{5}{\minute} each, the substrated were dried in \gls{n2}-gas and placed inside the plasma chamber. The chamber was evacuated to a final pressure <\SI{0.2}{\hecto\pascal} and then flushed with pure \gls{o2} until a chamber pressure between \SIrange{0.6}{0.8}{\hecto\pascal} had been stabilized. Fourth, the plasma process was executed with \SI{100}{\watt} (Power-Potentiometer: 300) for \SI{300}{\second} (Time-Potentiometer: %@@@TODO 
+For the plasma activation, process parameters similar to the PDMS bonding technique in \ref{sec:meth:plasmabonding} were chosen. After inital cleaning via sonication in \gls{acoh} and \gls{dih2o} for \SI{5}{\minute} each, the substrated were dried in \gls{n2}-gas and placed inside the plasma chamber. The chamber was evacuated to a final pressure <\SI{0.2}{\hecto\pascal} and then flushed with pure \gls{o2} until a chamber pressure between \SIrange{0.6}{0.8}{\hecto\pascal} had been stabilized. Fourth, the plasma process was executed with \SI{100}{\watt} (Power-Potentiometer: 300) for \SI{300}{\second} (Time-Potentiometer: \todo{time poti for hydrophobic surface}
 ). Upon finish, the chamber was flushed for \SI{5}{\second} and ventilated.
 
 \subsubsection{Hydrochloric-Sulfuric Acid Activation}
@@ -136,13 +129,27 @@ For \gls{hf} activation of \gls{sin}, a protocol after \citet{lit:chem:sin:surfa
 \subsection{Chemical Surface Functionalization}
 \label{sec:meth:surfFunc}
 Chemically activated surfaces were now coupled with \gls{aptes} covalently. Therefore an aqueous silane solution was prepared from \gls{etoh} with volume fractions of \SI{5}{\percent} \gls{dih2o}, \SI{0.5}{\percent} aqueous \gls{acoh} (pH 4.5) and \SI{1}{\percent} \gls{aptes} in this order. The samples were soaked immediately after their activation in the silane solution. The reaction was carried out for \SIrange{2}{4}{\hour} at \SI{>40}{\degreeCelsius} or for \SI{1}{\hour} at \SI{70}{\degreeCelsius}. At finish, all specimens were rinsed with \gls{etoh} or sonicated for \SI{5}{\minute} in absolute \gls{etoh}.\\
-Then, the amine terminated surface modification was enhanced by a carbodiimide conjugation with \gls{paa} after \citet{lit:Anti-EpCAM-PAA}. As above, a reaction consisting of \SI{0.5}{\molar} \gls{mes} buffer with \SI{1}{\milli\gram\per\milli\liter} \gls{paa}, \SI{6}{\milli\molar} \gls{edc} and  \SI{3}{\milli\molar} \gls{nhs} was activated for \SI{15}{\minute} on a magnetic stirrer. Subsequently, the prepared samples were immersed in the solution for \SI{1}{\hour} on a rotation shaker (VWR). As final cleaning, the slides were rinsed or sonicated for \SI{5}{\minute} in \gls{dih2o} and stored in fresh \gls{dih2o} at \SI{4}{\degreeCelsius} up to \SI{14}{\day} upon further use.
+Then, the amine terminated surface modification was enhanced by a carbodiimide conjugation with \gls{paa} after \citet{lit:Anti-EpCAM-PAA}. As above, a reaction consisting of \SI{1}{\milli\molar} \gls{mes} buffer (pH 6) with \SI{1}{\milli\gram\per\milli\liter} \gls{paa}, \SI{6}{\milli\molar} \gls{edc} and  \SI{3}{\milli\molar} \gls{nhs} was activated for \SI{15}{\minute} on a magnetic stirrer. Subsequently, the prepared samples were immersed in the solution for \SI{1}{\hour} on a rotation shaker (VWR). As final cleaning, the slides were rinsed or sonicated for \SI{5}{\minute} in \gls{dih2o} and stored in fresh \gls{dih2o} at \SI{4}{\degreeCelsius} up to \SI{14}{\day} upon further use.
+
+
+\subsubsection{Tensiometry}
+All above methods were characterized by a custom built tensiometer and the ImageJ Fiji plugin DropSnake. \cite{lit:chem:Fiji,lit:chem:surfaceTension} Background illumination was provided by a \todo{Background Illumination}
+In an experiment, a substrate was dried by \gls{n2} and placed in the camera focus. Subsequently, a sessile drop of \SI{1}{\micro\liter} was placed in the focus with a micropipette (Eppendorf) without touching the surface. The focus of the camera was adjusted meticulously to gain maximum contrast at the droplet contour and a homogeneously black droplet. Images were then acquired by an USB-microscope \todo{usb microscope?}
+pointing in an acute angle onto a drop on the surveyed substrate. The images were then cropped, rotated such that the droplet edges were perfectly horizontal and converted to 8-bit grayscale. After preprocessing, the top half contour was outlined by at least 8 points inside the DropSnake plugin and the resulting contact angles were exported.
 
 \subsection{Surface Bioconjugation}
 \label{sec:meth:surfBio}
-A functionalized surface from \ref{sec:meth:surfFunc}, was now bonded to a \SI{150}{\micro\meter} microfluidic channel as in \ref{sec:meth:bond:glue}
+A functionalized surface from \ref{sec:meth:surfFunc}, was now bonded to a \SI{150}{\micro\meter} microfluidic channel as in \ref{sec:meth:bond:glue} and incubated for at least \SI{5}{\hour}, but mostly over night at \SI{7}{\degreeCelsius}. Upon finish, microfluidic PTFE-tubing (ID \SI{0.5}{\milli\meter}, Reichelt Chemietechnik) was connected to the inlet and outlet with precision tweezers. Then, the channel was equilibrated with \SIrange{100}{300}{\micro\liter} \gls{mes} buffer in a syringe (\SI{1}{\milli\liter}, Terumo) with a syringe pump (Fusion 100, Chemyx) with \SI{100}{\micro\liter\per\minute}. Then, \SIlist{50;100;300}{\milli\molar} of \gls{edc} and \gls{nhs} were flushed into the channel with the same flow rate after an dissociation time of \SI{10}{\minute}. The channel bottom was incubated for \SI{30}{\minute} and then washed again with \SI{100}{\micro\liter} \gls{mes} buffer. 
+
+Subsequently, a desired protein was loaded in high concentration (Neutravidin: \SI{1}{\milli\gram\per\milli\liter}, Antibody: \SI{20}{\micro\gram\per\milli\liter},) into the tip of a \SI{1}{\milli\liter} syringe or flushed into the channel by vaccuum from a microcentrifuge tube. The functionalized channels were now incubated over night in an ice box. Before use, the \gls{uf} was washed with \SI{100}{\micro\liter} \gls{pbs} with \SI{0.02}{\percent} nonionic surfactant (Tween 20, Sigma Aldrich) (PBST) for \SI{2}{\minute}. Any unreacted binding sites were blocked by a solution of \SI{500}{\milli\molar} ethanolamine hydrochloride (E6133, Sigma-Aldrich) in \gls{dih2o} for 30 min. After another washing step, the functionalized channels were further used for either microscope or magnetic bead-capture experiments.
 
 \subsection{Particle Functionalization}
+different surfaces to promote different electrostatic interactions with the surface
+\subsubsection{Amine-terminated Beads}
+NHS-Biotin
+\subsubsection{Carboxyl-terminated Beads}
+EDC-NHS
+Amin-PEG2-Biotin
 
 
 

@@ -2,6 +2,10 @@
 The main measurement principle by a \gls{gmr}-Sensor has been already described and characterized exhaustively by \citet{lit:thes:helou}, \citet{lit:thes:reisbeck} and \citet{lit:thes:brenner}. Therefore, this theoretical part will focus on (bio-)physical aspects of a cell rolling motion inside a microfluidic channel and surface modification chemistry.
 
 \section{Microfluidics}
+
+en Standardumfang wählen, Re, Navier Stokes, Scherraten, nicht newtonsche / newtonsche Fluide)
+\subsection{Approximating the Navier-Stokes-Equation}
+
 The main experiments of this work were carried out in microfluidic environments, which exhibit favorable properties compared to common turbulent systems. From a fluid-mechanical standpoint, shrinking the scales makes interfacial as well as electrokinetic phenomena much more significant, and reduces the importance of pressure and gravity.\cite{lit:fluidic:kirby} However, electodynamics, chemistry and fluid dynamics are incetricably intertwined, so that fluid flow can create electric fields (and vice versa), with a degree of coupling driven by the surface chemistry. Many of the resulting phenomena arise or can explained by Cauchy-Momentum equation (eq. \ref{eq:cauchymomentum}) and the resulting Navier-Stokes equation for incompressible fluids (eq. \ref{eq:navierstokes}).
 
 \begin{align}
@@ -12,7 +16,7 @@ The main experiments of this work were carried out in microfluidic environments,
 \end{align}
 conservation of mass, momentum
 reynolds number
-\subsection{Flow Field inside Microchannels}
+\subsection{Flow and Shear in Microchannels with fiscous Vluids}
 The foremost characteristic of a microchannel is the laminar flow behavior, which causes deterministic pathlines. Mathematically, this is described by the reynolds number, which compares the intertia to shear forces. If it results below a certain threshold of 2000, laminar flow can be assumed. This holds true for the utilized microfluidic with the dimensions \SI{12000}{\micro\meter} x \SI{700}{\micro\meter} x \SI{150}{\micro\meter} (l x w x h) and aequous buffer solutions, where the channel width was used as characteristic length $l$. Hence, simplifications of the Navier-Stokes equation can be applied to our system. 
 \begin{equation}
 	\mathit{Re}\ =\ \frac{2 \rho |\overline{u}| l }{\eta}
@@ -53,27 +57,30 @@ For later studies in a matlab model, the flow velocity and shear stress computat
 
 
 
-\subsection{Particles in Microfluidics}
-Stokes Drag Force
+\subsection{Force Equilibrium of Microbeads}
+Stokes Drag Force with lift correction
 Gravity
 Electro-static interaction
 Magnetic Force
 Friction
 Interface-Forces
+Faraus linquist
+Protein interaction/ Avidity,Affinity
+\subsubsection{Rolling Motion of Beads}
 \clearpage
 \subsection{}
 \clearpage
 \section{Surface Chemistry}
-Introducing biological samples, such as plasma or whole blood, into microsystems needs more consideration of surface modification compared with buffered samples of adjusted pH containing cells or polymeric beads. Blood-material contact most often initiates surface-mediated reactions that lead to cell activation, blood clotting or biofilm formation. Therefore, most contact faces are passivized with chemically and biologically inert materials or even composed entirely from it. In any use case, where the sensor surface has to be functionalized with biomolecules, the surface inertness then requires specialized methods for permanent and reproducible adhesion.\cite{lit:chem:surface:methods}
+Introducing biological samples, such as peripheral whole blood and -plasma, into microsystems needs careful consideration of surface modification compared to buffered samples of adjusted pH containing cells or polymeric beads. Blood-material contact most often initiates surface-mediated reactions that lead to cell activation, blood clotting or biofilm formation.\todo{sources} In order to minimize unspecific interactions on surfaces, most contact faces are passivized with chemically and biologically inert materials or even composed entirely from it. In any use case, where a surface has to be functionalized with biomolecules, the intrinsic inertness then requires specialized methods for permanent and reproducible adhesion.\cite{lit:chem:surface:methods}
 
-Molecules can be immobilized through various mechanisms on surfaces to achieve a biological or chemical functionality. The most simple is physisorption. Here, a biomolecule is bonded only by weak elektrostatic, van-der-Waals or dipole-dipole interaction with a adsorption enthalpy below \SI{50}{\kilo\joule\per\mole}. In contrast, this yields fast reaction rates, because no activation energy has to be overcome. Although a large number of molecules can be captured with this method, several drawbacks have been identified. \cite{lit:bio:ImmobilizationTechniques, lit:bio:immobilization:UV-ABs}
-For example, immobilized receptors can start to desorb or change their position, which in turn reduces sensitivity or causes false-positive results. \cite{lit:bio:physisorp:desorption, lit:chem:surfModOptics} \\
+Molecules can be immobilized through various mechanisms on surfaces to achieve a biological or chemical functionality. The most simple is physisorption. Here, a biomolecule is bonded only by weak elektrostatic, van-der-Waals or dipole-dipole interaction with a adsorption enthalpy below \SI{50}{\kilo\joule\per\mole}.\todo{source} In contrast, this yields fast reaction rates, because no activation energy has to be overcome. Although a large number of molecules can be captured with this method, several drawbacks have been identified. \cite{lit:bio:ImmobilizationTechniques, lit:bio:immobilization:UV-ABs}
+For example, immobilized receptors can desorb or move inside the channel, which in turn reduces sensitivity or causes false-positive results.\todo{Sensitivity und False-Positive Results sollten hier kurz dargestellt werden, zumindest in der Anwendung. } \cite{lit:bio:physisorp:desorption, lit:chem:surfModOptics} \\
 Therfore, most functionalization approaches rely on chemisorption where molecules are covalently bound to a surface. Due to the higher activation energy barrier this bonding mechanism works slower in comparison to physisorption, though higher temperatures or catalysators can promote an equilibrium. One of the most well-known strategies to bring reproducible thin films on surfaces is the formation of \glspl{sam} where a dense layer of single molecules with high internal order forms upon dipping into a surface-active substance. \cite{lit:chem:sin:langeDiss}
 
 \subsection{Surface Oxidation Methods}
-To modify a surface with functional silanes, oxidized sites (\gls{hydroxyl} resp. \gls{silanol} groups) have to be present. In order to increase the presence of those reactive groups on differing substrates, various activation methods such as piranha, \gls{o2} - plasma treatment or an \gls{hf} dip can be chosen. \cite{lit:chem:sin:etchingandchemical} 
+Modifying a surface with functional silanes, requires oxidized sites, for example \gls{hydroxyl} resp. \gls{silanol} groups. In order to increase the presence of those reactive groups on substrates, various activation methods such as piranha, a mixture from \gls{h2o2} and \gls{h2so4}, \gls{o2} - plasma treatment or an \gls{hf} dip can be chosen. \cite{lit:chem:sin:etchingandchemical} 
 
-Critical for any surface engineering is the internal structure and in consequence the binding energies of the surficial groups. The three mainly used substrates in this work, glass, \gls{pdms} and \gls{sin}, contain highly conserved, homogeneous surfaces and are mostly well characterized. The surface of glass exhibits already \gls{silanol} groups intrinsically and consequentially demands only a removal of impurities. \gls{pdms} and \gls{sin} however have different compositions as shown in Fig. \ref{fig:chem:func:substrate} and \ref{fig:chem:func:sin} hence requiring a strong oxidation agents to completely exchange its interface.  \cite{lit:chem:binding:sin, lit:chem:binding:pdms,lit:chem:surface:pdms}
+Critical for any surface engineering is the internal structure and in consequence the binding energies of the surficial groups. The three mainly used substrates in this work, glass, \gls{pdms} and \gls{sin}, contain highly conserved, homogeneous surfaces and are mostly well characterized. The surface of glass exhibits already \gls{silanol} groups intrinsically and consequentially demands only a removal of impurities. \gls{pdms} and \gls{sin} however have different compositions as shown in Fig. \ref{fig:chem:func:substrate} and \ref{fig:chem:func:sin} hence requiring a strong oxidation agents to completely exchange its interface.  \cite{lit:chem:binding:sin, lit:chem:binding:pdms, lit:chem:surface:pdms}
 
 
 \begin{figure}[h!]
@@ -125,9 +132,7 @@ Apart from wet chemistry methods, the exposure of a surface to oxygen plasma yie
 
 \subsection{Silane Chemistry}
 
-By the use of silane chemistry a surface is rendered organofunctional with alkoxysilane molecules. Since glass, silicon, alumina, titania, and quartz surfaces, as well as other metal oxide interfaces, are rich in hydroxyl groups, silanes are particularly useful for modifying these materials. \cite{lit:chem:silanizingGlass}\\The general formula for a silane coupling agent (Fig. \ref{fig:chem:trialkoxysilane}) typically
-shows the two classes of functionality. X is a hydrolyzable
-group typically alkoxy, acyloxy, halogen or amine.
+By the use of silane chemistry a surface is rendered organofunctional with alkoxysilane molecules. Since glass, silicon, alumina, titania, and quartz surfaces, as well as other metal oxide interfaces, are rich in hydroxyl groups, silanes are particularly useful for modifying these materials. \cite{lit:chem:silanizingGlass}\\The general formula for a silane coupling agent (Fig. \ref{fig:chem:trialkoxysilane}) typically shows the two classes of functionality. X is a hydrolyzable group typically alkoxy, acyloxy, halogen or amine.
 \\\begin{wrapfigure}[9]{r}{.25\linewidth}
 	\vspace{-0.7\baselineskip}
 	\centering
@@ -136,11 +141,7 @@ group typically alkoxy, acyloxy, halogen or amine.
 	\label{fig:chem:trialkoxysilane}
 \end{wrapfigure} 
 Following hydrolysis, a reactive \gls{silanol} group is formed, which can condense with other silanol groups to form \gls{siloxane} linkages. 
-(Fig. \ref{fig:chem:APTES}) Stable condensation products are also formed with
-other oxides such as those of aluminum, zirconium, tin,
-titanium, and nickel. Less stable bonds are formed with
-oxides of boron, iron, and carbon, whereas alkali metal oxides and
-carbonates do not form stable bonds with \glspl{siloxane} at all. The R group (Fig. \ref{fig:chem:trialkoxysilane}) is a nonhydrolyzable organic radical that may posses a functionality that imparts desired characteristics. One of the more common silanes is \gls{aptes}, where the X group consists of an \gls{ethoxy} group, the organic rest R is substituted by an \gls{amine} and the 3 \gls{methylene} groups alter \textit{n} to 3. \cite{lit:chem:GELEST} 
+(Fig. \ref{fig:chem:APTES}) Stable condensation products are also formed with other oxides such as those of aluminum, zirconium, tin, titanium, and nickel. Less stable bonds are formed with oxides of boron, iron, and carbon, whereas alkali metal oxides and carbonates do not form stable bonds with \glspl{siloxane} at all. The R group (Fig. \ref{fig:chem:trialkoxysilane}) is a nonhydrolyzable organic radical that may posses a functionality that imparts desired characteristics. One of the more common silanes is \gls{aptes}, where the X group consists of an \gls{ethoxy} group, the organic rest R is substituted by an \gls{amine} and the 3 \gls{methylene} groups alter \textit{n} to 3. \cite{lit:chem:GELEST} 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\linewidth]{./Ressources/Chemistry/APTES.eps}
@@ -165,36 +166,45 @@ The in previous manner produced \gls{amine}-terminated films by \gls{aptes} form
 \end{figure}
 \clearpage
 The general reaction mechanism is depicted in Fig. \ref{fig:chem:COOH-EDC-NHS} for the example of a microbead surface, but it can equivalently be applied to any other modified surface or molecule. The initial \gls{carboxyl} group is esterified by \gls{edc} to an active o-acylisourea intermediate and leaves rapidly upon nucleophilic attack of an amine with release of an iso-urea byproduct. A zero-length amide linkage is formed. (Fig. \ref{fig:chem:COOH-EDC-NHS}, 1->4) Sulfhydryl and hydroxyl groups also will react with such active esters, but the products of such reactions, thioesters and esters, are relatively unstable compared to an \gls{amide} bond. (Fig. \ref{fig:chem:COOH-EDC-NHS}, 1)\newline
-However, this reactive complex is slow to react with amines and can hydrolyze in aqueous solutions, having a rate constant measured in seconds. If the target amine does not find the active \gls{carboxyl} before it hydrolyzes (Fig. \ref{fig:chem:COOH-EDC-NHS}, 3), the desired coupling cannot occur. This is especially a problem when the target molecule is in low concentration compared to water, as in the case of protein molecules. Notwithstanding, forming a \gls{nhs} ester intermediate from the reaction of the \gls{hydroxyl} group on NHS
-with the \gls{edc} active-ester complex increases the resultant amide bond formation remarkably. (Fig. \ref{fig:chem:COOH-EDC-NHS}, 3->4) \cite{lit:chem:nhs2}
+However, this reactive complex is slow to react with amines and can hydrolyze in aqueous solutions, having a rate constant measured in seconds. If the target amine does not find the active \gls{carboxyl} before it hydrolyzes (Fig. \ref{fig:chem:COOH-EDC-NHS}, 3), the desired coupling cannot occur. This is especially a problem when the target molecule is in low concentration compared to water, as in the case of protein molecules. Notwithstanding, forming a \gls{nhs} ester intermediate from the reaction of the \gls{hydroxyl} group on NHS with the \gls{edc} active-ester complex increases the resultant amide bond formation remarkably. (Fig. \ref{fig:chem:COOH-EDC-NHS}, 3->4) \cite{lit:chem:nhs2}
 
 Another critical point in carbodiimide chemistry is the solubility of the compounds. \gls{edc}, \gls{nhs} and \gls{snhs} are soluble in aqueous and organic solvents. Nevertheless, activation  with  non-sulfonate \gls{nhs} decreases water-solubility of the modified carboxylate molecule, while activation with \gls{snhs} preserves or increases its water-solubility by virtue of the charged sulfonate group. \cite{lit:chem:snhs}
 
 \clearpage
 
 \subsection{Microscopic Particle Surface Physics}
+\todo{write!!!!}
+
 
 \subsection{The Biotin-Avidin-System}
+Until now, the interaction of the homotetrameric protein avidin and its ligand biotin forms one of the strongest known non-covalent bonds in biological systems characterized by a \gls{kd} in the range of \SI{e-15}{\molar}.\cite{lit:bio:biotin:avidin_discovery} First isolated from chicken egg white, it became a standard to use in biotechnology when researchers found a similar bacteria protein - streptavidin - in \textit{Streptomyces} strains.\cite{lit:bio:biotin:discovery} However, the charged glycoprotein avidin exhibits unspecific binding in some assays in comparison to streptavidin. Therefor, several companies developed deglycosylated forms of avidin with a neutral isoelectric points to minimize unspecificity. (NeutrAvidin, Extravidin, NeutraLite) In recent studies, a mutant streptavidin called ``Traptavidin'' exhibitied an even 10 times dissociation rate.\cite{lit:bio:biotin:engStrep}
+As discovered in the early 1990s, biotin is bound inside a highly stable $\beta$-barrel structure, and stabilized by hydrogen bonds and van der Waals forces.\cite{lit:bio:biotin:bindingmechanism} In a unique mechanism, a side group of biotin (valerate) binds to a neighboring monomer of streptavidin and therefor stabilizes the dimer complex intrinsically.\cite{lit:bio:biotin:binding,lit:bio:biotin:freeenenergy} From a thermodynamical point-of-view, the interaction of the vitamin and protein is described by a total free binding energy of \SIrange{300}{330}{\kilo\joule\per\mole} for a tetrameric protein. \cite{lit:bio:biotin:freeenenergy}  All these aspects lead to a significant rupture force for the biotin-release of \SI{250}{\pico\newton}.\cite{lit:bio:biotin:rupture}
+
+\begin{figure}[tbph!]
+		\begin{subfigure}[b]{0.4\textwidth}
+		\centering
+		\addtocounter{subfigure}{1}  
+		\subfigimg[height=150pt]{\textbf{a}}{./Ressources/Biology/biotin.eps}
+		\addtocounter{subfigure}{-1}  
+		\phantomsubcaption
+		\label{fig:biotin}
+	\end{subfigure}%
+		\begin{subfigure}[b]{0.59\textwidth}
+		\centering
+		\addtocounter{subfigure}{1}  
+		\subfigimg[clip, height=150pt]{b}{Ressources/Biology/crystalAvidin_bindingSite.png}		
+		\addtocounter{subfigure}{-1}  
+		\phantomsubcaption
+		\label{fig:crystalavidin}
+	\end{subfigure}%
+	\capption{Functional Structures of Biotin and Streptavidin}{(\textbf{a}) Biotin chemical structure, (\textbf{b}) Homotetrameric Streptavidin with the anchor point at one terminus.\cite{lit:bio:SA:crystal}}
+	\label{}
+\end{figure}
+
 
 
 \section{Magnetoresistive Sensing}
+Short intro in GMR
 Short intro over MRCyte
-Foto of setup with arrows to necessary parts
-Microscope
-Stages
-PEEK holder
-Helmholtz coils
-Kepco
-MFLI
-DAQ
 
-
-
-\subsection{Sensing Principle}
-
-Loss because of reduced velocity and magnetic drag
-
-Different produced GMR stacks
-Wheatstone Bridge setup
-Magnet alignment
 

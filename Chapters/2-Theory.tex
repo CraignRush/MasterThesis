@@ -1,64 +1,161 @@
+\setcounter{page}{1}
 \chapter{Theory}
-The main measurement principle by a \gls{gmr}-Sensor has been already described and characterized exhaustively by \citet{lit:thes:helou}, \citet{lit:thes:reisbeck} and \citet{lit:thes:brenner}. Therefore, this theoretical part will focus on (bio-)physical aspects of a cell rolling motion inside a microfluidic channel and surface modification chemistry.
+The main measurement principle of a microfluidic channel in connection with a \gls{gmr}-Sensor has been already described and characterized exhaustively by \citet{lit:thes:helou}, \citet{lit:thes:reisbeck} and others. \cite{lit:thes:esthi,lit:thes:brenner} Therefore, this theoretical part will focus on (bio-)physical aspects of a cell rolling motion inside a microfluidic channel and surface modification chemistry.
 
 \section{Microfluidics}
 
-en Standardumfang wählen, Re, Navier Stokes, Scherraten, nicht newtonsche / newtonsche Fluide)
-\subsection{Approximating the Navier-Stokes-Equation}
+\subsection{Incompressibility of Fluid Flows}
 
-The main experiments of this work were carried out in microfluidic environments, which exhibit favorable properties compared to common turbulent systems. From a fluid-mechanical standpoint, shrinking the scales makes interfacial as well as electrokinetic phenomena much more significant, and reduces the importance of pressure and gravity.\cite{lit:fluidic:kirby} However, electodynamics, chemistry and fluid dynamics are incetricably intertwined, so that fluid flow can create electric fields (and vice versa), with a degree of coupling driven by the surface chemistry. Many of the resulting phenomena arise or can explained by Cauchy-Momentum equation (eq. \ref{eq:cauchymomentum}) and the resulting Navier-Stokes equation for incompressible fluids (eq. \ref{eq:navierstokes}).
+The main experiments of this work were carried out in microfluidic environments, which exhibit favorable properties compared to common macrofluidic systems. From a fluid-mechanical standpoint, shrinking the scales makes interfacial as well as electrokinetic phenomena much more significant, and reduces the importance of pressure and gravity.\cite{lit:fluidic:kirby} However, electrodynamics, chemistry and fluid dynamics are incetricably intertwined, so that fluid flow can create electric fields (and vice versa), with a degree of coupling driven by the surface chemistry. Many of the resulting phenomena arise or can be explained by the conservation of mass described by the continuity equation (Eq. \ref{eq:continuityM}) and the conservation of momentum described by the Cauchy-Momentum equation (eq. \ref{eq:cauchymomentum}) and the resulting Navier-Stokes equation(eq. \ref{eq:navierstokes}).
 
 \begin{align}
-	\frac{\partial}{\partial t} \iiint \rho \mathrm{dV} &= - \iint \rho \mathbf{u} \cdot \vv{\mathbf{n}} \mathrm{dA} \\
-	\nabla \cdot \mathbf{u} &= 0 \\
-		\rho \frac{\partial \mathbf{u}}{\partial t} + \rho\mathbf{u} \cdot \nabla \mathbf{u} &= \nabla \cdot \boldsymbol{\tau} + \sum_{i}\mathbf{f}_i \label{eq:cauchymomentum} \\	
+	\frac{\partial}{\partial t} \iiint \rho \ \mathrm{dV} &= - \iint \rho \mathbf{u} \cdot \vv{n} \ \mathrm{dA} \label{eq:continuityM}\\
+	\nabla \cdot \mathbf{u} &= 0 \label{eq:conservMass}\\	
+	\frac{\partial}{\partial t} \iiint \rho\mathbf{u} \ \mathrm{dV} &= - \iint \rho \mathbf{u}\mathbf{u} \cdot \vv{n} \ \mathrm{dA} + \iint \boldsymbol{\tau} \cdot \vv{n} \ \mathrm{dA}  + \iiint  \sum_{i}\mathbf{f}_i \ \mathrm{dV} \label{eq:continuityP} \\	
+		\rho \frac{\partial \mathbf{u}}{\partial t} + \rho\mathbf{u} \cdot \nabla \mathbf{u} &= \nabla \cdot \boldsymbol{\tau} + \sum_{i}\mathbf{f}_i \label{eq:cauchymomentum} \\			
+\end{align}
+The foremost assumption in fluid dynamics is termed ``incompressibility'', when density gradients are negligibly small to assume a uniformity thereof. This leads to a significant simplification of the conservation equations, because any transfer from kinetic to internal energy can be ignored.\footnote{For sake of completeness, it should be mentioned that viscous forces can also transfer energy irreversibly to internal energy. However, they are inversely proportional to the system's size, and hence omitted.}
+%This first premise simplifies the continuity equation.
+This equation states that the mass of a control volume (in this case the volume integral over the \gls{rho}) can only change by the mass flux over its \gls{surfnormal} transported by the \gls{u}. For constant \gls{rho} the mass does never change over time. This finding and the application of Gauss's theorem yields the conservation of mass in an incompressible fluid. (Eq. \ref{eq:conservMass})
+
+
+\subsection{Flow and Shear in Microchannels with Viscous Fluids}
+
+The final equation and Gauss's theorem can now be applied to the conservation of momentum relation. (Eq. \ref{eq:continuityP}) Integration yields then the Cauchy momentum equation which states that any change in momentum inside a control volume ($\rho \frac{\partial \mathbf{u}}{\partial t}$) is caused by convective transport for or to the volume ($\rho\mathbf{u} \cdot \nabla \mathbf{u}$), surface stresses ($ \nabla \cdot \boldsymbol{\tau}$), and the volumetric net body forces ($\mathbf{f}_i$) such as gravity or electrostatics.
+
+Hereby, the surface stress \gls{tau} can be further decomposed into the \gls{tau_p} and \gls{tau_v} as shown in the equations \ref{eq:surfaceStressTensor}. Characteristically, the pressure related contributions act normal and independently from \gls{u} whereas viscous forces act normal and tangential, and are dependent on \gls{u}. The \gls{tau_p} can therefore be expressed by a scalar pressure acting in every spatial dimension which is spanned by the identity. 
+
+The viscous stresses however can not be described by a continuum equation but only by a constitutive relation of atomistic processes. The underlying fundamental model of Newton's mechanics assumes that \gls{eta} is neither dependent on any velocity nor on the strain rate. Therefor, fluids which satisfy this condition are called ``Newtonian fluids''. Omitting special cases such as shear-thinning, -thickening or complex colloidal fluids such as undilute blood, \gls{eta} is the scalar proportionality that relates the strain rate to surface stress.\cite{lit:fluidic:kirby} This is captured in the equation $\boldsymbol{\tau}_{viscous} = 2\eta \mathbf{\epsilon} $. Thereby, \gls{epsilon} is part of the decomposition of an unidirectional flow field. It resembles on the one hand side any stretching or squeezing of fluid by ``extensional'' strain and on the other hand side ``shear'' strain which is responsible for skewing. \cite{lit:fluidic:kirby}
+\begin{align}
+	\boldsymbol{\tau} &= \boldsymbol{\tau}_{viscous} +  \boldsymbol{\tau}_{pressure} = 2\eta \boldsymbol{\epsilon} - p \mathbf{I}_{\scaleto{3 \times 3}{4pt}} \label{eq:surfaceStressTensor}\\
+	\nabla \cdot \boldsymbol{\tau}_{viscous} &= \nabla \cdot 2\eta \boldsymbol{\epsilon} = \nabla \cdot \eta \nabla \mathbf{u} \ \underset{uniform}{\overset{only \ if \ \eta}{=}} \ \eta \nabla^2 \mathbf{u} 	\label{eq:divergence_Stresstensor} \\
 	\aunderbrace{\vphantom{\sum_{i}} \rho \frac{\partial \mathbf{u}}{\partial t}}_{\mathrm{Transient}} + \aunderbrace{\vphantom{\sum_{i}}\rho\mathbf{u} \cdot \nabla \mathbf{u}}_{\mathrm{Convection}} &= \aunderbrace{\vphantom{\sum_{i}}-\nabla p}_{\mathrm{Pressure}} + \aunderbrace{\vphantom{\sum_{i}}\eta \nabla^2 \mathbf{u}}_{\mathrm{Viscous}} + \aunderbrace{\sum_{i}\mathbf{f}_i}_{\mathrm{Body \ Forces}} \label{eq:navierstokes}
 \end{align}
-conservation of mass, momentum
-reynolds number
-\subsection{Flow and Shear in Microchannels with fiscous Vluids}
-The foremost characteristic of a microchannel is the laminar flow behavior, which causes deterministic pathlines. Mathematically, this is described by the reynolds number, which compares the intertia to shear forces. If it results below a certain threshold of 2000, laminar flow can be assumed. This holds true for the utilized microfluidic with the dimensions \SI{12000}{\micro\meter} x \SI{700}{\micro\meter} x \SI{150}{\micro\meter} (l x w x h) and aequous buffer solutions, where the channel width was used as characteristic length $l$. Hence, simplifications of the Navier-Stokes equation can be applied to our system. 
+The divergence of \gls{tau_v}, as used in the incompressible Cauchy momentum equation (Eq. \ref{eq:cauchymomentum}), can then be simplified with Eq. \ref{eq:divergence_Stresstensor} further by taking advantage of the anti-transpose symmetry of the flow field. If \gls{eta} is also uniform respectively isotropic across the channel, the divergence is completely independent of the scalar viscosity.  Applying all assumptions to the Cauchy momentum equation (Eq. \ref{eq:cauchymomentum}) yields as final result the \gls{nse}. (Eq. \ref{eq:navierstokes}) 
+
+However, the \gls{nse} has no analytic solution yet and can in consequence only solve defined boundary problems. The two most common boundary conditions herefore are the ``no-penetration condition'' ($\mathbf{u} \cdot \vv{n} = 0$) and the ``no-slip condition'' ($\mathbf{u}_t = \mathbf{u} - (\mathbf{u}\cdot \vv{n}) \vv{n} = 0$), which state that the normal and tangential components of fluid velocity are per definition zero at motionless, impermeable walls.\newline
+Besides these conditions, many problems arise due to turbulent flow and therefor transient effects. Mathematically, this can be avoided by simply neglecting the time-dependent term in the \gls{nse}. Also, it can be argumented from a systematic point of view that, for viscosity-dominated flows, fluid moves in isoplanar ``lamina''. In experimental observations, these laminar flows then proved to be stable to perturbations thus steady.
+
 \begin{equation}
-	\mathit{Re}\ =\ \frac{2 \rho |\overline{u}| l }{\eta}
+	\mathit{Re}\ =\ \frac{\mathrm{\mathsf{fluid\ density\ \cdot\ velocity\ \cdot\ size}}}{\mathrm{\mathsf{viscosity}}} \label{eq:reynolds}
 \end{equation}
-The step from the Cauchy momentum equation to the Navier-Stokes equation is complex and harbors several sources of error. First, an incompressible newtonian fluid as well as channel is assumed. The used water suspensions can be approximated with negligible compressibility, which is not true for the real case. Also, for blood or other shear-thinning fluids some deviations are prone for high errors. This happens due to the fact that the \gls{tau} is decomposed into pressure and viscous contributions as shown in the equations \ref{eq:surfaceStressTensor}. Then, the divergence relation  of the respective viscous stress (eq. \ref{eq:divergence_Stresstensor}) does not hold for non-uniform viscosity $\eta$.
-\begin{align}
-	\boldsymbol{\tau} &= \boldsymbol{\tau}_{viscous} +  \boldsymbol{\tau}_{pressure} = 2\eta\epsilon - p \mathbf{I}_{\scaleto{3 \times 3}{4pt}} \label{eq:surfaceStressTensor}\\
-	\nabla \cdot \boldsymbol{\tau}_{viscous} &= \nabla \cdot 2\eta\epsilon = \nabla \cdot \eta \nabla \mathbf{u} \ \underset{uniform}{\overset{only \ if \ \eta}{=}} \ \eta \nabla^2 \mathbf{u} 	\label{eq:divergence_Stresstensor}
+
+In a first order approximation, the dimensionless \gls{re}, which compares the inertia to viscous forces, allows a qualitative prognosis about the flow regime. (Eq. \ref{eq:reynolds}) If it results below a threshold of 2300, laminar flow can be assumed in Hagen-Poiseuille flows. This holds true for the utilized microfluidic with the dimensions \SI{12000}{\micro\meter} x \SI{700}{\micro\meter} x \SI{150}{\micro\meter} (l x w x h) and aequous buffer solutions, where the channel width considered as characteristic length $l$. Hence, several fluidic phenomena such as deterministic pathlines as well as simplifications of the \gls{nse} can be exploited in the present system. 
+
+In the model case of a flow through a rectangular channel, no analytical solution of the \gls{nse} exists, but a Fourier Series expansion if the width is larger than height of a channel as shown in \citet{lit:fluidic:bruus}.\footnote{The equation \ref{eq:flowVelocityRect} shows that height deviations can have prominent influence on a channel velocity simulation as it is proportional to $h^2$. Further, the flow rate depends even on $h^3$.} 
+Equation \ref{eq:flowVelocityRect} determines the magnitude of the flow field parallel to the pressure gradient in relation to the horizontal dimension $y$ and vertical dimension $z$ with respect to the channel dimensions height $h$ and width $w$. An integration over the flow field in the channel cross section yields the \gls{q}. (Eq. \ref{eq:flowRateRect})
+
+  \begin{align}
+\mathbf{u}   _x(y,z) &= \frac{4 h^2 \Delta p}{\pi^3 \eta l} \sum_{n,odd}^{\infty} \frac{1}{n^3} \left( 1- \frac{\cosh (n \pi \frac{y}{h})}{\cosh (n \pi \frac{w}{2h})} \right) \sin (n \pi \frac{z}{h}) \label{eq:flowVelocityRect} \\
+  Q    &= \int_{-\frac{1}{2}w}^{\frac{1}{2}w} \int_{0}^{h} u   _x(y,z) \ \mathrm{dzdy} \approx \frac{h^3 w \Delta p}{12 \eta l} \left( 1 - \frac{h}{w}) \right) \label{eq:flowRateRect} \mathrm{, \ for \ } h < w
 \end{align}
-Second, the channel height varies in reality as a result of fabrication inaccuracies. In the model case of a flow through a rectangular channel, no analytical solution of the Navier-Stokes equation exists, but a Fourier Series expansion if channel width is larger than channel height. \cite{lit:fluidic:bruus} The equation \ref{eq:flowVelocityRect} shows that height deviations can have prominent influence on a channel velocity simulation as it is proportional to $h^2$. Further, the flow rate (which is the velocity integral over the channel cross section) depends even on $h^3$. 
-\begin{align}
- u   _x(y,z) = \frac{4 h^2 \Delta p}{\pi^3 \eta l} \sum_{n,odd}^{\infty} \frac{1}{n^3} \left( 1- \frac{\cosh (n \pi \frac{y}{h})}{\cosh (n \pi \frac{w}{2h})} \right) \sin (n \pi \frac{z}{h}) \label{eq:flowVelocityRect}
-\end{align}
-Third, the transient term (eq. \ref{eq:navierstokes}) was neglected in all simulations, but a connected syringe pump possesses a slow rise time (Fig. \ref{fig:fluidic:pumpStability:transient}) and a remaining ``pulsation error'' in steady state (Fig. \ref{fig:fluidic:pumpStability:steadystate}). In effect, another error adds to the simulation, which is only valid after several ten seconds of the last flow rate change.
-
-\begin{figure}
-	\begin{subfigure}[b]{0.5\textwidth}
-		\centering
-	    \addtocounter{subfigure}{1}  
-		\subfigimg[clip,trim=115 100 80 60, height=100pt]{a} {./Ressources/Fluidic/Transient_SyringePump.jpg}		
-		\addtocounter{subfigure}{-1}  
-		\phantomsubcaption
-		\label{fig:fluidic:pumpStability:transient}
-	\end{subfigure}%
-	\begin{subfigure}[b]{0.5\textwidth}
-		\centering
-		\addtocounter{subfigure}{1}  
-		\subfigimg[height=100pt]{\textbf{b}}{./Ressources/Fluidic/SyringeSteadyState.eps}
-		\addtocounter{subfigure}{-1}  
-		\phantomsubcaption
-		\label{fig:fluidic:pumpStability:steadystate}
-	\end{subfigure}
-\capption{Syringe Pump error sources}{Set flow rate: \orangeMLline, Real Flow Rate: \blueMLline \subref{fig:fluidic:pumpStability:transient} Transient step answer of a syringe pump through a microtube with \SI{254}{\micro\meter} inner diameter. \subref{fig:fluidic:pumpStability:steadystate} Steady state flow rate error around the desired \SI{5}{\micro\liter\per\minute} dispensing rate. A sinusoidal behaviour caused by the microstepping can be observed. \cite{lit:fluidic:fluigentPumpStability}}
-\label{fig:fluidic:pumpStability}
-\end{figure}
-
-For later studies in a matlab model, the flow velocity and shear stress computations were carried out with the error sources considered. 
-
 
 
 \subsection{Force Equilibrium of Microbeads}
-Stokes Drag Force with lift correction
+Although microfluidic systems mostly operate in a low inertia regimes as specified by low \gls{re}, the force equilibrium and subsequently the velocity of any particle in the fluid stream is influenced as it moves closer to the boundaries. Therefore, a short overview over all acting forces shall be given here.
+
+
+\begin{align}
+	\mathbf{F}_{drag,wall} &= -6 \pi \eta r \ \overline{\mathbf{u}} \ K \label{eq:f:drag}\\
+	K &=  \frac{4}{3} \sinh \alpha \sum_{n=0}^{\infty} \left(\frac{n(n+1)}{(2n-1)(2n+3)} \ \cdot \ A \right) \label{eq:f:wall-correction}\\
+	\alpha &= \cosh^{-1}\frac{z}{r} \\
+	A &= \left(\frac{2 \sinh((2n+1)\alpha) + (2n+1)\sinh2\alpha}{(2\sinh((n+0.5)\alpha))^2 -((2n+1)\sinh\alpha)^2 }-1\right)\\
+	K_{approx} &= \frac{24}{\mathit{Re}} *\left(\frac{1+\frac{2\eta_{fluid}}{3 \eta_{particle}}}{1+\frac{\eta_{fluid}}{ \eta_{particle}}}\right) \label{eq:correctionApprox}\\
+	v_z &= \frac{3}{64} \mathit{Re}_s u_s \ = \ \frac{3}{64} \frac{\rho_{fluid} r u_s}{\eta} u_s \ , \ (\frac{\rho_{fluid} l_w u_s}{\eta}) \ll 1\label{eq:repulsion_v}\\
+	\mathbf{F}_{buoyancy} &= -\frac{4}{3}\pi r^3 \ \rho_{fluid} \ g \label{eq:f:buoyancy}\\
+	\mathbf{F}_{gravity} &= +\frac{4}{3}\pi r^3 \ \rho_{particle} \ g \label{eq:f:grav}\\
+	\mathbf{F}_{shear} &= \frac{81.2}{4} (\mathbf{u} - u_p) r^2 \sqrt{\frac{\rho_{fluid}}{\eta} \nabla \mathbf{u}} \\
+	\mathbf{F}_{magnus} &=  \frac{1}{8}\pi r^3 \rho_{fluid} \ ( \mathbf{u} \times \mathbf{\Omega} )\\
+	\sum_{i} \mathbf{F} &\overset{!}{=} 0 \\
+	\omega &= \frac{0.025r \mathbf{u}}{l^2(1-0.6526\frac{r}{l})} \mathrm{, \ for \ } (\frac{r}{l})^2 \ll 1	
+\end{align}
+
+\subsubsection{Stoke's Drag}
+The foremost force to move particles inside a microfluidic channel is \gls{f:drag}.(Eq. \ref{eq:f:drag}) It originates in the viscous fluid moving past the sphere surface, where a slip condition has to be applied. The fluid therefor has to displace its elements in front of the movement direction of a particle. \cite{lit:fluidic:motion_sphere_to_plane_surface} 
+In the vertical dimension with a channel wall in the proximity, where no fluid can be displaced further, a correction factor was determined by \todo{zitat brenner} that approximates drag in a perpendicular direction.(Eq. \ref{eq:f:wall-correction})\cite{lit:fluidic:f_wall} A repusion velocity can then be defined by the \acrlong{re} calculated with the \gls{u:s} if the particle center has a distance $l_w \ll 1$ from the wall. (\ref{eq:repulsion_v}) \cite{lit:fluidic:motion_sphere_surface_2009} A phenomenological approximation of the correction factor yields equation \ref{eq:correctionApprox}, when viscosity dominates the difference. Adapted to an example, a spherical bubble inside a water flow feels only \SI{67.4}{\percent} of the drag by the fluid.
+
+\begin{equation}
+	\mathit{Re}_p = \mathit{Re}_{channel} \frac{r^2}{\frac{2wh}{w+h}} 
+\end{equation}
+
+\subsubsection{Gravity and Buoyancy}
+On every mass in our environment acts \gls{f:grav} to pull it along its gradient. In a medium however, it is balanced by the displacement of the same called \gls{f:buoyancy} in the counter-direction. As a microparticle made from a co-polymer - especially when it is magnetic - has a significantly higher density than water, \gls{f:grav} (Eq. \ref{eq:f:grav}) outperforms \gls{f:buoyancy} (Eq. \ref{eq:f:buoyancy}), which in term causes a particle to sink to the channel floor.
+
+\begin{figure}
+	\begin{subfigure}[!t]{0.39\textwidth}
+		\centering
+		\addtocounter{subfigure}{1}  
+		\subfigimg[height=47pt]{a} {./Ressources/Fluidic/drag}		
+		\addtocounter{subfigure}{-1}  
+		\phantomsubcaption
+		\label{fig:fluidic:drag}
+	\end{subfigure}%
+	\begin{subfigure}[!t]{0.39\textwidth}
+		\centering
+		\addtocounter{subfigure}{1}  
+		\subfigimg[height=47pt]{\textbf{b}}{./Ressources/Fluidic/lift1}
+		\addtocounter{subfigure}{-1}  
+		\phantomsubcaption
+		\label{fig:fluidic:lift1}
+	\end{subfigure}%
+	\begin{subfigure}[!t]{0.2\textwidth}
+		\centering
+		\addtocounter{subfigure}{1}  
+		\subfigimg[height=47pt]{\textbf{c}}{./Ressources/Fluidic/lift2}
+		\addtocounter{subfigure}{-1}  
+		\phantomsubcaption
+		\label{fig:fluidic:shear}
+	\end{subfigure}
+	\capption{Particle Drag and Lift Behaviour}{(\textbf{a}) Drag force on a particle caused by the displacement of fluid stream lines. (\textbf{b}) Wall-lift force: In a special case of drag, where no steamlines can be displaced, a pressure gradiend forms in front of the sphere. This forces a motion directed perpendicularly from the wall. (c) Shear-induced force: The curvature of the flow profile exhibits a tranlation and rotation due to shear on the surface. \cite{lit:fluidic:imageLift}}
+	\label{fig:fluidic:lift}
+\end{figure}
+
+
+\subsubsection{Magnus Lift Force}
+The \gls{f:magnus} is a rotation-induced variable as a result of the pressure difference induced by streamline asymmetry. \cite{lit:fluidic:inertialFluidicsForces} 
+
+
+\subsubsection{Saffman Lift Force}
+When the rotation speed of a particle is much greater than the rate of shear for a freely rotating particle $\Omega>12\nabla\mathbf{u}$, ``Saffman force'' will begin to act. Depending on the interaction of slip velocity and shear, it will counteract any movement to the planar surface. Hence, at high gradients the center of rotation causes a shift to the maximum shear. \newline 
+Scaling with the \gls{omega}, it will generally be at least one order of magnitude larger than Magnus force. Especially for electically or magnetically actuated particles, Saffman force is more relevant in the case of non-neutrally buoyant spheres.\cite{lit:fluidic:inertialFluidicsForces} 
+
+
+\subsubsection{Shear-induced Lift Force}
+This \gls{f:shear} particles to migrate toward walls until the wall lift force repels and balances it. In contrast, if the curvature of \gls{u} is zero, it collapses to a simple shear flow. Then the pressure will be higher on the far from the center pushing particles to the centerline of channel. As shown in \ref{fig:fluidic:shear} the magnitude of \gls{u} in particle is much higher on the top side of particle  than  that  on  the  bottom  side,  due  to  the parabolic nature of velocity profile. Similar  to  Saffman  force,  the  dissymmetry  of  relative  velocity  causes  a  lower  pressure  on the wall side, generating a shear gradient lift force which is opposite to the Saffman force. \cite{lit:fluidic:inertialFluidicsForces} 
+
+
+\subsubsection{Rotational Forces}
+
+\begin{figure}[!htb]
+	\begin{subfigure}[b]{0.66\textwidth}
+		\centering
+		\addtocounter{subfigure}{1}  
+		\subfigimg[height=100pt]{a} {./Ressources/Fluidic/RotationSpheredistant}		
+		\addtocounter{subfigure}{-1}  
+		\phantomsubcaption
+		\label{fig:fluidic:particleRotationfar}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.33\textwidth}
+		\centering
+		\addtocounter{subfigure}{1}  
+		\subfigimg[height=100pt]{\textbf{b}}{./Ressources/Fluidic/RotationSpherenear}
+		\addtocounter{subfigure}{-1}  
+		\phantomsubcaption
+		\label{fig:fluidic:particleRotationnear}
+	\end{subfigure}
+	\capption{Particle Rotation Behaviour}{tesrt}
+	\label{fig:fluidic:particleRotation}
+\end{figure}
+
+
+
+
+2.8Deformability-induced lift forceAlthough solidrigid  particles  can  be  used  as  a  simple  model  in  the  study  of  hydrodynamic behaviour of particles in a microchannel, the practical bio-particles such as cells and vesicles are  not  rigid  but  deformable. Thedeformability  will  induce  additional  lift  forces on  the particles. The deformability-induced lift force is perpendicular to the main streamline, and it is believedto  be  the  effects  of  shape-change  of  particle  and  nonlinearities  caused  by  the matching   of   velocities   and   stresses   at   the   deformable   particleinterface 
+
+Deformability-induced  lift  force  can  be  used  to  separate  and  enrich  malaria-infected  red blood  cells  (iRBCs)  from  normal  healthy  RBCs  (hRBCs)  for  the  diagnosis  of  malaria.  The parasite releases proteins that trigger the cross-linking of the spectrin network in the iRBC’s phospholipid bilayer membrane, thus increases the rigidity of the iRBCs. Normal hRBCs are more  deformable  than iRBCs,  migrating  towards  to  the  centre  of  the  channel.  Due  to  the massive  hydrodynamic  interactions  and  mechanical  collisions  between  the  RBCs  in  high haematocrit  (Hct)  blood,  stiffer  malaria iRBCs  are  displaced  towards  the  sidewalls,  and  can be depleted and enriched by bifurcatedoutlets 48. In  inertial  microfluidics,  Hur  et  al. 45found  that  centre-directed  deformability-induced  lift force shifts inertial equilibrium positions a little closer to the  channel centrelinethan that of rigid  particles,  Figure 2(c).  By  the  combination  of  size  and  deformability,  circulating  tumor cells  (CTCs)  with  more  deformability  than  the  cells  from  the  same  organ,  has  been demonstrated to be separated and enriched from peripheral blood45. Besides particle deformability, the shapeof particles 49and the properties of medium 50also impact  the  inertial  migration  and  equilibrium  positions,  which  will  not  be discussed here. A summary of particle kineticsin inertial microfluidics is shown in Figure 3
+Mach  and  Di  Carlo 58reported  a  massively  parallelized  microfluidic  device  that  passively separates pathogenic bacteria from the diluted blood(Figure 5(b)). The device consists of 40 single straight  micro-channels  placed  as  a  radial  array.  Each  channel  consists  ofthree segments  with different  cross-sections, whichuses a unique differential transit time by  size-dependent  inertial  lift  forces  to  obtain  cell  separation. The  authorsdemonstrated  that more
+
+
 Gravity
 Electro-static interaction
 Magnetic Force

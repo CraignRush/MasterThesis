@@ -1,5 +1,35 @@
 \chapter{Discussion}
-test,test
+eriving Navier-Stokes equation by the Cauchy momentum equation is complex and harbors several sources of error. First, an incompressible Newtonian fluid as well as channel boundary is assumed. The used water suspensions are approximated with negligible compressibility, which is not true for the real case. Also, for blood or other shear-thinning fluids these deviations are prone for high errors.  
+
+Then, the divergence relation of the respective viscous stress (eq. \ref{eq:divergence_Stresstensor}) does not hold for non-uniform viscosity $\eta$.
+
+For later studies in a matlab model, the flow velocity and shear stress computations were carried out with the error sources considered. 
+
+
+Third, the transient term (eq. \ref{eq:navierstokes}) was neglected in all simulations, but a connected syringe pump possesses a slow rise time (Fig. \ref{fig:fluidic:pumpStability:transient}) and a remaining ``pulsation error'' in steady state (Fig. \ref{fig:fluidic:pumpStability:steadystate}). In effect, another error adds to the simulation, which is only valid after several ten seconds of the last flow rate change.
+\begin{figure}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\addtocounter{subfigure}{1}  
+		\subfigimg[clip,trim=115 100 80 60, height=100pt]{a} {./Ressources/Fluidic/Transient_SyringePump.jpg}		
+		\addtocounter{subfigure}{-1}  
+		\phantomsubcaption
+		\label{fig:fluidic:pumpStability:transient}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\addtocounter{subfigure}{1}  
+		\subfigimg[height=100pt]{\textbf{b}}{./Ressources/Fluidic/SyringeSteadyState.eps}
+		\addtocounter{subfigure}{-1}  
+		\phantomsubcaption
+		\label{fig:fluidic:pumpStability:steadystate}
+	\end{subfigure}
+	\capption{Syringe Pump error sources}{Set flow rate: \orangeMLline, Real Flow Rate: \blueMLline \subref{fig:fluidic:pumpStability:transient} Transient step answer of a syringe pump through a microtube with \SI{254}{\micro\meter} inner diameter. \subref{fig:fluidic:pumpStability:steadystate} Steady state flow rate error around the desired \SI{5}{\micro\liter\per\minute} dispensing rate. A sinusoidal behaviour caused by the microstepping can be observed. \cite{lit:fluidic:fluigentPumpStability}}
+	\label{fig:fluidic:pumpStability}
+\end{figure}
+
+
+Second, the channel height varies in reality as a result of fabrication inaccuracies. 
 
 Contact angle for silanization of surface methods more useful --> should be 1st approach for characterization
 

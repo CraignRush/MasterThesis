@@ -79,12 +79,14 @@
 \usepackage{pgfkeys}
 
 \usepackage[ backend=biber,
-style=ieee,
+%style=ieee,
+style=numeric-comp,
 natbib=true,
-dashed=false,
+sorting=none,
+%sortcites = true,
 url=false, 
-    doi=true,
-    eprint=false]{biblatex}
+doi=true,
+eprint=false]{biblatex}
 
 \usepackage{lipsum}
 \sisetup{detect-all,
@@ -115,7 +117,7 @@ showstringspaces = false}
 %% MATH and CHEM typesetting
 \usepackage[version=4]{mhchem}
 \usepackage[modules=all]{chemmacros} % Chemical formulae
-\usepackage{cleveref}
+\usepackage[capitalize]{cleveref}
 \usepackage{esvect} %% Fine vector arrows
 \usepackage{abraces} % Braces under and over text
 \usepackage{scalerel} % Get smaller subscripts

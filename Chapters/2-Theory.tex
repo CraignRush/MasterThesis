@@ -1,12 +1,12 @@
 \setcounter{page}{1}
 \chapter{Theory}
-The main measurement principle of a microfluidic channel in connection with a \gls{gmr}-Sensor has been already described and characterized exhaustively by \citet{lit:thes:helou}, \citet{lit:thes:reisbeck} and others. \cite{lit:thes:esthi,lit:thes:brenner} Therefore, this theoretical part will focus on (bio-)physical aspects of a cell rolling motion inside a microfluidic channel and surface modification chemistry.
+The main measurement principle of a microfluidic channel in connection with a \gls{gmr}-Sensor has been already described and characterized exhaustively by \citet{lit:thes:helou}, \citet{lit:thes:reisbeck} and others.\cite{lit:thes:esthi,lit:thes:brenner} Therefore, this theoretical part will focus on (bio-)physical aspects of a cell rolling motion inside a microfluidic channel and surface modification chemistry.
 
 \section{Microfluidics}
 
 \subsection{Incompressibility of Fluid Flows}
 
-The main experiments of this work were carried out in microfluidic environments, which exhibit favorable properties compared to common macrofluidic systems. From a fluid-mechanical standpoint, shrinking the scales makes interfacial as well as electrokinetic phenomena much more significant, and reduces the importance of pressure and gravity.\cite{lit:fluidic:kirby} However, electrodynamics, chemistry and fluid dynamics are incetricably intertwined, so that fluid flow can create electric fields (and vice versa), with a degree of coupling driven by the surface chemistry. Many of the resulting phenomena arise or can be explained by the conservation of mass described by the continuity equation (Eq. \ref{eq:continuityM}) and the conservation of momentum described by the Cauchy-Momentum equation (eq. \ref{eq:cauchymomentum}) and the resulting Navier-Stokes equation(eq. \ref{eq:navierstokes}).
+The main experiments of this work were carried out in microfluidic environments, which exhibit favorable properties compared to common macrofluidic systems. From a fluid-mechanical standpoint, shrinking the scales makes interfacial as well as electrokinetic phenomena much more significant, and reduces the importance of pressure and gravity.\cite{lit:fluidic:kirby} However, electrodynamics, chemistry and fluid dynamics are incetricably intertwined, so that fluid flow can create electric fields (and vice versa), with a degree of coupling driven by the surface chemistry. Many of the resulting phenomena arise or can be explained by the conservation of mass described by the continuity equation (\cref{eq:continuityM}) and the conservation of momentum described by the Cauchy-Momentum equation (\cref{eq:cauchymomentum}) and the resulting Navier-Stokes equation(\cref{eq:navierstokes}).
 
 \begin{align}
 	\frac{\partial}{\partial t} \iiint \rho \ \mathrm{dV} &= - \iint \rho \mathbf{u} \cdot \vv{n} \ \mathrm{dA} \label{eq:continuityM}\\
@@ -16,22 +16,23 @@ The main experiments of this work were carried out in microfluidic environments,
 \end{align}
 The foremost assumption in fluid dynamics is termed ``incompressibility'', when density gradients are negligibly small to assume a uniformity thereof. This leads to a significant simplification of the conservation equations, because any transfer from kinetic to internal energy can be ignored.\footnote{For sake of completeness, it should be mentioned that viscous forces can also transfer energy irreversibly to internal energy. However, they are inversely proportional to the system's size, and hence omitted.}
 %This first premise simplifies the continuity equation.
-This equation states that the mass of a control volume (in this case the volume integral over the \gls{rho}) can only change by the mass flux over its \gls{surfnormal} transported by the \gls{u}. For constant \gls{rho} the mass does never change over time. This finding and the application of Gauss's theorem yields the conservation of mass in an incompressible fluid. (Eq. \ref{eq:conservMass})
+This equation states that the mass of a control volume (in this case the volume integral over the \gls{rho}) can only change by the mass flux over its \gls{surfnormal} transported by the \gls{u}. For constant \gls{rho} the mass does never change over time. This finding and the application of Gauss's theorem yields the conservation of mass in an incompressible fluid. (\cref{eq:conservMass})
 
 
 \subsection{Flow and Shear in Microchannels with Viscous Fluids}
+\label{subs:flow_and_Shear}
 
-The final equation and Gauss's theorem can now be applied to the conservation of momentum relation. (Eq. \ref{eq:continuityP}) Integration yields then the Cauchy momentum equation which states that any change in momentum inside a control volume ($\rho \frac{\partial \mathbf{u}}{\partial t}$) is caused by convective transport for or to the volume ($\rho\mathbf{u} \cdot \nabla \mathbf{u}$), surface stresses ($ \nabla \cdot \boldsymbol{\tau}$), and the volumetric net body forces ($\mathbf{f}_i$) such as gravity or electrostatics.
+The final equation and Gauss's theorem can now be applied to the conservation of momentum relation. (\cref{eq:continuityP}) Integration yields then the Cauchy momentum equation which states that any change in momentum inside a control volume ($\rho \frac{\partial \mathbf{u}}{\partial t}$) is caused by convective transport for or to the volume ($\rho\mathbf{u} \cdot \nabla \mathbf{u}$), surface stresses ($ \nabla \cdot \boldsymbol{\tau}$), and the volumetric net body forces ($\mathbf{f}_i$) such as gravity or electrostatics.
 
-Hereby, the surface stress \gls{tau} can be further decomposed into the \gls{tau_p} and \gls{tau_v} as shown in the equations \ref{eq:surfaceStressTensor}. Characteristically, the pressure related contributions act normal and independently from \gls{u} whereas viscous forces act normal and tangential, and are dependent on \gls{u}. The \gls{tau_p} can therefore be expressed by a scalar pressure acting in every spatial dimension which is spanned by the identity. 
+Hereby, the surface stress \gls{tau} can be further decomposed into the \gls{tau_p} and \gls{tau_v} as shown in the equations \cref{eq:surfaceStressTensor}. Characteristically, the pressure related contributions act normal and independently from \gls{u} whereas viscous forces act normal and tangential, and are dependent on \gls{u}. The \gls{tau_p} can therefore be expressed by a scalar pressure acting in every spatial dimension which is spanned by the identity. 
 
-The viscous stresses however can not be described by a continuum equation but only by a constitutive relation of atomistic processes. The underlying fundamental model of Newton's mechanics assumes that \gls{eta} is neither dependent on any velocity nor on the strain rate. Therefor, fluids which satisfy this condition are called ``Newtonian fluids''. Omitting special cases such as shear-thinning, -thickening or complex colloidal fluids such as undilute blood, \gls{eta} is the scalar proportionality that relates the strain rate to surface stress.\cite{lit:fluidic:kirby} This is captured in the equation $\boldsymbol{\tau}_{viscous} = 2\eta \mathbf{\epsilon} $. Thereby, \gls{epsilon} is part of the decomposition of an unidirectional flow field. It resembles on the one hand side any stretching or squeezing of fluid by ``extensional'' strain and on the other hand side ``shear'' strain which is responsible for skewing. \cite{lit:fluidic:kirby}
+The viscous stresses however can not be described by a continuum equation but only by a constitutive relation of atomistic processes. The underlying fundamental model of Newton's mechanics assumes that \gls{eta} is neither dependent on any velocity nor on the strain rate. Therefor, fluids which satisfy this condition are called ``Newtonian fluids''. Omitting special cases such as shear-thinning, -thickening or complex colloidal fluids such as undilute blood, \gls{eta} is the scalar proportionality that relates the strain rate to surface stress.\cite{lit:fluidic:kirby} This is captured in the equation $\boldsymbol{\tau}_{viscous} = 2\eta \mathbf{\epsilon} $. Thereby, \gls{epsilon} is part of the decomposition of an unidirectional flow field. It resembles on the one hand side any stretching or squeezing of fluid by ``extensional'' strain and on the other hand side ``shear'' strain which is responsible for skewing.\cite{lit:fluidic:kirby}
 \begin{align}
 	\boldsymbol{\tau} &= \boldsymbol{\tau}_{viscous} +  \boldsymbol{\tau}_{pressure} = 2\eta \boldsymbol{\epsilon} - p \mathbf{I}_{\scaleto{3 \times 3}{4pt}} \label{eq:surfaceStressTensor}\\
 	\nabla \cdot \boldsymbol{\tau}_{viscous} &= \nabla \cdot 2\eta \boldsymbol{\epsilon} = \nabla \cdot \eta \nabla \mathbf{u} \ \underset{uniform}{\overset{only \ if \ \eta}{=}} \ \eta \nabla^2 \mathbf{u} 	\label{eq:divergence_Stresstensor} \\
 	\aunderbrace{\vphantom{\sum_{i}} \rho \frac{\partial \mathbf{u}}{\partial t}}_{\mathrm{Transient}} + \aunderbrace{\vphantom{\sum_{i}}\rho\mathbf{u} \cdot \nabla \mathbf{u}}_{\mathrm{Convection}} &= \aunderbrace{\vphantom{\sum_{i}}-\nabla p}_{\mathrm{Pressure}} + \aunderbrace{\vphantom{\sum_{i}}\eta \nabla^2 \mathbf{u}}_{\mathrm{Viscous}} + \aunderbrace{\sum_{i}\mathbf{f}_i}_{\mathrm{Body \ Forces}} \label{eq:navierstokes}
 \end{align}
-The divergence of \gls{tau_v}, as used in the incompressible Cauchy momentum equation (Eq. \ref{eq:cauchymomentum}), can then be simplified with Eq. \ref{eq:divergence_Stresstensor} further by taking advantage of the anti-transpose symmetry of the flow field. If \gls{eta} is also uniform respectively isotropic across the channel, the divergence is completely independent of the scalar viscosity.  Applying all assumptions to the Cauchy momentum equation (Eq. \ref{eq:cauchymomentum}) yields as final result the \gls{nse}. (Eq. \ref{eq:navierstokes}) 
+The divergence of \gls{tau_v}, as used in the incompressible Cauchy momentum equation (\cref{eq:cauchymomentum}), can then be simplified with \cref{eq:divergence_Stresstensor} further by taking advantage of the anti-transpose symmetry of the flow field. If \gls{eta} is also uniform respectively isotropic across the channel, the divergence is completely independent of the scalar viscosity.  Applying all assumptions to the Cauchy momentum equation (\cref{eq:cauchymomentum}) yields as final result the \gls{nse}. (\cref{eq:navierstokes}) 
 
 However, the \gls{nse} has no analytic solution yet and can in consequence only solve defined boundary problems. The two most common boundary conditions herefore are the ``no-penetration condition'' ($\mathbf{u} \cdot \vv{n} = 0$) and the ``no-slip condition'' ($\mathbf{u}_t = \mathbf{u} - (\mathbf{u}\cdot \vv{n}) \vv{n} = 0$), which state that the normal and tangential components of fluid velocity are per definition zero at motionless, impermeable walls.\newline
 Besides these conditions, many problems arise due to turbulent flow and therefor transient effects. Mathematically, this can be avoided by simply neglecting the time-dependent term in the \gls{nse}. Also, it can be argumented from a systematic point of view that, for viscosity-dominated flows, fluid moves in isoplanar ``lamina''. In experimental observations, these laminar flows then proved to be stable to perturbations thus steady.
@@ -40,10 +41,10 @@ Besides these conditions, many problems arise due to turbulent flow and therefor
 	\mathit{Re}\ =\ \frac{\mathrm{\mathsf{fluid\ density\ \cdot\ velocity\ \cdot\ size}}}{\mathrm{\mathsf{viscosity}}} \label{eq:reynolds}
 \end{equation}
 
-In a first order approximation, the dimensionless \gls{re}, which compares the inertia to viscous forces, allows a qualitative prognosis about the flow regime. (Eq. \ref{eq:reynolds}) If it results below a threshold of 2300, laminar flow can be assumed in Hagen-Poiseuille flows. This holds true for the utilized microfluidic with the dimensions \SI{12000}{\micro\meter} x \SI{700}{\micro\meter} x \SI{150}{\micro\meter} (l x w x h) and aequous buffer solutions, where the channel width considered as characteristic length $l$. Hence, several fluidic phenomena such as deterministic pathlines as well as simplifications of the \gls{nse} can be exploited in the present system. 
+In a first order approximation, the dimensionless \gls{re}, which compares the inertia to viscous forces, allows a qualitative prognosis about the flow regime. (\cref{eq:reynolds}) If it results below a threshold of 2300, laminar flow can be assumed in Hagen-Poiseuille flows. This holds true for the utilized microfluidic with the dimensions \SI{12000}{\micro\meter} x \SI{700}{\micro\meter} x \SI{150}{\micro\meter} (l x w x h) and aequous buffer solutions, where the channel width considered as characteristic length $l$. Hence, several fluidic phenomena such as deterministic pathlines as well as simplifications of the \gls{nse} can be exploited in the present system. 
 
-In the model case of a flow through a rectangular channel, no analytical solution of the \gls{nse} exists, but a Fourier Series expansion if the width is larger than height of a channel as shown in \citet{lit:fluidic:bruus}.\footnote{The equation \ref{eq:flowVelocityRect} shows that height deviations can have prominent influence on a channel velocity simulation as it is proportional to $h^2$. Further, the flow rate depends even on $h^3$.} 
-Equation \ref{eq:flowVelocityRect} determines the magnitude of the flow field parallel to the pressure gradient in relation to the horizontal dimension $y$ and vertical dimension $z$ with respect to the channel dimensions height $h$ and width $w$. An integration over the flow field in the channel cross section yields the \gls{q}. (Eq. \ref{eq:flowRateRect})
+In the model case of a flow through a rectangular channel, no analytical solution of the \gls{nse} exists, but a Fourier Series expansion if the width is larger than height of a channel as shown in \citet{lit:fluidic:bruus}.\footnote{The equation \cref{eq:flowVelocityRect} shows that height deviations can have prominent influence on a channel velocity simulation as it is proportional to $h^2$. Further, the flow rate depends even on $h^3$.} 
+Equation \cref{eq:flowVelocityRect} determines the magnitude of the flow field parallel to the pressure gradient in relation to the horizontal dimension $y$ and vertical dimension $z$ with respect to the channel dimensions height $h$ and width $w$. An integration over the flow field in the channel cross section yields the \gls{q}. (\cref{eq:flowRateRect})
 
   \begin{align}
 \mathbf{u}   _x(y,z) &= \frac{4 h^2 \Delta p}{\pi^3 \eta l} \sum_{n,odd}^{\infty} \frac{1}{n^3} \left( 1- \frac{\cosh (n \pi \frac{y}{h})}{\cosh (n \pi \frac{w}{2h})} \right) \sin (n \pi \frac{z}{h}) \label{eq:flowVelocityRect} \\
@@ -52,208 +53,254 @@ Equation \ref{eq:flowVelocityRect} determines the magnitude of the flow field pa
 
 
 \subsection{Force Equilibrium of Microbeads}
-Although microfluidic systems mostly operate in a low inertia regimes as specified by low \gls{re}, the force equilibrium and subsequently the velocity of any particle in the fluid stream is influenced as it moves closer to the boundaries. Therefore, a short overview over all acting forces shall be given here.
-
-
-\begin{align}
-	\mathbf{F}_{drag,wall} &= -6 \pi \eta r \ \overline{\mathbf{u}} \ K \label{eq:f:drag}\\
-	K &=  \frac{4}{3} \sinh \alpha \sum_{n=0}^{\infty} \left(\frac{n(n+1)}{(2n-1)(2n+3)} \ \cdot \ A \right) \label{eq:f:wall-correction}\\
-	\alpha &= \cosh^{-1}\frac{z}{r} \\
-	A &= \left(\frac{2 \sinh((2n+1)\alpha) + (2n+1)\sinh2\alpha}{(2\sinh((n+0.5)\alpha))^2 -((2n+1)\sinh\alpha)^2 }-1\right)\\
-	K_{approx} &= \frac{24}{\mathit{Re}} *\left(\frac{1+\frac{2\eta_{fluid}}{3 \eta_{particle}}}{1+\frac{\eta_{fluid}}{ \eta_{particle}}}\right) \label{eq:correctionApprox}\\
-	v_z &= \frac{3}{64} \mathit{Re}_s u_s \ = \ \frac{3}{64} \frac{\rho_{fluid} r u_s}{\eta} u_s \ , \ (\frac{\rho_{fluid} l_w u_s}{\eta}) \ll 1\label{eq:repulsion_v}\\
-	\mathbf{F}_{buoyancy} &= -\frac{4}{3}\pi r^3 \ \rho_{fluid} \ g \label{eq:f:buoyancy}\\
-	\mathbf{F}_{gravity} &= +\frac{4}{3}\pi r^3 \ \rho_{particle} \ g \label{eq:f:grav}\\
-	\mathbf{F}_{shear} &= \frac{81.2}{4} (\mathbf{u} - u_p) r^2 \sqrt{\frac{\rho_{fluid}}{\eta} \nabla \mathbf{u}} \\
-	\mathbf{F}_{magnus} &=  \frac{1}{8}\pi r^3 \rho_{fluid} \ ( \mathbf{u} \times \mathbf{\Omega} )\\
-	\sum_{i} \mathbf{F} &\overset{!}{=} 0 \\
-	\omega &= \frac{0.025r \mathbf{u}}{l^2(1-0.6526\frac{r}{l})} \mathrm{, \ for \ } (\frac{r}{l})^2 \ll 1	
-\end{align}
-
-\subsubsection{Stoke's Drag}
-The foremost force to move particles inside a microfluidic channel is \gls{f:drag}.(Eq. \ref{eq:f:drag}) It originates in the viscous fluid moving past the sphere surface, where a slip condition has to be applied. The fluid therefor has to displace its elements in front of the movement direction of a particle. \cite{lit:fluidic:motion_sphere_to_plane_surface} 
-In the vertical dimension with a channel wall in the proximity, where no fluid can be displaced further, a correction factor was determined by \todo{zitat brenner} that approximates drag in a perpendicular direction.(Eq. \ref{eq:f:wall-correction})\cite{lit:fluidic:f_wall} A repusion velocity can then be defined by the \acrlong{re} calculated with the \gls{u:s} if the particle center has a distance $l_w \ll 1$ from the wall. (\ref{eq:repulsion_v}) \cite{lit:fluidic:motion_sphere_surface_2009} A phenomenological approximation of the correction factor yields equation \ref{eq:correctionApprox}, when viscosity dominates the difference. Adapted to an example, a spherical bubble inside a water flow feels only \SI{67.4}{\percent} of the drag by the fluid.
+Although microfluidic systems mostly operate in a low inertia regimes as specified by low \gls{re}, the force equilibrium $\sum_{i} \mathbf{F} \overset{!}{=} 0$ and subsequently the velocity of any particle in the fluid stream is influenced as it moves closer to the boundaries. Several models have already been implemented with a part of the mentioned forces. \citet{lit:fluid:comparison} compared the importance translation, rotation and shear forces.\cite{lit:fluidics:RollingCharacteristics} evaluated cell rolling characteristics and \citet{lit:fluidic:ModelMIT} proposed a model for bead-based immunoassays in microfluidics. Therefore, an overview over all (inter-)acting forces shall be given here.
 
 \begin{equation}
-	\mathit{Re}_p = \mathit{Re}_{channel} \frac{r^2}{\frac{2wh}{w+h}} 
+	\mathit{Re}_{particle} = \frac{r^2}{\frac{2wh}{w+h}} \ \mathit{Re} 
 \end{equation}
 
-\subsubsection{Gravity and Buoyancy}
-On every mass in our environment acts \gls{f:grav} to pull it along its gradient. In a medium however, it is balanced by the displacement of the same called \gls{f:buoyancy} in the counter-direction. As a microparticle made from a co-polymer - especially when it is magnetic - has a significantly higher density than water, \gls{f:grav} (Eq. \ref{eq:f:grav}) outperforms \gls{f:buoyancy} (Eq. \ref{eq:f:buoyancy}), which in term causes a particle to sink to the channel floor.
+Additionally to the channel Reynolds number \gls{re}, describing the ratio between inertial force and viscous force of fluid in a flow, \citet{lit:fluidic:f_wall} proposed a \gls{re_p} considering the size ratio of particle to channel. When \gls{re_p} $\ll 1$ particles are subjected to the dominant viscous drag to follow fluid streamlines. In the contradictory case, inertia becomes prominent. However, on increasing \gls{re_p} to the order of 1, inertial lift forces become dominant and lateral migration of particles across streamlines becomes visible.  For a micrometer sized bead and a channel as mentioned in \cref{subs:flow_and_Shear}, the pre-factor is in the range of \num{1e-5} hence viscous drag overweighs inertial lift of a particle.
 
-\begin{figure}
-	\begin{subfigure}[!t]{0.39\textwidth}
-		\centering
-		\addtocounter{subfigure}{1}  
-		\subfigimg[height=47pt]{a} {./Ressources/Fluidic/drag}		
-		\addtocounter{subfigure}{-1}  
+\subsubsection{Stoke's Drag}
+\vspace{\baselineskip}
+\begin{figure}[!h]
+	\subfloat{
+		\subfigimg[height=50pt]{a}{./Ressources/Fluidic/drag}	
 		\phantomsubcaption
 		\label{fig:fluidic:drag}
-	\end{subfigure}%
-	\begin{subfigure}[!t]{0.39\textwidth}
-		\centering
-		\addtocounter{subfigure}{1}  
-		\subfigimg[height=47pt]{\textbf{b}}{./Ressources/Fluidic/lift1}
-		\addtocounter{subfigure}{-1}  
+	}
+	\hfill
+	\subfloat{
+		\subfigimg[height=50pt]{b}{./Ressources/Fluidic/lift1}
 		\phantomsubcaption
 		\label{fig:fluidic:lift1}
-	\end{subfigure}%
-	\begin{subfigure}[!t]{0.2\textwidth}
-		\centering
-		\addtocounter{subfigure}{1}  
-		\subfigimg[height=47pt]{\textbf{c}}{./Ressources/Fluidic/lift2}
-		\addtocounter{subfigure}{-1}  
+	}%
+	\hfill
+	\subfloat{
+		\subfigimg[height=50pt]{c}{./Ressources/Fluidic/lift2}
 		\phantomsubcaption
 		\label{fig:fluidic:shear}
-	\end{subfigure}
-	\capption{Particle Drag and Lift Behaviour}{(\textbf{a}) Drag force on a particle caused by the displacement of fluid stream lines. (\textbf{b}) Wall-lift force: In a special case of drag, where no steamlines can be displaced, a pressure gradiend forms in front of the sphere. This forces a motion directed perpendicularly from the wall. (c) Shear-induced force: The curvature of the flow profile exhibits a tranlation and rotation due to shear on the surface. \cite{lit:fluidic:imageLift}}
+}
+	\capption{Particle Drag and Lift Behavior}{(\textbf{a}) Bulk Drag: Force acts on a particle caused by the displacement of fluid stream lines. (\textbf{b}) Wall-lift Drag Force: In a special case of drag, where streamlines cannot be displaced further, a pressure gradient forms in front of the sphere. This forces a motion directed perpendicularly from the wall. (\textbf{c}) Shear-induced force: The curvature of the flow profile exhibits a translation and rotation due to inhomogeneously distributed shear on the surface.\cite{lit:fluidic:imageLift}}
 	\label{fig:fluidic:lift}
 \end{figure}
 
-
-\subsubsection{Magnus Lift Force}
-The \gls{f:magnus} is a rotation-induced variable as a result of the pressure difference induced by streamline asymmetry. \cite{lit:fluidic:inertialFluidicsForces} 
-
-
-\subsubsection{Saffman Lift Force}
-When the rotation speed of a particle is much greater than the rate of shear for a freely rotating particle $\Omega>12\nabla\mathbf{u}$, ``Saffman force'' will begin to act. Depending on the interaction of slip velocity and shear, it will counteract any movement to the planar surface. Hence, at high gradients the center of rotation causes a shift to the maximum shear. \newline 
-Scaling with the \gls{omega}, it will generally be at least one order of magnitude larger than Magnus force. Especially for electically or magnetically actuated particles, Saffman force is more relevant in the case of non-neutrally buoyant spheres.\cite{lit:fluidic:inertialFluidicsForces} 
-
-
-\subsubsection{Shear-induced Lift Force}
-This \gls{f:shear} particles to migrate toward walls until the wall lift force repels and balances it. In contrast, if the curvature of \gls{u} is zero, it collapses to a simple shear flow. Then the pressure will be higher on the far from the center pushing particles to the centerline of channel. As shown in \ref{fig:fluidic:shear} the magnitude of \gls{u} in particle is much higher on the top side of particle  than  that  on  the  bottom  side,  due  to  the parabolic nature of velocity profile. Similar  to  Saffman  force,  the  dissymmetry  of  relative  velocity  causes  a  lower  pressure  on the wall side, generating a shear gradient lift force which is opposite to the Saffman force. \cite{lit:fluidic:inertialFluidicsForces} 
-
-
-\subsubsection{Rotational Forces}
+The foremost force to actuate particles inside a microfluidic channel is \gls{f:drag}.(\cref{eq:f:drag}) It originates from viscous fluid moving past the sphere surface, where a slip condition has to be applied. The fluid therefor has to displace its elements in front of the movement direction.\cite{lit:fluidic:motion_sphere_to_plane_surface} A particle with the surrounding streamlines is depicted in \cref{fig:fluidic:drag} for the bulk case and in \cref{fig:fluidic:lift1} for adjacent walls. 
+\begin{align}
+	\mathbf{F}_{drag,wall} &= -6 \pi \eta r \ \overline{\mathbf{u}} \ K \label{eq:f:drag}\\
+	K &=  \frac{4}{3} \sinh \alpha \sum_{n=0}^{\infty} \left(\frac{n(n+1)}{(2n-1)(2n+3)} \ \cdot \ A \right) \label{eq:f:wall-correction}\\
+	\alpha &= \cosh^{-1}\frac{z}{r}, \\ A &= \frac{2 \sinh((2n+1)\alpha) + (2n+1)\sinh2\alpha}{(2\sinh((n+0.5)\alpha))^2 -((2n+1)\sinh\alpha)^2 }-1\\
+	K_{approx} &= \frac{24}{\mathit{Re}} *\left(\frac{1+\frac{2}{3}\lambda}{1+\lambda}\right) ,\ \mathrm{with}\ \lambda = \frac{\eta_{fluid}}{ \eta_{particle}}\label{eq:correctionApprox} \\
+	v_z &= \frac{3}{64} \mathit{Re}_s \mathbf{u}_s \ = \ \frac{3}{64} \frac{\rho_{fluid} r \mathbf{u}_s}{\eta} \mathbf{u}_s \ , \ (\frac{\rho_{fluid} l_w \mathbf{u}_s}{\eta}) \ll 1\label{eq:repulsion_v}\\
+	\omega &= \frac{3 \mathbf{u}}{32 r}\left(\frac{r}{l}\right)^{4}\left(1-\frac{3}{8} \frac{r}{l}\right) \mathrm{, \ for \ } (\frac{r}{l})^2 \ll 1	\label{eq:angularFreq}
+\end{align}
+In the proximity of a channel wall, where no fluid can be displaced further, a correction factor was determined by \citet{lit:fluid:Hydrodynamics} that approximates drag in a perpendicular direction.(\cref{eq:f:wall-correction}) Repusion velocity can then be defined by the \acrlong{re} calculated with a \gls{u:s} if the particle center has a distance $l_w \ll 1$ from the wall.\cite{lit:fluid:velocities, lit:fluidic:motion_sphere_surface_2009} A phenomenological approximation of the correction factor yields equation \cref{eq:correctionApprox}, when viscosity dominates the difference. Adapted to an example, a spherical air-bubble inside a water flow feels only \SI{67.4}{\percent} of the drag by surrounding fluid.
 
 \begin{figure}[!htb]
-	\begin{subfigure}[b]{0.66\textwidth}
-		\centering
-		\addtocounter{subfigure}{1}  
-		\subfigimg[height=100pt]{a} {./Ressources/Fluidic/RotationSpheredistant}		
-		\addtocounter{subfigure}{-1}  
+	\subfloat{
+		\subfigimg[height=120pt]{a}{./Ressources/Fluidic/RotationSpheredistant}
 		\phantomsubcaption
 		\label{fig:fluidic:particleRotationfar}
-	\end{subfigure}%
-	\begin{subfigure}[b]{0.33\textwidth}
-		\centering
-		\addtocounter{subfigure}{1}  
-		\subfigimg[height=100pt]{\textbf{b}}{./Ressources/Fluidic/RotationSpherenear}
-		\addtocounter{subfigure}{-1}  
+	}%
+	\hfill
+	\subfloat{
+		\subfigimg[height=120pt]{b}{./Ressources/Fluidic/RotationSpherenear}
 		\phantomsubcaption
 		\label{fig:fluidic:particleRotationnear}
-	\end{subfigure}
-	\capption{Particle Rotation Behaviour}{tesrt}
+ 	}
+	\capption{Particle Rotation Behavior}{(\textbf{a}) Direction of rotation of
+		a sphere settling in eccentric position	between parallel walls. (\textbf{b}) Direction of rotation of a sphere settling in the presence of a single plane wall far from the other side.\cite{lit:fluidic:f_wall}}
 	\label{fig:fluidic:particleRotation}
 \end{figure}
 
+The considerations of \acrlong{f:drag} above were limited for only linear translation cases. However, fluid drag also imposes a torque on particles. \citet{lit:fluid:Hydrodynamics} mention an experimentally determined formula in \ref{eq:angularFreq} to calculate a drag-related \gls{omega_freq}. Counter-intuitively, the direction of rotation in the bulk fluid (\cref{fig:fluidic:particleRotationfar}) is opposite than from the rotation direction near or touching the wall (\cref{fig:fluidic:particleRotationnear}). This can be explained by a complex superposition of tangential components from later mentioned forces and will not be explained to any more extent here.
+
+\subsubsection{Gravity and Buoyancy}
+On every mass in our environment acts \gls{f:grav} to pull it along its gradient. In a medium, however, it is balanced by the displacement of the same in the counter-direction called \gls{f:buoyancy}. As a microparticle made from a co-polymer - especially when it is magnetic - has a significantly higher density than water, \gls{f:grav} (\cref{eq:f:grav}) outperforms \gls{f:buoyancy} (\cref{eq:f:buoyancy}), which in term causes a particle to sink to the channel floor.
+\begin{align}
+	\mathbf{F}_{buoyancy} &= -\frac{4}{3}\pi r^3 \ \rho_{fluid} \ g \label{eq:f:buoyancy}\\
+	\mathbf{F}_{gravity} &= +\frac{4}{3}\pi r^3 \ \rho_{particle} \ g \label{eq:f:grav}
+\end{align}
 
 
+\subsubsection{Magnetic Force}
+The - during the course of this thesis - strongest acting force is exhibited by the \gls{B}, which acts on paramagnetic particles with a \gls{m}. When an external magnetic field is non-uniform, there will be a \gls{f:mag}, proportional to the magnetic field gradient, acting on the magnetic dipole moment.(\cref{eq:f:dipole}) For particles that carry magnetite or similar ferrimagnetic material in their polymer matrix or shell, the magnetic moment can be inferred by the relation $\mathbf{m} = \mathbf{M} V$, where the \gls{M} of a volume $V$ is known. However, the more exact approach is a comparison of \glspl{chi} as described in \cref{eq:f:mag}. Consequently, if the particle susceptibility is greater than the fluid's, a microbead will move towards the field maximum. Calculated for an \SI{8}{\micro\meter} bead with \SI{3.8}{\ampere\meter\squared} saturation magnetization, \gls{f:mag} results in \textasciitilde{}\SI{45}{\pico\newton} for a field gradient of \SI{5}{\tesla\per\meter}.
 
-2.8Deformability-induced lift forceAlthough solidrigid  particles  can  be  used  as  a  simple  model  in  the  study  of  hydrodynamic behaviour of particles in a microchannel, the practical bio-particles such as cells and vesicles are  not  rigid  but  deformable. Thedeformability  will  induce  additional  lift  forces on  the particles. The deformability-induced lift force is perpendicular to the main streamline, and it is believedto  be  the  effects  of  shape-change  of  particle  and  nonlinearities  caused  by  the matching   of   velocities   and   stresses   at   the   deformable   particleinterface 
+\begin{align}	
+	\mathbf{F}_{mag} &=\frac{V_{p}\left(\chi_{p}-\chi_{f}\right)}{\mu_{0}}(\mathbf{B} \cdot \nabla) \mathbf{B} \label{eq:f:mag}	\\
+	\mathbf{F}_{dipole} &=\left(\mathbf{m}\cdot \nabla \right) \mathbf{B} = -\nabla \mathbf{E}_{dipole}\\
+	\mathbf{E}_{dipole}&=\sum_{i-1}^{n} \frac{\mu_{0}}{4 \pi r_{i}^{3}}\left(\mathbf{m}_{\mathbf{i}} \cdot \mathbf{m}_{\mathbf{ref}}-\frac{3}{|\mathbf{r}_{i}|^{2}}\left(\mathbf{r}_{\mathbf{i}} \cdot \mathbf{m}_{\mathbf{i}}\right)\left(\mathbf{r}_{\mathbf{i}} \cdot \mathbf{m}_{\mathbf{ref}}\right)\right)  \label{eq:f:dipole}
+\end{align}
+Additionally, the magnetic beads interact with each other according to the dipolar interaction, where a reference bead with magnetic momentum $\mathbf{m}_{\mathbf{ref}}$ at distance $\mathbf{r}_{\mathbf{ref}}$ feels the force of all surrounding particles. (\cref{eq:f:dipole})
 
-Deformability-induced  lift  force  can  be  used  to  separate  and  enrich  malaria-infected  red blood  cells  (iRBCs)  from  normal  healthy  RBCs  (hRBCs)  for  the  diagnosis  of  malaria.  The parasite releases proteins that trigger the cross-linking of the spectrin network in the iRBC’s phospholipid bilayer membrane, thus increases the rigidity of the iRBCs. Normal hRBCs are more  deformable  than iRBCs,  migrating  towards  to  the  centre  of  the  channel.  Due  to  the massive  hydrodynamic  interactions  and  mechanical  collisions  between  the  RBCs  in  high haematocrit  (Hct)  blood,  stiffer  malaria iRBCs  are  displaced  towards  the  sidewalls,  and  can be depleted and enriched by bifurcatedoutlets 48. In  inertial  microfluidics,  Hur  et  al. 45found  that  centre-directed  deformability-induced  lift force shifts inertial equilibrium positions a little closer to the  channel centrelinethan that of rigid  particles,  Figure 2(c).  By  the  combination  of  size  and  deformability,  circulating  tumor cells  (CTCs)  with  more  deformability  than  the  cells  from  the  same  organ,  has  been demonstrated to be separated and enriched from peripheral blood45. Besides particle deformability, the shapeof particles 49and the properties of medium 50also impact  the  inertial  migration  and  equilibrium  positions,  which  will  not  be discussed here. A summary of particle kineticsin inertial microfluidics is shown in Figure 3
-Mach  and  Di  Carlo 58reported  a  massively  parallelized  microfluidic  device  that  passively separates pathogenic bacteria from the diluted blood(Figure 5(b)). The device consists of 40 single straight  micro-channels  placed  as  a  radial  array.  Each  channel  consists  ofthree segments  with different  cross-sections, whichuses a unique differential transit time by  size-dependent  inertial  lift  forces  to  obtain  cell  separation. The  authorsdemonstrated  that more
+
+\subsubsection{Electrostatic Interaction}
+The microchannel, as well as a particle in it, carries an electrical double layer on the surface, due to present surface charges. The net charge acquired by the particles can be computed by integrating the particles’ surface charge densities over their surfaces as described by Gauss’s Law. However, as \gls{f:el} on charge $q_1$ is square dependent of the distance from the secondary charge $q_2$ at the respective locations $\mathbf{r}_{1},\ \mathbf{r}_{2}$.(\Cref{eq:f:el}) This, and the fact that the surface net charge in a buffer solution is insignificant, lead to the assumption that \gls{f:el} plays a minor role in this force equilibrium. 
+
+\begin{equation}
+	\mathbf{F}_{el}=\frac{q_{1} q_{2}}{4 \pi \varepsilon_{0}} \frac{\mathbf{r}_{1}-\mathbf{r}_{2}}{\left|\mathbf{r}_{1}-\mathbf{r}_{2}\right|^{3}} \label{eq:f:el}
+\end{equation}
+
+\subsubsection{Magnus Lift Force}
+\vspace{\baselineskip}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{./Ressources/Fluidic/Magnus-effect.pdf}
+	\capption{Magnus Effect on a Particle in Laminar Flow}{The intrinsic rotation of a particle inside a laminar flow field causes a pressure gradient to the side whose tangential rotation vector is parallel to the stream lines.}
+	\label{fig:fluidic:magnus}
+\end{figure}
+The \gls{f:magnus} is a rotation-induced variable as a result of the pressure difference induced by streamline asymmetry.\cite{lit:fluidic:inertialFluidicsForces} For a spinning particle in a fluid as shown in \cref{fig:fluidic:magnus}, the streamline density and therefor the pressure on the one side of the particle is lower than the pressure the other side. The main driver of this effect is again the no-slip boundary, where fluid on the front side of the particle is dragged down whereas the fluid on the bottom side is slowed down. As a result, this leads to a lift force perpendicular to the flow direction.
+
+\begin{equation}	
+	\mathbf{F}_{magnus} =  \frac{1}{8}\pi r^3 \rho_{fluid} \ ( \mathbf{u} \times \mathbf{\Omega}) \label{eq:f:magnus}
+\end{equation}
 
 
-Gravity
-Electro-static interaction
-Magnetic Force
-Friction
-Interface-Forces
-Faraus linquist
-Protein interaction/ Avidity,Affinity
-\subsubsection{Rolling Motion of Beads}
-\clearpage
-\subsection{}
+\subsubsection{Saffman Lift Force}
+When the rotation speed of a particle in shear rate direction is much greater, $\Omega>12\nabla\mathbf{u}$, for a freely rotating particle \gls{f:saffman} will begin to act. Depending on the interaction of slip velocity and shear, it will counteract any movement to the planar surface. Hence, at high gradients the center of rotation causes a shift to the maximum shear. \newline 
+Scaling with the \gls{omega_freq}, it will generally be at least one order of magnitude larger than Magnus force. Especially for electically or magnetically actuated particles, \gls{f:shear} is more relevant in the case of non-neutrally buoyant spheres.\cite{lit:fluidic:inertialFluidicsForces} 
+
+
+\subsubsection{Shear-induced Lift Force}
+This \gls{f:shear} particles to migrate toward walls until the wall lift force repels and balances it. In contrast, if the curvature of \gls{u} is zero, it collapses to a simple shear flow. Then the pressure will be higher on the far from the center pushing particles to the centerline of channel. As shown in \cref{fig:fluidic:shear} the magnitude of \gls{u} in particle is much higher on the top side of particle  than  that  on  the  bottom  side,  due  to  the parabolic nature of velocity profile. Similar  to  Saffman  force,  the  dissymmetry  of  relative  velocity  causes  a  lower  pressure  on the wall side, generating a shear gradient lift force which is opposite to the Saffman force.\cite{lit:fluidic:inertialFluidicsForces} 
+
+\begin{equation}	
+	\mathbf{F}_{shear} = \frac{81.2}{4} (\mathbf{u} - u_p) r^2 \sqrt{\frac{\rho_{fluid}}{\eta} \nabla \mathbf{u}} \label{eq:f:shear}
+\end{equation}
+
+\subsubsection{Deformability-Induced Lift Force}
+Although solidity can assumed in the first order to the study of hydrodynamic behaviour of particles in a microchannel, cells and vesicles are not  rigid  but  deformable. The deformability  will  induce an additional  lift  forces on the particles, which is perpendicular to the main streamline, and it is subjected nonlinearities  caused  by  the matching   of   velocities   and   stresses   at   the   deformable   particle interface. 
+
+\begin{align}
+	\mathbf{F}_{deformation}&=\mu U r \left(\frac{r}{H}\right)^{2} \frac{l_w}{H} f\left(\lambda\right) \label{eq:f:deform}\\
+	f(\lambda) &=\frac{16 \pi}{\left(\lambda+1\right)^{3}}\left[\frac{11 \lambda+10}{140}\left(3 \lambda^{3}-\lambda+8\right)+\frac{3}{14} \frac{19 \lambda+16}{3 \lambda+2}\left(2 \lambda^{2}-\lambda-1\right)\right] 
+\end{align}
+
+For example deformability-induced  lift  force  can  be  used  to  separate  and  enrich  malaria-infected \gls{rbc}  from  normal  healthy  \gls{rbc} for  the  diagnosis  of  malaria.  The parasite releases proteins that trigger the cross-linking of the spectrin network of the membrane, thus increases the rigidity of the infected cells.\cite{lit:fluid:deformability}
+\citet{lit:fluid:deformabilityDiCarlo} reported a parallelized  microfluidic  device  that  passively separates pathogenic bacteria from the diluted blood by the use a unique differential transit time due to channel height differences which in turn caused size-dependent inertial  lift forces to obtain cell separation.
+
+\subsubsection{F\aa{}r\ae{}us and F\aa{}r\ae{}us-Lindquist Effect}
+Often confused, the F\aa{}r\ae{}us and F\aa{}r\ae{}us-Lindquist effect constitute two different hemodynamic properties relevant for microfluidics with blood samples. Whereas the  F\aa{}r\ae{}us effect states that \glspl{rbc} are depleted in the wall regions of capillaries (due to the lift forces mentioned before), the F\aa{}r\ae{}us-Lindqvist effect describes the behavior of blood to decrease its viscosity in narrow channels.\cite{lit:fluid:faraeus, lit:fluid:faraeuslinquvist} Thereby, the latter effect is not solely driven by the first, but also the Segr\'{e}-Silberberg effect, who discovered that for neutrally buoyant particles an equilibrium at exact $0.6r$ from a tubing center forms.\cite{lit:fluid:silberbereffect} To model this effect, \citet{lit:fluid:cell-free-model} developed a cell-free marginal layer model.
+
+
+\subsection{Rolling Motion and Surface Interaction of Beads}
+A nice intro goes here
+\subsubsection{Contact Area of a Sphere and Flat Surface}
+Once the acting forces brought the bead in contact with a wall or the channel bottom, it starts to move forward in a rolling motion. In a simple model, rolling on a plane without slipping is constrained by a sphere's translation ($\mathbf{F}_\parallel,\ \mathbf{F}_\perp$), rotation ($\omega$), and shear. Nevertheless, due to the rigid nature of the sphere, any drag will be omitted in further models.\cite{lit:fluid:rolling:rigid_viscoelastic} The no-slip boundary condition has to be applied also here by the requirement that the points of the sphere momentarily in contact with the plane are at rest. \newline However, rolling contact problems are dynamic because the contacting bodies are continuously moving with respect to each other. The contact patch in a sliding problem continuously consists of the same particles. In contrast, particles enter and leave the contact area during rolling. Moreover, in a sliding problem the surface particles in the contact patch are all subjected the same tangential shift everywhere, whereas in a rolling problem the surface particles are stressed in different ways. During rolling, they are free of stress when entering the contact, then stick to a particle of the opposing surface, and are strained by the overall motion difference between the two bodies, until the local traction bound is exceeded and local slip sets in.\cite{lit:fluid:rolling:contact_phenomena} \newline
+In a real world, pressing two bodies with rough surfaces against each other limits the contact between the two bodies to a value, which is much smaller than the nominal contact area. Additionally, on natural and engineering surfaces Lennard-Jones potential, wetting, and molecular interactions start to play a role on the spectated microscale.\cite{lit:fluid:rolling:contact_ground_plane}
+
+\begin{figure}[tbph!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Ressources/Fluidic/Rolling.pdf}
+	\capption{Rolling Mechanics of a Sphere}{Penetration model of a sphere with radius $r$ adapted from \citet{lit:fluid:rolling:contact, lit:fluid:rolling:contact_ground_plane}. The top body moves into the elastic bottom body for an \acrfull{z} and a contact area $\pi a^2$.}
+	\label{fig::fluidic:rolling_mechanics}
+\end{figure}
+
+In reality, with elastic effects taken into consideration, a different situation occurs. If an elastic sphere is pressed onto an elastic plane (ideally of the same material), both bodies deform and a Hertzian pressure distribution arises. The center of the sphere is moved down by an \gls{z} as shown in \cref{fig::fluidic:rolling_mechanics} that can also be desribed as ``maximum penetration distance''. It can now be calculated that the normal contact area between the bodies follows $A_{contact} = \pi a^{2}=\pi\left(2 r z-z^{2}\right)=2 \pi r z\left(1-\frac{z}{2 r}\right)$. Assuming that $z \ll 2r$ and considering that $A_{contact}$ must be zero for all $z < 0$, the following equation for the contact area arises. (\cref{eq:a_contact}) The spherical contact surface can be calculated analogous \Cref{eq:s_contact}.\cite{lit:fluid:rolling:contact_ground_plane}
+
+\begin{align}
+	A_{contact} &= 2\pi r z \mathrm{, \ for \ } z \geq 0 \label{eq:a_contact}\\
+	S_{contact} &= \pi r (2z + d) = \pi r (2z + \sqrt{2 r z})  \mathrm{, \ for \ } z \geq 0 \label{eq:s_contact}
+\end{align}
+
+For a \SI{8}{\micro\meter} microbead and a penetration depth \gls{z} of \SI{100}{\nano\meter} this yields for example an interaction with \SI{6.84}{\percent} of the total sphere and a total area of \SI{13.753}{\micro\meter\square}. Several methods and experiments have already been developed in the literature to measure the resulting friction and penetration parameters. A general model of a sphere in contact with a wall was optimized by \citet{lit:fluid:sphere_planeWall}. Experimentally, \citet{lit:fluid:rolling:contact} developed a microtribometer in PDMS to evaluate adhesion properties and validate their model's predictions.
+
+\subsubsection{Protein interaction during Rolling}
+In the attempt to mimic rolling adhesion on vascular surfaces which is the first step in recruiting circulating leukocytes and other cells into the tissue, protein-protein-interactions as driver for microbead motions have been studied extensively in this thesis. Statistically, a cell flowing near the vessel wall is able to attach if its adhesion receptors contact ligands on the wall. Bond formation, anyhow, involves distinct steps: transport, which brings two molecules into close proximity, and reaction, during which the molecules dock. Faster cell velocity produces more collisions but also limits the interaction time between interaction molecules. Thus, the relative timescales for transport and docking affect the efficiency of tethering a flowing cell to the surface.\cite{lit:bio:CellAdhesion}
+
+\begin{figure}[!h]
+	\subfloat{
+		\subfigimg[height=150pt]{a}{./Ressources/Fluidic/dembo-model}		
+		\phantomsubcaption
+		\label{fig:fluidic:model:dembo}
+	}
+\hfill
+	\subfloat{
+		\subfigimg[clip,trim=0 1 0 0,height=150pt]{b}{./Ressources/Fluidic/model-voldman}
+		\phantomsubcaption
+		\label{fig:fluidic:model:voldman}
+	}
+\capption{Membrane Adhesion and Detachment Models}{\textbf{a} Adhesion Model after \citet{lit:fluidic:BindingPhysics}: Every interaction is viewed as spring-damper-model in superposition. \textbf{b} Surface Coverage Assay Model: In a stochastic approach, analyte molecules and their interactions are modeled between a planar and a spherical surface.  Adapted from \citet{lit:fluidic:ModelMIT}
+}
+\label{fig:fluidic:model}
+\end{figure}
+
+For these properties, \citet{lit:fluidic:BindingPhysics} developed a detailed physical description of membrane adhesion and detachment kinetics. \citet{lit:fluidic:ModelMIT} then proposed an integrated model for bead based rolling mechanisms under the influence of protein interaction. The key for interaction thereby is the specific \textit{affinity} respectively \textit{avidity} of the protein and its ligand. In general, high-affinity ligand binding results from greater attractive ligand-receptor-forces and results in a higher tenancy of the receptor. However, lifetime of a formed complex does not correlate. The net ligand affinities are unitized by the \gls{kd}, which relates the reverse reaction rate (``the dissociation of the bond'') to the the forward reaction rate (``the formation of the bond''). Therefor high-affinity results in low \gls{kd}.\newline
+On a bead and microchannel surface, however, not only one but multiple protein-ligand complexes are formed and dissociated simultaneously. This is described by \textit{avidity}. Through single binding events elevate the likelihood of other interactions, avidity is not relating the sum of its ingredient affinities but can rather be seen as the combined effect of all affinities participating in the biomolecular interaction.\cite{lit:bio:aviditiy}
+
+Main factor for the method in this thesis is now the \gls{t}. A particle - cell or bead - flowing in a low-Reynolds number environment, experiences a \gls{f:shear} and a torque \gls{omega_rot}, which both reach maximum when the particle stops. For this, the two forces must be counteracted by a tensile force on the adhesive bonds and a compressive force at the bottom of the particle. Moreover, these forces affect the forward and reverse reaction rates of the bonds. Any rolling motion stops when the adhesion can withstand the force required to counteract the maximal other forces. After break-up of this bonds the particle begins to accelerate downstream until a newly formed bond develops sufficient strength. Consequently, the intrinsic mechanics of these bonds and how their respective off-rates act under force critically determines whether and how bead roll in a flow field.\cite{lit:bio:CellAdhesion}
+
+There exist two distinct bond types that take effect during the above processes: \textit{Slip bonds} are linkages whose lifetime is shortened to some extent by external force whereas \textit{catch bonds} lock more tightly upon deformation stress. In biological systems, for example selectines, another effect arises. Upon increasing external stress, bond lifetimes with the ligand are first prolonged until a threshold where bonds are starting to decease.  In contrast, if an antibody is the ligand only slip bonds are formed in response to force.\cite{lit:bio:slip_bonds, lit:bio:catch_bonds} By studying the exact forces acting on a particle-protein interaction system affinity based sorting and ultrasensitive assays can be established.\cite{lit:bio:attomolarDetection}
+
 \clearpage
 \section{Surface Chemistry}
-Introducing biological samples, such as peripheral whole blood and -plasma, into microsystems needs careful consideration of surface modification compared to buffered samples of adjusted pH containing cells or polymeric beads. Blood-material contact most often initiates surface-mediated reactions that lead to cell activation, blood clotting or biofilm formation.\todo{sources} In order to minimize unspecific interactions on surfaces, most contact faces are passivized with chemically and biologically inert materials or even composed entirely from it. In any use case, where a surface has to be functionalized with biomolecules, the intrinsic inertness then requires specialized methods for permanent and reproducible adhesion.\cite{lit:chem:surface:methods}
+Introducing biological samples, such as peripheral whole blood and -plasma, into microsystems needs careful consideration of surface modification compared to buffered samples of adjusted pH containing cells or polymeric beads. Blood-material contact most often initiates surface-mediated reactions that lead to cell activation, blood clotting or biofilm formation.\cite{lit:bio:biomaterialInterfaces,lit:surf:microchannelEffectBlood} In order to minimize unspecific interactions on surfaces, most contact faces are passivized with chemically and biologically inert materials or even composed entirely from it. In any use case, where a surface has to be functionalized with biomolecules, the intrinsic inertness then requires specialized methods for permanent and reproducible adhesion.\cite{lit:chem:surface:methods,lit:surf:optimizedAdsorption}
 
-Molecules can be immobilized through various mechanisms on surfaces to achieve a biological or chemical functionality. The most simple is physisorption. Here, a biomolecule is bonded only by weak elektrostatic, van-der-Waals or dipole-dipole interaction with a adsorption enthalpy below \SI{50}{\kilo\joule\per\mole}.\todo{source} In contrast, this yields fast reaction rates, because no activation energy has to be overcome. Although a large number of molecules can be captured with this method, several drawbacks have been identified. \cite{lit:bio:ImmobilizationTechniques, lit:bio:immobilization:UV-ABs}
-For example, immobilized receptors can desorb or move inside the channel, which in turn reduces sensitivity or causes false-positive results.\todo{Sensitivity und False-Positive Results sollten hier kurz dargestellt werden, zumindest in der Anwendung. } \cite{lit:bio:physisorp:desorption, lit:chem:surfModOptics} \\
-Therfore, most functionalization approaches rely on chemisorption where molecules are covalently bound to a surface. Due to the higher activation energy barrier this bonding mechanism works slower in comparison to physisorption, though higher temperatures or catalysators can promote an equilibrium. One of the most well-known strategies to bring reproducible thin films on surfaces is the formation of \glspl{sam} where a dense layer of single molecules with high internal order forms upon dipping into a surface-active substance. \cite{lit:chem:sin:langeDiss}
+Molecules can be immobilized through various mechanisms on surfaces to achieve a biological or chemical functionality. The most simple is physisorption. Here, a biomolecule is bonded only by weak elektrostatic, van-der-Waals or dipole-dipole interaction with a adsorption enthalpy below \SI{50}{\kilo\joule\per\mole}.\cite{lit:surf:optimizedAdsorption} In contrast, this yields fast reaction rates, because no activation energy has to be overcome. Although a large number of molecules can be captured with this method, several drawbacks have been identified.\cite{lit:bio:ImmobilizationTechniques, lit:bio:immobilization:UV-ABs,lit:bio:physisorp:desorption, lit:chem:surfModOptics} \\
+Therfore, most functionalization approaches rely on chemisorption where molecules are covalently bound to a surface. Due to the higher activation energy barrier this bonding mechanism works slower in comparison to physisorption, though higher temperatures or catalysators can promote an equilibrium. One of the most well-known strategies to bring reproducible thin films on surfaces is the formation of \glspl{sam} where a dense layer of single molecules with high internal order forms upon dipping into a surface-active substance.\cite{lit:chem:sin:langeDiss}
 
 \subsection{Surface Oxidation Methods}
-Modifying a surface with functional silanes, requires oxidized sites, for example \gls{hydroxyl} resp. \gls{silanol} groups. In order to increase the presence of those reactive groups on substrates, various activation methods such as piranha, a mixture from \gls{h2o2} and \gls{h2so4}, \gls{o2} - plasma treatment or an \gls{hf} dip can be chosen. \cite{lit:chem:sin:etchingandchemical} 
+Modifying a surface with functional silanes, requires oxidized sites, for example \gls{hydroxyl} resp. \gls{silanol} groups. In order to increase the presence of those reactive groups on substrates, various activation methods such as \gls{piranha} and \gls{h2so4}, \gls{o2} - plasma treatment or an \gls{hf} dip can be chosen.\cite{lit:chem:sin:etchingandchemical} 
 
-Critical for any surface engineering is the internal structure and in consequence the binding energies of the surficial groups. The three mainly used substrates in this work, glass, \gls{pdms} and \gls{sin}, contain highly conserved, homogeneous surfaces and are mostly well characterized. The surface of glass exhibits already \gls{silanol} groups intrinsically and consequentially demands only a removal of impurities. \gls{pdms} and \gls{sin} however have different compositions as shown in Fig. \ref{fig:chem:func:substrate} and \ref{fig:chem:func:sin} hence requiring a strong oxidation agents to completely exchange its interface.  \cite{lit:chem:binding:sin, lit:chem:binding:pdms, lit:chem:surface:pdms}
-
-
+Critical for any surface engineering is the internal structure and in consequence the binding energies of the surficial groups. The three mainly used substrates in this work, glass, \gls{pdms} and \gls{sin}, contain highly conserved, homogeneous surfaces and are mostly well characterized. The surface of glass exhibits already \gls{silanol} groups intrinsically and consequentially demands only a removal of impurities. \gls{pdms} and \gls{sin} however have different compositions as shown in \cref{fig:chem:func:substrate} and \cref{fig:chem:func:sin} hence requiring a strong oxidation agents to completely exchange its interface to \gls{hydroxyl}.\cite{lit:chem:binding:sin, lit:chem:binding:pdms, lit:chem:surface:pdms}
 \begin{figure}[h!]
-	\begin{subfigure}[b]{0.30\textwidth}
-		\centering
-		\addtocounter{subfigure}{1}  
-		\subfigimg[clip,trim=0 0 0 -40, width=\linewidth]{a} {./Ressources/Chemistry/Glass}		
-		\addtocounter{subfigure}{-1}  
+	\centering
+	\subfloat{  
+		\subfigimg[clip,trim=0 0 0 0, width=\linewidth]{a} {./Ressources/Chemistry/Glass}	
 		\phantomsubcaption
 		\label{fig:chem:func:glass}
-	\end{subfigure}%
-	\hfill
-	\begin{subfigure}[b]{0.69\textwidth}
-		\centering
-		\addtocounter{subfigure}{1}  
-		\subfigimg[clip, trim=0 0 575 120,width=\linewidth]{\textbf{b}}{Ressources/Chemistry/PDMS}
-		\addtocounter{subfigure}{-1}  
+	}\\
+	\vspace{\baselineskip}
+	\subfloat{ 
+		\subfigimg[clip, trim=0 0 740 190,width=\linewidth]{\textbf{b}}{Ressources/Chemistry/PDMS}
 		\phantomsubcaption
 		\label{fig:chem:func:pdms}
-	\end{subfigure}
-	\capption{Different substrate surfaces: glass and \gls{pdms}}{Surface groups and internal structure of quartz glass (\textbf{a}) and \gls{pdms} (\textbf{b}). After an oxidation step, the methyl groups are changed to \gls{hydroxyl}.}
+	}
+	\capption{Different Substrate Surfaces: Glass, \gls{pdms} and \gls{sin}}{Surface groups and internal structure of quartz glass (\textbf{a}), \gls{pdms} (\textbf{b}), and \acrlong{sin} (\textbf{c}).  After an oxidation step, the methyl groups are converted to \gls{hydroxyl}. }
+	\label{fig:chem:func:substrate}
 \end{figure}
 
 \subsubsection{Piranha Solution}
-Piranha is an oxidizer composed of \gls{h2o2} and \gls{h2so4}, typically in volume ratios between 1:3 and 1:7. The effectiveness of piranha in removing organic residues and creating \gls{hydroxyl} groups is induced by two distinct processes. In the first process, which is notably faster, hydrogen and oxygen are removed as units of water by the concentrated \gls{h2so4}.  (Reaction \ref{rct:pir1}) This occurs due to the thermodynamically very favorable reaction with an enthalpy of \SI{-880}{\kilo\joule\per\mole} and produces \gls{h2so5}, one of the strongest oxidants known.  \cite{lit:chem:piranha}
+Piranha is an oxidizer composed of \gls{h2o2} and \gls{h2so4}, typically in volume ratios between 1:3 and 1:7. The effectiveness of piranha in removing organic residues and creating \gls{hydroxyl} groups is induced by two distinct processes. First, hydrogen and oxygen are removed as units of water by the concentrated \gls{h2so4} in a comparably fast process.( \cref{rct:pir1}) This occurs due to the thermodynamically favorable reaction with an enthalpy of \SI{-880}{\kilo\joule\per\mole} and produces \gls{h2so5}, one of the strongest oxidants known.\cite{lit:chem:piranha}
 
 \begin{align}
 	\ce{H2SO4 + H2O2 &-> H2SO5 + H2O} \label{rct:pir1}\\
 	\ce{H2SO4 + H2O2 &-> HSO4- + H3O+ + O} \label{rct:pir2}
 \end{align}
 
-In another process the sulfuric acid boosts hydrogen peroxide from a mild oxidizer into the more aggressive atomic oxygen by the dehydration of \gls{h2o2}. (Reaction \ref{rct:pir2})  These two dehydration processes in the mixture result on the one hand in a highly corrosive nature against organic materials, particularly against the difficult to remove carbon. On the other hand, it is strongly acidic and oxidizing which in turn requires great care and substantial safety measures to prepare and use it harmlessly.\clearpage
+Second, the sulfuric acid boosts hydrogen peroxide from a mild oxidizer into the more aggressive atomic oxygen by the dehydration of \gls{h2o2}. (\cref{rct:pir2})  These two dehydration processes result on the one hand in a highly corrosive nature against organic materials, particularly against the difficult to remove carbon. On the other hand, it is strongly acidic and oxidizing.
 
 \subsubsection{Hydrofluoric Acid}
-\begin{wrapfigure}[7]{r}{.5\linewidth}
-	\vspace{-1.35\baselineskip}
-	\centering
-	\includegraphics[width=1\linewidth]{Ressources/Chemistry/SiN}
-	\capption{Proposed modification of \gls{sin} with \gls{hf}}{}
-	\label{fig:chem:func:sin}
-\end{wrapfigure}
-One of the used substrates in this work is \gls{sin} as passivation layer above magnetic sensors as it has a significant better diffusion barrier against water or sodium ions and is chemically very inert. \cite{lit:chem:sin:surface} However, due to its complex crystal structure it is also difficult to modify by common chemicals and the exact surface composition still subject to scientific discussion. \cite{lit:chem:sin:etchingcontrol} Apart from cleaning the surface with piranha, few other modification methods have been reported, but only one suitable for the direct generation of \gls{hydroxyl} groups.
 
-There, as depicted in \ref{fig:chem:func:sin}, the reaction \ch{Si-OH + HF <-> Si-F + H2O} takes place reversibly due to the coincidence that \ch{Si-O} and \ch{O-H} as well as \ch{Si-F} and \ch{H-F} bonds have similar binding energies and hence the forward and reverse reactions a low activation energy. After Le Chatelier's principle, a depletion of \gls{hf} in the bulk leads then to an increase in surficial hydroxyl groups. \cite{lit:chem:sin:SiFSiOH} In further works, it has been determined that an oxidation with a similar protocol based on aequous \gls{hf} yields a variable \gls{siloxane} coverage with \SI{37(17)}{\percent} of a monolayer, which nevertheless can be used for stable, covalent attachment of silanes.  Nominally the same surface coverages of silicon oxide and nitride surfaces could be achieved by ethoxy- and chlorosilanization. \cite{lit:chem:sin:surfacEtchingandMod} As shown by \citep{lit:chem:sin:silane}, the subsequent surfaces exhibit beneficial biological properties and can be modified by further standard procedures.
+One of the substrates used in this work is \gls{sin} as passivation layer above magnetic sensors as it has a significant better diffusion barrier against water or sodium ions and is chemically inert.\cite{lit:chem:sin:surface} However, due to its complex crystal structure it is also difficult to modify by common chemicals and the exact surface composition still subject to scientific discussion.\cite{lit:chem:sin:etchingcontrol} Apart from cleaning the surface with piranha, few other modification methods have been reported, but only one suitable for the direct generation of \gls{hydroxyl} groups.\cite{lit:chem:sin:etchingcontrol, lit:chem:sin:biofunc, lit:chem:sin:langeDiss, lit:chem:sin:modforFoodapps}
+
+As depicted in \cref{fig:chem:func:substrate}, the reaction \ch{Si-OH + HF <-> Si-F + H2O} takes place reversibly due to the coincidence that \ch{Si-O} and \ch{O-H} as well as \ch{Si-F} and \ch{H-F} bonds have similar binding energies. Hence, the forward and reverse reactions require a low activation energy. After Le Chatelier's principle, a depletion of \gls{hf} in the bulk leads then to an increase in surficial hydroxyl groups.\cite{lit:chem:sin:SiFSiOH} It was revealed that an oxidation with a similar protocol based on aequous \gls{hf} yields a variable \gls{siloxane} coverage with \SI{37(17)}{\percent} of a monolayer, which can be used for stable, covalent attachment of silanes. Nominally, the same surface coverages of silicon oxide and nitride surfaces could be achieved by ethoxy- and chlorosilanization.\cite{lit:chem:sin:surfacEtchingandMod} As shown by \citet{lit:chem:sin:silane}, the subsequent surfaces exhibit beneficial biological properties and can be modified by further standard procedures.
 
 
 \subsubsection{Oxygen Plasma}
-Apart from wet chemistry methods, the exposure of a surface to oxygen plasma yields \gls{hydroxyl} groups as well. In a plasma chamber, a low-pressure gas is irradiated by \si{\kilo\hertz} to \si{\mega\hertz} waves to excite and ionize its atoms. In consequence, the UV-radiation emitted by the gas can photolyse typical organic bonds and remove surface contaminations. Additionally, reactive oxygen species such as \ce{O2+}, \ce{O2-}, \ce{O3} or \ce{O} either oxidize the surface as well or bind dissociated components with low vapor pressure. During an evacuation in the process, these molecules are removed from the chamber intrinsically. \cite{lit:chem:plasma}  
+Apart from wet chemistry methods, the exposure of a surface to oxygen plasma yields \gls{hydroxyl} groups as well. In a plasma chamber, a low-pressure gas is irradiated by \si{\kilo\hertz} to \si{\mega\hertz} waves to excite and ionize its atoms. In consequence, the UV-radiation emitted by the gas can photolyse typical organic bonds and remove surface contaminations. Additionally, reactive oxygen species such as \ce{O2+}, \ce{O2-}, \ce{O3} or \ce{O} oxidize the surface or bind dissociated components with low vapor pressure. During an evacuation in the process, these molecules are removed from the chamber intrinsically.\cite{lit:chem:plasma}  
 
 \subsection{Silane Chemistry}
 
-By the use of silane chemistry a surface is rendered organofunctional with alkoxysilane molecules. Since glass, silicon, alumina, titania, and quartz surfaces, as well as other metal oxide interfaces, are rich in hydroxyl groups, silanes are particularly useful for modifying these materials. \cite{lit:chem:silanizingGlass}\\The general formula for a silane coupling agent (Fig. \ref{fig:chem:trialkoxysilane}) typically shows the two classes of functionality. X is a hydrolyzable group typically alkoxy, acyloxy, halogen or amine.
-\\\begin{wrapfigure}[9]{r}{.25\linewidth}
-	\vspace{-0.7\baselineskip}
-	\centering
-	\includegraphics{Ressources/Chemistry/Trialkoxysilan}
-	\capption{Trialkoxysilane}{Structure of a typical trialkoxysilane, X: hydrolyzable group, R: non-hydrolyzable organic radical, n: methylene chain-length}
-	\label{fig:chem:trialkoxysilane}
-\end{wrapfigure} 
+By the use of silane chemistry a surface is rendered organofunctional with alkoxysilane molecules. Since glass, silicon, alumina, titania, and quartz surfaces, as well as other metal oxide interfaces, are rich in hydroxyl groups, silanes are particularly useful for modifying these materials.\cite{lit:chem:silanizingGlass}\\The general formula for a silane coupling agent (\cref{fig:chem:APTES}a) typically shows the two classes of functionality. X is a hydrolyzable group typically alkoxy, acyloxy, halogen or amine.
+\\
 Following hydrolysis, a reactive \gls{silanol} group is formed, which can condense with other silanol groups to form \gls{siloxane} linkages. 
-(Fig. \ref{fig:chem:APTES}) Stable condensation products are also formed with other oxides such as those of aluminum, zirconium, tin, titanium, and nickel. Less stable bonds are formed with oxides of boron, iron, and carbon, whereas alkali metal oxides and carbonates do not form stable bonds with \glspl{siloxane} at all. The R group (Fig. \ref{fig:chem:trialkoxysilane}) is a nonhydrolyzable organic radical that may posses a functionality that imparts desired characteristics. One of the more common silanes is \gls{aptes}, where the X group consists of an \gls{ethoxy} group, the organic rest R is substituted by an \gls{amine} and the 3 \gls{methylene} groups alter \textit{n} to 3. \cite{lit:chem:GELEST} 
+(\cref{fig:chem:APTES}) Stable condensation products are also formed with other oxides such as those of aluminum, zirconium, tin, titanium, and nickel. Less stable bonds are formed with oxides of boron, iron, and carbon, whereas alkali metal oxides and carbonates do not form stable bonds with \glspl{siloxane} at all. The R group (\cref{fig:chem:APTES}a) is a nonhydrolyzable organic radical that may posses a functionality that imparts desired characteristics. One of the more common silanes is \gls{aptes}, where the X group consists of an \gls{ethoxy} group, the organic rest R is substituted by an \gls{amine} and the 3 \gls{methylene} groups alter \textit{n} to 3.\cite{lit:chem:GELEST} 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1\linewidth]{./Ressources/Chemistry/APTES.eps}
-	\capption{APTES Modifcation of an oxidized surface}{\textbf{a} Before the condensation reaction, the oxidized surface forms hydrogen bonds with water molecules. The silane molecules are in the bulk solution. \textbf{b} The hydrolyzed \gls{silanol} group adsorbs onto the surface and forms hydrogen bridges with it. \textbf{c} In a condensation reaction, under the loss of water, a covalent bond to the surface forms. \textbf{d} After the \gls{sam} assembly the surface is saturated with a covalent-bound, crosslinked silane film. \cite{lit:chem:aptes:SilaneReaction}}
+	\includegraphics[width=\linewidth]{./Ressources/Chemistry/SiN-APTES-Silane.pdf}
+	\capption{Surface Oxidation and Modification by APTES}{(\textbf{a}) Structure of a typical trialkoxysilane, X: hydrolyzable group, R: non-hydrolyzable organic radical, n: methylene chain-length. (\textbf{b}) Before the condensation reaction, the oxidized surface has formed hydrogen bonds with water molecules while the silane molecules are in the bulk solution. The hydrolyzed \gls{silanol} group adsorbs onto the surface and forms hydrogen bridges with the silicon bound oxygen atom. In a condensation reaction, under the loss of water, a covalent bond to the surface forms. After the \gls{sam} assembly the surface is saturated with a covalent-bound, crosslinked silane film.\cite{lit:chem:aptes:SilaneReaction} (\textbf{c}) Proposed oxidation of \gls{sin} with \gls{hf}: Due to similar activation energies water can displace \gls{hf} in a competitive manner effectively above a temperature above \SI{70}{\degreeCelsius}.}
 	\label{fig:chem:APTES}
 \end{figure}
 
-The final result of reacting an organosilane with a substrate ranges from altering the wetting or adhesion characteristics of the substrate, utilizing the substrate to catalyze chemical transformation at the heterogeneous interface, ordering the interfacial region, and modifying its partition characteristics. Significantly, it includes the ability to effect a covalent bond between organic and inorganic materials. Especially in optical or biological sensors, silane modifications open a broad range of applications. 
+The final result of reacting an organosilane with a substrate ranges from altering the adhesion characteristics, catalyzing chemical transformation at the heterogeneous interface, ordering the interfacial region, and modifying its partition characteristics. Significantly, it includes the ability to effect a covalent bond between organic and inorganic materials. Especially in optical or biological sensors, silane modifications open a broad range of applications.\cite{lit:chem:sin:langeDiss,lit:Anti-EpCAM-PAA,lit:chem:aptes:SilaneReview}
 
-However, the silanization reactions bear a few drawbacks which are often neglected. For instance, silane chemistry is strongly temperature and pH-dependent. \cite{lit:chem:silaizationTemp,lit:chem:silanizationParameters} Further, in a process to build \glspl{sam} out of \gls{aptes}, the reaction has to be catalyzed by water. But already small changes in the water content cause dramatic deviations in layer thickness. \cite{lit:chem:sin:selectivemod} Additionally, silanes can crosslink to themselves through possible side reactions. (Fig. \ref{fig:chem:APTES} D) \cite{lit:chem:aptes:Crosslink}
+However, the silanization reactions bear a few drawbacks which are often neglected. For instance, silane chemistry is strongly temperature and pH-dependent.\cite{lit:chem:silaizationTemp,lit:chem:silanizationParameters} Further, in a process to build \glspl{sam} from \gls{aptes}, the reaction must be catalyzed by water. But already small changes in the water content cause dramatic deviations in layer thickness.\cite{lit:chem:sin:selectivemod} Additionally, silanes can crosslink to themselves through side reactions. (\cref{fig:chem:APTES}b) \cite{lit:chem:aptes:Crosslink}
 
 
 
 \subsection{Carbodiimide Crosslinker Chemistry}
-The in previous manner produced \gls{amine}-terminated films by \gls{aptes} form the basis of many reactions and open the possibility to various applications, such as the direct attachment of biofunctional molecules by carbodiimide crosslinking chemistry.\cite{lit:bio:BioconjugateTechniques} Here, \gls{carboxyl} groups are modified by \gls{edc} and \gls{nhs} to form a stable secondary \gls{amide} bond with any primary \gls{amine}.
+By \gls{aptes} \gls{amine}-terminated films form the basis of many reactions and open the possibility to various applications, such as the direct attachment of biofunctional molecules by carbodiimide crosslinking chemistry.\cite{lit:bio:BioconjugateTechniques} Here, \gls{carboxyl} groups are modified by \gls{edc} and \gls{nhs} to form a stable secondary \gls{amide} bond with any primary \gls{amine}.
 
 \begin{figure}[htb!]
 	\centering
@@ -262,46 +309,62 @@ The in previous manner produced \gls{amine}-terminated films by \gls{aptes} form
 	\label{fig:chem:COOH-EDC-NHS}
 \end{figure}
 \clearpage
-The general reaction mechanism is depicted in Fig. \ref{fig:chem:COOH-EDC-NHS} for the example of a microbead surface, but it can equivalently be applied to any other modified surface or molecule. The initial \gls{carboxyl} group is esterified by \gls{edc} to an active o-acylisourea intermediate and leaves rapidly upon nucleophilic attack of an amine with release of an iso-urea byproduct. A zero-length amide linkage is formed. (Fig. \ref{fig:chem:COOH-EDC-NHS}, 1->4) Sulfhydryl and hydroxyl groups also will react with such active esters, but the products of such reactions, thioesters and esters, are relatively unstable compared to an \gls{amide} bond. (Fig. \ref{fig:chem:COOH-EDC-NHS}, 1)\newline
-However, this reactive complex is slow to react with amines and can hydrolyze in aqueous solutions, having a rate constant measured in seconds. If the target amine does not find the active \gls{carboxyl} before it hydrolyzes (Fig. \ref{fig:chem:COOH-EDC-NHS}, 3), the desired coupling cannot occur. This is especially a problem when the target molecule is in low concentration compared to water, as in the case of protein molecules. Notwithstanding, forming a \gls{nhs} ester intermediate from the reaction of the \gls{hydroxyl} group on NHS with the \gls{edc} active-ester complex increases the resultant amide bond formation remarkably. (Fig. \ref{fig:chem:COOH-EDC-NHS}, 3->4) \cite{lit:chem:nhs2}
+The general reaction mechanism is depicted in \cref{fig:chem:COOH-EDC-NHS} for the example of a particle surface, but it can equivalently be applied to any other modified surface or molecule. The initial \gls{carboxyl} group is esterified by \gls{edc} to an active o-acylisourea intermediate and leaves rapidly upon nucleophilic attack of an amine with release of an iso-urea byproduct. A zero-length amide linkage is formed. (\cref{fig:chem:COOH-EDC-NHS}, 1->2) Sulfhydryl and hydroxyl groups also will react with such active esters, but the products of such reactions, thioesters and esters, are relatively unstable compared to an \gls{amide} bond. (\cref{fig:chem:COOH-EDC-NHS}, 1)\cite{lit:bio:BioconjugateTechniques} \newline
+However, this reactive complex is slow to react with amines and can hydrolyze in aqueous solutions. If the target amine does not find the active \gls{carboxyl} before it hydrolyzes (\cref{fig:chem:COOH-EDC-NHS}, 3), the desired coupling cannot occur. This is especially a problem when the target molecule is in low concentration compared to water, as in the case of protein molecules. Notwithstanding, forming a \gls{nhs} ester intermediate from the reaction of the \gls{hydroxyl} group on NHS with the \gls{edc} active-ester complex increases the resultant amide bond formation remarkably. (\cref{fig:chem:COOH-EDC-NHS}, 4->2) \cite{lit:chem:nhs2}
 
-Another critical point in carbodiimide chemistry is the solubility of the compounds. \gls{edc}, \gls{nhs} and \gls{snhs} are soluble in aqueous and organic solvents. Nevertheless, activation  with  non-sulfonate \gls{nhs} decreases water-solubility of the modified carboxylate molecule, while activation with \gls{snhs} preserves or increases its water-solubility by virtue of the charged sulfonate group. \cite{lit:chem:snhs}
+Another critical point in carbodiimide chemistry is the solubility of the compounds. \gls{edc}, \gls{nhs} and \gls{snhs} are soluble in aqueous and organic solvents. Nevertheless, activation  with  non-sulfonate \gls{nhs} decreases water-solubility of the modified carboxylate molecule, while activation with \gls{snhs} preserves or increases its water-solubility by virtue of the charged sulfonate group.\cite{lit:chem:snhs}
 
 \clearpage
 
-\subsection{Microscopic Particle Surface Physics}
-\todo{write!!!!}
-
-
 \subsection{The Biotin-Avidin-System}
 Until now, the interaction of the homotetrameric protein avidin and its ligand biotin forms one of the strongest known non-covalent bonds in biological systems characterized by a \gls{kd} in the range of \SI{e-15}{\molar}.\cite{lit:bio:biotin:avidin_discovery} First isolated from chicken egg white, it became a standard to use in biotechnology when researchers found a similar bacteria protein - streptavidin - in \textit{Streptomyces} strains.\cite{lit:bio:biotin:discovery} However, the charged glycoprotein avidin exhibits unspecific binding in some assays in comparison to streptavidin. Therefor, several companies developed deglycosylated forms of avidin with a neutral isoelectric points to minimize unspecificity. (NeutrAvidin, Extravidin, NeutraLite) In recent studies, a mutant streptavidin called ``Traptavidin'' exhibitied an even 10 times dissociation rate.\cite{lit:bio:biotin:engStrep}
-As discovered in the early 1990s, biotin is bound inside a highly stable $\beta$-barrel structure, and stabilized by hydrogen bonds and van der Waals forces.\cite{lit:bio:biotin:bindingmechanism} In a unique mechanism, a side group of biotin (valerate) binds to a neighboring monomer of streptavidin and therefor stabilizes the dimer complex intrinsically.\cite{lit:bio:biotin:binding,lit:bio:biotin:freeenenergy} From a thermodynamical point-of-view, the interaction of the vitamin and protein is described by a total free binding energy of \SIrange{300}{330}{\kilo\joule\per\mole} for a tetrameric protein. \cite{lit:bio:biotin:freeenenergy}  All these aspects lead to a significant rupture force for the biotin-release of \SI{250}{\pico\newton}.\cite{lit:bio:biotin:rupture}
+As discovered in the early 1990s, biotin is bound inside a highly stable $\beta$-barrel structure, and stabilized by hydrogen bonds and van der Waals forces.\cite{lit:bio:biotin:bindingmechanism} In a unique mechanism, a side group of biotin (valerate) binds to a neighboring monomer of streptavidin and therefor stabilizes the dimer complex intrinsically.\cite{lit:bio:biotin:binding,lit:bio:biotin:freeenenergy} From a thermodynamical point-of-view, the interaction of the vitamin and protein is described by a total free binding energy of \SIrange{300}{330}{\kilo\joule\per\mole} for a tetrameric protein.\cite{lit:bio:biotin:freeenenergy}  All these aspects lead to a significant rupture force for the biotin-release of \SI{250}{\pico\newton}.\cite{lit:bio:biotin:rupture}
 
 \begin{figure}[tbph!]
-		\begin{subfigure}[b]{0.4\textwidth}
-		\centering
-		\addtocounter{subfigure}{1}  
-		\subfigimg[height=150pt]{\textbf{a}}{./Ressources/Biology/biotin.eps}
-		\addtocounter{subfigure}{-1}  
+	\subfloat{
+		\subfigimg[height=180pt]{\textbf{a}}{./Ressources/Biology/biotin.eps}
 		\phantomsubcaption
 		\label{fig:biotin}
-	\end{subfigure}%
-		\begin{subfigure}[b]{0.59\textwidth}
+	}%
+	\hfill
+	\subfloat{
 		\centering
-		\addtocounter{subfigure}{1}  
-		\subfigimg[clip, height=150pt]{b}{Ressources/Biology/crystalAvidin_bindingSite.png}		
-		\addtocounter{subfigure}{-1}  
+		\subfigimg[clip, height=180pt]{b}{Ressources/Biology/crystalAvidin_bindingSite.png}
 		\phantomsubcaption
 		\label{fig:crystalavidin}
-	\end{subfigure}%
-	\capption{Functional Structures of Biotin and Streptavidin}{(\textbf{a}) Biotin chemical structure, (\textbf{b}) Homotetrameric Streptavidin with the anchor point at one terminus.\cite{lit:bio:SA:crystal}}
+	}%
+	\capption{Functional Structures of Biotin and Streptavidin}{(\textbf{a}) Two- and three dimensional chemical structure of the biotin molecule. (\textbf{b}) Homotetrameric streptavidin with four subunits and four bound biotin-ligands. The molecule is attached with the anchor point at one terminus to a surface.\cite{lit:bio:SA:crystal}}
 	\label{}
 \end{figure}
 
 
-
+\clearpage
 \section{Magnetoresistive Sensing}
-Short intro in GMR
-Short intro over MRCyte
+The measurement system's main component is a \gls{gmr}-sensor stack with a measured magnetoresistive effect of \textasciitilde \SI{8}{\percent}. \gls{gmr} is a quantum mechanical magnetoresistance effect observed in multilayers composed of alternating ferromagnetic and non-magnetic conductive layers. The driving factor for this resistance is anisotropy of a soft ferromagnetic layer. Two ferromagnetic layers with a thin conducting, non-magnetic spacer in the center build the base of the GMR stack.\cite{lit:nano:magnetism} One ferromagnetic layer has a so called pinned magnetization by exchange coupling, which is insensitive to outer magnetic fields. The second, "easy" layer is soft magnetic. Hence, it modulates its orientation in dependence to small coercive forces. \cite{lit:nano:Guimares2017}\\
+In the case if both layers are aligned parallel, applying a current to the sensor allows majority charge carriers to pass through the layers with less impact into electrons on either sides. Accordingly, the overall resistance is low compared to another extremum in the antiparallel alignment. The magnetization direction can be controlled, for example, by applying an external magnetic field.\cite{lit:nano:physicsmagneticmaterials, lit:nano:GMRPatent} \newline
+In the present system, \gls{gmr} stacks were used in a Wheatstone configuration, where two bridges act as a reference for bridge balancing. In front of the sensor, nickel-based chevron patterns act as pre-enrichment for magnetic particles. These structures are driven by an external permanent magnet hence imposing a high flux density gradient on particles. Above these patterns, previously mentioned \gls{sin} passivation has been deposited in various thicknesses to achieve inertness. On top of the sensor chip, a straight microfluidic channel is mounted to execute flow cytometry experiments.\cite{lit:paperHelou,lit:paperReisbeck}
+\begin{figure}[!h]
+	\centering
+	\subfloat{
+		\includegraphics[height=150pt]{./Ressources/Electronics/lockin_principle}
+	}%
+	\hfill	
+	\subfloat{
+		\subfigimg[height=150pt]{c}{./Ressources/Electronics/mrcyte}
+	}
+	\capption{MRCyte Overview}{Nice image of the MRCyte system with microscope.}
+	\label{fig:MRCyte}
+\end{figure}
+In order to measure the change in resistance sensitively, the lock-in principle is used. Here, an amplifier extracts signals in a defined frequency band around a reference frequency. This efficiently filters all other frequency components. Thereby a lock-in amplifier performs a multiplication of its input $V_s(t)$ with a reference signal $V_r(t)$ and low-pass filters the result $Z(t)$. In most integrated cases, the reference signal is generated additionally by the lock-in amplifier itself. Using a pure sine wave as reference enables a selective measurement at the fundamental frequency or its harmonics.\cite{lit:nano:lockin} At a measurement, $V_s(t)$ is split and separately multiplied with the reference signal and a \ang{90} phase-shifted copy of it. After demodulation, the result is constituted from signal components at the sum and the difference of signal and the reference frequency, $\omega_{s}$ and $\omega_{r}$, respectively.(\cref{eq:el:sig,eq:el:ref,eq:el:result}) In the resulting signal, the trigonometric functions are Euler transformed and the magnitude $R=\sqrt{X(t)^2+Y(t)^2}$ acts as measurand. The high frequency compounds are then filtered digitally by a low-pass filter of varying order $n$ to increase \gls{snr}. As described in \cref{eq:el:filter}, a low-pass in the frequency domain can be described by a power series of first-order filters.
+\begin{align}
+		V_{s}(t) &=\sqrt{2} R \cdot \cos \left(\omega_{s} t+\Theta\right) \label{eq:el:sig} \\
+	V_{r}(t)&=\sqrt{2} e^{-i \omega_{r} t}=\sqrt{2} \cos \left(\omega_{r} t\right)-i \sqrt{2} \sin \left(\omega_{r} t\right) \label{eq:el:ref}\\
+	Z(t) &=X(t)+i Y(t)=V_{s}(t) \cdot V_{r}(t) \label{eq:el:result} \\
+		&=R\left[e^{i\left(\left(\omega_{z}-\omega_{r}\right) t+\theta\right]}+e^{-i\left[\left(\omega_{z}+\omega_{r}\right) t+\theta\right]}\right] \\
+		H_{n}(\omega)&=H_{1}(\omega)^{n}=\left(\frac{1}{1+i \omega \tau}\right)^{n} \label{eq:el:filter}
+\end{align}
+However, with this measurement principle \gls{snr} can not increase infinitely. If the signal strength cannot be increased, the noise  has to be reduced or avoided as much as possible. Nevertheless, noise is always caused by different sources in analog signals, for example thermal, shot, and flicker noise. Other sources are of technical origin, as for example ground loops, crosstalk, \SI{50}{\hertz} noise or electromagnetic pick-up. \cite{lit:nano:lockin}
+
+Now, to characterize a \gls{gmr} with the lock-in, the easy layer has to be deflected to the full extents. For this, Helmholtz coils impose a high field in the orthogonal direction. The lock-in captures a hysteresis during the sweep from parallel to anti-parallel alignment of the layers at a specific bridge circuit. The steepness hereby indicates the sensitivity of the sensor element in the units \si{\volt\per\tesla}.
 
 

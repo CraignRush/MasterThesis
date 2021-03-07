@@ -115,46 +115,56 @@ of the \Fakultaet{}\\ at the Technical University of Munich.
 
 %\newpage\null\thispagestyle{empty}\newpage
 %\newpage\null\thispagestyle{empty}\newpage
+\newboolean{DEBUGMODE}
+\setboolean{DEBUGMODE}{true}
 
-\pagestyle{empty}
-\renewcommand*\chapterpagestyle{empty}
-\tableofcontents% Inhaltsverzeichnis
-\clearpage
-\pagestyle{headings}
-\renewcommand*\chapterpagestyle{headings}
-\newpage%null\thispagestyle{empty}%\newpage
+\ifbool{DEBUGMODE}{
 
-%% General Structure
-%\input{./Chapters/Danksagung}
-%\input{./Chapters/1-Intro}
-\input{./Chapters/2-Theory}
-%\input{./Chapters/3-Materials}
-%\input{./Chapters/4-Results}
-%\input{./Chapters/5-Discussion}
-%\input{./Chapters/6-Outlook}
+	\input{./Chapters/4-Results}
+	
+	}{
+	
+	\pagestyle{empty}
+	\renewcommand*\chapterpagestyle{empty}
+	\tableofcontents% Inhaltsverzeichnis
+	\clearpage
+	\pagestyle{headings}
+	\renewcommand*\chapterpagestyle{headings}
+	\newpage%null\thispagestyle{empty}%\newpage
+	
+	\input{./Chapters/Danksagung}
+	
+	% Abkürzungsverzeichnis
+	\glsaddall
+	\printacronyms[title={List of Abbreviations}]
+	%\printglossaries
+	\addxcontentsline{toc}{chapter}{List of Abbreviations}
+	\clearpage
+	\newpage\null\thispagestyle{empty}\newpage	
+	
+	%% General Structure
+	\input{./Chapters/1-Intro}
+	\input{./Chapters/2-Theory}
+	\input{./Chapters/3-Materials}
+	\input{./Chapters/4-Results}
+	\input{./Chapters/5-Discussion}
+	\input{./Chapters/6-Outlook}
+	
+	\listoffigures % Abbildungsverzeichnis
+	\addxcontentsline{toc}{chapter}{List of Figures}	
+	
+	\listoftables % Tabellenverzeichnis
+	\addxcontentsline{toc}{chapter}{List of Tables}
+	\clearpage
+	\newpage\null\thispagestyle{empty}\newpage
+	\nocite{*}	% stellt alle Quellen dar, auch die, die nicht zitiert wurden
+	%\bibliographystyle{plain}
+	
+	\addxcontentsline{toc}{chapter}{Bibliography}
+	\printbibliography
+	\clearpage
+	\input{./Chapters/Statement}
+}
 
-
- % Abkürzungsverzeichnis
-\glsaddall
-\printacronyms[title={List of Abbreviations}]
-%\printglossaries
-\addxcontentsline{toc}{chapter}{List of Abbreviations}
-\clearpage
-\newpage\null\thispagestyle{empty}\newpage
-\listoffigures % Abbildungsverzeichnis
-\addxcontentsline{toc}{chapter}{List of Figures}
-
-
-\listoftables % Tabellenverzeichnis
-\addxcontentsline{toc}{chapter}{List of Tables}
-\clearpage
-\newpage\null\thispagestyle{empty}\newpage
-\nocite{*}	% stellt alle Quellen dar, auch die, die nicht zitiert wurden
-%\bibliographystyle{plain}
-
-\addxcontentsline{toc}{chapter}{Bibliography}
-\printbibliography
-\clearpage
-\input{./Chapters/Statement}
 
 \end{document}

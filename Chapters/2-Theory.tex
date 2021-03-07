@@ -341,21 +341,30 @@ As discovered in the early 1990s, biotin is bound inside a highly stable $\beta$
 \clearpage
 \section{Magnetoresistive Sensing}
 The measurement system's main component is a \gls{gmr}-sensor stack with a measured magnetoresistive effect of \textasciitilde \SI{8}{\percent}. \gls{gmr} is a quantum mechanical magnetoresistance effect observed in multilayers composed of alternating ferromagnetic and non-magnetic conductive layers. The driving factor for this resistance is anisotropy of a soft ferromagnetic layer. Two ferromagnetic layers with a thin conducting, non-magnetic spacer in the center build the base of the GMR stack.\cite{lit:nano:magnetism} One ferromagnetic layer has a so called pinned magnetization by exchange coupling, which is insensitive to outer magnetic fields. The second, "easy" layer is soft magnetic. Hence, it modulates its orientation in dependence to small coercive forces. \cite{lit:nano:Guimares2017}\\
-In the case if both layers are aligned parallel, applying a current to the sensor allows majority charge carriers to pass through the layers with less impact into electrons on either sides. Accordingly, the overall resistance is low compared to another extremum in the antiparallel alignment. The magnetization direction can be controlled, for example, by applying an external magnetic field.\cite{lit:nano:physicsmagneticmaterials, lit:nano:GMRPatent} \newline
-In the present system, \gls{gmr} stacks were used in a Wheatstone configuration, where two bridges act as a reference for bridge balancing. In front of the sensor, nickel-based chevron patterns act as pre-enrichment for magnetic particles. These structures are driven by an external permanent magnet hence imposing a high flux density gradient on particles. Above these patterns, previously mentioned \gls{sin} passivation has been deposited in various thicknesses to achieve inertness. On top of the sensor chip, a straight microfluidic channel is mounted to execute flow cytometry experiments.\cite{lit:paperHelou,lit:paperReisbeck}
-\begin{figure}[!h]
-	\centering
+In the case if both layers are aligned parallel, applying a current to the sensor allows majority charge carriers to pass through the layers with less impact into electrons on either sides. Accordingly, the overall resistance is low compared to another extremum in the antiparallel alignment. The magnetization direction can be controlled, for example, by applying an external magnetic field.\cite{lit:nano:physicsmagneticmaterials, lit:nano:GMRPatent} 
+\begin{figure}[!htb]
+	\setlength\belowcaptionskip{-90pt}
+	\centering	
+	\subfloat{
+		\centering
+		\includegraphics[width=\linewidth]{./Ressources/Electronics/chip.pdf}
+	}\\
+	\vspace{\baselineskip}	
 	\subfloat{
 		\includegraphics[height=150pt]{./Ressources/Electronics/lockin_principle}
 	}%
 	\hfill	
 	\subfloat{
-		\subfigimg[height=150pt]{c}{./Ressources/Electronics/mrcyte}
+		\subfigimg[height=139.5pt]{j}{./Ressources/Electronics/mrcyte}
 	}
-	\capption{MRCyte Overview}{Nice image of the MRCyte system with microscope.}
+	\capption{Overview over the MRCyte Sensor Setup}{	(\textbf{a}) Microfluidic outlet connection to waste reservoir. (\textbf{b}) Imprinted channel width. (\textbf{c}) Microfluidic inlet connection to syringe pump. (\textbf{d}) Magnetophoretic focusing region, not visible in this picture. (\textbf{e}) \Gls{gmr}-sensor region, the supply and bridge balancing traces are visible. (\textbf{f}) Gold bondpad: In order to connect the silicon sensor chip with the breakout \gls{pcb}, wedge bonds from the chip pads to the \gls{pcb} pads are forged. (\textbf{g}) Through hole plating for the connection to the lock-in via jumper cables or a soldered connector plug. (\textbf{h}) Typical signal processing flow of a lock-in. The reference signal $V_r(t)$ is splitted and mixed with the input signal with a phase difference of \ang{0} and \ang{90}. Then, both signals are low-pass filtered and sampled by an analog-to-digital converter (ADC). (\textbf{i}) Accordingly, in a digital signal processing (DSP) device the input signal is digitally converted beforehand, which in turn requires a highly sensitive and fast ADC. In contrast, DSP is more accurate and allows for software-controllable technical opportunities. (\textbf{j}) \Gls{gmr}-sensor bridge circuit inside the microfluidic channel. On the left hand side, magnetophoretic focusing structures are visible. On the right hand side, four Wheatstone bridges on a compliant ground plane can be observed.}
 	\label{fig:MRCyte}
 \end{figure}
+In the present system, \gls{gmr} stacks were used in a Wheatstone configuration, where two bridges act as a reference for bridge balancing. In front of the sensor, nickel-based chevron patterns act as pre-enrichment for magnetic particles. These structures are driven by an external permanent magnet hence imposing a high flux density gradient on particles. Above these patterns, previously mentioned \gls{sin} passivation has been deposited in various thicknesses to achieve inertness. On top of the sensor chip, a straight microfluidic channel is mounted to execute flow cytometry experiments.\cite{lit:paperHelou,lit:paperReisbeck}
+
 In order to measure the change in resistance sensitively, the lock-in principle is used. Here, an amplifier extracts signals in a defined frequency band around a reference frequency. This efficiently filters all other frequency components. Thereby a lock-in amplifier performs a multiplication of its input $V_s(t)$ with a reference signal $V_r(t)$ and low-pass filters the result $Z(t)$. In most integrated cases, the reference signal is generated additionally by the lock-in amplifier itself. Using a pure sine wave as reference enables a selective measurement at the fundamental frequency or its harmonics.\cite{lit:nano:lockin} At a measurement, $V_s(t)$ is split and separately multiplied with the reference signal and a \ang{90} phase-shifted copy of it. After demodulation, the result is constituted from signal components at the sum and the difference of signal and the reference frequency, $\omega_{s}$ and $\omega_{r}$, respectively.(\cref{eq:el:sig,eq:el:ref,eq:el:result}) In the resulting signal, the trigonometric functions are Euler transformed and the magnitude $R=\sqrt{X(t)^2+Y(t)^2}$ acts as measurand. The high frequency compounds are then filtered digitally by a low-pass filter of varying order $n$ to increase \gls{snr}. As described in \cref{eq:el:filter}, a low-pass in the frequency domain can be described by a power series of first-order filters.
+
+
 \begin{align}
 		V_{s}(t) &=\sqrt{2} R \cdot \cos \left(\omega_{s} t+\Theta\right) \label{eq:el:sig} \\
 	V_{r}(t)&=\sqrt{2} e^{-i \omega_{r} t}=\sqrt{2} \cos \left(\omega_{r} t\right)-i \sqrt{2} \sin \left(\omega_{r} t\right) \label{eq:el:ref}\\
@@ -363,8 +372,11 @@ In order to measure the change in resistance sensitively, the lock-in principle 
 		&=R\left[e^{i\left(\left(\omega_{z}-\omega_{r}\right) t+\theta\right]}+e^{-i\left[\left(\omega_{z}+\omega_{r}\right) t+\theta\right]}\right] \\
 		H_{n}(\omega)&=H_{1}(\omega)^{n}=\left(\frac{1}{1+i \omega \tau}\right)^{n} \label{eq:el:filter}
 \end{align}
+
+
 However, with this measurement principle \gls{snr} can not increase infinitely. If the signal strength cannot be increased, the noise  has to be reduced or avoided as much as possible. Nevertheless, noise is always caused by different sources in analog signals, for example thermal, shot, and flicker noise. Other sources are of technical origin, as for example ground loops, crosstalk, \SI{50}{\hertz} noise or electromagnetic pick-up. \cite{lit:nano:lockin}
 
 Now, to characterize a \gls{gmr} with the lock-in, the easy layer has to be deflected to the full extents. For this, Helmholtz coils impose a high field in the orthogonal direction. The lock-in captures a hysteresis during the sweep from parallel to anti-parallel alignment of the layers at a specific bridge circuit. The steepness hereby indicates the sensitivity of the sensor element in the units \si{\volt\per\tesla}.
+
 
 

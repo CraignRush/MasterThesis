@@ -1,8 +1,6 @@
 \chapter{Results}
-test,test
-
 \section{Virtual Prototyping of Cell Signals}
-
+During the course 
 \subsection{Numerical investigation of immunomagnetic label density and size on quantitative magnetoresistive sensing of single cells and cell aggregates}
 Signal Similarity For Cells With Varying Bead Coverages
 
@@ -13,7 +11,44 @@ simulation of cell rolling velocity and forces
 %\\nas.ads.mwn.de\tuze\t03\AG-Hayden Studenten\00_Students\Johann Brenner\02_software\01-MRCyte\Magnetic cytometry signal modeling
 \subsection{Single Cell Signal}
 
+\begin{figure}
+	\centering
+	\subfloat{
+		\subfigimg[height=150pt]{a}{Ressources/Simulation/Big2um}	
+	} \hfill
+	\subfloat{
+		\subfigimg[height=150pt]{b}{Ressources/Simulation/Small2um}	
+	} \\
+	\vspace{\baselineskip}
+	\subfloat{
+		\subfigimg[height=150pt]{c}{Ressources/Simulation/Big4um}
+	}\hfill
+	\subfloat{
+		\subfigimg[height=150pt]{d}{Ressources/Simulation/Small4um}	
+	}
+\capption{Coverage Dependent Signal Correlation}{Mean from 3 differently distributed particles, SEM (\textbf{a}) d = \SI{4}{\micro\meter} (\textbf{b}) d = \SI{4}{\micro\meter} (\textbf{c}) d = \SI{8}{\micro\meter} (\textbf{d}) d = \SI{8}{\micro\meter}}
+\label{fig:sim:coverage}
+\end{figure}
+
+\begin{figure}
+		\centering
+	\subfloat{
+		\subfigimg[height=150pt]{a}{Ressources/Simulation/CorrelationDiff2um}	
+	} \hfill
+	\subfloat{
+		\subfigimg[height=150pt]{b}{Ressources/Simulation/CorrelationDiff4um}	
+	}
+\capption{Difference of Cross-Correlation at Maximum Coverage}{Mean from 3 different particle distributions at maximum coverage, SEM(\textbf{a}) d = \SI{4}{\micro\meter} (\textbf{b}) d = \SI{8}{\micro\meter}}
+\label{fig:sim:CorrDiff}
+\end{figure}
+
 \subsection{Cell Aggregates}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.7\linewidth]{Ressources/Simulation/Aggregates}
+	\capption{Signals of Two Cell Aggregates Varying Angles}{Mean from 3 differently distributed particles, SEM}
+\end{figure}
 
 \section{Reference Bead Surface Functionalization}
 
@@ -39,7 +74,7 @@ BNF-Dextran-Streptavidin unspecific binding?
 	\centering
 	\includegraphics[width=1\linewidth]{Ressources/Chemistry/Substrate}
 	\capption{General process chain of chemical surface modification}{Any substrate with various surface groups R (\textbf{a}) is oxidized to exhibit \gls{hydroxyl} groups.(\textbf{b}). Then a silane \gls{sam} is attached (\textbf{c}) and subsequently modified by carbodiimide chemistry with \gls{paa}. (\textbf{d})}
-	\label{fig:chem:func:substrate}
+	\label{fig:chem:func:withPAA}
 \end{figure}
 
 

@@ -56,7 +56,7 @@ of the \Fakultaet{}\\ at the Technical University of Munich.
 \newpage\null\thispagestyle{empty}\newpage
 \newpage\null\thispagestyle{empty}\newpage
 
-\input{./Chapters/Danksagung}
+%\input{./Chapters/Danksagung}
 
 \pagestyle{empty}
 \renewcommand*\chapterpagestyle{empty}
@@ -64,13 +64,14 @@ of the \Fakultaet{}\\ at the Technical University of Munich.
 \newpage\null\thispagestyle{empty}\newpage
 
 \newpage\null\thispagestyle{empty}\newpage	
+% Abkürzungsverzeichnis	
 \setcounter{page}{0}
-% Abkürzungsverzeichnis		
-%\addxcontentsline{toc}{chapter}{List of Abbreviations}
-\cftaddtitleline{toc}{chapter}{List of Abbreviations}{0}
+\addxcontentsline{toc}{chapter}{List of Abbreviations}
+\setcounter{page}{0}
+%\cftaddtitleline{toc}{chapter}{List of Abbreviations}{0}
 %\glsaddall
 %\printacronyms[title={List of Abbreviations}]	
-\printglossary
+\printglossary[title={List of Abbreviations}]	
 \clearpage
 \newpage\null\thispagestyle{empty}\newpage	
 \pagestyle{headings}

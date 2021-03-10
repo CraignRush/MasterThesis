@@ -1,0 +1,79 @@
+%%% Title Page
+\thispagestyle{empty}
+\begin{textblock*}{\UniversitaetLogoBreite}[1.2,0](\textwidth, 3.2cm-\SeitenrandOben)%
+	\raggedleft\includegraphics{./Ressources/Universitaet_Logo_RGB.pdf}%
+\end{textblock*}
+	
+\begin{textblock*}{\textwidth}[0,0](0cm, 3cm-\SeitenrandOben)%
+	\textcolor{TUMblau}{Heinz Nixdorf-Lehrstuhl für Biomedizinische Elektronik\\
+	Fakultät für Elektrotechnik und Informationstechnik\\
+	Technische Universität München}
+\end{textblock*}
+	
+	
+\begin{textblock*}{\textwidth}[0,0](0cm, 3cm)%
+	{\fontsize{24pt}{26pt}\selectfont\textbf{\Titel}}
+	
+%	\vspace*{14pt}
+%	{\fontsize{18pt}{27pt}\selectfont\textbf{\Untertitel}}
+		
+	\vspace*{14pt}
+	\begin{center}
+	\includegraphics[clip,height=\FotoStudentHoehe, keepaspectratio] 
+	{./Ressources/FotoStudent.jpg}
+	\end{center}
+		
+\end{textblock*}	
+	
+\vspace*{125.2mm}
+\fontsize{15pt}{17.5pt}\selectfont%
+Scientific thesis for the attainment of the academic degree\\
+\Grad\\
+of the \Fakultaet{}\\ at the Technical University of Munich.
+	
+\renewcommand{\baselinestretch}{1.47}
+\normalsize\selectfont
+\vspace*{4.3mm}
+\textbf{Supervised by}\tab
+\begin{minipage}[t]{\textwidth-\CurrentLineWidth}
+	\BetreutVonBetreuer\\
+	\BetreutVonProf\strut
+\end{minipage}
+	
+%\vspace*{4.3mm}
+\textbf{Submitted by}\tab
+\begin{minipage}[t]{\textwidth-\CurrentLineWidth}
+	\EingereichtVon\\
+	\Matrikelnummer
+\end{minipage}
+	
+%\vspace*{4.3mm}
+\textbf{Submitted on}\tab 
+\begin{minipage}[t]{\textwidth-\CurrentLineWidth}
+	\Datum{} at \Ort{}\strut
+\end{minipage}
+
+\newpage\null\thispagestyle{empty}\newpage
+\newpage\null\thispagestyle{empty}\newpage
+
+\input{./Chapters/Danksagung}
+
+\pagestyle{empty}
+\renewcommand*\chapterpagestyle{empty}
+\tableofcontents% Inhaltsverzeichnis
+\newpage\null\thispagestyle{empty}\newpage
+
+\newpage\null\thispagestyle{empty}\newpage	
+\setcounter{page}{0}
+% Abkürzungsverzeichnis		
+%\addxcontentsline{toc}{chapter}{List of Abbreviations}
+\cftaddtitleline{toc}{chapter}{List of Abbreviations}{0}
+%\glsaddall
+%\printacronyms[title={List of Abbreviations}]	
+\printglossary
+\clearpage
+\newpage\null\thispagestyle{empty}\newpage	
+\pagestyle{headings}
+\renewcommand*\chapterpagestyle{headings}	
+\setcounter{page}{1}
+

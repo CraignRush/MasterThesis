@@ -49,6 +49,7 @@
 \usepackage{caption} % Anpassen von Beschriftungen
 
 % Nummerierung von Abbildungen & Tabellen durchgängig, statt nach Kapiteln:
+\usepackage{tocloft}
 \usepackage{chngcntr}
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
@@ -60,7 +61,7 @@
     nopostdot,% Kein Punkt am Ende einer Beschreibung im Glossar
     nomain,
     automake, 
-    nonumberlist,
+%    nonumberlist,
 ]{glossaries}
 
 % Debugging:
@@ -123,3 +124,7 @@ showstringspaces = false}
 \usepackage{scalerel} % Get smaller subscripts
 \usepackage{todonotes} % get todonotes
 \usepackage{booktabs} % get fancy table lines
+
+%% Debug only figures
+%\usepackage[active,tightpage]{preview}
+%\PreviewSnarfEnvironment[{[]}]{figure}

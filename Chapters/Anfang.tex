@@ -295,6 +295,12 @@ afterskip=12pt
 \setlength{\tikzLineLength}{5mm}
 \definecolor{MLblue}{rgb}{0, 0.4470, 0.7410}
 \definecolor{MLorange}{rgb}{0.8500, 0.3250, 0.0980}
+\definecolor{Oorange}{HTML}{E69F00}
+\definecolor{OlightBlue}{HTML}{56B4E9}
+\definecolor{Ogreen}{HTML}{009E73}
+\definecolor{OdarkBlue}{HTML}{0072B2}
+\definecolor{Oyellow}{HTML}{F0E442}
+\definecolor{Ored}{HTML}{D55E00}
 
 \DeclareRobustCommand{\orangedash}{
 	\tikz[baseline=\tikzLineHeight]{	
@@ -346,3 +352,7 @@ afterskip=12pt
 			\draw[fill=yellow,draw=none](2.0mm,0) rectangle (3.5mm,1.5mm); \draw[-,yellow,solid,line width = 1.0pt](0.,0.8mm) -- (5.5mm,0.8mm);
 		}
 }
+
+\DeclareRobustCommand{\blueCircle}{\tikz{\draw[black, fill=OlightBlue] (0,0) circle (.5ex);}}
+
+\DeclareRobustCommand{\orangeCircle}{\tikz{\draw[black, fill=Oorange] (0,0) circle (.5ex);}}

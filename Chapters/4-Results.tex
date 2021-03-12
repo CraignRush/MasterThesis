@@ -1,34 +1,85 @@
 \chapter{Results}
 \section{Virtual Prototyping of Cell Signals}
-During the course 
+
+During the course of this thesis, numerical simulations for the microchannel have been carried out. On the one side, a simulation about the shape of a \gls{gmr}-sensor signal of cells was performed, where the magnetic momentum was conveyed through \glspl{mnp} bound to their surface. On the other side, cell aggregates have been looked at in the same manner with different angles respective to the sensor. Both simulations were then correlated to a reference dipole, with the equivalent magnetic momentum distributed in the center of mass.\\
+Additionally, the flow and shear field inside the channel was simulated numerically for the channel cross section as well as for a particle near the walls. A force equilibrium simulation was also established in a basic manner. \\
+Every simulation was captured in a MATLAB class ``MRCyte'', which contains material parameters and constants for all simulations above.
 \subsection{Numerical investigation of immunomagnetic label density and size on quantitative magnetoresistive sensing of single cells and cell aggregates}
-Signal Similarity For Cells With Varying Bead Coverages
-
-Cross-Correlation between single dipole with sum magentic moment and surface covered with randomly distributed magnetic particles
-
-simulation of cell rolling velocity and forces
+In order to mimic a immunomagnetically labeled cell flowing over the sensor half bridge, the planar integral of the respective \acrfull{B} was solved analytically. Here, $\mathbf{r}_i$ specifies the distance vector of a single \gls{mnp} from the sensor plane. The magnetic flux density was converted by the \gls{gmr} to a resistive change $\mathbf{R}_{sig}$ by scaling it with the \gls{gmr}-sensitivity $S$ and subsequently into a signal voltage $\mathbf{V}_{sig}$ inside the bridge branch.(\cref{eq:magneticFluxIntegral, eq:GMR-signal, eq:voltage-signal})\\
+In the numerical approach, \glspl{mnp} were randomly sampled on a sphere surface with an equivalent diameter of \SI{4}{\micro\meter} or \SI{8}{\micro\meter}. Then, the signal was computed for every \gls{mnp} during every timestep. Additionally, the \gls{mnp} distribution was rotated in every iteration to resemble a rolling motion. The computed signals were then cross-correlated to the signal of a reference flux density $\mathbf{B}_{ref}$ caused by a point-like magnetic moment located in the geometric center of the same sphere.
+\begin{align}
+	\mathbf{B}(t) &= \sum_{i=1}^{N} \frac{1}{A_{\mathrm{Sensor}}} \int_{-\frac{l}{2}}^{\frac{l}{2}} \int_{-\frac{w}{2}}^{\frac{w}{2}} \frac{\mu_{o}}{4 \pi}\left(\frac{3 \mathbf{r}_{i}(t)\left(\mathbf{r}_{i}(t) * \mathbf{m}_{i}\right)}{\left|\mathbf{r}_{i}(t)\right|^{5}}-\frac{\mathbf{m}_{i}}{\left|\mathbf{r}_{i}(t)\right|^{3}}\right) dx dy \label{eq:magneticFluxIntegral} \\
+	\mathbf{R}_{sig}(t) &= - \mathbf{B}(t) * \frac{S}{100} * R + R \label{eq:GMR-signal}\\
+	\mathbf{V}_{sig}(t) &= \frac{\mathbf{R}_{sig}(t)}{R + \mathbf{R}_{sig}(t)}*V_p - \frac{V_p}{2} \label{eq:voltage-signal}
+\end{align}
+By its formula, cross-correlation $R_{x y}(\tau)$ yields a displacement dependent signal through its convolution of the complex conjugated reference signal $\mathrm{V}_{ref}^{*}(t)$ with the sample signal $\mathbf{V}_{sig}(t+\tau)$.(\cref{eq:xcorr}) Therefor, only the maximal correlation of this function was considered in further analyses.
+\begin{equation}
+	\mathrm{max}\{R_{x y}(\tau)\}=\mathrm{max}\left\{\int_{-\infty}^{\infty} \mathrm{V}_{ref}^{*}(t) \mathbf{V}_{sig}(t+\tau) dt \right\} \label{eq:xcorr}
+\end{equation}
+\todo{Signal Similarity For Cells With Varying Bead Coverages,Cross-Correlation between single dipole with sum magentic moment and surface covered with randomly distributed magnetic particles, simulation of cell rolling velocity and forces}
 
 %\\nas.ads.mwn.de\tuze\t03\AG-Hayden Studenten\00_Students\Johann Brenner\02_software\01-MRCyte\Magnetic cytometry signal modeling
 \subsection{Single Cell Signal}
+Aim of these simulations is to find a measure of how magnetic labelling of a cell affects signal shape and its subsequent analysis. A single cell with a surface coverage of \SIrange{5}{99}{\percent} of a densely packed sphere was loaded randomly with \glspl{mnp} at different sizes. As shown in the schematic \cref{fig:sim:intro:coverage}, not only signal peak amplitude but also \gls{fwhm} increases at growing coverages. 
+
+\begin{figure}[htb]
+	\centering
+	\subfloat{
+		\subfigimg[height=80pt]{a}{Ressources/Simulation/ParticleCoverage}
+		\phantomsubcaption
+		\label{fig:sim:intro:coverage}
+		} \hfill
+	\subfloat{
+		\subfigimg[height=80pt]{b}{Ressources/Simulation/ParticleAngle}			
+		\phantomsubcaption
+		\label{fig:sim:intro:angle}
+	} 
+	\subfloat{
+	\subfigimg[height=80pt]{c}{Ressources/Simulation/GMR}			
+	\phantomsubcaption
+	\label{fig:sim:intro:gmr}
+} 
+	\capption{Particle Coverage Simulation}{(\textbf{a}) The single ideal magnetic dipole in the center  (\blueCircle) causes a signal deviation from the real cell signal with magnetic moment distributed on the cell surface (\orangeCircle) (\textbf{b}) Signal shapes of different angles of 2-particle aggregates (\textbf{c}) GMR Sensor simulation dimensions}
+	\label{fig:sim:intro}	
+\end{figure}
+
+%Überlegen, ob grafik in einen große 
+
+simulation Parameters
+
+
+why the cell signal differs --> number of aggregates --> single particle moments are more weighted
+
+PArticle size is dependent --> number less, but moment higher --> single particle is even more important
 
 \begin{figure}
 	\centering
-	\subfloat{
-		\subfigimg[height=145pt]{a}{Ressources/Simulation/Big2um}	
+	\subfloat{	
+		\subfigimg[height=145pt]{b}{Ressources/Simulation/Small2um}	
+		\phantomsubcaption
+		\label{fig:sim:coverage:small2um}
 	} \hfill
 	\subfloat{
-		\subfigimg[height=145pt]{b}{Ressources/Simulation/Small2um}	
+		\subfigimg[height=145pt]{a}{Ressources/Simulation/Big2um}
+		\phantomsubcaption
+		\label{fig:sim:coverage:big2um}	
 	} \\
 	\vspace{\baselineskip}
-	\subfloat{
-		\subfigimg[height=145pt]{c}{Ressources/Simulation/Big4um}
+	\subfloat{	
+		\subfigimg[height=145pt]{d}{Ressources/Simulation/Small4um}	
+		\phantomsubcaption
+		\label{fig:sim:coverage:small4um}
 	}\hfill
 	\subfloat{
-		\subfigimg[height=145pt]{d}{Ressources/Simulation/Small4um}	
+		\subfigimg[height=145pt]{c}{Ressources/Simulation/Big4um}
+		\phantomsubcaption
+		\label{fig:sim:coverage:big4um}
 	}
 \capption{Coverage Dependent Signal Correlation}{Mean from 3 differently distributed particles, SEM (\textbf{a}) d = \SI{4}{\micro\meter} (\textbf{b}) d = \SI{4}{\micro\meter} (\textbf{c}) d = \SI{8}{\micro\meter} (\textbf{d}) d = \SI{8}{\micro\meter}}
 \label{fig:sim:coverage}
 \end{figure}
+
+
 
 \begin{figure}
 		\centering
@@ -44,10 +95,11 @@ simulation of cell rolling velocity and forces
 
 \subsection{Cell Aggregates}
 
-\begin{figure}
+\begin{figure}	
 	\centering
-	\includegraphics[width=.7\linewidth]{Ressources/Simulation/Aggregates}
+	\includegraphics[width=.7\linewidth]{Ressources/Simulation/Aggregates}	
 	\capption{Sensor Signals Correlation between Two Cell Aggregates At Shifting Angles with a Reference Dipole}{Mean from 3 differently distributed particles, SEM}
+	\label{fig:sim:aggregates}
 \end{figure}
 
 \section{Reference Bead Surface Functionalization}
@@ -280,7 +332,7 @@ Trial with Neutravidin + Sensor (Esthis Versuch)
 
 
 \subsection{Covalent Attachment}
-\clearpage
+%\clearpage
 
 
 \begin{figure}[htb!]
@@ -299,7 +351,7 @@ Trial with Neutravidin + Sensor (Esthis Versuch)
 	\subfloat{
 		\subfigimg[height=150pt]{b}{Ressources/Covalent/NeutravidinTitration}	
 	}
-	\capption{Neutravidin Titration Fluorescence and Bead Capture Assay}{Mean from 3 different particle distributions at maximum coverage, SEM(\textbf{a}) Serpentine (\textbf{b}) Glass d = \SI{8}{\micro\meter}}
+	\capption{Neutravidin Titration Fluorescence and Bead Capture Assay}{Relate count to area, then change MFI to counts \si{\per\micro\liter\per\milli\meter\squared}(\textbf{a}) Serpentine (\textbf{b}) Glass}
 	\label{fig:coval:fluo}
 \end{figure}
 

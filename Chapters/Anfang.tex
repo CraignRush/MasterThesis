@@ -94,13 +94,13 @@
 \setkomafont{subsection}{\bfseries\fontsize{12pt}{13pt}\selectfont}
 \RedeclareSectionCommand[%
   beforeskip=0pt,
-  afterskip=12pt
+  afterskip=16pt
 ]{subsection}
 \renewcommand*{\subsectionformat}{\makebox[13mm][l]{\thesubsection.\enskip}} % Feste Breite für Unterabschnittsnummer und immer Punkt danach
 \setkomafont{subsubsection}{\bfseries\fontsize{11pt}{12pt}\selectfont}
 \RedeclareSectionCommand[%
 beforeskip=0pt,
-afterskip=12pt
+afterskip=16pt
 ]{subsubsection}
 
 % Listen:
@@ -208,7 +208,7 @@ afterskip=12pt
     labelsep=none,
     singlelinecheck=off,
     justification=raggedright,
-    skip=6.6mm,
+    skip=3pt,%6.6mm
     figurewithin=none
 }
 

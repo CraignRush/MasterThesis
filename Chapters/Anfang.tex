@@ -186,31 +186,7 @@ afterskip=16pt
 \AfterTOCHead[lot]{\protect\vspace{-.1ex}\doublespacing} % Abstand zwischen Überschrift und Tabellenverzeichnis, doppelter Zeilenabstand
 \setuptoc{lot}{noparskipfake} % Angleichung der Abstände nach Tabellenverzeichnisüberschrift an andere Überschriften
 
-% Beschriftungen:
-\DeclareCaptionFormat{WissenschaftlicheArbeiten}{\fontsize{8pt}{10pt}\selectfont#1 #2#3\par}
-\DeclareCaptionLabelFormat{WissenschaftlicheArbeiten}{\bfseries\selectfont#1 #2:      }
 
-% -- Tabellen:
-\captionsetup[table]{%
-    format=WissenschaftlicheArbeiten,
-    labelformat=WissenschaftlicheArbeiten,
-    labelsep=none,
-    singlelinecheck=off,
-    justification=raggedright,
-    skip=3pt,
-    tablewithin=none
-}
-
-% -- Abbildungen:
-\captionsetup[figure]{%
-    format=WissenschaftlicheArbeiten,
-    labelformat=WissenschaftlicheArbeiten,
-    labelsep=none,
-    singlelinecheck=off,
-    justification=raggedright,
-    skip=3pt,%6.6mm
-    figurewithin=none
-}
 
 % Tabellen:
 \renewcommand{\arraystretch}{1.8} % Skalierung der Tabellen
@@ -271,10 +247,55 @@ afterskip=16pt
 % -- Abbildungen:
 
 \newcommand\capption[2]{\caption{\textbf{#1}\newline#2}}
-\renewcommand{\thesubfigure}{\alph{subfigure}}
 
-\DeclareCaptionLabelFormat{bold}{\textbf{#2,}}
-\captionsetup{subrefformat=bold}
+
+\renewcommand{\thesubfigure}{\alph{subfigure}}
+\renewcommand{\thesubtable}{\alph{subtable}}
+
+% Beschriftungen:
+\DeclareCaptionFormat{WissenschaftlicheArbeiten}{\fontsize{8pt}{10pt}\selectfont#1 #2#3\par}
+\DeclareCaptionLabelFormat{WissenschaftlicheArbeiten}{\bfseries\fontsize{8pt}{10pt}\selectfont#1 #2:      }
+\DeclareCaptionLabelFormat{OwnBold}{\bfseries\fontsize{14pt}{16pt}\selectfont#1 #2:}
+
+% -- Tabellen:
+\captionsetup[table]{%
+	format=WissenschaftlicheArbeiten,
+	labelformat=WissenschaftlicheArbeiten,
+	labelsep=none,
+	singlelinecheck=off,
+	justification=raggedright,
+	skip=3pt,
+	tablewithin=none
+}
+
+% -- Abbildungen:
+\setlength{\intextsep}{\baselineskip}
+\setlength{\textfloatsep}{\baselineskip}
+\setlength{\floatsep}{\baselineskip}
+
+\captionsetup[figure]{%
+	format=WissenschaftlicheArbeiten,
+	labelformat=WissenschaftlicheArbeiten,
+	labelsep=none,
+	singlelinecheck=off,
+	justification=raggedright,
+	%skip=3pt,%6.6mm
+	belowskip=0pt,
+	figurewithin=none%
+}
+
+\captionsetup[subtable]{%
+	position=top, 
+	labelfont={large,bf},
+	singlelinecheck=off,
+	justification=raggedright
+}
+
+
+\captionsetup[subtable]{%
+	labelformat=simple,
+	labelsep=none
+}
 
 \Crefname{equation}{Eq.}{Eqs.}
 \Crefname{figure}{Fig.}{Figs.}
@@ -284,7 +305,7 @@ afterskip=16pt
 	\setbox1=\hbox{\includegraphics[#1]{#3}}% Store image in box
 	\leavevmode\rlap{\usebox1}% Print image
 	%\rlap{\hspace*{0pt}\raisebox{\dimexpr\ht1+0.25\baselineskip}{\fontsize{8pt}{10pt}\bfseries\selectfont\thesubfigure}}% Print label #2
-	\rlap{\hspace*{0pt}\raisebox{\dimexpr\ht1+0.25\baselineskip}{\fontsize{8pt}{10pt}\bfseries\selectfont#2}}
+	\rlap{\hspace*{0pt}\raisebox{\dimexpr\ht1+0.25\baselineskip}{\large\bfseries #2}}%\selectfont#2
 	\phantom{\usebox1}% Insert appropriate spcing	
 }
 
@@ -354,5 +375,7 @@ afterskip=16pt
 }
 
 \DeclareRobustCommand{\blueCircle}{\tikz{\draw[black, fill=OlightBlue] (0,0) circle (.5ex);}}
+
+\DeclareRobustCommand{\darkBlueCircle}{\tikz{\draw[black, fill=OdarkBlue] (0,0) circle (.5ex);}}
 
 \DeclareRobustCommand{\orangeCircle}{\tikz{\draw[black, fill=Oorange] (0,0) circle (.5ex);}}

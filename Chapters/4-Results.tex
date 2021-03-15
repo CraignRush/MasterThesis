@@ -75,33 +75,33 @@ Aim of these simulations is to find a measure of how magnetic labeling of a cell
 \end{table}
 
 The expected behavior matches the data analysis (\cref{fig:sim:coverage}). Each two analyzed sphere diameters \SIlist{4;8}{\micro\meter} with \gls{mnp} sizes ranging from \SI{20}{\nano\meter} to \SI{2}{\micro\meter}, show a great \gls{sem} at low coverage. This very probably is subjected to the momenta of single particles which play a greater individual role and hence influence the signal shape significantly because the overall dipole momentum in the sensor loses homogeneity. \\
-Another observable effect is related to the \gls{mnp} size. Absolute correlation differs from \SI{20}{\nano\meter} to the ten and hundered fold diameter significantly. This can be related to the magnetic momentum per \gls{mnp} as it is dependent on the volume - thus $r^3$. However, for bigger magnetic particles this does not hold true because the composition changes from pure magnetite to a polymer shell with embedded oxide core at around \SI{150}{\nano\meter}. Nevertheless, larger particles possess also greater magnetic momentum which brings also the aforementioned influence of single \glspl{mnp} into consideration for that effect. \\ 
+Another observable effect is related to the \gls{mnp} size. Absolute correlation differs from \SI{20}{\nano\meter} to the ten and hundered fold diameter significantly. This can be related to the magnetic momentum per \gls{mnp} as it is dependent on the volume - thus $r^3$. However, for bigger magnetic particles this does not hold true because the composition changes from pure magnetite to a polymer shell with embedded oxide core at around \SI{150}{\nano\meter}. Nevertheless, larger particles carry also greater magnetic momentum which brings also the aforementioned influence of single \glspl{mnp} into consideration for that effect. \\ 
 Also, the densely packed sphere surface can evidently carry more smaller than larger \glspl{mnp}. This ranges from \num{641600} \gls{mnp} at \SI{20}{\nano\meter} to \num{81} at \SI{2}{\micro\meter} for a sphere radius of \SI{4}{\micro\meter} and limits the maximum achievable momentum. \\
 In reality, a maximum immunomagnetic label density depends not on the densely packed sphere but rather on the present antigens, and association or dissociation constants. Therefore, a complete saturation coverage is not achievable under physiological conditions. This leads to the fact that any possible momentum by deposition of \SIlist{20;50}{\nano\meter} on a cell surface cannot be resolved from noise by this sensing setup.
 
 \begin{figure}
 	\centering
 	\subfloat{	
-		\subfigimg[height=145pt]{a}{Ressources/Simulation/Small2um}	
+		\subfigimg[height=150pt]{a}{Ressources/Simulation/Small2um}	
 		\phantomsubcaption
 		\label{fig:sim:coverage:small2um}
 	} \hfill
 	\addtocounter{subfigure}{-1}
 	\subfloat{
-		\subfigimg[height=145pt]{b}{Ressources/Simulation/Big2um}
+		\subfigimg[height=150pt]{b}{Ressources/Simulation/Big2um}
 		\phantomsubcaption
 		\label{fig:sim:coverage:big2um}	
 	} \\
 	\vspace{\baselineskip}	
 	\addtocounter{subfigure}{-1}
 	\subfloat{	
-		\subfigimg[height=145pt]{c}{Ressources/Simulation/Small4um}	
+		\subfigimg[height=150pt]{c}{Ressources/Simulation/Small4um}	
 		\phantomsubcaption
 		\label{fig:sim:coverage:small4um}
 	}\hfill
 	\addtocounter{subfigure}{-1}
 	\subfloat{
-		\subfigimg[height=145pt]{d}{Ressources/Simulation/Big4um}
+		\subfigimg[height=150pt]{d}{Ressources/Simulation/Big4um}
 		\phantomsubcaption
 		\label{fig:sim:coverage:big4um}
 	}
@@ -114,7 +114,7 @@ Also, it can be seen that the correlation approaches a maximum obtainable value 
 Inter-sphere compared, maximum correlation shows also a significant decrease in for higher \gls{mnp} sizes as the particle diameter itself increases. The relative error between both sizes - as computed in \cref{eq:sim:relCorrDiff} -  is depicted in \cref{fig:sim:CorrDiff:rel}. Assuming a dependency on the available particle surface and subsequently the fraction which can be occupied by \glspl{mnp}, a quadratic fit seems appropriate.(\cref{eq:sim:quadFit}) The fit could indicate that a reference dipole cannot be discriminated from a cell at small \gls{mnp} diameters while the correlation error becomes nearly constant at great \glspl{mnp}.
 
 \begin{align}
-	\text{Relative\ Correlation\ Difference} &= 1- \frac{\max\{\text{Cross-Correlation}(d_{\SI{4}{\micro\meter}})\}}{\max\{\text{Cross-Correlation}(d_{\SI{8}{\micro\meter}})\}} \label{eq:sim:relCorrDiff}\\
+	\text{Relative\ Correlation\ Difference} &= 1- \frac{\max\{\text{Cross-Correlation}(d=\SI{4}{\micro\meter})\}}{\max\{\text{Cross-Correlation}(d = \SI{8}{\micro\meter})\}} \label{eq:sim:relCorrDiff}\\
 	\text{Relative\ Correlation\ Difference} &= \num{-0,38532} \, {d_{MNP}}^2 + \num{3,34574} \, d_{MNP} - \num{8,49629} \label{eq:sim:quadFit}
 \end{align}
 
@@ -133,10 +133,10 @@ Inter-sphere compared, maximum correlation shows also a significant decrease in 
 		\phantomsubcaption
 		\label{fig:sim:CorrDiff:rel}
 	}
-\capption{Maximal Cross-Correlation Differences}{(\textbf{a}) Mean coverage at \SI{99}{\percent} for \SI{4}{\micro\meter}  and \SI{8} {\micro\meter} spheres. A negative dependency on the \gls{mnp} size can be explained by the ratio of magnetic momentum per unit surface and its homogeneous distribution across the whole surface.\\ (\textbf{b}) Relative correlation error between \SI{4}{\micro\meter}  and \SI{8} {\micro\meter} spheres with a quadratic fit. The quadratic behavior could be related to the relative surface area which can occupied by magnetic momentum. (Red. Chi-square = \num{0,02821})}
+\capption{Maximal Cross-Correlation Differences}{(\textbf{a}) Mean coverage at \SI{99}{\percent} for \SI{4}{\micro\meter}  and \SI{8} {\micro\meter} spheres. A negative dependency on the \gls{mnp} size can be explained by the ratio of magnetic momentum per unit surface and its homogeneous distribution across the whole surface.\\ (\textbf{b}) Relative correlation error between \SI{4}{\micro\meter}  and \SI{8} {\micro\meter} spheres with a quadratic fit. The quadratic behavior could be related to the relative surface area which can occupied by magnetic momentum. (Adj. $R^2$ = \num{0.99209})}
 \label{fig:sim:CorrDiff}
 \end{figure}
-
+\todo{FlowField Simulations!!!!}
 \subsection{Cell Aggregates}
 In another simulation, two \SI{200}{\nano\meter}-\gls{mnp}-covered spheres were attached to each other in differing angles and simulated flowing over the sensor. Signal similarity to a magnetic dipole in the center of a single reference sphere was computed by cross-correlation. As can be observed in \cref{fig:sim:aggregates}, correlation is identical to a single sphere at low coverages when the magnetic momentum is high enough to form a uniform magnetic field. At occupancies greater than \SI{50}{\percent}, the two attached cells have to be considered as individual dipoles in superposition and thus show a signal that carries small peaks in the center. This is shown schematically in \cref{fig:sim:intro:angle}. In term, this causes a high signal deviation from the reference and thus a low degree of correlation.
 \begin{figure}
@@ -149,128 +149,124 @@ In another simulation, two \SI{200}{\nano\meter}-\gls{mnp}-covered spheres were 
 \clearpage
 \section{Reference Bead Surface Functionalization}
 After simulation of the coverages, biotin was titrated on \SI{8}{\micro\meter} reference beads with two different surface terminations in order to selectively bind \glspl{mnp} with the counter-agent streptavidin to the surface. First, \gls{amine}-microbeads were modified by sulfo-NHS-biotin. Second, \gls{carboxyl}-beads were coated by amine-PEG$_2$-biotin via EDC-NHS-activation. On the same beads Anti-IgG1-PE antibodies were titrated after the same coupling chemistry.\\
-Subsequently, biotin-coated beads were analyzed in the flow cytometer in the by staining with Atto-488 (Ex: \SI{500}{\nano\meter}, Em: \SI{520}{\nano\meter}) coupled streptavidin. The antibody was already industrially modified with \gls{pe} and measured at \SI{488}{\nano\meter} excitation and \SI{585}{\nano\meter}  emission wavelength. The gating was standardized by the strategy in \cref{sec:meth:beadCharact}, \cref{fig:gatingstrategy-layout}. Subsequently, the \gls{mfi} was computed and fitted with a Hill-function.(\cref{eq:hill})
-\begin{table}[!h]
+Subsequently, biotin-coated beads were analyzed in the flow cytometer in the by staining with Atto-488 (Ex: \SI{500}{\nano\meter}, Em: \SI{520}{\nano\meter}) coupled streptavidin. The antibody was already industrially modified with \gls{pe} and measured at \SI{488}{\nano\meter} excitation and \SI{585}{\nano\meter}  emission wavelength. The gating was standardized by the strategy found in \cref{sec:meth:beadCharact}, \cref{fig:gatingstrategy-layout}. Subsequently, the \gls{mfi} was computed and fitted with a Hill-function.(\cref{eq:hill}) Stability of carboxylated and aminated beads and subsequently their respective modification protocols was evaluated for \SI{12}{days}.
 
-\subfloat{
-	\begin{tabularx}{.60\linewidth}[t]{cccc}
-		\toprule[1.2pt]
-		Param. & Hill \ref{fig:biotinyl:titration:nh2} & Hill \ref{fig:biotinyl:titration:cooh} & Hill \ref{fig:biotinyl:titration:igg} \\
-		\midrule
-		$V_{max}$ &   \num{173.077} & \num{171,02602} & \num{713.83643}  \\
-		$k$ & \num{0.0572831}  & \num{0,04201}  & \num{182.83011} \\
-		$n$ &  \num{1.63554} & \num{0,9133} &  \num{0.72458}\\
-		Red. $\chi^2$ & \num{275.19597}  & \num{4,07387}  & \num{0.91011}  \\
-		\bottomrule
-	\end{tabularx}
-\phantomsubcaption
-\label{tab:biotinyl:fitParams:beads}
-} \hfill
-\subfloat{
-	\begin{tabularx}{.33\linewidth}[t]{cc}
-		\toprule[1.2pt]
-		Param. & Exp. \ref{fig:biotinyl:titration:stability} \\
-		\midrule
-		$A$ &   \num{0.91263} \\
-		$\tau_{decay}$ & \num{1.42557}  \\
-		$y_0$ & \num{0.12369}  \\
-		Red. $\chi^2$  & \num{0.00542 } \\
-		\bottomrule	\end{tabularx}
-	\phantomsubcaption
-	\label{tab:biotinyl:fitParams:stability}
-}
-\capption{Fit Parameters of Biotinylation}{(\textbf{a})}
-\label{tab:biotinyl:fitParams}
-\end{table}
-\begin{align}
-	y &= V_{max} \ \frac{x^n}{k^n + x^n} \label{eq:hill} \\
-	y &= y_0 + A \exp^{-\frac{x}{\tau_{decay}}}  \label{eq:expDecay}
-\end{align}
 
 \subsection{Amine-Surface Biotinylation}
-Streptavidin-Atto488 reference calibration
-Anti-Biotin-PE working?
-BNF-Dextran-Streptavidin unspecific binding?
+As first approach, polystyrene copolymer microbeads with \SI{8}{\micro\meter} diameter were functionalized by (sulfo-)NHS-biotin after a standard protocol. A titration of the biotin reactant yielded a varying surface coverage as shown in \cref{fig:biotinyl:titration:nh2}. During this one-pot-reaction, the water-soluble sulfo-NHS-biotin forms an \gls{amide} linkage with the primary \gls{amine} and 1-hydroxy-2,5-dioxopyrrolidine-3-sulfonate splits off as byproduct.\\
+As can be seen from the \gls{sem} error-bars from the plot \ref{fig:biotinyl:titration:nh2}, which were constructed from three true biological replicates, this process is highly reproducible. Therefore, an surface coverage in different grades of biotinylation could be obtained accurately with a high confidence level. 
 
-
-
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=\linewidth]{./Ressources/Chemistry/Sulfo-NHS.eps}
-	\capption{Amine Bead Modification with Sulfo-NHS-Biotin}{An amine terminated bead is incubated with sulfo-NHS-Biotin to cover its surface by amide-Biotin. As byproduct the sulfo-NHS-ester 1-hydroxy-2,5-dioxopyrrolidine-3-sulfonate splits off. }
+	\capption{Amine Bead Modification with Sulfo-NHS-Biotin}{An amine terminated bead brought into reaction with sulfo-NHS-biotin. Both form an amide linkage and bind biotin covalently to the surface. As byproduct the sulfo-NHS-ester splits off.}
 	\label{fig:Chem:NH2-NHS}
 \end{figure}
 
+\clearpage
 
 \begin{figure}
 	\centering
 	\subfloat{
-		\subfigimg[height=90pt]{a}{./Ressources/Biotinyl/mag-nh2}	
+		\subfigimg[height=95pt]{a}{./Ressources/Biotinyl/mag-nh2}	
 				\phantomsubcaption
 		\label{fig:biotinyl:titration:nh2}
 	} \hfill
 	\addtocounter{subfigure}{-1}
 	\subfloat{
-		\subfigimg[height=90pt]{b}{./Ressources/Biotinyl/cooh}	
+		\subfigimg[height=95pt]{b}{./Ressources/Biotinyl/cooh}	
 		\phantomsubcaption
 		\label{fig:biotinyl:titration:cooh}
 	}\hfill
 	\addtocounter{subfigure}{-1}
 	\subfloat{
-		\subfigimg[height=90pt]{c}{./Ressources/Biotinyl/IgG-cooh}	
+		\subfigimg[height=95pt]{c}{./Ressources/Biotinyl/IgG-cooh}	
 		\phantomsubcaption
 		\label{fig:biotinyl:titration:igg}
 	} \\
 	\addtocounter{subfigure}{-1}
 	\vspace{\baselineskip}
 	\subfloat{
-	\subfigimg[height=150pt]{c}{./Ressources/Biotinyl/stability}
+	\subfigimg[width=.7\linewidth]{d}{./Ressources/Biotinyl/stability}
 	\phantomsubcaption
 	\label{fig:biotinyl:titration:stability}	
 	}
 
-	\capption{Titration of Biofunctional Molecules on \SI{8}{\micro\meter} Particles}{ (\textbf{a}) NHS-Biotin, MFI, CV,=  n =  (\textbf{b}) Amin-PEG$_2$-Biotin MFI, CV, outlier neglected	(\textbf{c}) MFI, CV, (\textbf{d}) MFI, SEM, }
+	\capption{Titration of Biofunctional Molecules on \SI{8}{\micro\meter} Particles}{ Titration curves of NHS-biotin (\textbf{a}), Amin-PEG$_2$-Biotin (\textbf{b}), and Anti-IgG1 (\textbf{c}) with their respective Hill fits. The corresponding fit parameters as well as the goodness factor are shown in \cref{tab:biotinyl:fitParams:beads}. (\textbf{d}) Stability analysis of functionalized \gls{carboxyl} and \gls{amine} beads over \SI{12}{days}. The carboxylate particles show a exponential decrease with a half-life of \SI{1.43}{days} as determined by the exponential fit. The respective parameters are shown in \cref{tab:biotinyl:fitParams:stability}.}
 	\label{fig:biotinyl:titration}
 \end{figure}
+\begin{table}[!h]
+	\subfloat[  ]{
+		\begin{tabularx}{.6\linewidth}[t]{cccc}
+			\toprule[1.2pt]
+			Param. & Hill \ref{fig:biotinyl:titration:nh2} & Hill \ref{fig:biotinyl:titration:cooh} & Hill \ref{fig:biotinyl:titration:igg} \\
+			\midrule
+			$V_{max}$ &   \num{175.21619} & \num{140.39153} & \num{713.83643}  \\
+			$k$ & \num{57.36713}  & \num{4.12661}  & \num{182.83011} \\
+			$n$ &  \num{1.47488} & \num{1.07493} &  \num{0.72458}\\
+			Adj. $R^2$ & \num{0.98121}  & \num{0.99722}  & \num{0.99226}  \\
+			\bottomrule
+		\end{tabularx}
+		\label{tab:biotinyl:fitParams:beads}
+	}%
+	\hfill
+	\subfloat[  ]{
+		\begin{tabularx}{.25\linewidth}[t]{cc}
+			\toprule[1.2pt]
+			Param. & Exp. \ref{fig:biotinyl:titration:stability} \\
+			\midrule
+			$A$ &   \num{0.91263} \\
+			$\tau_{decay}$ & \num{1.42557}  \\
+			$y_0$ & \num{0.12369}  \\
+			Adj. $R^2$  & \num{0.96655} \\
+			\bottomrule
+		\end{tabularx}	
+		\label{tab:biotinyl:fitParams:stability}
+	}
+	\capption{Fit Parameters of Biotinylation}{(\textbf{a}) Coefficients for the Hill fits in \cref{fig:biotinyl:titration:nh2,fig:biotinyl:titration:cooh,fig:biotinyl:titration:igg} (\textbf{b}) Exponential fit coefficients for the stability analysis in \cref{fig:biotinyl:titration:stability}}
+	\label{tab:biotinyl:fitParams}
+\end{table}
+\clearpage
 
+\subsubsection{Carboxylate-Surface Biotinylation}
 
+Biotin-amin
+protocol
 
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=.7\linewidth]{./Ressources/Biotinyl/IgG-cooh}
-%	\capption{Titration of Anti-IgG1 on \SI{8}{\micro\meter} Particles}{MFI, CV, reduced chi square = 
-%		0.91011, Hill Fit $y=Vmax*x^n/(k^n+x^n)$, Vmax = 713.83643, k = 182.83011	, n = 0.72458 }
-%	\label{fig:biotinyl:IgG-cooh}
-%\end{figure}
+stabilität
 
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=\.7\linewidth]{./Ressources/Biotinyl/stability}
-%	\capption{Titration of Anti-IgG1 on \SI{8}{\micro\meter} Particles}{MFI, SEM, reduced chi square = 
-%		0.00542, Hill Fit $y=Vmax*x^n/(k^n+x^n)$, Vmax = 713.83643, k = 182.83011	, n = 0.72458 }
-%	\label{fig:biotinyl:stability}
-%\end{figure}
+antikörper
 
-
+\clearpage
 \section{Concentration Measurements in MRCyte}
-Explain v-c
-\begin{figure}
+Driving factor for the concentration measurement is the absolute count of immunomagnetically labeled cells in whole blood or at least diluted whole blood which is not possible in today's optics-based devices mostly due to \glspl{rbc}. Therefore, with the in \cref{sec:theo:magnet} described sensor setup, absolute concentrations of magnetic reference beads were attempted to measure.\\
+Consequently, beads with acrylate surface were pumped through a microfluidic channel with a permanent underneath. The magnet drew every magnetic particle to the ground, where they were focused on the sensor bridge and subsequently measured there. From the received signal several parameters such as peak amplitudes, locations, zero-crossings, and relative distances between each other were computed. (\cref{fig:conc:example}) However, for a concentration measurement mostly the correct detection of a signal from the noisy stream or from a superposition of multiple simultaneously measured particles was critical. The related error sources and countermeasures will be elaborated in \cref{sec:res:Correction}.
+\begin{figure}[hb]
 	\centering
 	\includegraphics[width=.7\linewidth]{Ressources/Simulation/ExampleSignal}
-	\capption{Example Signal of Magnetic Measurement}{explain all}
+	\capption{Example Signal of Magnetic Measurement}{Signals generated from the Wheatstone bridge sensor setup feature a certain shape which allows for several measures. In case the overall signal stream carries a constant or linear offset, it is scaled to the means before and after the detected peak pattern. (\textcolor{OlightBlue}{Mean1, Mean2}) The x- and y-Positions of each peak are denominated by \textcolor{Oorange}{B1-4} and \textcolor{Ogreen}{Amp1-4}, respectively. The crossings of the signal through the linear connection of both means are denominated by \textcolor{OdarkBlue}{n1-3} (in the figure by \darkBlueCircle). Further, the difference between the equally oriented peaks \textcolor{Oorange}{B3}-\textcolor{Oorange}{B1} and \textcolor{Oorange}{B4}-\textcolor{Oorange}{B2} give a measure for the homogeneous movement of the measured object and are called \textcolor{Oyellow}{A1} and \textcolor{Oyellow}{A2} each. From these values the overall velocity can be approximated because the \gls{gmr} distance and sample rate is fixed precisely. Analogously, the magnetic diameter of a dipole is computed by the mean of the differences \textcolor{Oorange}{B2}-\textcolor{Oorange}{B1} and \textcolor{Oorange}{B4}-\textcolor{Oorange}{B3}.}
 	\label{fig:conc:example}
 \end{figure}
+\clearpage
 
-\begin{figure}
+
+By measuring the absolute concentration with a commercially available device, the flow cytometer (MacsQuant 10, Miltenyi), a reference bead count was established. In a pre-test, beads were taken directly from the microcentrifuge tube, after pumping through a syringe and after pumping through a syringe with \SI{10}{\centi\meter} of connected through tubing (ID \SI{0.5}{\milli\meter}, RS Chemicals). Afterwards, they were counted in the flow cytometer in equal volumes. Additionally, two different buffers - \gls{macs} and \gls{pbs} - and two different surface terminations were used. Both buffers are based on \acrfull{pbs}. Notwithstanding \gls{macs} contains \gls{edta} as chelator for divalent ions, Tween 20 - a non-ionic surfactant -, and an azide-based stabilizer. Hence, the wetting of surfaces and the electrostatic interactions of these buffers differ. The same properties were varied on the bead surface by choosing acrylate and biotin terminated beads.
+
+In \cref{fig:conc:losses_syringe}, a trend (without statistical confidence) can be observed that shows a decrease in particle counts after every additional surface which beads could potentially interact with. In term, a correct count in absolute numbers seems out of range. However, a calibration of the system with the flow profile inside the channel to compensate for losses subjected to connectors and magnetic enrichment structures was carried out successfully.
+
+\begin{figure}[b]
 	\centering
 	\includegraphics[width=.7\linewidth]{Ressources/Concentration/Losses-Syringe-Tubing}
-	\capption{Bead Loss Evaluation in Connectors}{Losses in different buffers and bead surfaces.}
+	\capption{Bead Loss Evaluation in Connectors}{Bead concentrations measured in equal volumes in the flow cytometer after being pumped through a syringe or a syringe with connected tubing. The blank sample was measured directly from the stock solution. Additionally, electrostatic and surface tension related effects were resolved by the usage of different buffers and bead surfaces.}
 	\label{fig:conc:losses_syringe}
 \end{figure}
 
 
-
+\clearpage
 \subsection{Calibration of Flow Field}
+\label{sec:res:Correction}
+Velocity Correction factor
+Linear Approximation correciton factor
 \begin{figure}
 	\centering
 	\subfloat{

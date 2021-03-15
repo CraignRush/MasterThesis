@@ -6,6 +6,8 @@ The main measurement principle of a microfluidic channel in connection with a \g
 
 \subsection{Incompressibility of Fluid Flows}
 
+\label{sec:theo:incomp}
+
 The main experiments of this work were carried out in microfluidic environments, which exhibit favorable properties compared to common macrofluidic systems. From a fluid-mechanical standpoint, shrinking the scales makes interfacial as well as electrokinetic phenomena much more significant, and reduces the importance of pressure and gravity.\cite{lit:fluidic:kirby} However, electrodynamics, chemistry and fluid dynamics are incetricably intertwined, so that fluid flow can create electric fields (and vice versa), with a degree of coupling driven by the surface chemistry. Many of the resulting phenomena arise or can be explained by the conservation of mass described by the continuity equation (\cref{eq:continuityM}), the conservation of momentum described by the Cauchy-Momentum equation (\cref{eq:cauchymomentum}), and the resulting Navier-Stokes equation(\cref{eq:navierstokes}).
 
 \begin{align}
@@ -20,7 +22,7 @@ This equation states that the mass of a control volume (in this case the volume 
 
 
 \subsection{Flow and Shear in Microchannels with Viscous Fluids}
-\label{subs:flow_and_Shear}
+\label{sec:theo:flow_and_Shear}
 
 The final equation and Gauss's theorem can now be applied to the conservation of momentum relation. (\cref{eq:continuityP}) Integration yields then the Cauchy momentum equation which states that any change in momentum inside a control volume ($\rho \frac{\partial \mathbf{u}}{\partial t}$) is caused by convective transport for or to the volume ($\rho\mathbf{u} \cdot \nabla \mathbf{u}$), surface stresses ($ \nabla \cdot \boldsymbol{\tau}$), and the volumetric net body forces ($\mathbf{f}_i$) such as gravity or electrostatics.
 
@@ -52,13 +54,14 @@ In the model case of a flow through a rectangular channel, no analytical solutio
 
 
 \subsection{Force Equilibrium of Microbeads}
+\label{sec:theo:force}
 Although microfluidic systems mostly operate in a low inertia regimes as specified by low \gls{re}, the force equilibrium $\sum_{i} \mathbf{F} \overset{!}{=} 0$ and subsequently the velocity of any particle in the fluid stream is influenced as it moves closer to the boundaries. Several models have already been implemented with a part of the mentioned forces. \citet{lit:fluid:comparison} compared the importance of translation, rotation and shear forces. \citet{lit:fluidics:RollingCharacteristics} evaluated cell rolling characteristics, and \citet{lit:fluidic:ModelMIT} proposed a model for bead-based immunoassays in microfluidics. Therefore, an overview over all (inter-)acting forces shall be given here.
 
 \begin{equation}
 	\mathit{Re}_{particle} = \frac{r^2}{\frac{2wh}{w+h}} \ \mathit{Re} 
 \end{equation}
 
-Additionally to the channel Reynolds number \gls{re}, describing the ratio between inertial force and viscous force of fluid in a flow, \citet{lit:fluidic:f_wall} proposed a \gls{re_p} considering the size ratio of particle to channel. At \gls{re_p} $\ll 1$, particles are subjected to the dominant viscous drag to follow fluid streamlines. In the contradictory case, inertia becomes prominent. However, on increasing \gls{re_p} to the order of 1, inertial lift forces become dominant and lateral migration of particles across streamlines becomes visible.  For a micrometer sized bead and a channel as referred to in \cref{subs:flow_and_Shear}, the pre-factor is in the range of \num{1e-5} hence viscous drag overweighs inertial lift of a particle.
+Additionally to the channel Reynolds number \gls{re}, describing the ratio between inertial force and viscous force of fluid in a flow, \citet{lit:fluidic:f_wall} proposed a \gls{re_p} considering the size ratio of particle to channel. At \gls{re_p} $\ll 1$, particles are subjected to the dominant viscous drag to follow fluid streamlines. In the contradictory case, inertia becomes prominent. However, on increasing \gls{re_p} to the order of 1, inertial lift forces become dominant and lateral migration of particles across streamlines becomes visible.  For a micrometer sized bead and a channel as referred to in \cref{sec:theo:flow_and_Shear}, the pre-factor is in the range of \num{1e-5} hence viscous drag overweighs inertial lift of a particle.
 
 \subsubsection{Stoke's Drag}
 \vspace{\baselineskip}
@@ -185,6 +188,7 @@ Often confused, the F\aa{}r\ae{}us and F\aa{}r\ae{}us-Lindquist effect constitut
 
 
 \subsection{Rolling Motion and Surface Interaction of Beads}
+\label{sec:theo:rolling}
 A nice intro goes here
 \subsubsection{Contact Area of a Sphere and Flat Surface}
 Once the acting forces brought the bead in contact with a wall or the channel bottom, it starts to move forward in a rolling motion. In a simple model, rolling on a plane without slipping is constrained by a sphere's translation ($\mathbf{F}_\parallel,\ \mathbf{F}_\perp$), rotation ($\omega$), and shear. Nevertheless, due to the rigid nature of the sphere, any shear will be omitted in further models.\cite{lit:fluid:rolling:rigid_viscoelastic} The no-slip boundary condition has to be applied also here by the requirement that the points of the sphere momentarily in contact with the plane are at rest. \newline However, rolling contact problems are dynamic because the contacting bodies are continuously moving with respect to each other. The contact patch in a sliding problem continuously consists of the same particles. In contrast, particles enter and leave the contact area during rolling. Moreover, in a sliding problem the surface particles in the contact patch are all subjected the same tangential shift everywhere, whereas in a rolling problem the surface particles are stressed in different ways. During rolling, they are free of stress when entering the contact, then stick to a particle of the opposing surface, and are strained by the overall motion difference between the two bodies, until the local traction bound is exceeded and local slip sets in.\cite{lit:fluid:rolling:contact_phenomena} \newline
@@ -318,6 +322,7 @@ Another critical point in carbodiimide chemistry is the solubility of the compou
 \clearpage
 
 \subsection{The Biotin-Avidin-System}
+\label{sec:theo:biotin}
 Until now, the interaction of the homotetrameric protein avidin and its ligand biotin forms one of the strongest known non-covalent bonds in biological systems characterized by a \gls{kd} in the range of \SI{e-15}{\molar}.\cite{lit:bio:biotin:avidin_discovery} First isolated from chicken egg white, it became a standard to use in biotechnology when researchers found a similar bacteria protein - streptavidin - in \textit{Streptomyces} strains.\cite{lit:bio:biotin:discovery} However, the charged glycoprotein avidin exhibits unspecific binding in some assays in comparison to streptavidin. Therefor, several companies developed deglycosylated forms of avidin with a neutral isoelectric points to minimize unspecificity. (NeutrAvidin, Extravidin, NeutraLite) In recent studies, a mutant streptavidin called ``Traptavidin'' exhibitied an even 10 times dissociation rate.\cite{lit:bio:biotin:engStrep}
 As discovered in the early 1990s, biotin is bound inside a highly stable $\beta$-barrel structure, and stabilized by hydrogen bonds and van der Waals forces.\cite{lit:bio:biotin:bindingmechanism} In a unique mechanism, a side group of biotin (valerate) binds to a neighboring monomer of streptavidin and therefor stabilizes the dimer complex intrinsically.\cite{lit:bio:biotin:binding,lit:bio:biotin:freeenenergy} From a thermodynamical point-of-view, the interaction of the vitamin and protein is described by a total free binding energy of \SIrange{300}{330}{\kilo\joule\per\mole} for a tetrameric protein.\cite{lit:bio:biotin:freeenenergy}  All these aspects lead to a significant rupture force for the biotin-release of \SI{250}{\pico\newton}.\cite{lit:bio:biotin:rupture}
 
@@ -340,6 +345,7 @@ As discovered in the early 1990s, biotin is bound inside a highly stable $\beta$
 \clearpage
 
 \section{Magnetoresistive Sensing}
+\label{sec:theo:magnet}
 \begin{figure}[tbp]
 	%\setlength\belowcaptionskip{-90pt}
 	\centering	

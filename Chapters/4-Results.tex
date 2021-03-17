@@ -136,7 +136,6 @@ Inter-sphere compared, maximum correlation shows also a significant decrease in 
 \capption{Maximal Cross-Correlation Differences}{(\textbf{a}) Mean coverage at \SI{99}{\percent} for \SI{4}{\micro\meter}  and \SI{8} {\micro\meter} spheres. A negative dependency on the \gls{mnp} size can be explained by the ratio of magnetic momentum per unit surface and its homogeneous distribution across the whole surface.\\ (\textbf{b}) Relative correlation error between \SI{4}{\micro\meter}  and \SI{8} {\micro\meter} spheres with a quadratic fit. The quadratic behavior could be related to the relative surface area which can occupied by magnetic momentum. (Adj. $R^2$ = \num{0.99209})}
 \label{fig:sim:CorrDiff}
 \end{figure}
-\todo{FlowField Simulations!!!!}
 \subsection{Cell Aggregates}
 In another simulation, two \SI{200}{\nano\meter}-\gls{mnp}-covered spheres were attached to each other in differing angles and simulated flowing over the sensor. Signal similarity to a magnetic dipole in the center of a single reference sphere was computed by cross-correlation. As can be observed in \cref{fig:sim:aggregates}, correlation is identical to a single sphere at low coverages when the magnetic momentum is high enough to form a uniform magnetic field. At occupancies greater than \SI{50}{\percent}, the two attached cells have to be considered as individual dipoles in superposition and thus show a signal that carries small peaks in the center. This is shown schematically in \cref{fig:sim:intro:angle}. In term, this causes a high signal deviation from the reference and thus a low degree of correlation.
 \begin{figure}
@@ -146,6 +145,28 @@ In another simulation, two \SI{200}{\nano\meter}-\gls{mnp}-covered spheres were 
 	\label{fig:sim:aggregates}
 \end{figure}
 
+\subsection{Channel Flow Field Simulation Framework}
+
+\begin{figure}[htb!]
+	\centering	
+		\subfloat{
+			\subfigimg[height=135 pt]{a}{Ressources/Simulation/Flow/150um_vel}	%[width=\linewidth
+		} \hfill
+		\subfloat{
+			\subfigimg[height=135 pt]{b}{Ressources/Simulation/Flow/150um_vel_particle}	
+		} \\
+		\vspace{\baselineskip}
+		\subfloat{
+			\subfigimg[height=135 pt]{c}{Ressources/Simulation/Flow/150um_shear_chan}	
+		} \hfill
+		\subfloat{
+			\subfigimg[height=135 pt]{d}{Ressources/Simulation/Flow/150um_shear_part}	
+		}
+%	\includegraphics[width=\linewidth]{Ressources/Simulation/FlowShearFigure}
+	\capption{Flow Field and Shear Stress Simulation of the utilized Microchannel}{(\textbf{a}, \textbf{c}) Whole Microchannel  (\textbf{b}, \textbf{d}) Particle on bottom, vges = \SI{12670.83}{\micro\meter\per\second}, vbottom \SI{2241.59}{\micro\meter\per\second} \SI{4.9293}{\dyne\per\centi\meter\squared} }
+	\label{fig:sim:flowShear}
+\end{figure}
+
 \clearpage
 \section{Reference Bead Surface Functionalization}
 After simulation of the coverages, biotin was titrated on \SI{8}{\micro\meter} reference beads with two different surface terminations in order to selectively bind \glspl{mnp} with the counter-agent streptavidin to the surface. First, \gls{amine}-microbeads were modified by sulfo-NHS-biotin. Second, \gls{carboxyl}-beads were coated by amine-PEG$_2$-biotin via EDC-NHS-activation. On the same beads Anti-IgG1-PE antibodies were titrated after the same coupling chemistry.\\
@@ -153,8 +174,8 @@ Subsequently, biotin-coated beads were analyzed in the flow cytometer in the by 
 
 
 \subsection{Amine-Surface Biotinylation}
-As first approach, polystyrene copolymer microbeads with \SI{8}{\micro\meter} diameter were functionalized by (sulfo-)NHS-biotin after a standard protocol. A titration of the biotin reactant yielded a varying surface coverage as shown in \cref{fig:biotinyl:titration:nh2}. During this one-pot-reaction, the water-soluble sulfo-NHS-biotin forms an \gls{amide} linkage with the primary \gls{amine} and 1-hydroxy-2,5-dioxopyrrolidine-3-sulfonate splits off as byproduct.\\
-As can be seen from the \gls{sem} error-bars from the plot \ref{fig:biotinyl:titration:nh2}, which were constructed from three true biological replicates, this process is highly reproducible. Therefore, an surface coverage in different grades of biotinylation could be obtained accurately with a high confidence level. 
+As first approach, polystyrene copolymer microbeads with \SI{8}{\micro\meter} diameter were functionalized by (sulfo-)NHS-biotin after a standard protocol. A titration of the biotin reactant yielded a varying surface coverage as shown in \cref{fig:biotinyl:titration:nh2}. During this one-pot-reaction, the water-soluble sulfo-NHS-biotin forms an \gls{amide} linkage with the primary \gls{amine} and \iupac{1-\-hydroxy\--2,5-\-dioxo\-pyrrolidine-\-3-\-sulfonate} splits off as byproduct.\\
+As can be seen from the \gls{sem} error-bars from the plot \ref{fig:biotinyl:titration:nh2}, which were constructed from three true biological replicates, this process is highly reproducible. Therefore, an surface coverage in different grades of biotinylation could be obtained accurately with a \gls{rsquadj} of \num{0.981} for the resulting Hill fit (\orangedash).
 
 \begin{figure}[h]
 	\centering
@@ -204,7 +225,7 @@ As can be seen from the \gls{sem} error-bars from the plot \ref{fig:biotinyl:tit
 			$V_{max}$ &   \num{175.21619} & \num{140.39153} & \num{713.83643}  \\
 			$k$ & \num{57.36713}  & \num{4.12661}  & \num{182.83011} \\
 			$n$ &  \num{1.47488} & \num{1.07493} &  \num{0.72458}\\
-			Adj. $R^2$ & \num{0.98121}  & \num{0.99722}  & \num{0.99226}  \\
+			\Gls{rsquadj} & \num{0.98121}  & \num{0.99722}  & \num{0.99226}  \\
 			\bottomrule
 		\end{tabularx}
 		\label{tab:biotinyl:fitParams:beads}
@@ -218,7 +239,7 @@ As can be seen from the \gls{sem} error-bars from the plot \ref{fig:biotinyl:tit
 			$A$ &   \num{0.91263} \\
 			$\tau_{decay}$ & \num{1.42557}  \\
 			$y_0$ & \num{0.12369}  \\
-			Adj. $R^2$  & \num{0.96655} \\
+			\Gls{rsquadj} & \num{0.96655} \\
 			\bottomrule
 		\end{tabularx}	
 		\label{tab:biotinyl:fitParams:stability}
@@ -228,32 +249,29 @@ As can be seen from the \gls{sem} error-bars from the plot \ref{fig:biotinyl:tit
 \end{table}
 \clearpage
 
-\subsubsection{Carboxylate-Surface Biotinylation}
+\subsubsection{Carboxylate-Surface Functionalization}
+In a second approach, particles with opposite partial surface charge, mediated through \gls{carboxyl} groups, have been functionalized. In turn, particles were pre-activated in \gls{edc} and \gls{nhs} in \gls{mes}/\gls{mest} buffer. There are two distinct reasons for the usage of \gls{mes} based buffers rather than \gls{pbs} or \gls{macs}. First, \gls{edc} has its reactive maximum at \pH\ \numrange{5}{6}. Second, buffers containing primary \glspl{amine} (TRIS / glycine) or \glspl{carboxyl} (acetate / citrate) will quench the reaction and therefore limit the efficacy.\\
+Afterwards, the beads were washed carefully and incubated with \gls{amine}-\acrshort{peg}$_2$-biotin. Here, \gls{peg} indicates a hydrophilic spacer arm between both functional groups and in this case has length of a two units. The full functionalization procedure is explained in more detail in \cref{fig:chem:COOH-EDC-NHS}. 
 
-Biotin-amin
-protocol
+As shown in \cref{fig:biotinyl:titration:cooh}, particles were functionalized equally compared to \gls{amide} surfaces. However, the stability of \gls{carboxyl} particles yields \SI{1.43}{days} half-life in a continuous measurement over \SI{12}{days} with a subsequent exponential fit. Additionally, both procedures show an outlier at high concentrations which could not be explained during the course of this thesis. 
 
-stabilität
-
-antikörper
+Third, \gls{carboxyl} particles have been also functionalized with the Anti-IgG1-\gls{pe} antibody. Again, a Hill-shaped titration curve was achieved, but due to the costly reagent a saturated surface coverage was not reached. (\cref{fig:biotinyl:titration:igg}) \\
+Therefor, the fit curve has to be interpreted cautiously. Although it converged and represents the data with an \gls{rsquadj} of \SI{99.2}{\percent}, the goodness of fit determined by the reduced $\chi^2$ statistic results in a value of \num{278.1} which indicates an underestimation of the error variance.
 
 \clearpage
 \section{Concentration Measurements in MRCyte}
-Driving factor for the concentration measurement is the absolute count of immunomagnetically labeled cells in whole blood or at least diluted whole blood which is not possible in today's optics-based devices mostly due to \glspl{rbc}. Therefore, with the in \cref{sec:theo:magnet} described sensor setup, absolute concentrations of magnetic reference beads were attempted to measure.\\
-Consequently, beads with acrylate surface were pumped through a microfluidic channel with a permanent underneath. The magnet drew every magnetic particle to the ground, where they were focused on the sensor bridge and subsequently measured there. From the received signal several parameters such as peak amplitudes, locations, zero-crossings, and relative distances between each other were computed. (\cref{fig:conc:example}) However, for a concentration measurement mostly the correct detection of a signal from the noisy stream or from a superposition of multiple simultaneously measured particles was critical. The related error sources and countermeasures will be elaborated in \cref{sec:res:Correction}.
-\begin{figure}[hb]
+Driving factor for the concentration measurement is the absolute count of immunomagnetically labeled cells in diluted or whole blood which is not possible in today's optics-based devices due to the excess of \glspl{rbc}.\cite{lit:bio:Alberts} Therefore, with the in \cref{sec:theo:magnet} described sensor setup, absolute concentrations of magnetic reference beads were attempted to measure.\\
+Consequently, beads with acrylate surface were pumped through a microfluidic channel with a permanent magnet underneath. The magnet drew every magnetic particle to the ground, where they were focused on the sensor bridge and subsequently measured there. From the received signal several parameters such as peak amplitudes, locations, zero-crossings, and relative distances between each other were computed. (\cref{fig:conc:example}) However, for a concentration measurement mostly the correct detection of a signal from the noisy stream or from a superposition of multiple simultaneously measured particles was critical. The related error sources and countermeasures will be elaborated in \cref{sec:res:Correction}.
+
+\begin{figure}[b]
 	\centering
 	\includegraphics[width=.7\linewidth]{Ressources/Simulation/ExampleSignal}
-	\capption{Example Signal of Magnetic Measurement}{Signals generated from the Wheatstone bridge sensor setup feature a certain shape which allows for several measures. In case the overall signal stream carries a constant or linear offset, it is scaled to the means before and after the detected peak pattern. (\textcolor{OlightBlue}{Mean1, Mean2}) The x- and y-Positions of each peak are denominated by \textcolor{Oorange}{B1-4} and \textcolor{Ogreen}{Amp1-4}, respectively. The crossings of the signal through the linear connection of both means are denominated by \textcolor{OdarkBlue}{n1-3} (in the figure by \darkBlueCircle). Further, the difference between the equally oriented peaks \textcolor{Oorange}{B3}-\textcolor{Oorange}{B1} and \textcolor{Oorange}{B4}-\textcolor{Oorange}{B2} give a measure for the homogeneous movement of the measured object and are called \textcolor{Oyellow}{A1} and \textcolor{Oyellow}{A2} each. From these values the overall velocity can be approximated because the \gls{gmr} distance and sample rate is fixed precisely. Analogously, the magnetic diameter of a dipole is computed by the mean of the differences \textcolor{Oorange}{B2}-\textcolor{Oorange}{B1} and \textcolor{Oorange}{B4}-\textcolor{Oorange}{B3}.}
+	\capption{Example Signal of Magnetic Measurement}{Signals generated from the Wheatstone bridge sensor setup feature a certain shape which allows for several measures. In case the overall signal stream carries a constant or linear offset, it is scaled to the means before and after the detected peak pattern. (\textcolor{OlightBlue}{Mean1, Mean2}) The x- and y-positions of each peak are denominated by \textcolor{Oorange}{B1-4} and \textcolor{Ogreen}{Amp1-4}, respectively. The crossings of the signal through the linear connection of both means are denominated by \textcolor{OdarkBlue}{n1-3} (in the figure by \darkBlueCircle). Further, the difference between the equally oriented peaks \textcolor{Oorange}{B3}-\textcolor{Oorange}{B1} and \textcolor{Oorange}{B4}-\textcolor{Oorange}{B2} give a measure for the homogeneous movement of the measured object and are called \textcolor{Oyellow}{A1} and \textcolor{Oyellow}{A2} each. From these values the overall velocity $v$ can be approximated because the \gls{dgmr} and \gls{fs} is fixed precisely. Analogously, the magnetic diameter of a dipole is computed by the mean of the differences \textcolor{Oorange}{B2}-\textcolor{Oorange}{B1} and \textcolor{Oorange}{B4}-\textcolor{Oorange}{B3}.}
 	\label{fig:conc:example}
 \end{figure}
-\clearpage
 
-
-By measuring the absolute concentration with a commercially available device, the flow cytometer (MacsQuant 10, Miltenyi), a reference bead count was established. In a pre-test, beads were taken directly from the microcentrifuge tube, after pumping through a syringe and after pumping through a syringe with \SI{10}{\centi\meter} of connected through tubing (ID \SI{0.5}{\milli\meter}, RS Chemicals). Afterwards, they were counted in the flow cytometer in equal volumes. Additionally, two different buffers - \gls{macs} and \gls{pbs} - and two different surface terminations were used. Both buffers are based on \acrfull{pbs}. Notwithstanding \gls{macs} contains \gls{edta} as chelator for divalent ions, Tween 20 - a non-ionic surfactant -, and an azide-based stabilizer. Hence, the wetting of surfaces and the electrostatic interactions of these buffers differ. The same properties were varied on the bead surface by choosing acrylate and biotin terminated beads.
-
+By measuring the absolute concentration with a commercially available device, the flow cytometer (MacsQuant 10, Miltenyi), a reference bead count was established. In a pre-test, beads were taken directly from the microcentrifuge tube, after pumping through a syringe and after pumping through a syringe with \SI{10}{\centi\meter} of connected through tubing (ID \SI{0.5}{\milli\meter}, RS Chemicals). Afterwards, they were counted in the flow cytometer in equal volumes. Additionally, two different buffers - \gls{macs} and \gls{pbs} - and two different surface terminations were used. Both buffers are based on \acrfull{pbs}. Notwithstanding \gls{macs} contains \gls{edta} as chelator for divalent ions, Tween 20 - a non-ionic surfactant -, and an azide-based stabilizer. Hence, the wetting of surfaces and the electrostatic interactions of these buffers differ. The same properties were varied on the bead surface by choosing acrylate- and biotin-terminated beads.\\
 In \cref{fig:conc:losses_syringe}, a trend (without statistical confidence) can be observed that shows a decrease in particle counts after every additional surface which beads could potentially interact with. In term, a correct count in absolute numbers seems out of range. However, a calibration of the system with the flow profile inside the channel to compensate for losses subjected to connectors and magnetic enrichment structures was carried out successfully.
-
 \begin{figure}[b]
 	\centering
 	\includegraphics[width=.7\linewidth]{Ressources/Concentration/Losses-Syringe-Tubing}
@@ -265,8 +283,20 @@ In \cref{fig:conc:losses_syringe}, a trend (without statistical confidence) can 
 \clearpage
 \subsection{Calibration of Flow Field}
 \label{sec:res:Correction}
+In order to account for the bead losses due to the tubing connectors, the Hagen-Poiseuille flow profile and the magnetophoretic enrichment structures, two correction factors for the concentration measurement were developed. First, a \gls{corrVel} computed from the quotient of mean fluid velocity to measured, mean \gls{vc} was multiplied to the final concentration.(\cref{eq:corr:vel}) \gls{vc} was calculated from the signal stream where the intrinsic \acrfull{dgmr} was multiplied by the time between the outer zero-crossings. As the zero-crossings $n_3$ and $n_1$ are measured in dimensionless arbitrary units, they have to be scaled by the \acrfull{fs}.(\cref{eq:v:c}) \\ For calculating the mean fluid velocity, the syringe system flow rate \gls{q} was divided by the channel cross section. \\
+
+\begin{align}
+	c_{beads,\, corrected} &= c_{beads,\, measured}  \cdot C \\
+	v_c &= 2\ d_{gmr} \frac{f_s}{n_3-n_1} \label{eq:v:c} \\
+	C_{velocity} &= \frac{Q}{A \cdot v_c} \label{eq:corr:vel} \\
+	C_{const} &= \frac{c_{beads,\, standard\ procedure}}{c_{beads,\, MRCyte}} \label{eq:corr:const}
+\end{align}
+
 Velocity Correction factor
 Linear Approximation correciton factor
+
+
+
 \begin{figure}
 	\centering
 	\subfloat{

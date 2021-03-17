@@ -61,7 +61,7 @@
     nopostdot,% Kein Punkt am Ende einer Beschreibung im Glossar
     nomain,
     automake, 
-%    nonumberlist,
+    nonumberlist,
 ]{glossaries}
 
 % Debugging:
@@ -102,6 +102,7 @@ eprint=false]{biblatex}
 \DeclareSIUnit\torr{Torr}
 \DeclareSIUnit\molar{M}
 \DeclareSIUnit\rpm{rpm}
+\DeclareSIUnit{\dyne}{dyne}
 
 
 \DeclareSIUnit[number-unit-product = {}]{\inch}{\textquotedbl}
@@ -115,8 +116,7 @@ showstringspaces = false}
 
 
 %% MATH and CHEM typesetting
-\usepackage[version=4]{mhchem}
-\usepackage[modules=all]{chemmacros} % Chemical formulae
+\usepackage{chemmacros} % Chemical formulae
 \usepackage[capitalize]{cleveref}
 \usepackage{esvect} %% Fine vector arrows
 \usepackage{abraces} % Braces under and over text

@@ -205,7 +205,7 @@ afterskip=16pt
 \makeatother
 
 \newglossarystyle{WissenschaftlicheArbeiten}{%
-  \setglossarystyle{index}%
+\setglossarystyle{index}%
 
   \renewcommand*{\glossaryheader}{\vspace{.75em}}%
   \renewcommand*{\glstreenamefmt}[1]{##1}%
@@ -288,11 +288,7 @@ afterskip=16pt
 	position=top, 
 	labelfont={large,bf},
 	singlelinecheck=off,
-	justification=raggedright
-}
-
-
-\captionsetup[subtable]{%
+	justification=raggedright,
 	labelformat=simple,
 	labelsep=none
 }
@@ -325,24 +321,25 @@ afterskip=16pt
 
 \DeclareRobustCommand{\orangedash}{
 	\tikz[baseline=\tikzLineHeight]{	
-		\draw[-,orange,dashed,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
-	}
-	
+		\draw[-,color=Oorange,dashed,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+	}	
 }
 
 \DeclareRobustCommand{\orangeline}{
-	\tikz[baseline=-0.3\baselineskip]{			\draw[-,orange,solid,line width = 1.5pt](0,0) -- (6mm,0) }
+	\tikz[baseline=-0.3\baselineskip]{
+		\draw[-,color=Oorange,solid,line width = 1.5pt](0,0) -- (6mm,0) 
+	}
 }
 
 \DeclareRobustCommand{\blueline}{
 	\tikz[baseline=\tikzLineHeight]{	
-		\draw[-,blue,dashed,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+		\draw[-,color=OlightBlue,dashed,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
 	}
 }
 
 \DeclareRobustCommand{\blueMLline}{
 	\tikz[baseline=\tikzLineHeight]{	
-		\draw[-,color=MLblue, solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+		\draw[-,color=OlightBlue, solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
 	}
 }
 

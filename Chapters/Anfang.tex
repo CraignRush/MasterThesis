@@ -235,6 +235,9 @@ afterskip=16pt
 %\crefname{reaction}{reaction}{reactions}
 %\creflabelformat{reaction}{#2\{#1\}#3}  
 
+\usepackage[textwidth=30mm,textsize=tiny]{todonotes} % get todonotes
+\setlength{\marginparwidth}{25mm}
+
 % Equation numbering style
 \makeatletter
 \renewcommand\tagform@[1]{\maketag@@@{\ignorespaces#1\unskip\@@italiccorr}}
@@ -327,36 +330,30 @@ afterskip=16pt
 
 \DeclareRobustCommand{\orangeline}{
 	\tikz[baseline=-0.3\baselineskip]{
-		\draw[-,color=Oorange,solid,line width = 1.5pt](0,0) -- (6mm,0) 
+		\draw[-,color=Oorange,solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
 	}
 }
 
 \DeclareRobustCommand{\blueline}{
 	\tikz[baseline=\tikzLineHeight]{	
+		\draw[-,color=OlightBlue,solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+	}
+}
+
+\DeclareRobustCommand{\bluedash}{
+	\tikz[baseline=\tikzLineHeight]{	
 		\draw[-,color=OlightBlue,dashed,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
-	}
-}
-
-\DeclareRobustCommand{\blueMLline}{
-	\tikz[baseline=\tikzLineHeight]{	
-		\draw[-,color=OlightBlue, solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
-	}
-}
-
-\DeclareRobustCommand{\orangeMLline}{
-	\tikz[baseline=\tikzLineHeight]{	
-		\draw[-,color=MLorange, solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
 	}
 }
 
 \DeclareRobustCommand{\yellowline}{
 	\tikz[baseline=\tikzLineHeight]{	
-			\draw[-,yellow,dashed,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+			\draw[-,Oyellow,solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
 		}
 }
 \DeclareRobustCommand{\blackline}{
 	\tikz[baseline=\tikzLineHeight]{	
-			\draw[-,black!,dashed,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+			\draw[-,black!,solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
 		}
 }
 \DeclareRobustCommand{\blackrectangle}{

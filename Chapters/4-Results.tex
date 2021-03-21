@@ -2,7 +2,7 @@
 \section{Virtual Prototyping of Cell Signals}
 
 During the course of this thesis, numerical simulations for the microchannel have been carried out. On the one side, a simulation about the shape of a \gls{gmr}-sensor signal of cells was performed, where the magnetic momentum was conveyed through \glspl{mnp} bound to their surface. On the other side, cell aggregates have been looked at in the same manner with different angles respective to the sensor. Both simulations were then correlated to a reference dipole, with the equivalent magnetic momentum distributed in the center of mass.\\
-Additionally, the flow and shear field inside the channel was simulated numerically for the channel cross section as well as for a particle near the walls. A force equilibrium simulation was also established in a basic manner. \\
+Additionally, the flow and shear field inside the channel was simulated numerically for the channel cross-section as well as for a particle near the walls. A force equilibrium simulation was also established in a basic manner. \\
 Every simulation was captured in a MATLAB class ``MRCyte'', which contains material parameters and constants for all simulations above.
 \subsection{Numerical investigation of immunomagnetic label density and size on quantitative magnetoresistive sensing of single cells and cell aggregates}
 In order to mimic a immunomagnetically labeled cell flowing over the sensor half bridge, the planar integral of the respective \acrfull{B} was solved analytically. Here, $\mathbf{r}_i$ specifies the distance vector of a single \gls{mnp} from the sensor plane. The magnetic flux density was converted by the \gls{gmr} to a resistive change $\mathbf{R}_{sig}$ by scaling it with the \gls{gmr}-sensitivity $S$ and subsequently into a signal voltage $\mathbf{V}_{sig}$ inside the bridge branch.(\cref{eq:magneticFluxIntegral,eq:GMR-signal,eq:voltage-signal})\\
@@ -144,32 +144,76 @@ In another simulation, two \SI{200}{\nano\meter}-\gls{mnp}-covered spheres were 
 	\capption{Signal Correlation between Two-Cell Aggregates At Shifting Angles}{Two-Sphere aggregates are covered with \SI{200}{\nano\meter} \glspl{mnp} and simulated flowing over the sensor at differing respective angles. The \gls{sem} indicates a difference in cross-correlation of three truly random \gls{mnp} distributions. For low yaw angles and high coverages, the aggregate's signal reflects rather two single dipoles in superposition than one quite homogeneous dipole. This causes a high signal deviation from the reference and thus a low degree of correlation.}
 	\label{fig:sim:aggregates}
 \end{figure}
+\clearpage
 
-\subsection{Channel Flow Field Simulation Framework}
+\section{The MRCyte Simulation Framework}
+In this work, also a analytical simulation framework that is capable of simulating the synergy of multiple microfluidic effects was developed. The comprehensive framework features magnetic, fluid dynamic and biochemical processes inside the utilized microfluidic channel which act on a particle. Foremost, material parameters was stored inside the ``MRCyte'' class, which range from channel and particle properties to binding and friction constants. Basic velocity, shear and magnetic field computations build the core of the presented program. Additionally, several dimensionless parameters such as the Stokes or \gls{re} or particle properties can be computed.\\
+With that, simulations of the fluid dynamics that influence a single microbead as well as force-equilibrium computations for the same bead were carried out. 
+
+\todo{Capabilities - Simulation bead over sensor, particle distribution on surface, analysis of GMRTool data single and differential, magnetic field permanent}
+
+\subsection{Fluid Fields inside the Microchannel}
+The simulation framework provided a quantitative generation of the Hagen-Poiseuille flow profile inside the microchannel with the numerical solution of \cref{eq:flowRateRect}. The simulated channel had dimensions (w x h x L) \SI{700}{\micro\meter} x \SI{150}{\micro\meter} x \SI{15800}{\micro\meter}. The flow rate was chosen at \SI{80}{\micro\liter\per\minute}.\footnote{in accordance with the experimentally determined value} Tubing as well as time dependent effects were neglected. \\
+The simulated \acrfull{u} for the whole channel cross-section can be observed in \cref{fig:sim:flowShear:vel:full}. Due to the no-slip boundary condition, \gls{u} is zero on the margin while the maximum of is reached in the geometric center. \gls{umean} in the channel ensues \SI{12670.84}{\micro\meter\per\second}. \\
+In contrast, computation of the flow gradient in vertical direction and scaling with \gls{eta} yield the shear stress field.(\cref{fig:sim:flowShear:shear:full}) As the curvature of \gls{u} is zero in the channel center and maximal at the edges, the shear stress reaches highest values symmetrically at the horizontal edges of the channel.\footnote{Because the horizontal components of the gradients were neglected graceless} Resulting, the net viscous shear $\boldsymbol{\tau}_{viscous} = \frac{\partial u}{\partial z}$ cancels out over the whole channel cross-section.
+
+Additionally, \gls{u} and \gls{tau_v} acting on a \SI{8}{\micro\meter} diameter bead on the channel bottom were analyzed.(\cref{fig:sim:flowShear:vel:particle,fig:sim:flowShear:shear:particle}). In the proximity to a wall and due to the applied boundary conditions, \gls{tau_v} enclosed by the bead surface is non-linear. Thus, the mean fluid velocity exposed to the bead amounts in $\overline{\mathbf{u}_{p}}$ =  \SI{2241.59}{\micro\meter\per\second}, whereas  $\overline{\boldsymbol{\tau}_{viscous,\, p}}$ strains with \SI{4.93}{\dyne\per\square\centi\meter}.
 
 \begin{figure}[htb!]
 	\centering	
-		\subfloat{
-			\subfigimg[height=135 pt]{a}{Ressources/Simulation/Flow/150um_vel}	%[width=\linewidth
-		} \hfill
-		\subfloat{
-			\subfigimg[height=135 pt]{b}{Ressources/Simulation/Flow/150um_vel_particle}	
-		} \\
-		\vspace{\baselineskip}
-		\subfloat{
-			\subfigimg[height=135 pt]{c}{Ressources/Simulation/Flow/150um_shear_chan}	
-		} \hfill
-		\subfloat{
-			\subfigimg[height=135 pt]{d}{Ressources/Simulation/Flow/150um_shear_part}	
-		}
-%	\includegraphics[width=\linewidth]{Ressources/Simulation/FlowShearFigure}
-	\capption{Flow Field and Shear Stress Simulation of the utilized Microchannel}{(\textbf{a}, \textbf{c}) Whole Microchannel  (\textbf{b}, \textbf{d}) Particle on bottom, vges = \SI{12670.83}{\micro\meter\per\second}, vbottom \SI{2241.59}{\micro\meter\per\second} \SI{4.9293}{\dyne\per\centi\meter\squared} }
+	\subfloat{
+		\subfigimg[height=135 pt]{a}{Ressources/Simulation/Flow/150um_vel}	%[width=\linewidth
+		\phantomsubcaption
+		\label{fig:sim:flowShear:vel:full}
+	} \hfill
+	\addtocounter{subfigure}{-1}
+	\subfloat{
+		\subfigimg[height=135 pt]{b}{Ressources/Simulation/Flow/150um_vel_particle}			
+		\phantomsubcaption
+		\label{fig:sim:flowShear:vel:particle}
+	} \\
+	\addtocounter{subfigure}{-1}
+	\vspace{\baselineskip}
+	\subfloat{
+		\subfigimg[height=135 pt]{c}{Ressources/Simulation/Flow/150um_shear_chan}					
+		\phantomsubcaption
+		\label{fig:sim:flowShear:shear:full}
+	} \hfill
+	\addtocounter{subfigure}{-1}
+	\subfloat{
+		\subfigimg[height=135 pt]{d}{Ressources/Simulation/Flow/150um_shear_part}					
+		\phantomsubcaption
+		\label{fig:sim:flowShear:shear:particle}
+	}
+	%	\includegraphics[width=\linewidth]{Ressources/Simulation/FlowShearFigure}
+	\capption{Flow Field and Shear Stress Simulation of the utilized Microchannel}{Flow (\textbf{a}) and vertical shear (\textbf{c}) field inside the microchannel with dimensions (w x h x L) \SI{700}{\micro\meter} x \SI{150}{\micro\meter} x \SI{15800}{\micro\meter} for a flow rate of \SI{80}{\micro\liter\per\minute} and with neglected tubing effects. The subplots on the right and top side show the mean horizontal and vertical profile in \SI{0}{\micro\meter} width and \SI{75}{\micro\meter} height, respectively. (vertical: \blueline, horizontal: \orangeline) Due to the no-slip condition, the velocity at the walls equals zero and the shear is maximal. The maximum of the Hagen-Poiseuille profile is located in the channel center. Over the cross-section the mean flow velocity $\overline{\mathbf{u}}$ equals \SI{12670.83}{\micro\meter\per\second}. Resultingly, the net horizontal viscous shear  $\boldsymbol{\tau}_{viscous} = \frac{\partial u}{\partial z}$ cancels out over the whole channel cross-section. \\
+	Flow (\textbf{d}) and vertical shear (\textbf{d}) field acting on a \SI{8}{\micro\meter} diameter bead on the channel bottom. The mean fluid velocity trapped by the bead profile results in  $\overline{\mathbf{u}_{p}}$= \SI{2241.59}{\micro\meter\per\second}, whereas the viscous shear strains with $\boldsymbol{\tau}_{viscous}$ = \SI{4.93}{\dyne\per\square\centi\meter} }
 	\label{fig:sim:flowShear}
 \end{figure}
+\clearpage
+
+\subsection{Modelling the Force-Equilibrium of a Rolling Bead over a Biofunctionalized Surface}
+\todo{nice intro}
+With the supplier's parameters of a \SI{8}{\micro\meter} micromer-M bead (micromod Partikeltechnologie GmbH, Rostock) the corrected drag force on a bead on the bottom of the standard utilized microchannel resultes in \SI{463.65}{\pico\newton} for \SI{80}{\micro\liter\per\minute}.\\
+If the bead was functionalized with biotin under negligence of the differential equations for the association constants, the number of interacting groups would result in the present surface charges. Surface charge density resultes in \SI{1}{\micro\mole\per\gram} of \gls{carboxyl} and \gls{amine} beads as of the supplier's datasheet. Hence, a fully saturated bead is covered in \num{177500} biotin molecules.\\
+The streptavidin coverage of the channel floor was modeled in excess over the biotin ligands. The penetration depth was estimated by the size of several monolayers protein. As described by \citet{lit:fluidic:ModelMIT}, an approach of \SI{30}{\nano\meter} is a reasonable quantity. In turn, the surfaces were in contact with \SI{1.51}{\micro\meter\squared} which constitutes \SI{0.75}{\percent} of the \SI{8}{\micro\meter} bead surface. This reveals that \num{1329} biotin molecules can interact with the floor. A summation of the \gls{f:protein} at \SIrange{5}{150}{\pico\newton} per streptavidin-biotin bond yields the resulting adhesion force with a magnitude of \SIrange{6.7}{199}{\nano\newton}.\cite{lit:bio:biotin:rupture} 
+
+The binding force is in the same range as the perpendicular magnetophoretic force caused by the permanent magnet under the sensor chip ($\nabla \mathbf{B}$ = \SI{10}{\tesla\per\meter}) as well as by the nickel-iron chevron structures on the chip ($\nabla \mathbf{B}$ $\approxeq$ \SI{5}{\kilo\tesla\per\meter}). Clearly, in the near-field approximation the nickel-iron structures dominate \gls{f:mag} (\cref{eq:f:mag}). With the manufacturer given saturation momentum of one particle (\SI{1.12}{\pico\ampere\meter\squared}), the magnetic attraction force eventuates in \SI{5.6}{\nano\newton}.
+
+\begin{align}
+	\mathbf{F}_\parallel = \mathbf{F}_{drag} - C_{rr} \cdot (\mathbf{F}_{mag} \ +\ \mathbf{F}_{protein}  \ +\ \mathbf{F}_{grav}\ -\ \mathbf{F}_{shear} ) \label{eq:f:balance} \\
+	C_{rr} = \sqrt{\frac{\text{z}}{d}} = \sqrt{\frac{\SI{30}{\nano\meter}}{\SI{8}{\micro\meter}}} = 0.0612 \label{eq:corr:roll}
+\end{align}
+
+In order to merge this analytic force balance, all remaining forces have to be projected into the direction of \acrfull{f:drag}.(\cref{eq:f:balance}) This is achieved by the introduction of the \gls{corrRoll} for a perfectly elastic surface.(\cref{eq:corr:roll}) In a first order approximation, the factor depends only on the \acrfull{z} and the bead diameter ($d$). However, scientific literature about the rolling resistance of microbeads on microfluidic or protein covered surfaces does not exist yet to confirm this macroscopic factor for the microscale. \\
+Scaling all orthogonal forces to the \acrlong{f:drag} with \gls{corrRoll} yields a net positive result (\SI{154.08}{\pico\newton}) for an unfunctionalized surface (\gls{f:protein} $\overset{!}{=}$ \num{0}) which indicates a rolling motion in flow direction. Notwithstanding, above a critical interaction number of \numrange{16}{503} biotin-streptavidin bonds - for the respective release forces of \SIrange{5}{150}{\pico\newton} per linkage - the particle resists \acrlong{f:drag} and adheres to the surface.
+
+This behavior will be exploited in further measurements for ``bead loss experiments'' in order to measure a concentration difference with different degrees of biotinylated beads.
+
 
 \clearpage
 \section{Reference Bead Surface Functionalization}
-After simulation of the coverages, biotin was titrated on \SI{8}{\micro\meter} reference beads with two different surface terminations in order to selectively bind \glspl{mnp} with the counter-agent streptavidin to the surface. First, \gls{amine}-microbeads were modified by sulfo-NHS-biotin. Second, \gls{carboxyl}-beads were coated by amine-PEG$_2$-biotin via EDC-NHS-activation. On the same beads Anti-IgG1-PE antibodies were titrated after the same coupling chemistry.\\
+After simulation of their respective coverages, biotin was titrated on \SI{8}{\micro\meter} reference beads with two different surface terminations in order to selectively bind \glspl{mnp} with the counter-agent streptavidin to the surface. First, \gls{amine}-microbeads were modified by sulfo-NHS-biotin. Second, \gls{carboxyl}-beads were coated by amine-PEG$_2$-biotin via EDC-NHS-activation. On the same beads Anti-IgG1-PE antibodies were titrated after the same coupling chemistry.\\
 Subsequently, biotin-coated beads were analyzed in the flow cytometer in the by staining with Atto-488 (Ex: \SI{500}{\nano\meter}, Em: \SI{520}{\nano\meter}) coupled streptavidin. The antibody was already industrially modified with \gls{pe} and measured at \SI{488}{\nano\meter} excitation and \SI{585}{\nano\meter}  emission wavelength. The gating was standardized by the strategy found in \cref{sec:meth:beadCharact}, \cref{fig:gatingstrategy-layout}. Subsequently, the \gls{mfi} was computed and fitted with a Hill-function.(\cref{eq:hill}) Stability of carboxylated and aminated beads and subsequently their respective modification protocols was evaluated for \SI{12}{days}.
 
 
@@ -255,7 +299,7 @@ Afterwards, the beads were washed carefully and incubated with \gls{amine}-\acrs
 
 As shown in \cref{fig:biotinyl:titration:cooh}, particles were functionalized equally compared to \gls{amide} surfaces. However, the stability of \gls{carboxyl} particles yields \SI{1.43}{days} half-life in a continuous measurement over \SI{12}{days} with a subsequent exponential fit. Additionally, both procedures show an outlier at high concentrations which could not be explained during the course of this thesis. 
 
-Third, \gls{carboxyl} particles have been also functionalized with the Anti-IgG1-\gls{pe} antibody. Again, a Hill-shaped titration curve was achieved, but due to the costly reagent a saturated surface coverage was not reached. (\cref{fig:biotinyl:titration:igg}) \\
+Third, \gls{carboxyl}ated particles have been also functionalized with the Anti-IgG1-\gls{pe} antibody. Again, a Hill-shaped titration curve was achieved, but due to the costly reagent a saturated surface coverage was not reached. (\cref{fig:biotinyl:titration:igg}) \\
 Therefor, the fit curve has to be interpreted cautiously. Although it converged and represents the data with an \gls{rsquadj} of \SI{99.2}{\percent}, the goodness of fit determined by the reduced $\chi^2$ statistic results in a value of \num{278.1} which indicates an underestimation of the error variance.
 
 \clearpage
@@ -270,7 +314,7 @@ Consequently, beads with acrylate surface were pumped through a microfluidic cha
 	\label{fig:conc:example}
 \end{figure}
 
-By measuring the absolute concentration with a commercially available device, the flow cytometer (MacsQuant 10, Miltenyi), a reference bead count was established. In a pre-test, beads were taken directly from the microcentrifuge tube, after pumping through a syringe and after pumping through a syringe with \SI{10}{\centi\meter} of connected through tubing (ID \SI{0.5}{\milli\meter}, RS Chemicals). Afterwards, they were counted in the flow cytometer in equal volumes. Additionally, two different buffers - \gls{macs} and \gls{pbs} - and two different surface terminations were used. Both buffers are based on \acrfull{pbs}. Notwithstanding \gls{macs} contains \gls{edta} as chelator for divalent ions, Tween 20 - a non-ionic surfactant -, and an azide-based stabilizer. Hence, the wetting of surfaces and the electrostatic interactions of these buffers differ. The same properties were varied on the bead surface by choosing acrylate- and biotin-terminated beads.\\
+By measuring the absolute concentration with a commercially available flow cytometer (MacsQuant 10, Miltenyi), a reference bead count was established. In a pre-test, beads were taken directly from the microcentrifuge tube, after pumping through a syringe, and after pumping through a syringe with \SI{10}{\centi\meter} of connected through tubing (ID \SI{0.5}{\milli\meter}, RS Chemicals). Afterwards, they were counted in the flow cytometer in equal volumes. Additionally, two different buffers - \gls{macs} and \gls{pbs} - and two different surface terminations were used. Both buffers are based on \acrfull{pbs}. Notwithstanding \gls{macs} contains \gls{edta} as chelator for divalent ions, Tween 20 - a non-ionic surfactant -, and an azide-based stabilizer. Hence, the wetting of surfaces and the electrostatic interactions of these buffers differ. The same properties were varied on the bead surface by choosing acrylate- and biotin-terminated beads.\\
 In \cref{fig:conc:losses_syringe}, a trend (without statistical confidence) can be observed that shows a decrease in particle counts after every additional surface which beads could potentially interact with. In term, a correct count in absolute numbers seems out of range. However, a calibration of the system with the flow profile inside the channel to compensate for losses subjected to connectors and magnetic enrichment structures was carried out successfully.
 \begin{figure}[b]
 	\centering
@@ -281,44 +325,55 @@ In \cref{fig:conc:losses_syringe}, a trend (without statistical confidence) can 
 
 
 \clearpage
-\subsection{Calibration of Flow Field}
+\subsection{Measurement Error Sources and Calibration of Flow Field}
 \label{sec:res:Correction}
-In order to account for the bead losses due to the tubing connectors, the Hagen-Poiseuille flow profile and the magnetophoretic enrichment structures, two correction factors for the concentration measurement were developed. First, a \gls{corrVel} computed from the quotient of mean fluid velocity to measured, mean \gls{vc} was multiplied to the final concentration.(\cref{eq:corr:vel}) \gls{vc} was calculated from the signal stream where the intrinsic \acrfull{dgmr} was multiplied by the time between the outer zero-crossings. As the zero-crossings $n_3$ and $n_1$ are measured in dimensionless arbitrary units, they have to be scaled by the \acrfull{fs}.(\cref{eq:v:c}) \\ For calculating the mean fluid velocity, the syringe system flow rate \gls{q} was divided by the channel cross section. \\
-
+In order to account for the bead losses due to the tubing connectors, the Hagen-Poiseuille flow profile, and magnetophoretic enrichment structures, the measured bead concentration was corrected in two different approaches.(\cref{eq:corr:conc}) On the one hand side, the typical assay correction to the ground truth by a constant \gls{corrConst} computed from the blank population was established. On the other side, a \gls{corrVel} compared the \acrfull{umean} to the \gls{vc}.
+\begin{equation}	
+	c_{beads,\, expected} = c_{beads,\, measured}  \cdot C \label{eq:corr:conc}
+\end{equation}
+The \gls{corrConst} relates a reference count in the optical flow cytometer to the measurement in the magnetic flow cytometer.(\cref{eq:corr:const}) Equally-adjusted bead concentrations in the samples allow for a correction to the reference system. However, for an assay usage the initial concentration of beads either has to be known precisely or has to be irrelevant, for example in regards of a standardized measurement procedure. Besides, \gls{corrConst} provides a reliable and generalizable option for correction. 
 \begin{align}
-	c_{beads,\, corrected} &= c_{beads,\, measured}  \cdot C \\
+	C_{const} &= \frac{c_{beads,\, standard\ procedure}}{c_{beads,\, MRCyte}} \label{eq:corr:const}\\
 	v_c &= 2\ d_{gmr} \frac{f_s}{n_3-n_1} \label{eq:v:c} \\
-	C_{velocity} &= \frac{Q}{A \cdot v_c} \label{eq:corr:vel} \\
-	C_{const} &= \frac{c_{beads,\, standard\ procedure}}{c_{beads,\, MRCyte}} \label{eq:corr:const}
+	C_{velocity} &= \frac{\overline{\mathbf{u}}}{v_c} = \frac{Q}{A \cdot v_c} \label{eq:corr:vel} 
 \end{align}
+\begin{figure}[b]
+	\centering
+	\subfloat{
+		\subfigimg[height=150pt]{a}{Ressources/Concentration/BiotinylWrongCorrection}
+		\phantomsubcaption
+		\label{fig:conc:BiotnylWrongCorr:velConst}	
+	} \hfill
+	\addtocounter{subfigure}{-1}
+	\subfloat{
+		\subfigimg[height=150pt]{b}{Ressources/Concentration/BiotinylTime}	
+		\phantomsubcaption
+		\label{fig:conc:BiotnylWrongCorr:time}
+	}
+	\capption{Error Sources in Concentration Measurements}{(\textbf{a}) Robustness evaluation of the both correction factors \gls{corrConst} and \gls{corrVel} for protein coated surfaces. The mean and \gls{sem} of plain and biotinylated measurements show a high deviation from physically reasonable expections when corrected for the velocity (right). In contrast, \gls{corrConst} can intrinsically correct only well below \SI{100}{\percent}. (\textbf{b}) Mean and \gls{sem} of a fit-corrected bead capture experiment with several error sources. Initially, the magnetophoretic structures have to be filled and thus decrease the plain count for the first \SI{100}{\micro\liter}. (\orangeline) Additionally, the high deviation offsets the correction factor so that the stable measurement from \SIrange{100}{200}{\micro\liter} lies now above the ideal reference. In contrast, the biotinylated beads are captures by the surface functionalization and hence a very low concentration is measured. However, a steep rise with pulsations can be observed when the surface is saturated with beads and the particles begin to flow over the sensor in bursts. (\blueline) The abrupt decline to the end of the measured volume is most probably related to sedimentation effects inside the emptying syringe.}
+	\label{fig:conc:BiotnylWrongCorr}
+\end{figure}
+The \gls{corrVel} relates the effective particle velocity to the total fluid velocity in order to eradicate flow profile provoked effects.(\cref{eq:corr:vel}) Whereas \gls{umean} was determined by \acrfull{q} through a cross-sectional \gls{a} of the channel, \gls{vc} was analyzed from the measured signal stream. Here, the intrinsic \acrfull{dgmr} was divides by the time difference where the bead passed exactly over a \gls{gmr}-element.(\cref{eq:v:c}) These specific timepoints are visible as dimensionless zero-crossings $n_1$ and $n_3$ in the signal and can be converted by scaling with the \acrfull{fs} into the time domain. \\
+However, if the bead velocity is not solely dependent on fluid dynamic effects - especially in the light of surface functionalizations - \gls{corrVel} can not be applied to experiments robustly. This is depicted in a sample experiment with a protein covered surface in \cref{fig:conc:AbsConcError:concerror}. By definition, the \gls{corrConst} can not be well above than \SI{100}{\percent} whereas the count correction by \gls{corrVel} differs by \SI{600}{\percent} through variations in the velocity measurement. 
 
-Velocity Correction factor
-Linear Approximation correciton factor
+An adaptation of these corrections to real measurements are depicted in \cref{fig:conc:AbsConcError}. 
 
 
-
-\begin{figure}
+\begin{figure}[b!]
 	\centering
 	\subfloat{
 		\subfigimg[height=150pt]{a}{Ressources/Concentration/ConcentrationError}	
+		\phantomsubcaption
+		\label{fig:conc:AbsConcError:concerror}
 	} \hfill
+	\addtocounter{subfigure}{-1}
 	\subfloat{
 		\subfigimg[height=150pt]{b}{Ressources/Concentration/ConcentrationVelocity}	
+		\phantomsubcaption
+		\label{fig:conc:AbsConcError:experimental}
 	}
-	\capption{Absolute Concentration Measurements}{Mean from 3 independent measurements(\textbf{a}) mean, sd (\textbf{b}) mean, SEM, Reference Count based error: Liner fit steepness \num{0,34622 +- 0,00968} --> Correction Factor (inverse) \num{2,88833 +- 0,08075}, Velocity Based Correction: $Q/A$ Dims: \SI{700}{\micro\meter}x\SI{50}{\micro\meter} Q = \SI{30}{\micro\liter\per\minute} --> \num{2,26109}}
+	\capption{Absolute Concentration Measurements}{Mean of 3 true biological replicates (\textbf{a}) mean, sd (\textbf{b}) mean, SEM, Reference Count based error: Linear fit steepness \num{0,34622 +- 0,00968} --> Correction Factor (inverse) \num{2,88833 +- 0,08075}, Velocity Based Correction: $Q/A$ Dims: \SI{700}{\micro\meter}x\SI{50}{\micro\meter} Q = \SI{30}{\micro\liter\per\minute} --> \num{2,26109}}
 	\label{fig:conc:AbsConcError}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\subfloat{
-		\subfigimg[height=150pt]{a}{Ressources/Concentration/BiotinylWrongCorrection}	
-	} \hfill
-	\subfloat{
-		\subfigimg[height=150pt]{b}{Ressources/Concentration/BiotinylTime}	
-	}
-	\capption{Error Sources in Concentration Measurements}{(\textbf{a}) mean, SEM Fit factor comparison with protein coated surfaces (\textbf{b}) mean, SEM}
-	\label{fig:conc:BiotnylWrongCorr}
 \end{figure}
 
 \subsection{Count Stability}

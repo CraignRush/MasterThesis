@@ -43,7 +43,7 @@ Besides these conditions, many problems arise due to turbulent flow and therefor
 	\mathit{Re}\ =\ \frac{\mathrm{\mathsf{fluid\ density\ \cdot\ velocity\ \cdot\ size}}}{\mathrm{\mathsf{viscosity}}} \label{eq:reynolds}
 \end{equation}
 
-In a first order approximation, the dimensionless \gls{re}, which compares the inertia to viscous forces, allows a qualitative prognosis about the flow regime. (\cref{eq:reynolds}) If it results below a threshold of 2300, laminar flow can be assumed in Hagen-Poiseuille flows. This holds true for the utilized microfluidic with the dimensions \SI{12000}{\micro\meter} x \SI{700}{\micro\meter} x \SI{150}{\micro\meter} (l x w x h) and aequous buffer solutions, where the channel width considered as \textit{characteristic size}. Hence, several fluidic phenomena such as deterministic pathlines as well as simplifications of the \gls{nse} can be exploited in the present system. 
+In a first order approximation, the dimensionless \gls{re}, which compares the inertia to viscous forces, allows a qualitative prognosis about the flow regime. (\cref{eq:reynolds}) If it results below a threshold of 2300, laminar flow can be assumed in Hagen-Poiseuille flows. This holds true for the utilized microfluidic with the dimensions \SI{15800}{\micro\meter} x \SI{700}{\micro\meter} x \SI{150}{\micro\meter} (l x w x h) and aequous buffer solutions, where the channel width considered as \textit{characteristic size}. Hence, several fluidic phenomena such as deterministic pathlines as well as simplifications of the \gls{nse} can be exploited in the present system. 
 
 In the model case of a flow through a rectangular channel, no analytical solution of the \gls{nse} exists, but a Fourier Series expansion if the width is larger than height of a channel as shown in \citet{lit:fluidic:bruus}. Equation \cref{eq:flowVelocityRect} determines the magnitude of the flow field parallel to the pressure gradient in relation to the horizontal dimension $y$ and vertical dimension $z$ with respect to the channel dimensions height $h$ and width $w$. An integration over the flow field in the channel cross section yields the \gls{q}. (\cref{eq:flowRateRect})\footnote{The equation \cref{eq:flowVelocityRect} shows that height deviations can have prominent influence on a channel velocity simulation as it is proportional to $h^2$. Further, the flow rate depends even on $h^3$.} 
 
@@ -61,7 +61,7 @@ Although microfluidic systems mostly operate in a low inertia regimes as specifi
 	\mathit{Re}_{particle} = \frac{r^2}{\frac{2wh}{w+h}} \ \mathit{Re} 
 \end{equation}
 
-Additionally to the channel Reynolds number \gls{re}, describing the ratio between inertial force and viscous force of fluid in a flow, \citet{lit:fluidic:f_wall} proposed a \gls{re_p} considering the size ratio of particle to channel. At \gls{re_p} $\ll 1$, particles are subjected to the dominant viscous drag to follow fluid streamlines. In the contradictory case, inertia becomes prominent. However, on increasing \gls{re_p} to the order of 1, inertial lift forces become dominant and lateral migration of particles across streamlines becomes visible.  For a micrometer sized bead and a channel as referred to in \cref{sec:theo:flow_and_Shear}, the pre-factor is in the range of \num{1e-5} hence viscous drag overweighs inertial lift of a particle.
+Additionally to the channel Reynolds number \gls{re}, describing the ratio between inertial force and viscous force of fluid in a flow, \citet{lit:fluidic:f_wall} proposed a \gls{re_p} considering the size ratio of particle to channel. At \gls{re_p} $\ll 1$, particles are subjected to the dominant viscous drag to follow fluid streamlines. In the contradictory case, inertia becomes prominent. However, on increasing \gls{re_p} to the order of 1, inertial lift forces become dominant and lateral migration of particles across streamlines becomes visible.  For a micrometer sized bead and a channel as referred to in \cref{sec:theo:flow_and_Shear}, the pre-factor is in the range of \numrange{1e-5}{1e-7} hence viscous drag overweighs inertial lift of a particle.
 
 \subsubsection{Stoke's Drag}
 \vspace{\baselineskip}
@@ -205,7 +205,7 @@ In reality, with elastic effects taken into consideration, a different situation
 
 \begin{align}
 	A_{contact} &= 2\pi r z \mathrm{, \ for \ } z \geq 0 \label{eq:a_contact}\\
-	S_{contact} &= \pi r (2z + d) = \pi r (2z + \sqrt{2 r z})  \mathrm{, \ for \ } z \geq 0 \label{eq:s_contact}
+	S_{contact} &= \pi r (2z + a^2) = \pi z (4r - z)  \mathrm{, \ for \ } z \geq 0 \label{eq:s_contact}
 \end{align}
 
 For a \SI{8}{\micro\meter} microbead and a penetration depth \gls{z} of \SI{100}{\nano\meter} this yields for example an interaction with \SI{6.84}{\percent} of the total sphere and a total area of \SI{13.753}{\micro\meter\square}. Several methods and experiments have already been developed in the literature to measure the resulting friction and penetration parameters. A general model of a sphere in contact with a wall was optimized by \citet{lit:fluid:sphere_planeWall}. Experimentally, \citet{lit:fluid:rolling:contact} developed a microtribometer in PDMS to evaluate adhesion properties and validate their model's predictions.

@@ -235,8 +235,8 @@ afterskip=16pt
 %\crefname{reaction}{reaction}{reactions}
 %\creflabelformat{reaction}{#2\{#1\}#3}  
 
-\usepackage[textwidth=30mm,textsize=tiny]{todonotes} % get todonotes
-\setlength{\marginparwidth}{25mm}
+\usepackage[textsize=tiny]{todonotes} % get todonotes
+%\setlength{\marginparwidth}{25mm}
 
 % Equation numbering style
 \makeatletter
@@ -299,6 +299,7 @@ afterskip=16pt
 \Crefname{equation}{Eq.}{Eqs.}
 \Crefname{figure}{Fig.}{Figs.}
 \Crefname{tabular}{Tab.}{Tabs.}
+\Crefname{section}{Sec.}{Secs.}
 
 \newcommand{\subfigimg}[3][,]{%
 	\setbox1=\hbox{\includegraphics[#1]{#3}}% Store image in box
@@ -310,7 +311,7 @@ afterskip=16pt
 
 % Get figure colors as text bricks
 \newlength{\tikzLineHeight}
-\setlength{\tikzLineHeight}{-0.2\baselineskip}
+\setlength{\tikzLineHeight}{-0.25em}
 \newlength{\tikzLineLength}
 \setlength{\tikzLineLength}{5mm}
 \definecolor{MLblue}{rgb}{0, 0.4470, 0.7410}
@@ -351,22 +352,51 @@ afterskip=16pt
 			\draw[-,Oyellow,solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
 		}
 }
+
+\DeclareRobustCommand{\greenline}{
+	\tikz[baseline=\tikzLineHeight]{	
+		\draw[-,Ogreen,solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+	}
+}
+
 \DeclareRobustCommand{\blackline}{
 	\tikz[baseline=\tikzLineHeight]{	
 			\draw[-,black!,solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
 		}
 }
-\DeclareRobustCommand{\blackrectangle}{
+
+\DeclareRobustCommand{\orangerect}{
 	\tikz[baseline=\tikzLineHeight]{
-			\draw[fill=black,draw=none](2.0mm,0) rectangle (3.5mm,1.5mm); \draw[-,black,solid,line width = 1.0pt](0.,0.8mm) -- (5.5mm,0.8mm);
-		}			
+		\draw[fill=Oorange,draw=none](0.375\tikzLineLength,-0.16\tikzLineLength) rectangle (0.625\tikzLineLength,0.16\tikzLineLength);
+		\draw[-,Oorange,solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+	}			
 }
 
-\DeclareRobustCommand{\yellowrectangle}{
-	\tikz[baseline=\tikzLineHeight]{
-			\draw[fill=yellow,draw=none](2.0mm,0) rectangle (3.5mm,1.5mm); \draw[-,yellow,solid,line width = 1.0pt](0.,0.8mm) -- (5.5mm,0.8mm);
-		}
+\DeclareRobustCommand{\bluerect}{
+\tikz[baseline=\tikzLineHeight]{
+	\draw[fill=OlightBlue,draw=none](0.375\tikzLineLength,-0.16\tikzLineLength) rectangle (0.625\tikzLineLength,0.16\tikzLineLength);
+	\draw[-,OlightBlue,solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+	}			
 }
+\DeclareRobustCommand{\yellowrect}{
+\tikz[baseline=\tikzLineHeight]{
+	\draw[fill=Oyellow,draw=none](0.375\tikzLineLength,-0.16\tikzLineLength) rectangle (0.625\tikzLineLength,0.16\tikzLineLength);
+	\draw[-,Oyellow,solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+	}			
+}
+\DeclareRobustCommand{\greenrect}{
+\tikz[baseline=\tikzLineHeight]{
+	\draw[fill=Ogreen,draw=none](0.375\tikzLineLength,-0.16\tikzLineLength) rectangle (0.625\tikzLineLength,0.16\tikzLineLength);
+	\draw[-,Ogreen,solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+	}			
+}
+\DeclareRobustCommand{\blackrect}{
+\tikz[baseline=\tikzLineHeight]{
+	\draw[fill=black,draw=none](0.375\tikzLineLength,-0.16\tikzLineLength) rectangle (0.625\tikzLineLength,0.16\tikzLineLength);
+	\draw[-,black,solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+	}			
+}
+
 
 \DeclareRobustCommand{\blueCircle}{\tikz{\draw[black, fill=OlightBlue] (0,0) circle (.5ex);}}
 

@@ -1,10 +1,13 @@
 \chapter{Discussion}
 During the course of this thesis, motions of spheroids - such as beads or cells - over the \gls{gmr}-sensor have been modeled from a physics and signal processing perspective. In a magnetic field simulation it has been found that beads generate a well defined signal shape if the \glspl{mnp} are distributed homogeneously over their respective surface. Thereby, the size of each \gls{mnp} matters strongly. It is a strong trade-off between carrying enough magnetic momentum to get a sufficient amplitude in dipole superposition and at the same time not causing inhomogeneities in the magnetic signal. Nevertheless, a broad range from \SIrange{100}{1000}{\nano\meter} diameter of the labels showed a linear magnetization behavior above \SI{30}{\percent} of total coverage.\\
-In the force-equilibrium simulation, a model for a rolling motion on the bottom of a functionalized microchannel was built on basic calculus estimations. Apparently, the dominant rolling forces act on a microbead in the \si{\nano\newton} range, which leads to a necessary interaction of single to thousand proteins according to their relative bond-release force per biomolecule. This could be subject to further refinements of the MATLAB framework with the differential equations for binding kinetics \cite{lit:bio:BindingModeling} or the rolling motion simulation more close to the reality. 
+In the force-equilibrium simulation, a model for the bead rolling motion on the bottom of a functionalized microchannel was built on basic calculus estimations. Apparently, the dominant rolling forces on a microbead act in the \si{\nano\newton} range, which leads to a necessary interaction from a single to thousand proteins according to their specific release force per bond. This could be subject to further refinements of the MATLAB framework with an implementation of differential equations for binding kinetics \cite{lit:bio:BindingModeling} or the rolling motion to gain a more crisp representation of the reality. 
 
-Those computational findings were adapted to \SI{8}{\micro\meter} diameter microspheres which were biotinylated or antibody-coated by carbodiimide chemistry in different surface densities. On the one side, the magnetic momentum of beads could now be varied through a saturation with streptavidin-\gls{mnp} conjugates and measured in the magnetic flow cytometer. On the other side, this allowed for a magnetic bead capture assay where a unspecifically functionalized channel prevented the rolling of beads with the matching ligand on their surface. Additionally, for a more robust measurement in future experiments, methods for the covalent surface modifications of glass, \gls{pdms} and \gls{sin} have been established and analyzed by fluorescence microscopy and an optical bead capture assay.\\
-However, the covalent nature of the surface modification - or more precisely the non-physisorption - could not be revealed during this thesis. Also the covalent functionalization procedures have never been evaluated magnetically but only optically. A comparison between both measurements bears much room for misassumptions.
+Those computational findings were adopted in a method to create different surface densities of biotin or antibodies on \SI{8}{\micro\meter}-beads by carbodiimide chemistry. On the one side, the magnetic momentum of beads could now be varied through a saturation with streptavidin-\gls{mnp} conjugates and measured in the magnetic flow cytometer. On the other side, this allowed for a magnetic bead capture assay where an unspecifically functionalized channel prevented the rolling of beads coated with a matching ligand. Additionally, for a more robust force measurement in future experiments, methods for the covalent surface modification of glass, \gls{pdms} and \gls{sin} have been established. These modifications were based on different wet-chemistry oxidation techniques, with subsequent silane and carbodiimide chemistry. After bio-functionalization, they were then analyzed by fluorescence microscopy or an optical bead capture assay and showed a similar surface quality with respect to physisorption.\\
+However, the covalent nature - or more precisely the non-physisorption -  of the surface modification as well as their projected advantages in stability and definedness could not be demonstrated during this thesis. Also, the bead rolling assay on each substrate had never been evaluated magnetically but only optically due to the lack of sensors on the respective substrates. Thus, a quantitative comparison between both measurements bears much room for misassumptions. In addition, bio-functionalized surfaces have never been brought into contact with any physiological substances with blood or immune cells which are very likely to disturb the operation.
+Due to the underlying biochemical processes in mostly all experiments, some effects remain unexplained: First, fluorescent labeling of biotinylated beads with streptavidin-atto488 yielded robust and reliable results in the bead characterization in a optical flow cytometer. In contrast, a similar labeling process with a recombinant secondary-antibody (REA746-PE, REAfinity, Miltenyi Biotech, Bergisch Gladbach, Germany) showed inexplainable results. This could very likely be related to a sterically blocked binding domain but remains a question-to-be-solved.\\
+Yet, another effect is related to \gls{mnp} coverage of bio-functionalized polystyrene microbeads.
 
+ Notwithstanding, the validated protocols present a comprehensive groundwork for further experiments regarding affinity measurements, 
  
 
 Start by briefly summarizing your major findings, but without repeating exact data from the Results. This makes your novel information clear to peer reviewers and, later on, readers. It also forces you to decide which findings you should focus on in the Discussion.
@@ -29,29 +32,6 @@ Then, the divergence relation of the respective viscous stress (eq. \ref{eq:dive
 For later studies in a matlab model, the flow velocity and shear stress computations were carried out with the error sources considered. 
 
 
---> signal analysis with wavelet analysis
-
-Third, the transient term (eq. \ref{eq:navierstokes}) was neglected in all simulations, but a connected syringe pump possesses a slow rise time (Fig. \ref{fig:fluidic:pumpStability:transient}) and a remaining ``pulsation error'' in steady state (Fig. \ref{fig:fluidic:pumpStability:steadystate}). In effect, another error adds to the simulation, which is only valid after several ten seconds of the last flow rate change.
-\begin{figure}
-	\begin{subfigure}[b]{0.5\textwidth}
-		\centering
-		\addtocounter{subfigure}{1}  
-		\subfigimg[clip,trim=115 100 80 60, height=100pt]{a} {./Ressources/Fluidic/Transient_SyringePump.jpg}		
-		\addtocounter{subfigure}{-1}  
-		\phantomsubcaption
-		\label{fig:fluidic:pumpStability:transient}
-	\end{subfigure}%
-	\begin{subfigure}[b]{0.5\textwidth}
-		\centering
-		\addtocounter{subfigure}{1}  
-		\subfigimg[height=100pt]{\textbf{b}}{./Ressources/Fluidic/SyringeSteadyState.eps}
-		\addtocounter{subfigure}{-1}  
-		\phantomsubcaption
-		\label{fig:fluidic:pumpStability:steadystate}
-	\end{subfigure}
-	\capption{Syringe Pump error sources}{Set flow rate: \orangeline, Real Flow Rate: \blueline \subref{fig:fluidic:pumpStability:transient} Transient step answer of a syringe pump through a microtube with \SI{254}{\micro\meter} inner diameter. \subref{fig:fluidic:pumpStability:steadystate} Steady state flow rate error around the desired \SI{5}{\micro\liter\per\minute} dispensing rate. A sinusoidal behaviour caused by the microstepping can be observed. \cite{lit:fluidic:fluigentPumpStability}}
-	\label{fig:fluidic:pumpStability}
-\end{figure}
 
 
 Second, the channel height varies in reality as a result of fabrication inaccuracies. 

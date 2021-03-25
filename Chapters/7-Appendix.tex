@@ -23,6 +23,23 @@ Approximated or estimated units are expressed by an equal sign with the assumpti
 
 \clearpage
 \section{Additional Figures}
+\begin{figure}
+	\centering
+	\subfloat{
+		\subfigimg[clip,trim=115 100 80 60, height=100pt]{a}{./Ressources/Fluidic/Transient_SyringePump.jpg}
+		\phantomsubcaption
+		\label{fig:fluidic:pumpStability:transient}
+	} \hfill 
+	\addtocounter{subfigure}{-1}
+	\subfloat{
+		\subfigimg[height=100pt]{b}{./Ressources/Fluidic/SyringeSteadyState.eps}  
+		\phantomsubcaption
+		\label{fig:fluidic:pumpStability:steadystate}
+	}
+	\capption{Syringe Pump error sources}{Set flow rate: \orangeline, Real Flow Rate: \blueline. The transient term of the \gls{nse} (\cref{eq:navierstokes}) was neglected in all simulations. However, a connected syringe pump retains a finite rise time (\textbf{a}) and a remaining ``pulsation error'' in steady state (\textbf{b}). In effect, an error adds to simulation and experiment. Therefore, any measurement can only be valid several ten seconds after the last flow rate change. (\textbf{a}) Exemplary, transient step answer of a syringe pump through a microtube with \SI{254}{\micro\meter} inner diameter. (\textbf{b}) Steady state flow rate error around the desired \SI{5}{\micro\liter\per\minute} dispensing rate. A sinusoidal behavior caused by the microstepping can be observed. \cite{lit:fluidic:fluigentPumpStability}}
+	\label{fig:fluidic:pumpStability}
+\end{figure}
+
 
 \begin{figure}[h!]
 	\centering

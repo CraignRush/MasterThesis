@@ -1,0 +1,136 @@
+\documentclass[%
+fontsize=11pt, % Schriftgröße
+twoside=on % kein einseitiges Layout
+]{article} % Dokumentenklasse: KOMA-Script Book
+
+\usepackage[utf8]{inputenc} % Textkodierung: UTF-8
+\usepackage[T1]{fontenc} % Zeichensatzkodierung
+\usepackage{csquotes}
+
+\usepackage[ngerman, english]{babel} % Deutsche Lokalisierung
+\usepackage{graphicx} % Grafiken
+\usepackage{wrapfig} % Text an Bilder und Tabellen vorbeifließen lassen
+\usepackage{siunitx} % SI Units 
+\usepackage{lscape} % Portrait- oder Landscape ausrichtung
+\usepackage[absolute]{textpos} % Positionierung
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Schriftart Helvetica:
+\usepackage[scaled]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% TUM Schriftfarbe:
+\usepackage{color} %Schriftfarbe
+\definecolor{TUMblau}{RGB}{0, 82, 147}
+
+\usepackage{calc} % Berechnungen
+\usepackage{tabto} % Tabulatoren
+\usepackage{parskip}
+
+% Silbentrennung:
+\usepackage{hyphenat}
+\hyphenation{TUM in-te-res-siert} % Eigene Silbentrennung
+%\tolerance 2414
+%\hbadness 2414
+%\emergencystretch 1.5em
+%\hfuzz 0.3pt
+%\widowpenalty=10000     % Hurenkinder
+%\clubpenalty=10000      % Schusterjungen
+%\vfuzz \hfuzz
+
+\usepackage[hidelinks]{hyperref} % Hyperlinks
+\usepackage[onehalfspacing]{setspace} % 1,5facher Zeilenabstand
+\usepackage{calc} % Berechnungen
+\usepackage{enumitem} % Mehr Kontrolle über itemize-, enumerate- und description-Umgebungen
+\usepackage{relsize} % Schriftgröße in Abhängigkeit von aktueller anpassen
+\usepackage{tabularx} % Flexiblere Tabellen
+\usepackage{caption} % Anpassen von Beschriftungen
+
+
+
+%% Neue Pakete
+\usepackage{subcaption}
+
+\usepackage{stackengine}
+\usepackage{tikz}
+\usepackage{svg}
+\usepackage{pgfkeys}
+
+
+\usepackage{lipsum}
+\sisetup{detect-all,
+	%	per-mode=fraction,
+	%	parse-numbers=false
+	separate-uncertainty=true,
+	multi-part-units=single
+}
+\DeclareSIUnit\particle{particle}
+\DeclareSIUnit\Ferrum{Fe}
+\DeclareSIUnit\sccm{sccm}
+\DeclareSIUnit\torr{Torr}
+\DeclareSIUnit\molar{M}
+\DeclareSIUnit\rpm{rpm}
+\DeclareSIUnit{\dyne}{dyne}
+
+
+\DeclareSIUnit[number-unit-product = {}]{\inch}{\textquotedbl}
+\newcolumntype{R}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X} % Automatische Texttrennung in Tabellen
+\usepackage{cancel}
+\usepackage{listings}
+\lstset{
+	language=Matlab,
+	showstringspaces = false}
+
+
+%% MATH and CHEM typesetting
+\usepackage{chemmacros} % Chemical formulae
+\usepackage[capitalize]{cleveref}
+\usepackage{esvect} %% Fine vector arrows
+\usepackage{abraces} % Braces under and over text
+\usepackage{scalerel} % Get smaller subscripts
+
+\usepackage{booktabs} % get fancy table lines
+
+%% Debug only figures
+%\usepackage[active,tightpage]{preview}
+%\PreviewSnarfEnvironment[{[]}]{figure}
+
+% Get figure colors as text bricks
+\newlength{\tikzLineHeight}
+\setlength{\tikzLineHeight}{-0.25em}
+\newlength{\tikzLineLength}
+\setlength{\tikzLineLength}{5mm}
+\definecolor{MLblue}{rgb}{0, 0.4470, 0.7410}
+\definecolor{MLorange}{rgb}{0.8500, 0.3250, 0.0980}
+\definecolor{Oorange}{HTML}{E69F00}
+\definecolor{OlightBlue}{HTML}{56B4E9}
+\definecolor{Ogreen}{HTML}{009E73}
+\definecolor{OdarkBlue}{HTML}{0072B2}
+\definecolor{Oyellow}{HTML}{F0E442}
+\definecolor{Ored}{HTML}{D55E00}
+
+
+\DeclareRobustCommand{\greenline}{
+	\tikz[baseline=\tikzLineHeight]{	
+		\draw[-,Ogreen,solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+	}
+}
+
+	\DeclareRobustCommand{\greenrecta}{
+	\tikz[baseline=\tikzLineHeight]{
+		\draw[fill=Ogreen,draw=none](2.0mm,0) rectangle (3.5mm,1.5mm);
+		\draw[-,Ogreen,solid,line width = 1.5pt](0.,0.8mm) -- (5.5mm,0.8mm);
+	}			
+}	
+\DeclareRobustCommand{\greenrectb}{
+\tikz[baseline=\tikzLineHeight]{
+	\draw[fill=Ogreen,draw=none](0.375\tikzLineLength,-0.16\tikzLineLength) rectangle (0.625\tikzLineLength,0.16\tikzLineLength);
+	\draw[-,Ogreen,solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+}			
+}
+
+\begin{document}
+(\greenline)testtew(\greenrecta)test123testtew(\greenrectb)test123 
+\end{document}

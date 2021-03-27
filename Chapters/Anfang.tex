@@ -330,8 +330,14 @@ afterskip=16pt
 }
 
 \DeclareRobustCommand{\orangeline}{
-	\tikz[baseline=-0.3\baselineskip]{
+	\tikz[baseline=\tikzLineHeight]{
 		\draw[-,color=Oorange,solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+	}
+}
+
+\DeclareRobustCommand{\mlorangeline}{
+	\tikz[baseline=\tikzLineHeight]{
+		\draw[-,color=MLorange,solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
 	}
 }
 
@@ -357,6 +363,11 @@ afterskip=16pt
 	\tikz[baseline=\tikzLineHeight]{	
 		\draw[-,Ogreen,solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
 	}
+}
+\DeclareRobustCommand{\greendash}{
+\tikz[baseline=\tikzLineHeight]{	
+	\draw[-,Ogreen,dash,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
+}
 }
 
 \DeclareRobustCommand{\blackline}{

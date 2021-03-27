@@ -1,53 +1,36 @@
 \chapter{Discussion}
-During the course of this thesis, motions of spheroids - such as beads or cells - over the \gls{gmr}-sensor have been modeled from a physics and signal processing perspective. In a magnetic field simulation it has been found that beads generate a well defined signal shape if the \glspl{mnp} are distributed homogeneously over their respective surface. Thereby, the size of each \gls{mnp} matters strongly. It is a strong trade-off between carrying enough magnetic momentum to get a sufficient amplitude in dipole superposition and at the same time not causing inhomogeneities in the magnetic signal. Nevertheless, a broad range from \SIrange{100}{1000}{\nano\meter} diameter of the labels showed a linear magnetization behavior above \SI{30}{\percent} of total coverage.\\
-In the force-equilibrium simulation, a model for the bead rolling motion on the bottom of a functionalized microchannel was built on basic calculus estimations. Apparently, the dominant rolling forces on a microbead act in the \si{\nano\newton} range, which leads to a necessary interaction from a single to thousand proteins according to their specific release force per bond. This could be subject to further refinements of the MATLAB framework with an implementation of differential equations for binding kinetics \cite{lit:bio:BindingModeling} or the rolling motion to gain a more crisp representation of the reality. 
+During the course of this thesis, motions of spheroids - such as beads or cells - over the \gls{gmr}-sensor have been modeled from a physics and signal processing perspective. In a magnetic field simulation it has been found that beads generate a well defined signal shape if the \glspl{mnp} are distributed homogeneously over their respective surface. Thereby, the size of each \gls{mnp} matters strongly. It is a severe trade-off between carrying enough magnetic momentum to get a sufficient amplitude in dipole superposition and at the same time not causing inhomogeneities in the magnetic signal. Nevertheless, a broad range from \SIrange{100}{1000}{\nano\meter} diameter of the labels showed a linear magnetization behavior above \SI{30}{\percent} of total coverage.\\
+In the force-equilibrium simulation, a model for the bead rolling motion on the bottom of a functionalized microchannel was built on basic calculus estimations. Apparently, the dominant rolling forces on a microbead act in the \si{\nano\newton} range, which leads to a necessary interaction from a single to thousand proteins according to their specific release force per bond to stop the rolling. This could be subject to further refinements of the MATLAB framework with an implementation of differential equations for binding kinetics \cite{lit:bio:BindingModeling} or the rolling motion to gain a more crisp representation of the reality. 
 
-Those computational findings were adopted in a method to create different surface densities of biotin or antibodies on \SI{8}{\micro\meter}-beads by carbodiimide chemistry. On the one side, the magnetic momentum of beads could now be varied through a saturation with streptavidin-\gls{mnp} conjugates and measured in the magnetic flow cytometer. On the other side, this allowed for a magnetic bead capture assay where an unspecifically functionalized channel prevented the rolling of beads coated with a matching ligand. Additionally, for a more robust force measurement in future experiments, methods for the covalent surface modification of glass, \gls{pdms} and \gls{sin} have been established. These modifications were based on different wet-chemistry oxidation techniques, with subsequent silane and carbodiimide chemistry. After bio-functionalization, they were then analyzed by fluorescence microscopy or an optical bead capture assay and showed a similar surface quality with respect to physisorption.\\
-However, the covalent nature - or more precisely the non-physisorption -  of the surface modification as well as their projected advantages in stability and definedness could not be demonstrated during this thesis. Also, the bead rolling assay on each substrate had never been evaluated magnetically but only optically due to the lack of sensors on the respective substrates. Thus, a quantitative comparison between both measurements bears much room for misassumptions. In addition, bio-functionalized surfaces have never been brought into contact with any physiological substances with blood or immune cells which are very likely to disturb the operation.
-Due to the underlying biochemical processes in mostly all experiments, some effects remain unexplained: First, fluorescent labeling of biotinylated beads with streptavidin-atto488 yielded robust and reliable results in the bead characterization in a optical flow cytometer. In contrast, a similar labeling process with a recombinant secondary-antibody (REA746-PE, REAfinity, Miltenyi Biotech, Bergisch Gladbach, Germany) showed inexplainable results. This could very likely be related to a sterically blocked binding domain but remains a question-to-be-solved.\\
-Yet, another effect is related to \gls{mnp} coverage of bio-functionalized polystyrene microbeads.
+Those computational findings were adopted in a method to create different surface densities of biotin or antibodies on \SI{8}{\micro\meter}-beads by carbodiimide chemistry. On the one side, the magnetic momentum of beads could now be varied through a saturation with streptavidin-\gls{mnp} conjugates and measured in the magnetic flow cytometer. On the other side, this allowed for a magnetic bead capture assay where a coated channel entrapped beads with a matching ligand. Additionally, for a more robust force measurement in future experiments, methods for the covalent surface modification of glass, \gls{pdms} and \gls{sin} have been established. These modifications were based on different wet-chemistry oxidation techniques, with subsequent silane and carbodiimide chemistry. After bio-functionalization, they were then analyzed by fluorescence microscopy or an optical bead capture assay and showed a comparable surface quality to physisorption.
 
- Notwithstanding, the validated protocols present a comprehensive groundwork for further experiments regarding affinity measurements, 
+Moreover, a differential counting setup was established and characterized for a relative bead counting and time-of-flight application. Optimized flow rates and magneto-resistances indicated a promising function range. However, the intrinsic bead losses and complexity of the construction faded this setup from the spotlight. 
+
+In contrast, a true covalent or more precisely non-physisorbed surface modification as well as its projected advantages in stability and definedness could not be demonstrated during this thesis. Also, the bead rolling assay on each chemically-treated substrate has only been evaluated optically but not magnetically due to the lack of sensors on the respective substrates. Thus, a quantitative comparison between both measurements bears much room for misassumptions.\\
+Furthermore, the desired convenience of covalent bio-functionalization could not outperform a simple unspecific physisorption. In both cases, a tedious handling with low shear inside a completely bubble-free microchannel together with the watertight-exchange of microtubing is necessary. For covalently modified chips, in addition, \SI{12}{\hour} of laboratory work were required as auxiliary overhead while its superior stability was never confirmed. Therefore, it remains a supplemental procedure until an exhaustive characterization and further protocol optimization took place.\\
+Besides, bio-functionalized surfaces have never been brought into contact with any physiological substance, such as blood or immune cells, which are very likely to disturb the system's operation.
+
+Due to the underlying biochemical processes in essentially all experiments, some effects remain unexplained: First, fluorescent labeling of biotinylated beads with strept\-avidin-atto488 yielded robust and reliable results in the bead characterization measured by an optical flow cytometer. In contrast, a similar labeling process with a recombinant secondary-antibody (REA746-PE, REAfinity, Miltenyi Biotech) showed inexplainable results. This could very likely be related to a sterically blocked binding domain but remains a question-to-be-solved.\\
+Along with biotinylation, another effect is related to \gls{mnp} coverage of bio-functionalized polystyrene microbeads. Initially, several \glspl{mnp} from different suppliers (Ocean Nanotech, micromod) had shown a highly unspecific binding to the beads so that no biotinylation dependent effect was distinguishable from the background. This was confirmed by fluorescence microscopy and optical flow cytometry (Fortessa, BD Biosciences).\footnote{data not shown} Even so, an additional measurement with newly blended \gls{pbst} buffer instead of previously used \gls{pbs} with biotin-free bovine serum albumin or \gls{macs} yielded compelling data. Nevertheless, the buffer exchange may not be responsible for this behavior but rather bead ``age'' or the optimized functionalization protocol.
+
  
 
-Start by briefly summarizing your major findings, but without repeating exact data from the Results. This makes your novel information clear to peer reviewers and, later on, readers. It also forces you to decide which findings you should focus on in the Discussion.
-Thereafter, discuss possible underlying mechanisms. Why did you get these results, what is happening? Mechanisms, particularly molecular mechanisms, have very high “impact” in the natural sciences.
 
-Next, compare your findings to those of other relevant publications and attempt to explain any discrepancies. If your findings disagree with those of others in the area, compare their publication to your own manuscript in minute detail, looking for any differences (especially in methodology) that might explain the discrepancy.
-
-Consider the possible limitations of your own study—paradoxically, most reviewers consider an awareness and openness about potential weaknesses as a strength. However, do not forget to emphasize strengths as well.
-
-Discuss the possible consequences of your observations and/or future investigations required or motivated. Be as concrete as possible about future perspectives. As in the abstract, writing the equivalent of “more research is needed” is meaningless—more research is always needed. Describe the hypotheses, questions or mechanisms that need to be investigated and/or methods that should be applied, concretely and concisely. And, of course, if your research findings have potential practical implications, discuss these in some detail as well.
-
-Finally, state your conclusions—have you supported or rejected the hypothesis you posed, or obtained an answer to your research question?
-
-
-
-
-
-eriving Navier-Stokes equation by the Cauchy momentum equation is complex and harbors several sources of error. First, an incompressible Newtonian fluid as well as channel boundary is assumed. The used water suspensions are approximated with negligible compressibility, which is not true for the real case. Also, for blood or other shear-thinning fluids these deviations are prone for high errors.  
-
-Then, the divergence relation of the respective viscous stress (eq. \ref{eq:divergence_Stresstensor}) does not hold for non-uniform viscosity $\eta$.
-
-For later studies in a matlab model, the flow velocity and shear stress computations were carried out with the error sources considered. 
-
-
-
-
-Second, the channel height varies in reality as a result of fabrication inaccuracies. 
-
-modification of nh2 with paa and protein like cooh
-
-Contact angle for silanization of surface methods more useful --> should be 1st approach for characterization
-
-Anti-Biotin-PE working?
-BNF-Dextran-Streptavidin unspecific binding?
-electrostatic surface interaction
-evidence covalent binding?
-
-gas bubbles, adsprotion decrease, tubing exchange
-activity of protein
-
-bead rolling with biotin-cooh, biotin-nh2, plain-cooh, plain-nh2 --> velocity correction factor
-
-concentration of beads in differential setup too high, maybe better results with lower.
+%%
+%Second, the channel height varies in reality as a result of fabrication inaccuracies. 
+%
+%modification of nh2 with paa and protein like cooh
+%
+%Contact angle for silanization of surface methods more useful --> should be 1st approach for characterization
+%
+%Anti-Biotin-PE working?
+%BNF-Dextran-Streptavidin unspecific binding?
+%electrostatic surface interaction
+%evidence covalent binding?
+%
+%gas bubbles, adsprotion decrease, tubing exchange
+%activity of protein
+%
+%bead rolling with biotin-cooh, biotin-nh2, plain-cooh, plain-nh2 --> velocity correction factor
+%
+%concentration of beads in differential setup too high, maybe better results with lower.

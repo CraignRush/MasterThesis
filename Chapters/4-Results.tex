@@ -112,8 +112,8 @@ Inter-sphere compared, maximum correlation shows also a significant deterioratio
 	\text{Relative\ Correlation\ Difference} &= \num{-0,38532} \, {d_{MNP}}^2 + \num{3,34574} \, d_{MNP} - \num{8,49629} \label{eq:sim:quadFit}
 \end{align}
 \subsection{Cell Aggregates}
-In another simulation, two \SI{200}{\nano\meter}-\gls{mnp}-covered spheres were attached to each other in differing angles and simulated flowing over the sensor. Signal similarity to a magnetic dipole in the center of a single reference sphere was computed by cross-correlation. As can be observed in \cref{fig:sim:aggregates}, correlation is identical to a single sphere at low coverage, when the magnetic momentum is high enough to form a uniform magnetic field.\\
-At occupancies greater than \SI{50}{\percent}, the two attached cells have to be considered as individual dipoles in superposition and thus show a signal that carries small peaks in the center. This is shown schematically in \cref{fig:sim:intro:angle}. In term, this causes a high signal deviation from the reference and thus a low degree of correlation.
+In another simulation, two \SI{200}{\nano\meter}-\gls{mnp}-covered spheres were attached to each other in differing angles and simulated flowing over the sensor. Signal similarity to a magnetic dipole in the center of a single reference sphere was computed by cross-correlation. As can be observed in \cref{fig:sim:aggregates}, correlation is identical to a single sphere at low coverage, above a threshold magnetization. Here, the randomly distributed particles span an inhomogeneous magnetic field of a larger sphere which cannot be subdivided in the two singular parts.\\
+With growing coverage, each cell starts to form an independent dipole. At occupancies greater than \SI{50}{\percent}, the two attached cells are in such superposition. Now, the sensor detects not a single particle as for less coverage but two spatially close particles. Consequentially, the signal is an interference pattern of two singular event and thus carries small peaks in the center. This is shown schematically in \cref{fig:sim:intro:angle}. In term, this causes a high signal deviation from the reference and in effect a low degree of correlation.
 \clearpage
 \begin{figure}[h!]
 	\centering
@@ -321,6 +321,7 @@ In \cref{fig:conc:losses_syringe}, a trend (without statistical confidence) can 
 \clearpage
 \subsection{Measurement Error Sources and Calibration of Flow Field}
 \label{sec:res:Correction}
+\todo{pulsation free --> glass syringe insted of plastic}
 In order to account for the bead losses due to the tubing connectors, the Hagen-Poiseuille flow profile, and magnetophoretic enrichment structures, the measured bead concentration was corrected in two different approaches.(\cref{eq:corr:conc}) On the one hand side, the typical assay correction to the ground truth by a constant \gls{corrConst} computed from the blank population was established. On the other side, a \gls{corrVel} compared the \acrfull{umean} to the \gls{vc}.
 \begin{equation}	
 	c_{beads,\, expected} = c_{beads,\, measured}  \cdot C \label{eq:corr:conc}
@@ -560,6 +561,6 @@ However, a substantially different long-term stability could neither be measured
 		\phantomsubcaption
 		\label{fig:coval:titration}	
 	}
-	\capption{Optical Bead Capture Assay and Titration Fluorescence Analysis}{(\textbf{a}) Density measurement of captured beads on the covalently functionalized surfaces of \gls{pdms}, \gls{sin} and glass. \gls{pdms} shows the most promising density. (\textbf{b}) Titration of neutravidin on covalently functionalized glass with a subsequent analysis by a bead capture assay. (\textbf{c}) Titration of streptavidin-atto488 on covalently functionalized glass with subsequent fluorescence microscope imaging.}
+	\capption{Optical Bead Capture Assay and Titration Fluorescence Analysis}{(\textbf{a}) Density measurement of captured beads on the covalently functionalized surfaces of \gls{pdms}, \gls{sin} and glass. \gls{pdms} shows the most promising density. (\textbf{b}) Titration of neutravidin on covalently functionalized glass with a subsequent analysis by a bead capture assay. (\textbf{c}) Titration of streptavidin-atto488 on covalently functionalized glass with subsequent fluorescence microscope imaging. The scale indicated the fraction above the fluorescence signal of a blank microchannel.}
 	\label{fig:coval:fluo}
 \end{figure}

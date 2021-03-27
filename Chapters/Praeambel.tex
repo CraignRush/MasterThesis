@@ -90,11 +90,14 @@ doi=true,
 eprint=false]{biblatex}
 
 \usepackage{lipsum}
-\sisetup{detect-all,
+\sisetup{
+	detect-all=true,
 %	per-mode=fraction,
 %	parse-numbers=false
 	separate-uncertainty=true,
-	multi-part-units=single
+	multi-part-units=single,
+%	math-ohm = \ensuremath{\upOmega},
+	text-ohm = \ensuremath{\Omega},
 }
 \DeclareSIUnit\particle{particle}
 \DeclareSIUnit\Ferrum{Fe}
@@ -103,9 +106,11 @@ eprint=false]{biblatex}
 \DeclareSIUnit\molar{M}
 \DeclareSIUnit\rpm{rpm}
 \DeclareSIUnit{\dyne}{dyne}
-
-
 \DeclareSIUnit[number-unit-product = {}]{\inch}{\textquotedbl}
+%\DeclareSIUnit{Ohm}{\text{\ensuremath{\Omega}}}
+
+
+
 \newcolumntype{R}{>{\raggedright\arraybackslash}X}
 \newcolumntype{C}{>{\centering\arraybackslash}X} % Automatische Texttrennung in Tabellen
 \usepackage{cancel}

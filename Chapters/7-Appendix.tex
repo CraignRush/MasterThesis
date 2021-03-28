@@ -5,9 +5,9 @@
 For simplicity, any physical unit will be abstracted here by the arbitrary function $f(\xi)$.
 The notation for this thesis has been defined as follows: 
 \subsection{Vectorial and Scalar Units}
-Vector or tensor symbols are written in bold font, while normal font is used for scalar units. Forces - independently of magnitude or direction - are shown with a bold, capital $\mathbf{F}$. The imaginary unit is connoted as $i$.\\ Normal acting properties are multiplied with the \acrfull{surfnormal}. The normal vector to a plane spanned by two independent vectors is calculated by the cross-product $f \times f$, while the scalar product is denoted by the centered dot $f \cdot f$.
+Vector or tensor symbols are written in bold font, while normal font is used for scalar units. Forces - independently of magnitude or direction - are shown with a bold, capital $\mathbf{F}$. The imaginary unit is connoted as $i$.\\ Normal acting properties are multiplied with the \acrfull{surfnormal}. The normal vector to a plane spanned by two independent vectors is calculated by the cross-product $f \otimes f$, while the scalar product is denoted by the centered dot $f \cdot f$.
 \subsection{Differential Operators}
-In the derivations, following after \cref{eq:continuityP,eq:conservMass}, the gradient operator is symbolized by $\nabla f$. The divergence operator of an arbitrary function $f$ is utilized as $\nabla\cdot f$. The Laplace operator, in scalar context known as the second order derivative, is generalized here as $\nabla^2 f$ and equals $(\nabla\cdot\nabla) f$ respectively. It should be not confused with the capital delta $\Delta$, which indicates the difference of a unit, such as $\Delta f = f{2} - f{1}$. The identity matrix $\mathbf{I}$ is indexed by its size, for example $\mathbf{I}_{\scaleto{3 \times 3}{4pt}}$. 
+In the derivations, following after \cref{eq:continuityP,eq:conservMass}, the gradient operator is symbolized by $\nabla f$. The divergence operator of an arbitrary function $f$ is utilized as $\nabla\cdot f$. The Laplace operator, in scalar context known as the second order derivative, is generalized here as $\nabla^2 f$ and equals $(\nabla\cdot\nabla) f$ respectively. It should be not confused with the capital delta $\Delta$, which indicates the difference of a unit, such as $\Delta f = f{2} - f{1}$. The identity matrix $\mathbf{I}$ is indexed by its size, for example $\mathbf{I}_\text{\scaleto{3x3}{4pt}}$. 
 
 \begin{align}
 	\sum_{i} f(\xi = i)&= \sum_{i = 0}^{\infty} f(\xi = i) \label{eq:app:sum}\\
@@ -17,7 +17,12 @@ In the derivations, following after \cref{eq:continuityP,eq:conservMass}, the gr
 
 \subsection{Integration and Summation Operators}
 The index of an infinite sum is shown in \cref{eq:app:sum}  and starts at \num{0} unless specified otherwise. If the boundaries of an integral are not shown at the top and bottom (\cref{eq:app:intDef}), it is considered as indefinite integral (\cref{eq:app:intIndef}) with the integration constant $c$. However, $c$ denotes during the course of this work - due to a lack of explicitly solved integrals - concentrations.
-For surfaces and volumes, the integral is repeated according to the respective dimension. In the indefinite case, the unit surface is denoted by $\mathrm{dA}$, and in the volumetric case by $\mathrm{dV}$. 
+For surfaces and volumes, the integral is repeated according to the respective dimension. In the indefinite case, the unit surface is denoted by $\text{dA}$, and in the volumetric case by $\text{dV}$. 
+
+A special focus lies on Gauss' divergence theorem which in our case converts a surface into a volume integral by the following identity:
+\begin{equation}
+	\int\int\int \nabla\cdot f \mathrm{dV} = \int\int f \mathrm{dA} \label{eq:Gauss}
+\end{equation}
 
 \subsection{Equations and Inequalities}
 Approximated or estimated units are expressed by an equal sign with the assumption in overset or two tildes above each other. For sufficiency conditions, mostly inequalities were used. In these, double angular brackets, $\ll$ or $\gg$, imply an value difference of at least one order of magnitude. Postulated conditions are indicated by an exclamation mark above the equal sign: $\overset{!}{=}$.

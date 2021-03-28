@@ -301,7 +301,7 @@ afterskip=16pt
 \Crefname{tabular}{Tab.}{Tabs.}
 \Crefname{section}{Sec.}{Secs.}
 
-\newcommand{\subfigimg}[3][,]{%
+\providecommand{\subfigimg}[3][,]{%
 	\setbox1=\hbox{\includegraphics[#1]{#3}}% Store image in box
 	\leavevmode\rlap{\usebox1}% Print image
 	%\rlap{\hspace*{0pt}\raisebox{\dimexpr\ht1+0.25\baselineskip}{\fontsize{8pt}{10pt}\bfseries\selectfont\thesubfigure}}% Print label #2
@@ -407,7 +407,6 @@ afterskip=16pt
 	\draw[-,black,solid,line width = 1.5pt](0,0) -- (\tikzLineLength,0);
 	}			
 }
-
 
 \DeclareRobustCommand{\blueCircle}{\tikz{\draw[black, fill=OlightBlue] (0,0) circle (.5ex);}}
 

@@ -90,18 +90,9 @@ Subsequent data analysis of the acquired streams from both two and one sensor me
 \section{Magnetic Beadometry}
 Magnetic beads were measured in various manners. First, beads were pumped over substrates under microscope control (DM6, Leica Microsystems GmbH, Germany) with simultaneous image acquisition for count (LAS X, Leica Microsystems GmbH, Germany) and trajectory analyses (ImageJ Fiji, \cite{lit:chem:Fiji}). Second, beads were measured in buffer or diluted whole blood samples to determine their concentration in the magnetic flow cytometer. The previous measurements were then adapted to functionalized surfaces in order to detect a difference in concentration. In all experiments, teflon tubing (ID \SI{0.5}{\milli\meter}, RCT Reichelt Chemietechnik GmbH + Co., Germany), dispensing tips (OD \SI{0.42}{\milli\meter}, Nordson GmbH, Germany), \SI{1}{\milli\liter} syringes (ID \SI{4.78}{\milli\meter}, Terumo GmbH, Germany), a syringe pump (Fusion 4000, Chemyx Inc., USA) and a microfluidic channel with dimension \SI{700}{\micro\meter} x \SI{150}{\micro\meter} (width x height) were used.
 \subsection{Optical Particle Tracking}
-\textcolor{Oorange}{tif stack,
-user roi polygon 
-cropped
-threshold, yen dark stack
-invert
-duplicated slice with beads on it
-subtracted it from stack
-trackmate
-LoG detector, blob vornothing 8 micron
-thres: 2.0
-use median filter, subpixel localizaiton, hperstack, set color by snr, 
-linear motion LAP tracker, initial motion radius 60um, search radius 30um, max frame 250}
+In order to track particles in microscopy images pictures were processed in Fiji (ImageJ, \cite{lit:chem:Fiji}). Subsequently, they were either counted manually in a measured volume or tracked by the TrackMate Plugin \cite{trackmate}. \\
+Initially, the microscope pictures were imported with the \textit{BioFormats Importer} as tiff-stacks. The region of interest was selected with a polygon and cropped. Then, the stack was converted to 8-bit and thresholded by the \textit{Yen dark} algorithm. After an inverting the images, a slice with no visible beads was subtracted from the stack.  The result was used for manual counting.\\
+For the tracking, the \textit{LoG-Detector} with a \textit{blob diameter} of \SI{8}{\micro\meter} has been used with a threshold of \num{2.0}. Additional flags were set for \textit{use median filter}, \textit{subpixel localization} and \textit{hyperstack}. The resulting particle detections were visualized by their respective \gls{snr}. Subsequently, the \textit{linear motion LAP tracker} was initialized with a motion radius of \SI{60}{\micro\meter} and a search radius of \SI{60}{\micro\meter} through the maximum frame number. 
 \subsection{Absolute Concentration Measurement}
 \label{sec:meth:conc}
 Before every measurement, the initial bead concentration was determined meticulously in a Neubauer Improved counting chamber or by flow cytometry and adjusted between \SIrange{1}{10}{\per\micro\liter} in \gls{pbst}. Then, after the sensor was calibrated accordingly in the single or dual \gls{gmr}-setup (\cref{sec:meth:singleGMR,sec:meth:dualGMR}), beads were pumped at a fixed flow rate of \SI{80}{\micro\liter\per\minute} and \SI{30}{\micro\liter\per\minute} through a channel with \SI{150}{\micro\meter} or \SI{50}{\micro\meter} height, accordingly. Either the previously mentioned plastic syringe or a \SI{1}{\milli\liter} glass syringe (1001 TLL, Hamilton Bonaduz AG, Switzerland) was utilized in a syringe system for these experiments. The duration to attain statistical significance was specified by a minimal volume \SI{300}{\micro\liter} or a detection of at least \num{300} particles. Between samples, the whole system was flushed with \gls{pbst} at flow rates greater than \SI{150}{\micro\liter\per\minute} or \SI{60}{\micro\liter\per\minute}, respectively to \SI{150}{\micro\meter}/\SI{50}{\micro\meter} channel heights. Afterwards, signal streams were analyzed according to the procedure in \cref{sec:meth:gmrDataAnalysis}.

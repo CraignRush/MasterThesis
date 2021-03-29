@@ -1,6 +1,6 @@
-\chapter{Results}
+\chapter{Results and Discussion}
 \section{Virtual Prototyping of Cell Signals}
-
+\label{sec:res:simMag}
 During the course of this thesis, numerical simulations for the microchannel have been carried out in MATLAB. First, a simulation about the shape of a \gls{gmr}-sensor signal of cells was performed, where the magnetic moment was conveyed through \glspl{mnp} bound to their surface. Second, cell aggregates have been looked at in the same manner with different angles respective to the sensor. Third, both simulations were correlated to a reference dipole, with the equivalent magnetic momentum located in the center of mass.\\
 Additionally, the flow and shear field inside the channel was simulated numerically for the channel cross-section as well as for a particle near the walls. A force equilibrium simulation was also established in a basic manner. \\
 All simulations have been captured inside the MATLAB class ``MRCyte'', which contains material parameters, constants and the necessary functions for all simulations above.
@@ -146,7 +146,7 @@ With that, simulations of the fluid dynamics that influence a single microbead a
 \subsection{Fluid Fields inside the Microchannel}
 \label{sec:res:fluidSim}
 The simulation framework provided a quantitative generation of the Hagen-Poiseuille flow profile inside the microchannel with the numerical solution of \cref{eq:flowRateRect}. The simulated channel had dimensions (\gls{chanW} $\times$ \gls{chanH} $\times$ \gls{chanL}) \SI{700}{\micro\meter} $\times$ \SI{150}{\micro\meter} $\times$ \SI{15800}{\micro\meter}. The flow rate was adopted to \SI{80}{\micro\liter\per\minute}.\footnote{in accordance with the experimentally determined value} Tubing as well as time dependent effects were neglected. \\
-%The simulated \gls{u} for the whole channel cross-section can be observed in \cref{fig:sim:flowShear:vel:full}. Due to the no-slip boundary condition, \gls{u} is zero on the margin while the maximum of is reached in the geometric center. \Gls{umean} in the channel ensues \SI{12670.84}{\micro\meter\per\second}.\\
+The simulated \gls{u} for the whole channel cross-section can be observed in \cref{fig:sim:flowShear:vel:full}. Due to the no-slip boundary condition, \gls{u} is zero on the margin while the maximum of is reached in the geometric center. \gls{umean} in the channel ensues \SI{12670.84}{\micro\meter\per\second}.\\
 Conjointly, computation of the flow gradient in vertical direction and scaling with \gls{eta} yield the shear stress field.(\cref{fig:sim:flowShear:shear:full}) As the curvature of \gls{u} is zero in the channel center and maximal at the edges, the shear stress reaches highest values symmetrically at the horizontal edges of the channel.\footnote{Because the horizontal components of the gradients were neglected graceless} Resulting, the net viscous shear $\boldsymbol{\tau}_\text{viscous} = \frac{\partial u}{\partial z}$ cancels out over the whole channel cross-section.
 
 Additionally, \gls{u} and \gls{tau_v} acting on a \SI{8}{\micro\meter} diameter bead on the channel bottom were analyzed.(\cref{fig:sim:flowShear:vel:particle,fig:sim:flowShear:shear:particle}) In the proximity of a wall and due to the applied boundary conditions, \gls{tau_v} enclosed by the bead surface is non-linear. Thus, the mean fluid velocity exposed to the bead amounts in $\overline{\mathbf{u}_\text{p}}$ =  \SI{2241.59}{\micro\meter\per\second}, whereas  $\overline{\boldsymbol{\tau}_\text{viscous,\, p}}$ strains with \SI{4.93}{\dyne\per\square\centi\meter}.
@@ -206,6 +206,7 @@ This behavior will be exploited in further measurements for ``bead loss experime
 
 \clearpage
 \section{Reference Bead Surface Functionalization}
+\label{sec:res:beadFunc}
 After simulation of their respective coverages, biotin was titrated on \SI{8}{\micro\meter} reference beads with two different surface terminations in order to selectively bind \glspl{mnp} with the counter-agent streptavidin to the surface. First, \gls{amine}-microbeads were modified by sulfo-NHS-biotin. Second, \gls{carboxyl}-beads were coated by amine-PEG$_2$-biotin via EDC-NHS-activation. On the same beads Anti-IgG1-PE antibodies were titrated after the same coupling chemistry.\\
 Subsequently, biotin-coated beads were analyzed in the flow cytometer in the by staining with Atto-488 (Ex: \SI{500}{\nano\meter}, Em: \SI{520}{\nano\meter}) coupled streptavidin. The antibody was modified with \gls{pe} and measured at \SI{488}{\nano\meter} excitation and \SI{585}{\nano\meter}  emission wavelength. The gating was standardized by the strategy found in \cref{sec:meth:beadCharact}, \cref{fig:gatingstrategy-layout}. Subsequently, the \gls{mfi} was computed and fitted with a sigmoidal Hill-function.(\cref{eq:hill}) Stability of carboxylated and aminated beads and subsequently their respective modification protocols was evaluated for \SI{12}{days}.
 
@@ -286,7 +287,7 @@ As can be seen from the \gls{sem} error-bars from the plot \ref{fig:biotinyl:tit
 \end{table}
 \clearpage
 
-\subsubsection{Carboxylate-Surface Functionalization}
+\subsection{Carboxylate-Surface Functionalization}
 In a second approach, particles with opposite partial surface charge, mediated through \gls{carboxyl} groups, have been functionalized. In turn, particles were pre-activated in \gls{edc} and \gls{nhs} in \gls{mes}/\gls{mest} buffer. There are two distinct reasons for the usage of \gls{mes} based buffers rather than \gls{pbs} or \gls{macs}. First, \gls{edc} has its reactive maximum at \pH\ \numrange{5}{6}. Second, buffers containing primary \glspl{amine} (TRIS / glycine) or \glspl{carboxyl} (acetate / citrate) will quench the reaction and therefore limit the efficacy.\\
 Afterwards, the beads were washed carefully and incubated with \gls{amine}-\acrshort{peg}$_2$-biotin. Here, \gls{peg} indicates a hydrophilic spacer arm between both functional groups and in this case has length of a two units. The full functionalization procedure is explained in more detail in \cref{fig:chem:COOH-EDC-NHS}. \\
 As shown in \cref{fig:biotinyl:titration:cooh}, particles were functionalized equally compared to \gls{amide} surfaces. However, the stability of \gls{carboxyl} particles yields a half-life of \SI{1.43}{days} in a continuous measurement over \SI{12}{days} with a subsequent exponential fit. Additionally, both procedures show an outlier at high concentrations which could not be explained during the course of this thesis. 
@@ -296,6 +297,7 @@ Therefor, the fit curve has to be interpreted cautiously. Although it converged 
 
 \clearpage
 \section{Concentration Measurements in MRCyte}
+\label{sec:res:ConcMeas}
 Driving factor for the concentration measurement is the absolute count of immunomagnetically labeled cells in diluted or whole blood which is not possible in today's optics-based devices due to the excess of \glspl{rbc}.\cite{lit:bio:Alberts} Therefore, with the in \cref{sec:theo:magnet} described deterministic approach of cell focusing for subsequent magnetic detection, absolute concentrations of magnetic reference beads were attempted to measure.\\
 Beads with acrylate surface were pumped through a microfluidic channel with a permanent magnet underneath. The magnet drew every magnetic particle to the ground, where they were focused on the sensor bridge and subsequently measured there. From the received signal several parameters such as peak amplitudes, locations, zero-crossings, and relative distances between each other were computed.(\cref{fig:conc:example}) Especially for the concentration measurement a correct detection of bead signals from the noisy stream or from a superposition of multiple, simultaneously measured particles was critical. The related error sources and countermeasures will be elaborated in \cref{sec:res:Correction}.
 
@@ -368,6 +370,7 @@ An adaptation of these corrections to real measurements are depicted in \cref{fi
 Apart from a reproducible count over the dynamic range of almost two decades, both correction factors ameliorated the present data. \gls{corrConst} amounted in an optimum \num{2,89 +- 0,08} while \gls{corrVel} centered around a mean of \num{2,26}. Consequently, the velocity correction was misguided by \SI{21.7}{\percent} for the advantage of requiring no \textit{a priori} knowledge about the measurement.\\
 Another peculiarity of \gls{corrVel} can be observed in \cref{fig:conc:AbsConcError:vel}. While the analyzed velocity is stable for less than \SI{10}{\per\micro\liter}, a linear decrease is visible for higher concentrations. This is a consequence when signals of beads start overlapping if these are flowing over the sensor in a close vicinity. Hence, the disturbed signal sensitizes the parameter reconstruction to errors such as false peak-identification.
 \subsection{Concentration Measurement in Diluted Whole Blood}
+\label{sec:res:wholeBlood}
 The same concentration measurements from before were now carried out in whole blood samples. Here, the reference count can be attained only below the experimentally determined critical concentration around \SI{10}{\per\micro\liter}. (\cref{fig:conc:blood}) An insignificant discrepancy could be perceived in different volumetric blood to buffer dilutions of 1:1 and 1:20, respectively. This provides evidence for the measurement's independence from the blood concentration in buffer. \\
 However, a significant difference between counts was discovered between a \SI{150}{\micro\meter} high channel, where \gls{corrVel} can be determined accurately, and a \SI{50}{\micro\meter} high channel, where the correction yields a great error to the reference. This may be subjected to an increased probability of collisions from beads with blood cells and hence a decreased velocity which in turn leads to a higher correction factor. Another explanation approach could be the transition from \textit{Newtonian} to \textit{Non-Newtonian} fluid dynamics in smaller cross-sections, which could likewise be influenced by the F\aa{}r\ae{}us effects mentioned in \cref{sec:theo:faraeus}.
 \begin{figure}[b!]
@@ -387,60 +390,6 @@ However, a significant difference between counts was discovered between a \SI{15
 	\capption{Absolute Concentration Measurement in Blood Samples}{Velocity corrected concentration measurements for two different blood dilutions and channel heights. While \gls{corrVel} shows a good approximation for high channels in all tested concentrations (\textbf{a}), it does exaggerate the data for high concentrations at \gls{chanH}= \SI{50}{\micro\meter}.(\textbf{b}) This is probably a result of bead-cell collisions and the resulting path interruptions. }
 	\label{fig:conc:blood}
 \end{figure}
-\subsection{Surface Magnetization of Biofunctionalized Beads}
-Here, the previously surface-modified polystyrene beads were magnetized with \glspl{mnp} and counted in the magnetic flow cytometer. Originally, four different \acrlongpl{mnp} have been tested. Albeit, both nanomag-D-spio \SI{100}{\nano\meter} (micromod Partikeltechnologie GmbH, Rostock) and dynabeads MyOne Streptavidin C1 \SI{1}{\micro\meter} (ThermoFisher scientific, Waltham, USA) showed inconclusive results and are omitted in the latter.
-\begin{figure}[h!]
-	\centering
-	\subfloat{
-		\subfigimg[height=150pt]{a}{Ressources/Concentration/BNFC1}
-		\phantomsubcaption
-		\label{fig:conc:BNF:c1}	
-	} \hfill
-	\addtocounter{subfigure}{-1}
-	\subfloat{
-		\subfigimg[height=150pt]{b}{Ressources/Concentration/BNFVc}	
-		\phantomsubcaption
-		\label{fig:conc:BNF:vc}
-	} \\
-	\vspace{\baselineskip}
-	\subfloat{
-		\subfigimg[height=150pt]{c}{Ressources/Concentration/OceanC1}
-		\phantomsubcaption
-		\label{fig:conc:Ocean:C}	
-	} \hfill
-	\addtocounter{subfigure}{-1}
-	\subfloat{
-		\subfigimg[height=150pt]{d}{Ressources/Concentration/OceanVc}
-		\phantomsubcaption
-		\label{fig:conc:Ocean:vc}	
-	}
-	\capption{Bead Coverage Assay with Magnetic Streptavidin Nanoparticles}{Magnetic flow cytometry data from \SI{8}{\micro\meter} polystyrene sphere which were biotinylated in different degrees and subsequently coated with BNF-Dextran-redF-streptavidin \SI{100}{\nano\meter} \glspl{mnp}(\textbf{a},\textbf{b}) or SV0050 \SI{50}{\nano\meter} streptavidin \glspl{mnp} (\textbf{c},\textbf{d}). (\textbf{a}) Signal amplitude of the counts with various flow rates  1. \SI{80}{\micro\liter\per\minute} 2. \SI{40}{\micro\liter\per\minute} 3. \SI{20}{\micro\liter\per\minute} 4. \SI{10}{\micro\liter\per\minute} (\textbf{b}) Reconstructed velocities of the respective populations. The \SI{100}{\percent} biotinylation shows plausible velocities, whereas the \SI{68}{\percent} sample can either be considered as noisy background or very weakly magnetized particles.(\textbf{c}) Signal amplitude with \SI{80}{\micro\liter\per\minute}. A correlation between biotinylation degree and magnetic momentum can be assumed at a p-value p < \num{0.1} (\textbf{d}) Velocity distributions of the samples. As postulated, the mean velocities do not differ, moreover, are enveloped by the blank sample.}
-	\label{fig:conc}
-\end{figure}
-
-First, BNF-Dextran-redF-streptavidin \SI{100}{\nano\meter} \glspl{mnp} (micromod Partikeltechnologie GmbH, Rostock) were attached to the non-magnetic beads after the protocol in \cref{sec:meth:coatingMNPs}. Then, the magnetizability was examined qualitatively in a magnet stand. Particles were considered ``magnetically labeled'' if a pellet was visible after \SI{10}{\minute}. Afterwards, the concentrations were measured with the optical flow cytometer and adjusted to \SI{10 +- 1}{\per\micro\liter} accordingly.
-
-The subsequent measurement of \SI{300}{\micro\liter} in the magnetic flow cytometer is shown in \cref{fig:conc}. In \cref{fig:conc:BNF:c1} the peak difference C1 (= Amp2 - Amp1, \cref{fig:conc:example}) is presented against the biotinylation degree. Independent experiments of \SIlist{100;68}{\percent} biotinylation show a certain amplitude difference. The respective fluid and particle velocities in \cref{fig:conc:BNF:vc} provide an explanation for this behavior. The fluid velocity had to be adapted during the course of the experiments from \SIrange{80}{10}{\micro\liter\per\minute} in order to receive stable counts.\\
-Keeping this in mind leads to the fact that - although only two biotinylation coverages were measured - four distinct magnetizations are represented here. Both \SI{100}{\percent} samples show slow but plausible velocities and can therefore be correlated with differing magnetic momentum. Beads with \SI{68}{\percent} show an exceptional velocity and can hence either be considered as noisy background or a very weakly magnetized particles that are not pulled to the channel bottom completely. This could also explain the decline in C1 which is also a measure for \acrlong{m}.
-
-%\begin{figure}[h!]
-%	\centering
-%	\subfloat{
-%		\subfigimg[height=150pt]{a}{Ressources/Concentration/OceanC1}
-%		\phantomsubcaption
-%		\label{fig:conc:Ocean:C}	
-%	} \hfill
-%	\addtocounter{subfigure}{-1}
-%	\subfloat{
-%		\subfigimg[height=150pt]{b}{Ressources/Concentration/OceanVc}
-%		\phantomsubcaption
-%		\label{fig:conc:Ocean:vc}	
-%	}
-%	\capption{Bead Coverage Assay with OceanNanotec \SI{50}{\nano\meter}}{Magnetic flow cytometry data from \SI{8}{\micro\meter} polystyrene sphere which were biotinylated in different degrees and subsequently coated with SV0050 \SI{50}{\nano\meter} streptavidin \glspl{mnp} (OceanNanotech, San Diego, USA). Mean from 3 different particle distributions at maximum coverage(\textbf{a}) d = \SI{4}{\micro\meter} (\textbf{b}) d = \SI{8}{\micro\meter}}
-%	\label{fig:conc:Ocean}
-%\end{figure}
-Second, SV0050 \SI{50}{\nano\meter} streptavidin \glspl{mnp} (OceanNanotech, San Diego, USA) were deposited after the equal procedure on \SI{8}{\micro\meter} polystyrene beads. These experiments show the expected result of declining peak amplitude at lower biotinylation and constant velocity throughout. (\cref{fig:conc:Ocean:C,fig:conc:Ocean:vc}) At a p-value smaller than \SI{10}{\percent}, the high populations differ significantly from each other while the log-normal fits match the histograms with a \gls{rsquadj} of \num{0.94}.\\
-Two hypotheses can be drawn now from this result. On the one side, OceanNanotech \glspl{mnp} could posses more magnetic momentum per particle, which favors the robust measurement. On the other side, streptavidin or \gls{mnp} size could influence the saturation of all available biotin sites of the particle. 
 
 \subsection{Differential Counting Setup}
 \label{sec:res:diffCounting}
@@ -526,12 +475,71 @@ The determined optimal flow rate prohibits a functionalization inside the respec
 	\label{fig:diff:optimum}
 \end{figure}
 
+\subsection{Surface Magnetization of Biofunctionalized Beads}
+\label{sec:res:beadMangetiz}
+Here, the previously surface-modified polystyrene beads were magnetized with \glspl{mnp} and counted in the magnetic flow cytometer. Originally, four different \acrlongpl{mnp} have been tested. Albeit, both nanomag-D-spio \SI{100}{\nano\meter} (micromod Partikeltechnologie GmbH, Rostock) and dynabeads MyOne Streptavidin C1 \SI{1}{\micro\meter} (ThermoFisher scientific, Waltham, USA) showed inconclusive results and are omitted in the latter.
+\begin{figure}[h!]
+	\centering
+	\subfloat{
+		\subfigimg[height=150pt]{a}{Ressources/Concentration/BNFC1}
+		\phantomsubcaption
+		\label{fig:conc:BNF:c1}	
+	} \hfill
+	\addtocounter{subfigure}{-1}
+	\subfloat{
+		\subfigimg[height=150pt]{b}{Ressources/Concentration/BNFVc}	
+		\phantomsubcaption
+		\label{fig:conc:BNF:vc}
+	} \\
+	\vspace{\baselineskip}
+	\subfloat{
+		\subfigimg[height=150pt]{c}{Ressources/Concentration/OceanC1}
+		\phantomsubcaption
+		\label{fig:conc:Ocean:C}	
+	} \hfill
+	\addtocounter{subfigure}{-1}
+	\subfloat{
+		\subfigimg[height=150pt]{d}{Ressources/Concentration/OceanVc}
+		\phantomsubcaption
+		\label{fig:conc:Ocean:vc}	
+	}
+	\capption{Bead Coverage Assay with Magnetic Streptavidin Nanoparticles}{Magnetic flow cytometry data from \SI{8}{\micro\meter} polystyrene sphere which were biotinylated in different degrees and subsequently coated with BNF-Dextran-redF-streptavidin \SI{100}{\nano\meter} \glspl{mnp}(\textbf{a},\textbf{b}) or SV0050 \SI{50}{\nano\meter} streptavidin \glspl{mnp} (\textbf{c},\textbf{d}). (\textbf{a}) Signal amplitude of the counts with various flow rates  1. \SI{80}{\micro\liter\per\minute} 2. \SI{40}{\micro\liter\per\minute} 3. \SI{20}{\micro\liter\per\minute} 4. \SI{10}{\micro\liter\per\minute} (\textbf{b}) Reconstructed velocities of the respective populations. The \SI{100}{\percent} biotinylation shows plausible velocities, whereas the \SI{68}{\percent} sample can either be considered as noisy background or very weakly magnetized particles.(\textbf{c}) Signal amplitude with \SI{80}{\micro\liter\per\minute}. A correlation between biotinylation degree and magnetic momentum can be assumed at a p-value p < \num{0.1} (\textbf{d}) Velocity distributions of the samples. As postulated, the mean velocities do not differ, moreover, are enveloped by the blank sample.}
+	\label{fig:conc}
+\end{figure}
+
+First, BNF-Dextran-redF-streptavidin \SI{100}{\nano\meter} \glspl{mnp} (micromod Partikeltechnologie GmbH, Rostock) were attached to the non-magnetic beads after the protocol in \cref{sec:meth:coatingMNPs}. Then, the magnetizability was examined qualitatively in a magnet stand. Particles were considered ``magnetically labeled'' if a pellet was visible after \SI{10}{\minute}. Afterwards, the concentrations were measured with the optical flow cytometer and adjusted to \SI{10 +- 1}{\per\micro\liter} accordingly.
+
+The subsequent measurement of \SI{300}{\micro\liter} in the magnetic flow cytometer is shown in \cref{fig:conc}. In \cref{fig:conc:BNF:c1} the peak difference C1 (= Amp2 - Amp1, \cref{fig:conc:example}) is presented against the biotinylation degree. Independent experiments of \SIlist{100;68}{\percent} biotinylation show a certain amplitude difference. The respective fluid and particle velocities in \cref{fig:conc:BNF:vc} provide an explanation for this behavior. The fluid velocity had to be adapted during the course of the experiments from \SIrange{80}{10}{\micro\liter\per\minute} in order to receive stable counts.\\
+Keeping this in mind leads to the fact that - although only two biotinylation coverages were measured - four distinct magnetizations are represented here. Both \SI{100}{\percent} samples show slow but plausible velocities and can therefore be correlated with differing magnetic momentum. Beads with \SI{68}{\percent} show an exceptional velocity and can hence either be considered as noisy background or a very weakly magnetized particles that are not pulled to the channel bottom completely. This could also explain the decline in C1 which is also a measure for \acrlong{m}.
+
+%\begin{figure}[h!]
+%	\centering
+%	\subfloat{
+%		\subfigimg[height=150pt]{a}{Ressources/Concentration/OceanC1}
+%		\phantomsubcaption
+%		\label{fig:conc:Ocean:C}	
+%	} \hfill
+%	\addtocounter{subfigure}{-1}
+%	\subfloat{
+%		\subfigimg[height=150pt]{b}{Ressources/Concentration/OceanVc}
+%		\phantomsubcaption
+%		\label{fig:conc:Ocean:vc}	
+%	}
+%	\capption{Bead Coverage Assay with OceanNanotec \SI{50}{\nano\meter}}{Magnetic flow cytometry data from \SI{8}{\micro\meter} polystyrene sphere which were biotinylated in different degrees and subsequently coated with SV0050 \SI{50}{\nano\meter} streptavidin \glspl{mnp} (OceanNanotech, San Diego, USA). Mean from 3 different particle distributions at maximum coverage(\textbf{a}) d = \SI{4}{\micro\meter} (\textbf{b}) d = \SI{8}{\micro\meter}}
+%	\label{fig:conc:Ocean}
+%\end{figure}
+Second, SV0050 \SI{50}{\nano\meter} streptavidin \glspl{mnp} (OceanNanotech, San Diego, USA) were deposited after the equal procedure on \SI{8}{\micro\meter} polystyrene beads. These experiments show the expected result of declining peak amplitude at lower biotinylation and constant velocity throughout. (\cref{fig:conc:Ocean:C,fig:conc:Ocean:vc}) At a p-value smaller than \SI{10}{\percent}, the high populations differ significantly from each other while the log-normal fits match the histograms with a \gls{rsquadj} of \num{0.94}.\\
+Two hypotheses can be drawn now from this result. On the one side, OceanNanotech \glspl{mnp} could posses more magnetic momentum per particle, which favors the robust measurement. On the other side, streptavidin or \gls{mnp} size could influence the saturation of all available biotin sites of the particle. 
+
+
 
 \clearpage
 \section{Surface Modification and Biofunctionalization of the Sensor Chip Substrate}
+\label{sec:res:surfMod}
 In consideration of the problems of surface instability analyzed in \cref{sec:res:Correction} and to avoid additional uncertainties in the experimental validation of the model from \cref{sec:res:forcesim}, a covalent functionalization of the sensor surface with neutravidin was carried out. First, a plate reader experiment for a qualitative statement about the shear-force stability of protein adsorption was performed. Second, different functionalization approaches with \gls{piranha} and \gls{hf} were tested with pure glass, \gls{pdms}, and eventually \gls{sin}. Third the validation of these procedures was limited to indirect measurements such as tensiometry, fluorescence microscopy, and quantitative bead capture assay, as sophisticated chemical analyses were hardly available.
 
 \subsection{Physisorption}
+\label{sec:res:physis}
 In order to quantify the adsorption stability for fluorescently-labeled, physisorbed streptavidin molecules, sensor chips were cut into \SI{10}{\milli\meter\squared} pieces and glued to the bottom of a 96-well plate. Subsequently, they were equilibrated with \gls{pbs} and incubated with \SI{1}{\milli\gram\per\milli\liter} over night. Each measurement was corrected for a blank substrate as well as the negative control with plain \gls{pbs} buffer and normalized subsequently.
 
 \begin{figure}[h!]
@@ -544,6 +552,7 @@ Every sample in the plate reader showed a significant surface decrease to a mean
 
 
 \subsection{Evaluation of the Covalent Biofunctionalization with Optical Methods}
+\label{sec:res:coval}
 Now, the results of several covalent surface modification procedures with various substrates are presented. Foremost, glass was used as main carrier material. On glass established protocols were then brought onto \gls{pdms} and \gls{sin} chips. As main functionalization protocol, an activation in 7:1 \gls{piranha} was carried out for \SI{30}{\minute}. Then, the substrate was rinsed, incubated in \SI{2}{\percent} \gls{aptes} solution and in \gls{paa} subsequently after the protocol described in \cref{sec:meth:surfFunc}. Then a \SI{150}{\micro\meter} microfluidic channel was glued to the functionalized substrate and eventually filled with \SI{1}{\milli\gram\per\milli\liter} of neutravidin or streptavidin-atto488, if fluorescent labeling was intended. A constant flow rate of \SI{80}{\micro\liter\per\minute} was selected for the bead capture assays under the light microscope. The general process chain is depicted in \cref{fig:chem:func:withPAA}.
 
 
@@ -594,7 +603,8 @@ However, a substantially different long-term stability could neither be measured
 	\label{fig:coval:fluo}
 \end{figure}
 \clearpage
-\subsection{Affinity-based Concentration Measurements in the Magnetic Flow Cytometer}
+\section{Affinity-based Concentration Measurements in the Magnetic Flow Cytometer}
+\label{sec:res:affinity}
 In this section, a sensor was unspecifically functionalized with neutravidin. Subsequently, differently biotinylated, magnetic beads were pumped over the sensor which counted the non-adhering fraction.\\
 In order to measure the interaction properties diligently, beads were functionalized with biotin at several saturation degrees ranging from \SIrange{0}{100}{\percent} total coverage of the available surface charges. Measurements for absolute counts as well as their time stability were carried out at \SI{80}{\micro\liter\per\minute} in a microchannel with cross-section \SI{700}{\micro\meter} $\times$ \SI{150}{\micro\meter}  (\gls{chanW} $\times$ \gls{chanH}). \cref{fig:conc:All:count} shows the absolute, linearly corrected counts determined by the magnetic flow cytometer, with a defined particle concentration of \SI{8.9+-1.1}{\per\micro\liter}.
 

@@ -56,20 +56,8 @@ Approximated or estimated units are expressed by an equal sign with the assumpti
 
 \begin{figure}[!h]
 	\centering
-	\subfloat{
-		\subfigimg[height=150pt]{a}{Ressources/Differential/Bottom}	
-	} \hfill
-	\subfloat{
-		\subfigimg[height=150pt]{b}{Ressources/Differential/Top}	
-	}
-	\capption{Flow Rate Dependency of Differential Counting Setup}{(\textbf{a}) Optimized for top sensor (\textbf{b}) Optimized for bottom sensor}
-	\label{fig:diff:flowRate}
-\end{figure}
-
-\begin{figure}[!h]
-	\centering
 	\includegraphics[width=.3\linewidth]{Ressources/Concentration/CaptureVelocity}
-	\capption{Measured Bead Velocity}{ Not sure what to say about velocity itself. Maybe remove completely,   p < 0.01}
+	\capption{Measured Bead Velocity}{p < 0.01}
 	\label{fig:conc:vel}
 \end{figure}
 
@@ -80,3 +68,20 @@ Approximated or estimated units are expressed by an equal sign with the assumpti
 	\label{fig:coval:plasma}
 \end{figure}
 
+\begin{figure}
+	\centering
+	\subfloat{
+		\subfigimg[width=\linewidth]{a}{./Ressources/ResultPlots/Serpentine_1000um_2-FullLayout}
+		\phantomsubcaption
+		\label{fig:app:serpentine}
+	} \\
+	\vspace{\baselineskip}
+	\addtocounter{subfigure}{-1}
+	\subfloat{
+		\subfigimg[width=\linewidth]{b}{./Ressources/ResultPlots/SerpentineApertureCapture30um2}  
+		\phantomsubcaption
+		\label{fig:app:focus}
+	}
+	\capption{AutoCAD Drawings of Microfluidic Channels}{Scale: \SI{20}{\milli\meter}:\SI{1}{paper unit}, Dimensions: \si{\milli\meter}}
+	\label{fig:app:autocad}
+\end{figure}

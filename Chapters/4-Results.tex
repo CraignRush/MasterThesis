@@ -178,7 +178,7 @@ Additionally, \gls{u} and \gls{tau_v} acting on a \SI{8}{\micro\meter} diameter 
 		\label{fig:sim:flowShear:shear:particle}
 	}
 	%	\includegraphics[width=\linewidth]{Ressources/Simulation/FlowShearFigure}
-	\capption{Flow Field and Shear Stress Simulation of the utilized Microchannel}{Flow (\textbf{a}) and vertical shear (\textbf{c}) field inside the microchannel with dimensions (w x h x L) \SI{700}{\micro\meter} x \SI{150}{\micro\meter} x \SI{15800}{\micro\meter} for a flow rate of \SI{80}{\micro\liter\per\minute} and with neglected tubing effects. The subplots on the right and top side show the mean horizontal and vertical profile in \SI{0}{\micro\meter} width and \SI{75}{\micro\meter} height, respectively. (vertical: \blueline, horizontal: \orangeline) Due to the no-slip condition, the velocity at the walls equals zero and the shear is maximal. The maximum of the Hagen-Poiseuille profile is located in the channel center. Over the cross-section the mean flow velocity $\overline{\mathbf{u}}$ equals \SI{12670.83}{\micro\meter\per\second}. Resultingly, the net horizontal viscous shear  $\boldsymbol{\tau}_{viscous} = \frac{\partial u}{\partial z}$ cancels out over the whole channel cross-section. \\
+	\capption{Flow Field and Shear Stress Simulation of the utilized Microchannel}{Flow (\textbf{a}) and vertical shear (\textbf{c}) field inside the microchannel with dimensions (\gls{chanW} $\times$ \gls{chanH} $\times$ \gls{chanL}) \SI{700}{\micro\meter} $\times$ \SI{150}{\micro\meter} $\times$ \SI{15800}{\micro\meter} for a flow rate of \SI{80}{\micro\liter\per\minute} and with neglected tubing effects. The subplots on the right and top side show the mean horizontal and vertical profile in \SI{0}{\micro\meter} width and \SI{75}{\micro\meter} height, respectively. (vertical: \blueline, horizontal: \orangeline) Due to the no-slip condition, the velocity at the walls equals zero and the shear is maximal. The maximum of the Hagen-Poiseuille profile is located in the channel center. Over the cross-section the mean flow velocity $\overline{\mathbf{u}}$ equals \SI{12670.83}{\micro\meter\per\second}. Resultingly, the net horizontal viscous shear  $\boldsymbol{\tau}_{viscous} = \frac{\partial u}{\partial z}$ cancels out over the whole channel cross-section. \\
 	Flow (\textbf{d}) and vertical shear (\textbf{d}) field acting on a \SI{8}{\micro\meter} diameter bead on the channel bottom. The mean fluid velocity trapped by the bead profile results in  $\overline{\mathbf{u}_{p}}$= \SI{2241.59}{\micro\meter\per\second}, whereas the viscous shear strains with $\boldsymbol{\tau}_{viscous}$ = \SI{4.93}{\dyne\per\square\centi\meter} }
 	\label{fig:sim:flowShear}
 \end{figure}
@@ -363,9 +363,8 @@ The \gls{corrVel} relates the effective particle velocity to the total fluid vel
 	\capption{Absolute Concentration Measurements}{(\textbf{a}) Mean and standard deviation of the concentration measurement from three independent measurements. The uncorrected measurement shows a highly reproducible and linear count over the dynamic range of almost two decades. (\greenrect) The ideal reference from the flow cytometer is depicted in (\blackline). Correction with \gls{corrVel} (\orangerect) yields at a factor of \num{2,26109} which is \SI{21.7}{\percent} more imprecise than \gls{corrConst} at \num{2,88833 +- 0,08075}.(\bluerect) (\textbf{b}) Mean and \gls{sem} of the \gls{vc} estimation from the signal. For higher concentrations, the measured velocity becomes inaccurate thus distorts the correction factor.}
 	\label{fig:conc:AbsConcError}
 \end{figure}
-\todo{surface stability wegreissen von streptavidin}
 However, if the bead velocity is not solely dependent on fluid dynamic effects - especially in the light of surface functionalizations - \gls{corrVel} can not be applied to experiments robustly. This is depicted in a sample experiment with a protein covered surface in \cref{fig:conc:AbsConcError:concerror}. By definition, the \gls{corrConst} can not be well above than \SI{100}{\percent} whereas the count correction by \gls{corrVel} differs by \SI{600}{\percent} through variations in the velocity measurement.(\cref{fig:conc:BiotnylWrongCorr:velConst}) \\
-An adaptation of these corrections to real measurements are depicted in \cref{fig:conc:AbsConcError}. In a measurement where \SI{300}{\micro\liter} were dispensed into the magnetic flow cytometer with a defined particle concentration the counts were analyzed and corrected according to above. This time, the channel had a cross-section of \SI{700}{\micro\meter} x \SI{50}{\micro\meter} (w x h) and \gls{q} was set to \SI{30}{\micro\liter\per\minute}.\\
+An adaptation of these corrections to real measurements are depicted in \cref{fig:conc:AbsConcError}. In a measurement where \SI{300}{\micro\liter} were dispensed into the magnetic flow cytometer with a defined particle concentration the counts were analyzed and corrected according to above. This time, the channel had a cross-section of \SI{700}{\micro\meter} $\times$ \SI{50}{\micro\meter} (\gls{chanW} $\times$ \gls{chanH}) and \gls{q} was set to \SI{30}{\micro\liter\per\minute}.\\
 Apart from a reproducible count over the dynamic range of almost two decades, both correction factors ameliorated the present data. \gls{corrConst} amounted in an optimum \num{2,89 +- 0,08} while \gls{corrVel} centered around a mean of \num{2,26}. Consequently, the velocity correction was misguided by \SI{21.7}{\percent} for the advantage of requiring no \textit{a priori} knowledge about the measurement.\\
 Another peculiarity of \gls{corrVel} can be observed in \cref{fig:conc:AbsConcError:vel}. While the analyzed velocity is stable for less than \SI{10}{\per\micro\liter}, a linear decrease is visible for higher concentrations. This is a consequence when signals of beads start overlapping if these are flowing over the sensor in a close vicinity. Hence, the disturbed signal sensitizes the parameter reconstruction to errors such as false peak-identification.
 \subsection{Concentration Measurement in Diluted Whole Blood}
@@ -373,8 +372,19 @@ The same concentration measurements from before were now carried out in whole bl
 However, a significant difference between counts was discovered between a \SI{150}{\micro\meter} high channel, where \gls{corrVel} can be determined accurately, and a \SI{50}{\micro\meter} high channel, where the correction yields a great error to the reference. This may be subjected to an increased probability of collisions from beads with blood cells and hence a decreased velocity which in turn leads to a higher correction factor. Another explanation approach could be the transition from \textit{Newtonian} to \textit{Non-Newtonian} fluid dynamics in smaller cross-sections, which could likewise be influenced by the F\aa{}r\ae{}us effects mentioned in \cref{sec:theo:faraeus}.
 \begin{figure}[b!]
 	\centering
-	\includegraphics[width=.7\linewidth]{Ressources/Concentration/CorrectionBlood}
-	\capption{Absolute Concentration Measurement in Blood Samples Under Varying Channel Height}{Velocity corrected concentration measurements for two different blood dilutions and channel heights. While \gls{corrVel} works for high channels in all tested concentrations, it does not work for high concentrations in \SI{50}{\micro\meter} high channels. This is probably a result of bead-cell collisions and the resulting path interruption. }
+	%\includegraphics[width=.7\linewidth]{Ressources/Concentration/CorrectionBlood}
+	\subfloat{
+		\subfigimg[height=150pt]{a}{Ressources/Concentration/Correction_50um}	
+		\phantomsubcaption
+		\label{fig:conc:blood:50}
+	} \hfill
+	\addtocounter{subfigure}{-1}
+	\subfloat{
+		\subfigimg[height=150pt]{b}{Ressources/Concentration/Correction150um}	
+		\phantomsubcaption
+		\label{fig:conc:blood:150}
+	}
+	\capption{Absolute Concentration Measurement in Blood Samples}{Velocity corrected concentration measurements for two different blood dilutions and channel heights. While \gls{corrVel} shows a good approximation for high channels in all tested concentrations (\textbf{a}), it does exaggerate the data for high concentrations at \gls{chanH}= \SI{50}{\micro\meter}.(\textbf{b}) This is probably a result of bead-cell collisions and the resulting path interruptions. }
 	\label{fig:conc:blood}
 \end{figure}
 \subsection{Surface Magnetization of Biofunctionalized Beads}
@@ -432,10 +442,6 @@ Keeping this in mind leads to the fact that - although only two biotinylation co
 Second, SV0050 \SI{50}{\nano\meter} streptavidin \glspl{mnp} (OceanNanotech, San Diego, USA) were deposited after the equal procedure on \SI{8}{\micro\meter} polystyrene beads. These experiments show the expected result of declining peak amplitude at lower biotinylation and constant velocity throughout. (\cref{fig:conc:Ocean:C,fig:conc:Ocean:vc}) At a p-value smaller than \SI{10}{\percent}, the high populations differ significantly from each other while the log-normal fits match the histograms with a \gls{rsquadj} of \num{0.94}.\\
 Two hypotheses can be drawn now from this result. On the one side, OceanNanotech \glspl{mnp} could posses more magnetic momentum per particle, which favors the robust measurement. On the other side, streptavidin or \gls{mnp} size could influence the saturation of all available biotin sites of the particle. 
 
-
-
-
-
 \subsection{Differential Counting Setup}
 \label{sec:res:diffCounting}
 With regard to the necessity of correction factors in order to resolve the ground truth of a concentration measurement, a different magnetic flow cytometer setup has been evaluated. Here, two fully assembled sensors with \glspl{pcb} were stacked on top of each other and connected in series which was expected to yield two beneficial effects.\\
@@ -479,18 +485,46 @@ Additionally, no influence of any spacer height could be discovered.  The differ
 \clearpage
 
 
-\subsubsection{Concentration Measurement in Buffer Solution}
+\subsubsection{Magnetic Concentration Measurement with the Differential Sensor Setup}
 Due to the single utilized permanent magnet for two sensors, another field related issue arose during concentration measurements. This requires a step back inside the general functionality of the magnetophoretic enrichment:\\
-Any bead flowing at an arbitrary position in the microchannel experiences a negative magnetic force by the gradient of the \acrlong{B} caused by the permanent magnet which pulls perpendicular to the bottom surface. Upon coming in close proximity to the lower boundary, a gradient provoked by the lithographic nickel-iron structures starts to gain strength with the third power of the distance. This causes the beads to attach to the bottom firmly and enforces their rolling behavior. However, a fragile equilibrium between magnetophoresis and drag has to be maintained slightly in favor of \acrlong{f:drag} for a continuous rolling motion. This ideal state is a narrow space in between two boundary cases. \\
-First, if drag force exceeds magnetophoresis, the beads will not migrate to the channel bottom in the top chip and hence result in a lower concentration measured on top. Second, if magnetophoresis outnumbers drag so that particles flow steadily in the top channel, the beads in the lower channel will stop rolling and adhere statically. In effect, the lower concentration measurement is compromised.\\
+Any bead flowing at an arbitrary position in the microchannel experiences a negative magnetic force by the gradient of the \acrlong{B} caused by the permanent magnet which pulls perpendicular to the bottom surface. Upon coming in close proximity to the lower boundary, a gradient provoked by the lithographic nickel-iron structures starts to gain strength with the third power of the distance. This causes the beads to attach to the bottom firmly and enforces their rolling behavior. However, a fragile equilibrium between magnetophoresis and drag has to be maintained slightly in favor of \acrlong{f:drag} for a continuous rolling motion.
+
+This ideal state is a narrow space in between two boundary cases:\\
+First, if drag force exceeds magnetophoresis, the beads will not migrate to the channel bottom in the top chip and hence result in a lower concentration measured on top. Second, if magnetophoresis outnumbers drag so that particles flow steadily in the top channel, the beads in the lower channel will stop rolling and adhere. In effect, the lower concentration measurement is compromised. This behavior is visible in the \cref{fig:diff:sensitivity:top,fig:diff:sensitivity:bottom}.\\
+In order to find the flow rate for the optimal ratio between drag and magnetic force, measurements were performed with bead concentrations ranging from \SIrange{8.5}{34}{\per\micro\liter}. The respective quotient was determined after \cref{eq:diff:optimum} and plotted in \cref{fig:diff:optimum}. Below an optimal threshold of \SI{160+-10}{\micro\liter\per\minute}, the top sensor measures up to the 100-fold concentration of the bottom sensor. Above the threshold, the top sensor starts to miss counts which is subjected to a high drag force relatively to the magnetophoresis. The quotient of both sensors shows a linearly decreasing trend towards a saturation at high flow rates where no beads are measured by both sensors.\\
+Hereby, the intersection of all measured concentrations does not reside in \num{1}, at the optimal value of the quotient. This can on the one side be attributed to the numerical velocity correction and on the other side to the losses in the interconnection between both chips. Although, the optimal quotient value would have been \num{1} theoretically, an ideal overlap was found for a flow rate of \SI{150}{\micro\liter\per\minute}.
+
+The determined optimal flow rate prohibits a functionalization inside the respective channel due to the high shear forces of \SI{11.8}{\dyne\per\centi\meter}. Therefore, a bio-functionalized channel has to be designed with a greater hydrodynamic diameter to lower velocity and shear. Therefore, two channels have been designed and probed initially. First, a simple serpentine channel with a width of \SI{1}{\milli\meter} has been developed to bond onto an assembled sensor.(\cref{fig:app:serpentine}) Second, in another approach, a focusing structure with an aperture of \SI{30}{\micro\meter} width for the sensor element itself has been designed.(\cref{fig:app:focus}) However, the difficulties in assembly and operation of the whole setup inhibited a further usage in experiments.
+
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=.7\linewidth]{Ressources/Differential/Differential}
-	\capption{Optimal Differential Counting Flow Rate}{Losses in different buffers and bead surfaces.}
+	\begin{minipage}[b]{.3\linewidth}
+			\subfloat{
+			\subfigimg[width=\linewidth]{a}{Ressources/Differential/Top}	
+			\phantomsubcaption
+			\label{fig:diff:sensitivity:top}
+		}\\
+		\vspace{-8pt}
+		\addtocounter{subfigure}{-1}	
+		\subfloat{
+			\subfigimg[width=\linewidth]{b}{Ressources/Differential/Bottom}	
+			\phantomsubcaption
+			\label{fig:diff:sensitivity:bottom}	
+		}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{.68\linewidth}
+		\addtocounter{subfigure}{-1}	
+		\subfloat{
+			\subfigimg[width=\linewidth]{c}{Ressources/Differential/Differential}	
+			\phantomsubcaption
+			\label{fig:diff:sensitivity:quot}	
+		}
+	\end{minipage}
+%\includegraphics[width=]{Ressources/Differential/Differential}
+	\capption{Optimal Differential Counting Flow Rate}{The optimal flow rate for the differential setup was determined by the quotient of measured concentrations between the top (\textbf{a}) and bottom (\textbf{b}) sensor.(\textbf{c}) Below an optimal threshold of \SI{150}{\micro\liter\per\minute}, the top sensor measures up to the 100-fold concentration of the bottom sensor. Above the the threshold, the top sensor starts to miss counts which is subjected to the high drag force. (\textbf{c}) The quotient of both sensors $\frac{\text{top}}{\text{bottom}}$ shows a linearly decreasing trend towards a saturation at high flow rates where no beads a measured at both sensors. Hereby, the intersection of all measured concentrations does not reside in \num{1}, at the optimal value of the quotient . This can on the one side be attributed to the \acrlong{corrVel} and on the other side to the losses in the interconnection between both chips.}
 	\label{fig:diff:optimum}
 \end{figure}
-
-In order to find the flow rate for the optimal ratio between drag and magnetic force, measurements were performed with bead concentrations ranging from \SIrange{6.5}{34}{\per\micro\liter}.\footnote{The raw data is shown in \cref{fig:diff:flowRate}} The quotient of both measured concentration was determined after \cref{eq:diff:optimum} and plotted in \cref{fig:diff:optimum}. Although, the optimal quotient value would have been \num{1} theoretically, an ideal overlap was found for a flow rate of \SI{150}{\micro\liter\per\minute}. However, the difficulties in assembly and operation inhibited a further usage in experiments.
 
 
 \clearpage
@@ -503,7 +537,7 @@ In order to quantify the adsorption stability for fluorescently-labeled, physiso
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.7\linewidth]{Ressources/ResultPlots/SurfaceFuncSiNAlOx}
-	\capption{Surface Adsorption Stability of Neutravidin on \Gls{sin} and \Gls{alox}}{Plate reader measurement with \SI{3}{\milli\meter} x \SI{3}{\milli\meter} \gls{sin} and \gls{alox} samples which were incubated with \SI{100}{\micro\gram} and \SI{10}{\micro\gram} streptavidin-atto488, respectively. The samples were subsequently washed with \SI{200}{\micro\liter} \gls{pbs} carefully. Fluorescence intensities were of corrected with a blank substrate, the autofluorescence of \gls{pbs}, and normalized eventually. Every surface reaches a mean fluorescence level of \SI{28}{\percent} after few washing steps.}
+	\capption{Surface Adsorption Stability of Neutravidin on \Gls{sin} and \Gls{alox}}{Plate reader measurement with \SI{3}{\milli\meter} $\times$ \SI{3}{\milli\meter} \gls{sin} and \gls{alox} samples which were incubated with \SI{100}{\micro\gram} and \SI{10}{\micro\gram} streptavidin-atto488, respectively. The samples were subsequently washed with \SI{200}{\micro\liter} \gls{pbs} carefully. Fluorescence intensities were of corrected with a blank substrate, the autofluorescence of \gls{pbs}, and normalized eventually. Every surface reaches a mean fluorescence level of \SI{28}{\percent} after few washing steps.}
 	\label{fig:unsp:wash}
 \end{figure}
 Every sample in the plate reader showed a significant surface decrease to a mean level of \SI{28}{\percent} from the original fluorescence.(\cref{fig:unsp:wash}) Whereas proteins desorbed from both crystals after the first washing steps equally, \gls{sin} outperformed \gls{alox} as more stable in steady state. (\SI{34.8}{\percent} vs. \SI{27.5}{\percent}) However, no quantitative hypothesis could be formulated by these numbers due to the nature of their indirect measurement. Hence, the protein activity which is the crucial quantity for any bead rolling remains questionable. Nevertheless, a qualitative proposition is strongly confirmed that unspecifically adsorbed proteins are removed from any of both surfaces rapidly.
@@ -513,37 +547,61 @@ Every sample in the plate reader showed a significant surface decrease to a mean
 Now, the results of several covalent surface modification procedures with various substrates are presented. Foremost, glass was used as main carrier material. On glass established protocols were then brought onto \gls{pdms} and \gls{sin} chips. As main functionalization protocol, an activation in 7:1 \gls{piranha} was carried out for \SI{30}{\minute}. Then, the substrate was rinsed, incubated in \SI{2}{\percent} \gls{aptes} solution and in \gls{paa} subsequently after the protocol described in \cref{sec:meth:surfFunc}. Then a \SI{150}{\micro\meter} microfluidic channel was glued to the functionalized substrate and eventually filled with \SI{1}{\milli\gram\per\milli\liter} of neutravidin or streptavidin-atto488, if fluorescent labeling was intended. A constant flow rate of \SI{80}{\micro\liter\per\minute} was selected for the bead capture assays under the light microscope. The general process chain is depicted in \cref{fig:chem:func:withPAA}.
 
 
-As a final result, a chemical and biological functionalization could be established to a similar degree as unspecific binding. Measuring the count of beads per occupied area yields \cref{fig:coval:densitysubstrate}.\todo{bild?} Again, two distinct states can be observed for biotinylated and plain beads at every modified surface.\\
+As a final result, a chemical and biological functionalization could be established to a similar degree as unspecific binding. Measuring the count of beads per occupied area yields \cref{fig:coval:densitysubstrate}. Again, two distinct states can be observed for biotinylated and plain beads at every modified surface.\\
 The density of bound protein could also be varied through the incubation concentration and measured reliably both in a optical bead capture assay and the \gls{mfi} of the channel in a fluorescence microscope.(\cref{fig:coval:counts,fig:coval:titration}) The relative \gls{mfi} indicates here the fraction supra the non-functionalized, \gls{pbs}-filled microchannel. 
 
 However, a substantially different long-term stability could neither be measured nor compared to similar results accurately. Also, no proof for the covalent functionalization could be brought with the available methods. Nevertheless, a robust and working protocol has been developed after significant literature values which encourages the position.
 \begin{figure}[htb!]
 	\centering
+	\begin{minipage}[b]{.3\linewidth}
 	\subfloat{
-		\subfigimg[width=.7\linewidth]{a}{Ressources/Covalent/BeadDensitySubstrate}
+		\subfigimg[height=95pt]{a}{Ressources/Covalent/PositivePiranhaPAA}
+		\phantomsubcaption
+		\label{fig:coval:biotinyl}		
+	} \\ 
+	\vfill	
+	\addtocounter{subfigure}{-1}
+	\subfloat{
+		\subfigimg[height=95pt]{b}{Ressources/Covalent/NegPiranhaPAA}
+		\phantomsubcaption
+		\label{fig:coval:plain}		
+	}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{.7\linewidth}
+	\addtocounter{subfigure}{-1}
+	\subfloat{
+		\subfigimg[width=\linewidth]{c}{Ressources/Covalent/BeadDensitySubstrate}
 		\phantomsubcaption
 		\label{fig:coval:densitysubstrate}		
-	} \\
+	}
+	\end{minipage}% 
+	\\
 	\vspace{\baselineskip}
 	\addtocounter{subfigure}{-1}
 	\subfloat{
-		\subfigimg[height=150pt]{b}{Ressources/Covalent/SerpentinesDensityCount}
+		\subfigimg[height=150pt]{d}{Ressources/Covalent/SerpentinesDensityCount}
 		\phantomsubcaption
 		\label{fig:coval:counts}	
 	} \hfill
 	\addtocounter{subfigure}{-1}
 	\subfloat{
-		\subfigimg[height=150pt]{c}{Ressources/Covalent/NeutravidinTitration}
+		\subfigimg[height=150pt]{e}{Ressources/Covalent/NeutravidinTitration}
 		\phantomsubcaption
 		\label{fig:coval:titration}	
 	}
-	\capption{Optical Bead Capture Assay and Titration Fluorescence Analysis}{(\textbf{a}) Density measurement of captured beads on the covalently functionalized surfaces of \gls{pdms}, \gls{sin} and glass. \gls{pdms} shows the most promising density. (\textbf{b}) Titration of neutravidin on covalently functionalized glass with a subsequent analysis by a bead capture assay. (\textbf{c}) Titration of streptavidin-atto488 on covalently functionalized glass with subsequent fluorescence microscope imaging. The scale indicated the fraction above the fluorescence signal of a blank microchannel.}
+	\capption{Optical Bead Capture Assay and Titration Fluorescence Analysis}{(\textbf{a}, \textbf{b}) Microscope images from a covalently functionalized glass surface via the \gls{piranha} protocol after an equal dispensed count of beads.(\cref{sec:meth:surfActiv}) In (\textbf{a}) \SI{100}{\percent} biotinylated beads were pumped at \SI{70}{\micro\liter\per\minute}, in (\textbf{b}) \SI{0}{\percent} biotinylated beads were used. (\textbf{c}) Density measurement of captured beads on the covalently functionalized surfaces of \gls{pdms}, \gls{sin} and glass. \gls{pdms} shows the most promising density. (\textbf{d}) Titration of neutravidin on covalently functionalized glass with a subsequent analysis by a bead capture assay. (\textbf{e}) Titration of streptavidin-atto488 on covalently functionalized glass with subsequent fluorescence microscope imaging. The scale indicated the fraction above the fluorescence signal of a blank microchannel.}
 	\label{fig:coval:fluo}
 \end{figure}
 \clearpage
 \subsection{Affinity-based Concentration Measurements in the Magnetic Flow Cytometer}
-In this section, the results of beads rolling a neutravidin-covered channel surface will be discussed. In order to measure the interaction properties diligently, beads were functionalized with biotin at several saturation degrees ranging from \SIrange{0}{100}{\percent} total coverage of the available surface charges. Measurements for absolute counts as well as their time stability were carried out at \SI{80}{\micro\liter\per\minute} in a microchannel with cross-section \SI{700}{\micro\meter} x \SI{150}{\micro\meter}  (w x h). \cref{fig:conc:All:count} shows the absolute, linearly corrected counts determined by the magnetic flow cytometer, with a defined particle concentration of \SIrange{7.8}{10}{\per\micro\liter}. Clearly, a significant yes-no answer can be established by fully- vs. non-functionalized beads. Also, this measurement demonstrates high reproducibility with three different chip setups and measurement days. For approximately $\frac{2}{3}$ biotinlyated beads, a gradation in counts can also be observed. However, due to the instability of the channel surface over the course of many sequential measurements, additional experiments have to be conducted to reinforce these results. \\
-An evaluation of the time-domain distribution of the counted beads shows a very stable baseline for fully biotinylated beads with a recovery in the single digit range per unit volume. In the negative control of unbiotinylated beads, also a noisy mean count around \SI{100}{\percent} can be observed.\footnote{The shown data corresponds to the mean of three measurements from \cref{fig:conc:All:count}}
+In this section, a sensor was unspecifically functionalized with neutravidin. Subsequently, differently biotinylated, magnetic beads were pumped over the sensor which counted the non-adhering fraction.\\
+In order to measure the interaction properties diligently, beads were functionalized with biotin at several saturation degrees ranging from \SIrange{0}{100}{\percent} total coverage of the available surface charges. Measurements for absolute counts as well as their time stability were carried out at \SI{80}{\micro\liter\per\minute} in a microchannel with cross-section \SI{700}{\micro\meter} $\times$ \SI{150}{\micro\meter}  (\gls{chanW} $\times$ \gls{chanH}). \cref{fig:conc:All:count} shows the absolute, linearly corrected counts determined by the magnetic flow cytometer, with a defined particle concentration of \SI{8.9+-1.1}{\per\micro\liter}.
+
+It has been shown, that the biotinylation degree of microbeads can be measured robustly in the magnetic flow cytometer. For completely functionalized beads, only fractions well blow \SI{1}{\percent} were counted with small \gls{sem}.(\cref{fig:conc:All:count}, \SI{100}{\percent}). In result, fully- versus non-functionalized beads can be discriminated with high significance. Also, this measurement demonstrates a solid reproducibility with three different chip setups and measurement days indicated by \#1, \#2, and \#3.\\
+For \SI{63.5}{\percent} biotinylated beads, a gradation of the counts can also be observed. This evidence strongly supports the possibility of an affinity-dependent, magnetic concentration measurement with the current system. However, due to the instability of the functionalization layer itself over the course of sequential measurements, additional experiments have to be conducted in order to reinforce these results.
+
+An evaluation of the bead count distribution in the time-domain shows a stable baseline for fully biotinylated beads with a recovery in the single digit range per unit volume. In the negative control of unbiotinylated beads, also a noisy mean count around \SI{100}{\percent} can be observed.\footnote{The shown data corresponds to the mean of three measurements from \cref{fig:conc:All:count}} The unbiotinylated sample shows the previously discussed initial rise.(\cref{sec:res:Correction}) 
 \begin{figure}[!h]
 	\centering
 	\subfloat{
@@ -557,9 +615,8 @@ An evaluation of the time-domain distribution of the counted beads shows a very 
 		\phantomsubcaption
 		\label{fig:conc:All:time}	
 	}
-	\capption{Reproducibility of Concentration Measurements with Saturated Neutravidin Surfaces}{Biological replicates of concentration measurements with the magnetic flow cytometer. The channel surface was modified with \SI{1}{\milli\gram\per\milli\liter} neutravidin over night. (\textbf{a}) Mean and \gls{sem} of \gls{corrConst} adjusted counts for various biotinylation degrees. (\textbf{b}) Time series of the mean from the three measurements on the left. Biotin-beads are captured completely, thus very few counts are detected.(\blackline) The unbiotinylated sample shows the inital ascent due to the in \cref{sec:res:Correction} discussed error which is related to the filling of the magnetophoretic structures.(\orangeline) }
+	\capption{Concentration Measurements with Saturated Neutravidin Surfaces in the Magnetic Flow Cytometer}{Biological replicates of concentration measurements with the magnetic flow cytometer. The channel surface was modified with \SI{1}{\milli\gram\per\milli\liter} neutravidin over night. (\textbf{a}) Mean and \gls{sem} of \gls{corrConst} adjusted counts for various biotinylation degrees. (\textbf{b}) Time series of the mean from the three measurements on the left. Biotin-beads are captured completely, thus very few counts are detected.(\blackline) The unbiotinylated sample shows the initial ascent due to the in \cref{sec:res:Correction} discussed error which is related to the filling of the magnetophoretic structures.(\orangeline) }
 	\label{fig:conc:All}
 \end{figure}
-\todo{Say something about velocity?}
 
 \clearpage

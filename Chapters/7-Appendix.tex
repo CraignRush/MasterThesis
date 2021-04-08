@@ -14,7 +14,7 @@ In the derivations, following after \cref{eq:continuityP,eq:conservMass}, the gr
 	\int_{a}^{b} f(\xi) \mathrm{d\xi} &= F(b) - F(a) \label{eq:app:intDef}\\
 	\int f(\xi) \mathrm{d\xi}&= F(\mathrm{\xi}) + c \label{eq:app:intIndef}
 \end{align}
-
+\clearpage
 \subsection{Integration and Summation Operators}
 The index of an infinite sum is shown in \cref{eq:app:sum}  and starts at \num{0} unless specified otherwise. If the boundaries of an integral are not shown at the top and bottom (\cref{eq:app:intDef}), it is considered as indefinite integral (\cref{eq:app:intIndef}) with the integration constant $c$. However, $c$ denotes during the course of this work - due to a lack of explicitly solved integrals - concentrations.
 For surfaces and volumes, the integral is repeated according to the respective dimension. In the indefinite case, the unit surface is denoted by $\text{dA}$, and in the volumetric case by $\text{dV}$. 
@@ -27,6 +27,11 @@ A special focus lies on Gauss' divergence theorem which in our case converts a s
 \subsection{Equations and Inequalities}
 Approximated or estimated units are expressed by an equal sign with the assumption in overset or two tildes above each other. For sufficiency conditions, mostly inequalities were used. In these, double angular brackets, $\ll$ or $\gg$, imply an value difference of at least one order of magnitude. Postulated conditions are indicated by an exclamation mark above the equal sign: $\overset{!}{=}$.
 
+For non-linear graph fitting, two distinct functions have been used: The Hill-function (\cref{eq:hill}) and the exponential decay (\cref{eq:exp}).
+\begin{align}
+	y &= V_\text{max}\frac{x^n}{k^n +x^n}	\label{eq:hill} \\
+	y &= Ae^\frac{-x}{\tau_{\scriptscriptstyle\text{decay}}} + y_0 \label{eq:exp}
+\end{align}
 \clearpage
 \section{Additional Figures}
 \begin{figure}[h!]
@@ -53,11 +58,11 @@ Approximated or estimated units are expressed by an equal sign with the assumpti
 	\capption{General process chain of chemical surface modification}{Any substrate with various surface groups R (\textbf{a}) is oxidized to exhibit \gls{hydroxyl} groups.(\textbf{b}). Then a silane \gls{sam} is attached (\textbf{c}) and subsequently modified by carbodiimide chemistry with \gls{paa}. (\textbf{d})}
 	\label{fig:chem:func:withPAA}
 \end{figure}%\todo{größer, schöner}
-
+\clearpage
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=.3\linewidth]{Ressources/Concentration/CaptureVelocity}
-	\capption{Measured Bead Velocity}{p < 0.01}
+	\capption{Measured Bead Velocity}{\Acrfull{vc} from the affinity-based concentration measurements in \cref{sec:res:affinity}. The p-Value is < \num{10e-2}}
 	\label{fig:conc:vel}
 \end{figure}
 
@@ -71,7 +76,7 @@ Approximated or estimated units are expressed by an equal sign with the assumpti
 \begin{figure}
 	\centering
 	\subfloat{
-		\subfigimg[width=\linewidth]{a}{./Ressources/ResultPlots/Serpentine_1000um_2-FullLayout}
+		\subfigimg[angle=-90,origin=c,width=\linewidth]{a}{./Ressources/ResultPlots/Serpentine_1000um_2-FullLayout}
 		\phantomsubcaption
 		\label{fig:app:serpentine}
 	} \\
